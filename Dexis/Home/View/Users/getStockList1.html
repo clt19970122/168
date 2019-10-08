@@ -1,0 +1,140 @@
+<div class="order-menu">
+    <a href="{:U('users/getStockList')}" class="order-menu_item <eq name='st' value='10'>order-menu_item_on</eq>">全部</a>
+    <a href="{:U('users/getStockList','st=1')}" class="order-menu_item <eq name='st' value='1'>order-menu_item_on</eq>">待发货</a>
+    <a href="{:U('users/getStockList','st=2')}" class="order-menu_item <eq name='st' value='2'>order-menu_item_on</eq>">待收货</a>
+</div>
+	<volist name='data' id="vo">
+        <div class="weui-panel order-list">
+            <div class="weui-panel__bd">
+                <div class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">{$vo.name}</h4>
+                    <p class="weui-media-box__desc">发货地址：{$vo['address']}</p>
+                    <p class="weui-media-box__desc">提货数量：{$vo['nums']}</p>
+                    <p class="weui-media-box__desc">联系电话：{$vo['phone']}</p>
+                    <p class="weui-media-box__price">
+                        <if condition="$vo.have_pay eq 0">
+                           <span class="waits">未支付运费-{$vo['trans_pay']}元</span>
+                        <else/>
+                            <eq name="vo.status" value="0"><span class="waits">派货中</span></eq>
+                            <eq name="vo.status" value="1"><span class="saves">待发货</span></eq>
+                            <eq name="vo.status" value="2"><span class="saves">未通过</span></eq>
+                            <eq name="vo.status" value="3"><span>已发货</span></eq>
+                            <eq name="vo.status" value="4"><span>系统自提</span></eq>
+                            <eq name="vo.status" value="5"><span class="waits">已取消</span></eq>
+                        </if>
+                    </p>
+                </div>
+            </div>
+            <div class="weui-panel__ft">
+                <div class="weui-cell weui-cell_link">
+                    <if condition="$vo.have_pay eq 0">
+                        <div class="weui-cell__bd">
+                            <!--<a href="{:U('users/toPayTrans','sn='.$vo['sn'])}" class="waits">去支付</a>-->
+                            <a href="javascript:toDopay('{$vo.sn}');" class="waits">去支付</a>
+                            <input type="hidden"  value="{$vo.sn}">
+                            <a href="javascript:doOption('{$vo.id}');" class="cancel">取消</a>
+                        </div>
+                        <else/>
+                        <if condition="$vo.status eq 3">
+                            <div class="weui-cell__bd">
+                                <i class="icon-cars"></i>{$v.tag}
+                                    <a href="{:U('users/getdrs_trans',array('sn'=>$vo['sn']))}" class="cancel">查看物流</a>
+                            </div>
+                        </if>
+                    </if>
+                </div>
+            </div>
+        </div>
+    </volist>
+
+<!--
+<script>
+
+    function doOption(id) {
+        var data = {ids: id, status: 4};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Core/edits','model=orders')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.reload();
+            }
+        });
+    }
+
+</script>-->
+
+<script>
+    /**
+     * 微信支付
+     * @param {type} data
+     * @returns {undefined}
+     */
+
+    function toDopay(sn) {
+        $.ajax({
+            url: "{:U('Users/toPayTrans')}",
+            type: 'post',
+            data: {'sn':sn},
+            dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                onBridgeReady(res.data);
+            },
+            error: function () {
+                hidePreLoading();
+                return alert_wec("网络错误");
+            }
+        });
+    }
+    function onBridgeReady(data) {
+        var pay = {
+            appId: data.appId, timeStamp: data.timeStamp, nonceStr: data.nonceStr, package: data.package,
+            signType: data.signType, paySign: data.paySign
+        };
+        //
+        WeixinJSBridge.invoke(
+            'getBrandWCPayRequest', pay,
+            function (res) {
+                // alert(JSON.stringify(res));
+                if (res.err_msg === "get_brand_wcpay_request:ok") {
+                    window.location.href = "{:U('users/getStocklist')}";
+                    return;
+                }
+                // alert_wec("支付取消");
+                alert_wec("支付取消");
+                window.location.href = "{:U('users/getStocklist')}";
+                return;
+            }
+        );
+    }
+
+    function doOption(id){
+        $.ajax({
+            url: "{:U('Users/cancel')}",
+            type: 'post',
+            data: {'id':id},
+            dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status ) {
+                    alert_wec(res.msg);
+                    window.location.href = "{:U('users/getStocklist')}";
+                }
+                return alert_wec(res.msg);
+
+            },
+            error: function () {
+                hidePreLoading();
+                return alert_wec("网络错误");
+            }
+        });
+    }
+</script>

@@ -1,0 +1,49 @@
+<form>
+    <div class="regs">
+        <div class="regs-form">
+
+            <p class="label">
+                <span style="font-size: 1.4rem;margin-bottom: 1rem;display: block;color: #666">请绑定您的映客ID哦</span>
+                <input type="text" name="live_id" value="{$live}" placeholder="请输入你的直播间ID"/></p>
+                <span><a style="font-size: 1.4rem;margin-top: 1.5rem;display: block;color: #005DAC;text-align: center" href="https://a.app.qq.com/o/simple.jsp?pkgname=com.meelive.ingkee&ckey=CK1368209118588">还没有映客号?点击去注册</a></span>
+            <a class="regs" href="javascript:doOption();">确认绑定</a>
+        </div>
+    </div>
+    <input type="hidden" name="uid" value="{$uid}"/>
+<!--    <div class="weui-cells weui-cells_form user-addr_add">
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">绑定你的直播间id</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" id="idcode" type="text" name="live_id" value="{$live}" placeholder="请输入你的直播间id"/>
+            </div>
+        </div>
+    </div>
+    <p id="getuser" style="color: red;text-align: center;font-size: 20px"></p>-->
+</form>
+
+<!--<div class="weui-btn-area">
+    <a class="weui-btn weui-btn_primary" href="javascript:doOption();">确认绑定</a>
+</div>-->
+
+<script>
+
+    function doOption() {
+        var temp = $("form").serializeArray();
+        var data = objToArray(temp);
+        showPreLoading();
+        $.ajax({
+            url: "{:U('users/bindLive')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                /*if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }*/
+                //
+                alert_wec(res.msg);
+                setTimeout(function(){window.location.href = "{:U('Users/LiveList')}"},1000);
+            }
+        });
+    }
+</script>

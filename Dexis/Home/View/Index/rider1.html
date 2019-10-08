@@ -1,0 +1,26 @@
+<div class='index-rider'>
+    <p class="head"><img src="{$user.headimgurl}"/></p>
+    <p class="name">{$user.nickname}</p>
+    <p class="level">
+        <button>{$level|getUserLevel=$user['level'],###}</button>
+    </p>
+    <p class="peop">已推荐人数:{$count}</p>
+</div>
+<volist name="list2" id="vo">  
+	<div class='index-rider_box' style="font-size:1.2rem;text-align:center;color:#666;">
+		<p style="font-size:1.4rem;text-align:center;margin-bottom:.8rem;color:#333">{$vo.name}</p>  
+			<volist name=":SidType($vo['id'],$user['sysid'])" id="vo" empty="该等级暂时没有代理 ">
+				<div class="index-rider_box-item">
+					<a href="{:U('index/rider',array('sysid'=>$vo['sysid']))}">
+						<p class="head"><img src="{$vo.headimgurl}"/></p>
+						<p class="name">{$vo.nickname}</p>
+						<p class="level">
+							<button>{$level|getUserLevel=$vo['level'],###}</button>
+							<p>进货量:{$vo.innums}出货量:{$vo.outnums}</p>
+
+						</p>
+					</a>
+				</div>
+			</volist>
+	</div>
+</volist>

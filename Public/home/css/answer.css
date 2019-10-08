@@ -1,0 +1,158 @@
+#start{ background:url('../../home/imgs/wenda/1.jpg'); background-size:100% 100%;height: 100vh}
+
+#dati{padding-bottom: 1rem}
+.baoming {
+	width: 100%;
+	display: flex;
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	/* position: fixed; */
+	top: 0;
+	align-items: center;
+	justify-content: center;
+}
+	.answer-bg{ background:url('../../home/imgs/wenda/3.jpg'); background-size:100% 100%;height: 100vh;width: 100%;position: fixed;top: 0;z-index: 0}
+
+	.btn{ background:url('../../home/imgs/wenda/btn_bg.png'); background-size:100% 100%}
+	.start{
+		color:#ffffff;
+		width:6.66rem;
+		height:2rem;
+		position:absolute;
+		bottom:1rem;
+		left:4.67rem;
+		font-size:0.9rem;
+		line-height:2rem;
+		text-align:center;
+		box-sizing:border-box;
+	}
+	.next{
+		position: relative;
+		color: #fff;
+		width:6.66rem;
+		height:2rem;
+		margin: 0 auto;
+		margin-top: 1rem;
+		font-size:0.9rem;
+		line-height:2rem;
+		text-align:center;
+		box-sizing:border-box;
+	}
+	.zt1{ font-family:btn;}
+
+	.dati_top{background:url('../../home/imgs/wenda/3_top.png'); background-size:100% 100%; width:8rem; height:3rem; position:absolute; top:0; left:2.82rem;}
+	.timu_box{ width:13.6rem; height:auto; position:absolute; top:4rem; left:1.1rem; border-radius:0.8rem; padding:0.8rem 0.3rem 0.8rem 0.8rem; box-sizing:border-box; background:url('__PUBLIC__/home/imgs/wenda/3_timu.png');background: #ebe0d3}
+	.q{ width:1.4rem; height:1.4rem; border-radius:50%;  background-color:#f94a4a;-webkit-box-pack: center;justify-content: center;-webkit-box-align: center;align-items: center; color:#FFFFFF;display: -webkit-box; position:absolute; top:3.6rem; left:0.7rem;  font-size:1rem; box-sizing:border-box;}
+	
+	.text1{ font-family:textintro; font-size:0.8rem; line-height:1rem; color:#FFFFFF; text-shadow: -2px 2px 0.2rem #000,2px -2px 0.2rem #000,2px 2px 0.2rem #000,-2px -2px 0.2rem #000;}
+	#xuanxiang{margin-top: 48%;position: relative}
+	.xx{
+		display: flex;
+		align-items: center;
+		background:url('../../home/imgs/wenda/x.png');
+		background-size:100% 100%;
+		color:#000000;
+		height:1.8rem;
+		width: 84%;
+		padding-left:1rem;
+		box-sizing:border-box;
+		font-size:0.6rem;
+		text-align:left;
+		line-height:1.8rem;
+		margin: 0 auto;
+		margin-top: 1rem;
+	}
+	.xx label{width: 100%;display: flex;align-items: center}
+	.xx input[type="radio"],input[type="checkbox"]{width: .8rem;height: .8rem}
+	.baoming{
+		width: 100%;
+		display: flex;
+		position: absolute;
+		top:0;
+		height: 100%;
+		/*position: fixed;*/
+		top:0;
+		align-items: center;
+		justify-content: center;
+
+	}
+	.baoming-wrap{
+		position: absolute;
+		top:0;
+		height: 100%;
+		width: 100%;
+		z-index:9;
+		background: #000;
+		opacity: 0.3;
+	}
+	.bigbox {
+		width: 80%;
+		/*height: 60%;*/
+		display: flex;
+		background-color: #ebe0d3;
+		opacity: 1;
+		border: 1px solid #000000;
+		padding: 2%;
+		position: relative;
+		z-index: 10;
+		border-radius: 1rem;
+	}
+	.bigbox .sbox {
+		padding-bottom: 5%;
+		width: 100%;
+		background-color: #f4eee7;
+		display: flex;
+		flex-direction: column;
+		border-radius: 1rem;
+	}
+	.bigbox form{
+		width: 100%;
+	}
+	.bigbox .sbox .title{
+		font-size: .8rem;
+		padding: 1rem;
+		text-align: center;
+	}
+	.bigbox .sbox span{margin: 0 1rem;height:1.5rem;width: 100%;display: block;text-align:center; font-size:0.7rem; line-height:2rem; margin-top:1rem;margin-top:0;display: -webkit-box;}
+	.bigbox .sbox input{
+		display: block;
+		background:none;
+		outline:none;
+		height:2rem;
+		width:80%;
+		margin: 0 auto;
+		text-align:center;
+		font-size:.8rem;
+	}
+.bigbox .sbox select{
+	-webkit-appearance: none;
+	outline: 0;
+	background-color: transparent;
+	width: 80%;
+	margin: 0 auto;
+	font-size: .8rem;
+	height: 2rem;
+	line-height: 2rem;
+	position: relative;
+	z-index: 1;
+	text-align: center;
+ }
+.bigbox .tijiao {
+		color: #fff;
+		width: 6.66rem;
+		height: 2rem;
+		font-size: 0.9rem;
+		line-height: 2rem;
+		text-align: center;
+		box-sizing: border-box;
+		margin: 0 auto;
+		margin-top: 2rem;
+	}
+   .introbox span{ font-family:introtext; font-size:0.55rem; line-height:1rem;}
+	.other{
+		height: 1rem;
+		width: 80%;
+		margin-left: .3rem;
+		font-size: 0.6rem;
+	}

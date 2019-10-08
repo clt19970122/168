@@ -1,0 +1,212 @@
+<!--
+<div class="order-menu">
+    <a href="{:U('users/getStockList')}" class="order-menu_item <eq name='st' value='10'>order-menu_item_on</eq>">全部</a>
+    <a href="{:U('users/getStockList','st=1')}" class="order-menu_item <eq name='st' value='1'>order-menu_item_on</eq>">官方直播间</a>
+    <a href="{:U('users/getStockList','st=3')}" class="order-menu_item <eq name='st' value='3'>order-menu_item_on</eq>">用户直播间</a>
+</div>-->
+<volist name='d' id="vo">
+    <ul class="weui-payrec">
+        <a href="{$vo.liveurl}" title="进入{$vo.user_name}的直播间">
+            <div class="weui-pay-m">
+                <li class="weui-pay-order">
+                    <dl class="weui-pay-line">
+                        <dd class="weui-pay-name">{$vo.user_name}</dd>
+                        <dt class="weui-pay-label">等 级 ：</dt><dd class="weui-pay-e">{$vo['user_level']}</dd>
+                        <img src="{$vo.user_img}" alt=""/>
+                    </dl>
+
+                </li>
+            </div>
+        </a>
+    </ul>
+</volist>
+<!--<volist name='company' id="v">
+    <ul class="weui-payrec">
+        <a href="{$v.liveurl}" title="进入{$v.user_name}的直播间">
+            <div class="weui-pay-m">
+                <li class="weui-pay-order">
+                    <dl class="weui-pay-line">
+                        <dd class="weui-pay-name">168太空素食官方直播间</dd>
+                        <img src="{$v.user_img}" alt=""/>
+                    </dl>
+
+                </li>
+            </div>
+        </a>
+    </ul>
+</volist>
+<volist name='top' id="vo">
+    <ul class="weui-payrec">
+    <a href="{$vo.liveurl}" title="进入{$vo.user_name}的直播间">
+        <div class="weui-pay-m">
+            <li class="weui-pay-order">
+                <dl class="weui-pay-line">
+                    <dd class="weui-pay-name">联创:{$vo.user_name}的直播间</dd>
+                    <img src="{$vo.user_img}" alt=""/>
+                </dl>
+
+            </li>
+        </div>
+    </a>
+</ul>
+</volist>-->
+<div class="page-category js-categoryInner page-category-content" style="width: 96%;margin: 0 auto">
+
+    <volist name='company' id="v">
+        <a href="{$v.liveurl}">
+            <div class="weui-cell weui-cell_access" style="align-items: flex-start;background: #fff;border-radius: 8px;box-shadow: 0 4px 6px #e9e8e8;margin-top: 1rem">
+                <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <img src="__PUBLIC__/static/imgs/comp.jpg" style="width: 50px;display: block;border-radius: 5px">
+                </div>
+                <div class="weui-cell__bd">
+                    <div style="display: flex;justify-content: space-between;align-items: center;text-align: left;">
+                        <div>
+                            <div style="display: inline-flex;justify-content: center;align-items: center">
+                                <p style="font-size: 17px;display: flex;align-items: center">168太空素食官方直播间<button class="weui-btn weui-btn_mini orange" style="margin-left:.5rem;padding: 0 .5rem;line-height: 1.4rem;font-size: 1rem">官方</button></p>
+                            </div>
+                            <p style="font-size: 13px;color: #888888;">映客ID号：{$v.live_id}</p>
+                        </div>
+
+                            <div>
+                                <div style="content: '';display: inline-block;height: 6px;width: 6px;border-width: 2px 2px 0 0;border-color: #c8c8cd;border-style: solid;-webkit-transform: matrix(.71,.71,-.71,.71,0,0);transform: matrix(.71,.71,-.71,.71,0,0);margin-top: 8px;right: 15px">
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </volist>
+
+    <!--第二个-->
+    <volist name='top' id="vo">
+        <a href="{$vo.liveurl}">
+            <div class="weui-cell weui-cell_access" style="align-items: flex-start;background: #fff;border-radius: 8px;box-shadow: 0 4px 6px #e9e8e8;margin-top: 1rem">
+                <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <img src="{$vo.user_img}" style="width: 50px;display: block;border-radius: 5px">
+                </div>
+                <div class="weui-cell__bd">
+                    <div style="display: flex;justify-content: space-between;align-items: center;text-align: left;">
+                        <div>
+                            <div style="display: inline-flex;justify-content: center;align-items: center">
+                                <p style="font-size: 17px;display: flex;align-items: center">{$vo.user_name}的直播间<button class="weui-btn weui-btn_mini blue" style="margin-left:.5rem;padding: 0 .5rem;line-height: 1.4rem;font-size: 1rem">联创</button></p>
+                            </div>
+                            <p style="font-size: 13px;color: #888888;">映客ID号：{$vo.live_id}</p>
+                        </div>
+                            <div>
+                                <div style="content: '';display: inline-block;height: 6px;width: 6px;border-width: 2px 2px 0 0;border-color: #c8c8cd;border-style: solid;-webkit-transform: matrix(.71,.71,-.71,.71,0,0);transform: matrix(.71,.71,-.71,.71,0,0);margin-top: 8px;right: 15px">
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </volist>
+</div>
+<!--
+<script>
+
+    function doOption(id) {
+        var data = {ids: id, status: 4};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Core/edits','model=orders')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.reload();
+            }
+        });
+    }
+
+</script>-->
+
+<script>
+    /**
+     * 微信支付
+     * @param {type} data
+     * @returns {undefined}
+     */
+
+    function toDopay(sn) {
+        $.ajax({
+            url: "{:U('Users/toPayTrans')}",
+            type: 'post',
+            data: {'sn':sn},
+            dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                onBridgeReady(res.data);
+            },
+            error: function () {
+                hidePreLoading();
+                return alert_wec("网络错误");
+            }
+        });
+    }
+    function onBridgeReady(data) {
+        var pay = {
+            appId: data.appId, timeStamp: data.timeStamp, nonceStr: data.nonceStr, package: data.package,
+            signType: data.signType, paySign: data.paySign
+        };
+        //
+        WeixinJSBridge.invoke(
+                'getBrandWCPayRequest', pay,
+                function (res) {
+                    // alert(JSON.stringify(res));
+                    if (res.err_msg === "get_brand_wcpay_request:ok") {
+                        window.location.href = "{:U('users/getStocklist')}";
+                        return;
+                    }
+                    // alert_wec("支付取消");
+                    alert_wec("支付取消");
+                    window.location.href = "{:U('users/getStocklist')}";
+                    return;
+                }
+        );
+    }
+
+    function doOption(id){
+        $.ajax({
+            url: "{:U('Users/cancel')}",
+            type: 'post',
+            data: {'id':id},
+            dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status ) {
+                    alert_wec(res.msg);
+                    window.location.href = "{:U('users/getStocklist')}";
+                }
+                return alert_wec(res.msg);
+
+            },
+            error: function () {
+                hidePreLoading();
+                return alert_wec("网络错误");
+            }
+        });
+    }
+
+    function sureGet(id) {
+        $.ajax({
+            url: "{:U('users/sureGetGood')}",
+            type: 'post',
+            data: {'id': id},
+            dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status) {
+                    alert_wec(res.msg);
+                    window.location.href = "{:U('users/getStocklist')}";
+                }
+                return alert_wec(res.msg);
+            },
+        })
+    }
+</script>

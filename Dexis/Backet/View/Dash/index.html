@@ -1,0 +1,441 @@
+
+<div class="pageheader">
+    <h2><i class="fa fa-home"></i> 系统概览</h2>
+</div>
+
+<div class="contentpanel">
+    <if condition="session('admin_info')['groups'] neq '5'">
+      <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="panel panel-dark panel-stat">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="btn-group pull-right">
+                                    <button type="button" class="btn btn-info btn-sm" onclick="getmoney(1);">今日</button>
+                                    <button type="button" class="btn btn-info btn-sm" onclick="getmoney(2)">昨日</button>
+                                    <button type="button" class="btn btn-info btn-sm" onclick="getmoney(3)">本周</button>
+                                    <button type="button" class="btn btn-info btn-sm" onclick="getmoney(4)">上周</button>
+                                    <button type="button" class="btn btn-info btn-sm" onclick="getmoney(5)">本月</button>
+                                    <button type="button" class="btn btn-info btn-sm" onclick="getmoney(6)">上月</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb15"></div>
+                        <div class="container-fluid" style="color: #FFFFFF">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <img src="__PUBLIC__/backet/images/is-money.png" alt="">
+                                </div>
+                                <div class="col-xs-8">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <small class="stat-label">现金流总计</small>
+                                            <h1 id="all-money"><?php echo $money['online_money']+$money['offine_money']+$money['jr_money'];?></h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- row -->
+                            <div class="mb15"></div>
+                            <div id="hiddenval"></div>
+                            <div class="row">
+                                    <div class="col-xs-4 check-excel" attr-id="1" attr-message="线上商城">
+                                        <small class="stat-label">线上商城</small>
+                                        <h4 id="online_money">¥<?php echo $money['online_money'];?></h4>
+                                    </div>
+                                    <div class="col-xs-4 check-excel" attr-id="2" attr-message="线下现金">
+                                        <small class="stat-label">线下现金</small>
+                                        <h4 id="offine_money">¥<?php echo $money['offine_money'];?></h4>
+                                    </div>
+                                    <div class="col-xs-4 check-excel" attr-id="3" attr-message="金融收款">
+                                        <small class="stat-label">金融收款</small>
+                                        <h4 id="jr_money">¥<?php echo $money['jr_money'];?></h4>
+                                    </div>
+                            </div>
+                        </div><!-- stat -->
+                    </div><!-- panel-heading -->
+                </div><!-- panel -->
+            </div><!-- col-sm-6 -->
+          <div class="col-sm-6 col-md-3">
+              <div class="panel panel-dark panel-stat">
+                  <div class="panel-heading">
+                      <div class="row">
+                          <div class="col-xs-12">
+                              <div class="btn-group pull-right">
+                                  <button type="button" class="btn btn-info btn-sm" onclick="getsale(1);">今日</button>
+                                  <button type="button" class="btn btn-info btn-sm" onclick="getsale(2)">昨日</button>
+                                  <button type="button" class="btn btn-info btn-sm" onclick="getsale(3)">本周</button>
+                                  <button type="button" class="btn btn-info btn-sm" onclick="getsale(4)">上周</button>
+                                  <button type="button" class="btn btn-info btn-sm" onclick="getsale(5)">本月</button>
+                                  <button type="button" class="btn btn-info btn-sm" onclick="getsale(6)">上月</button>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="mb15"></div>
+                      <div class="container-fluid" style="color: #FFFFFF">
+                          <div class="row">
+                              <!--  <div class="col-xs-4">
+                                    <img src="__PUBLIC__/backet/images/is-money.png" alt="">
+                                </div>-->
+                              <div class="col-xs-12">
+                                  <div class="row">
+                                      <div class="col-xs-6">
+                                          <small class="stat-label">联创销售量</small>
+                                          <h1 id="sale"><?php echo $num['outnum'];?></h1>
+                                      </div>
+                                      <div class="col-xs-6">
+                                          <small class="stat-label">联创销售额(55元结算)</small>
+                                          <h1 id="salemoney">¥<?php echo $num['paymoney'];?></h1>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div><!-- row -->
+                          <div class="mb15"></div>
+
+                      </div><!-- stat -->
+                  </div><!-- panel-heading -->
+              </div>
+          </div>
+          <!--黄金雨-->
+           <div class="col-sm-6 col-md-3">
+              <div class="panel panel-dark panel-stat">
+                  <div class="panel-heading">
+
+                      <div class="mb15"></div>
+                      <div class="container-fluid" style="color: #FFFFFF">
+                          <div class="row">
+
+                              <div class="col-xs-12">
+                                  <div class="row">
+                                      <div class="col-xs-6">
+                                          <small class="stat-label">分期钻石申请数</small>
+                                          <a href="{:U('Stages/index')}">
+                                            <h1 id=""><?php  echo $stages['demon'];?></h1>
+                                          </a>
+                                      </div>
+                                      <div class="col-xs-6">
+                                          <small class="stat-label">分期联创申请数</small>
+                                          <a href="{:U('Stages/index')}">
+                                          <h1 id=""><?php echo $stages['founder'];?></h1>
+                                          </a>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="mb15"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!--钻石雨-->
+           <div class="col-sm-6 col-md-3">
+              <div class="panel panel-dark panel-stat">
+                  <div class="panel-heading">
+
+                      <div class="mb15"></div>
+                      <div class="container-fluid" style="color: #FFFFFF">
+                          <div class="row">
+                              <a href="{:U('goods/order_sr')}">
+                              <div class="col-xs-12">
+                                  <div class="row">
+                                      <div class="col-xs-6">
+                                          <small class="stat-label">待发货量</small>
+                                          <h1 id=""><?php echo $pick_nums['need_out'];?></h1>
+                                      </div>
+                                      <div class="col-xs-6">
+                                          <small class="stat-label">今日发货量</small>
+                                          <h1 id=""><?php echo $pick_nums['this_out'];?></h1>
+                                      </div>
+                                  </div>
+                              </div>
+                              </a>
+                          </div>
+                          <div class="mb15"></div>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+        <!--box2-->
+    </if>
+    <div class="row">
+        <if condition="session('admin_info')['groups'] neq '1'">
+        <div class="col-sm-6 col-md-3">
+            <div class="panel panel-success panel-stat">
+                <div class="panel-heading">
+                    <div class="stat">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img src="__PUBLIC__/backet/images/is-user.png" alt="">
+                            </div>
+                            <div class="col-xs-8">
+                                <small class="stat-label">用户总数</small>
+                                <h1>{$user}</h1>
+                            </div>
+                        </div><!-- row -->
+                    </div><!-- stat -->
+
+                </div><!-- panel-heading -->
+            </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+
+        <div class="col-sm-6 col-md-3">
+            <div class="panel panel-danger panel-stat">
+                <div class="panel-heading">
+
+                    <div class="stat">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img src="__PUBLIC__/backet/images/is-document.png" alt="">
+                            </div>
+                            <div class="col-xs-8">
+                                <small class="stat-label">订单总数</small>
+                                <h1>{$ords}</h1>
+                            </div>
+                        </div><!-- row -->
+                    </div><!-- stat -->
+                </div><!-- panel-heading -->
+            </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+        </if>
+        <if condition="session('admin_info')['groups'] neq '5'">
+        <div class="col-sm-6 col-md-3">
+            <div class="panel panel-dark panel-stat">
+                <div class="panel-heading">
+
+                    <div class="stat">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img src="__PUBLIC__/backet/images/is-money.png" alt="">
+                            </div>
+                            <div class="col-xs-8">
+                                <small class="stat-label">今日联创佣金</small>
+                                <h1 >¥<?php echo $money['top_reback_money'];?></h1>
+                            </div>
+                        </div><!-- row -->
+                    </div><!-- stat -->
+
+                </div><!-- panel-heading -->
+            </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+        <div class="col-sm-6 col-md-3">
+            <div class="panel panel-dark panel-stat">
+                <div class="panel-heading">
+
+                    <div class="stat">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img src="__PUBLIC__/backet/images/is-money.png" alt="">
+                            </div>
+                            <div class="col-xs-8 do_excel" attr-id="1" attr-message="今日非联佣金">
+                                <small class="stat-label">今日非联创佣金</small>
+                                <h1 >¥<?php echo $money['other_money'];?></h1>
+                            </div>
+                        </div><!-- row -->
+                    </div><!-- stat -->
+
+                </div><!-- panel-heading -->
+            </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+        <div class="col-sm-6 col-md-3">
+                <div class="panel panel-dark panel-stat">
+                    <div class="panel-heading">
+                        <div class="stat">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <img src="__PUBLIC__/backet/images/is-money.png" alt="">
+                                </div>
+                                <div class="col-xs-8 " attr-id="1" attr-message="今日联创返利金额">
+                                    <small class="stat-label">联创用户总余额</small>
+                                    <h1 >¥<?php echo $all_top_money ;?></h1>
+                                </div>
+                            </div><!-- row -->
+                        </div><!-- stat -->
+
+                    </div><!-- panel-heading -->
+                </div><!-- panel -->
+            </div><!-- col-sm-6 --><div class="col-sm-6 col-md-3">
+                <div class="panel panel-dark panel-stat">
+                    <div class="panel-heading">
+                        <div class="stat">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <img src="__PUBLIC__/backet/images/is-money.png" alt="">
+                                </div>
+                                <div class="col-xs-8 " attr-id="1" attr-message="今日联创返利金额">
+                                    <small class="stat-label">非联创用户总余额</small>
+                                    <h1 >¥<?php echo $rest_money;?></h1>
+                                </div>
+                            </div><!-- row -->
+                        </div><!-- stat -->
+
+                    </div><!-- panel-heading -->
+                </div><!-- panel -->
+            </div><!-- col-sm-6 -->
+        </if>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">权限列表</h3>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="datatables">
+                    <thead>
+                    <tr>
+                        <th width="10%">姓名</th>
+                        <th width="10%">账号</th>
+                        <th width="80%">权限</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <volist name="sysmang" id="v">
+                        <tr>
+                            <td>{$v.ch_name}</td>
+                            <td>{$v.name}</td>
+                            <td>{$v.description}</td>
+                        </tr>
+                    </volist>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function getmoney(aaa) {
+        // alert(aaa);
+        $.ajax({
+            type : "POST", //提交方式
+            url : "{:U('dash/getAboutMoney')}",//路径
+            data : {
+                "type" :aaa
+            },//数据，这里使用的是Json格式进行传输
+            success : function(result) {
+                var html ='<input type="hidden" id="gettype" value="'+aaa+'">'
+                $('#hiddenval') .html(html);
+                $('#online_money').text(result.online_money);
+                $('#all-money').text(parseFloat(result.online_money)+parseFloat(result.offine_money)+parseFloat(result.jr_money));
+                $('#offine_money').text(result.offine_money);
+                $('#jr_money').text(result.jr_money);
+            }
+        });
+    }
+    function getsale(aaa) {
+        // alert(aaa);
+        $.ajax({
+            type : "POST", //提交方式
+            url : "{:U('dash/getOutGood')}",//路径
+            data : {
+                "type" :aaa
+            },//数据，这里使用的是Json格式进行传输
+            success : function(result) {
+                $('#sale').text(result.outnum);
+                $('#salemoney').text(result.paymoney);
+
+            }
+        });
+    }
+</script>
+
+<script>
+$('.check-excel').on('click',function(){
+        var id = $(this).attr('attr-id');
+       var message = $(this).attr("attr-message");
+       //var url = SCOPE.set_status_url;
+        console.log(message);
+     /*  data = {};
+       data['id'] = id;
+       data['status'] = -1;*/
+
+    /*layer.open({
+        type : 0,
+        title : '提示',
+        btn: ['导出', '暂不'],
+        icon : 3,
+        // closeBtn : 2,
+        content: "老大同意才可导出"+message+"表格，是否确定",
+        scrollbar: true,
+        yes: function(){
+            // 执行相关跳转
+            doExcel(id);
+        },
+    });*/
+    layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+        var data = {pwd: pass};
+        $.ajax({
+            url: "{:U('Users/doExcel')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                if (res.status !== 1) {
+                    return layer.msg(res.msg);
+                }else {
+                    doExcel(id);
+                }
+            }
+        });
+       // var data = {pwd: pass,id:id};
+        layer.close(index);
+    });
+
+});
+
+    function doExcel(getin){
+        var type =$('#gettype').val();
+        if(getin){
+            window.location.href="{:U('Backet/Doexc/doExcel_money')}?in="+getin+"&type="+type;
+            layer.msg('导出表格成功');
+        }else {
+            layer.msg('参数不存在');
+        }
+    };
+
+
+    $('.do_excel').on('click',function(){
+    var id = $(this).attr('attr-id');
+    var message = $(this).attr("attr-message");
+    //var url = SCOPE.set_status_url;
+    console.log(message);
+    /*  data = {};
+      data['id'] = id;
+      data['status'] = -1;*/
+
+    /*layer.open({
+        type : 0,
+        title : '提示',
+        btn: ['导出', '暂不'],
+        icon : 3,
+        // closeBtn : 2,
+        content: "老大同意才可导出"+message+"表格，是否确定",
+        scrollbar: true,
+        yes: function(){
+            // 执行相关跳转
+            doexcel2(id);
+        },
+    });*/
+    layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+            var data = {pwd: pass};
+            $.ajax({
+                url: "{:U('Users/doExcel')}", type: 'post',
+                data: data, dataType: "json",
+                success: function (res) {
+                    if (res.status !== 1) {
+                        return layer.msg(res.msg);
+                    }else {
+                        doexcel2(id);
+                    }
+                }
+            });
+            layer.close(index);
+        });
+});
+function doexcel2(t){
+    window.location.href="{:U('Backet/Doexc/Doexcel_money_two')}?type="+t;
+    layer.msg('导出表格成功');
+}
+</script>

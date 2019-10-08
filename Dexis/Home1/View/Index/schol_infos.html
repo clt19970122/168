@@ -1,0 +1,24 @@
+<style>
+    .weui-article-content img{
+        width: 100%;
+    }
+</style>
+<if condition="$info.video neq '#'">
+    <iframe src='{$info.video}' frameborder='0' style=" height:20rem; width:100%;"></iframe>
+</if>
+
+<div class="page">
+
+    <div class="page__bd">
+        <article class="weui-article">
+            <h1>{$info.title}</h1>
+            <ul class="weui-media-box__info">
+                <li class="weui-media-box__info__meta">发布时间：{$info.times|date='Y年m月d日 H:i:s',###}</li>
+            </ul>
+            <h1></h1>
+            <section class="weui-article-content">
+                {$info.content|htmlspecialchars_decode}
+            </section>
+        </article>
+    </div>
+</div>

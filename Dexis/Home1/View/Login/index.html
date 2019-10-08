@@ -1,0 +1,50 @@
+<div style="display: flex;justify-content: center;align-items: center;">
+	<img style="width: 100vw;" src="__PUBLIC__/home/imgs/login-bg.png" class="index-plans_img"/>
+
+	<!-- <div style="display: flex;justify-content: center;align-items: center;position: absolute;width: 100%"> -->
+    <a href="javascript:weLogin();" class="weui-footer login-foot" style="display:block;position:absolute;display: flex;justify-content: center;align-items: center;width: 100%;height:100vh;left:0;flex-direction: column;">
+        <p class="weui-footer__links">
+            <img style="padding-bottom: 1rem " src="__PUBLIC__/home/imgs/login-icon.png"/>
+        </p>
+        <p class="weui-footer__text" style="color:#fff;font-size: 1.8rem">点击微信登陆</p>
+    </a>
+   <!--  </div> -->
+</div>
+
+
+
+<script>
+
+    function doOption() {
+        var temp = $("form").serializeArray();
+        var data = objToArray(temp);
+        ////
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Login/logon')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+
+    function weLogin() {
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Login/logWechat')}", type: 'post', dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+
+</script>

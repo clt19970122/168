@@ -1,0 +1,50 @@
+<div class="weui-panel weui-panel_access order-trans">
+    <div class="weui-panel__bd">
+        <div class="weui-media-box weui-media-box_text">
+            <p class="weui-media-box__desc">订单编号：{$info.sn}</p>
+            <p class="weui-media-box__desc">物流单号：{$info.vosn}</p>
+            <p class="weui-media-box__desc">物流信息：{$trans|getTransNm=$info['transid'],###}</p>
+            <!--p class="weui-media-box__desc">预计送达：12月12号 12:00:05</p-->
+        </div>
+    </div>
+</div>
+
+<div class="weui-panel weui-panel_access">
+
+    <div class="weui-panel__bd">
+
+        <!--<volist name="trans" id="v" key="k">
+
+            <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg order-trans_list">
+                <div class="weui-media-box__hd">
+                    <if condition="$k eq 1"><div class="box"><span>&nbsp;</span></div></if>
+                    <if condition="$k gt 1"><span class="gray">&nbsp;</span></if>
+                    <div class="line">&nbsp;</div>
+                </div>
+                <div class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">{$v.remark}</h4>
+                    <p class="weui-media-box__desc">{$v.acceptTime}</p>
+                </div>
+            </a>
+
+        </volist>-->
+        <volist name="trans['Traces']" id="v" key="k">
+
+            <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg order-trans_list">
+                <div class="weui-media-box__hd">
+                    <if condition="$k eq 1"><div class="box"><span>&nbsp;</span></div></if>
+                    <if condition="$k gt 1"><span class="gray">&nbsp;</span></if>
+                    <div class="line">&nbsp;</div>
+                </div>
+                <div class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">{$v.AcceptStation}</h4>
+                    <p class="weui-media-box__desc">{$v.AcceptTime}</p>
+                </div>
+            </a>
+
+        </volist>
+
+
+    </div>
+
+</div>

@@ -1,0 +1,160 @@
+<!--div class="user-head"><img src="__PUBLIC__/home/imgs/user_head.png"/></div-->
+<div class="index-rider" style="background-size: cover;padding-bottom: 1rem">
+    <p class="head"><img src="{$user.headimgurl}"></p>
+    <p class="name" style='height:3rem; line-height:3rem;'>
+        <eq name="user.nickname" value="">{$user.phone}</eq>
+        <neq name="user.nickname" value="">{$user.nickname}</neq>
+    </p>
+
+    <p class="level" style='padding:1rem 0rem 2rem;'>
+        <button>{$level|getUserLevel=$user['level'],###}</button>
+    </p>
+    <p style="text-align: center;color: #fff;font-size: 15px">
+    系统账号：<span id="sysid">{$user.sysid}</span>
+    <textarea style="position: absolute;top: 0;left: 0;opacity: 0;z-index: -10;" id="input"></textarea>
+    <!--<button onclick="copyText()">复制</button>-->
+    <button class="weui-btn weui-btn_mini weui-btn_default" onclick="copy('{$user.sysid}')" style="line-height: 1.8;color: #2b3c64;padding-left: 8px;padding-right: 8px">点击复制</button>
+</p>
+</div>
+
+
+<div class="weui-panel weui-panel_access user-alls">
+    <div class="weui-panel__ft">
+        <a href="{:U('Order/index')}" class="weui-cell weui-cell_access weui-cell_link">
+            <div class="weui-cell__bd">全部订单</div>
+            <span class="weui-cell__ft"></span>
+        </a>    
+    </div>
+</div>
+
+<div class="user-menu">
+    <a href="{:U('Order/index','st=0')}" class="user-menu_item">
+        <p><img src="__PUBLIC__/home/imgs/user_wait.png"/></p>
+        <p class="fonts">待支付</p>
+    </a>
+    <a href="{:U('Order/index','st=1')}" class="user-menu_item">
+        <p><img src="__PUBLIC__/home/imgs/user_trans.png"/></p>
+        <p class="fonts">已入库</p>
+    </a>
+    <a href="{:U('Order/index','st=2')}" class="user-menu_item">
+        <p><img src="__PUBLIC__/home/imgs/user_save.png"/></p>
+        <p class="fonts">待收货</p>
+    </a>
+    <a href="{:U('Order/index','st=3')}" class="user-menu_item">
+        <p><img src="__PUBLIC__/home/imgs/user_fins.png"/></p>
+        <p class="fonts">已完成</p>
+    </a>
+</div>
+
+<div class="weui-cells user-item">
+    <a class="weui-cell" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>货物库存量</p>
+        </div>
+        <div class="weui-cell__ft">{$user.stock}盒</div>
+    </a>
+ <!--   <a class="weui-cell" href="{:U('Users/getMoreStock')}">
+        <div class="weui-cell__bd">
+            <p>补充库存</p>
+            <div class="weui-cell__ft"></div>
+        </div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="{:U('Users/getbuhuolist')}">
+        <div class="weui-cell__bd">
+            <p>补货记录</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>-->
+ 
+    <a class="weui-cell weui-cell_access" href="{:U('Users/stock')}">
+    <!--<a class="weui-cell weui-cell_access" href="javascript:gengxing()">-->
+        <div class="weui-cell__bd">
+            <p>我要提货(发货)</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="{:U('Users/getStockList')}">
+        <div class="weui-cell__bd">
+            <p>提货列表</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="{:U('Users/turnstock')}">
+        <div class="weui-cell__bd">
+            <p>库存转让</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="{:U('Users/plans')}">
+        <div class="weui-cell__bd">
+            <p>0元计划</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="{:U('Users/bingphone')}">
+        <div class="weui-cell__bd">
+            <p>绑定手机</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="{:U('Users/addr')}">
+        <div class="weui-cell__bd">
+            <p>收货地址</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="{:U('Users/uppass')}">
+        <div class="weui-cell__bd">
+            <p>修改密码</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="{:U('Users/bank')}">
+        <div class="weui-cell__bd">
+            <p>银行账户</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="{:U('Users/idauth')}">
+        <div class="weui-cell__bd">
+            <p>实名认证</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="{:U('Users/codes')}">
+        <div class="weui-cell__bd">
+            <p>我的二维码</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+</div>
+
+<a href="{:U('Users/out')}" class="weui-btn user-btns">退出帐号</a>
+
+<script language="javascript">
+    function copy(message) {
+        var input = document.createElement("input");
+        input.value = message;
+        document.body.appendChild(input);
+        input.select();
+        input.setSelectionRange(0, input.value.length), document.execCommand('Copy');
+        document.body.removeChild(input);
+        alert("复制成功");
+    }
+
+    function gengxing() {
+        alert('提货系统正在升级中');
+    }
+</script>
+
+<!--
+<script type="text/javascript">
+    function copyText() {
+        var text = document.getElementById("sysid").innerText;
+        var input = document.getElementById("input");
+        input.value = text; // 修改文本框的内容
+        input.select(); // 选中文本
+        document.execCommand("copy"); // 执行浏览器复制命令
+        alert("复制成功");
+    }
+</script>-->

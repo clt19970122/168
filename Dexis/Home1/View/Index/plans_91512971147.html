@@ -1,0 +1,55 @@
+<img src="__PUBLIC__/home/imgs/zbg2.png" class="index-plans_img"/>
+
+<div class="index-plans_desc">
+    <a href="javascript:doAlert(1);" class="index-plans_join">
+        <img src="__PUBLIC__/home/imgs/z_join2.png"/>
+    </a>
+    <div class="index-plans_desc_top">注：本系统用户分为普通会员与皇室会员</div>
+    <ul>
+        <li class='red_s'>
+            <div class="box">
+                <div class="left">01</div>
+                <div class="right">
+                    注册用户若申请0元体验，提交对应信息并完成认证后，即可成为普通会员，获得356元天使体验基金，并直接购买一套皇室精华护肤套装（套装包含：雅歌布赫伊玻尿酸修复精华安瓶/盒+雅歌布赫伊超级胶原蛋白水光针/支）
+                </div>
+            </div>
+        </li>
+        <li class='blue_s'>
+            <div class="box">
+                <div class="left">02</div>
+                <div class="right">
+                    普通会员一个月内购买4套及以上皇室精华护肤套装，即可自动升级为皇室会员；<a href="{:U('Login/regs')}">皇室会员权益</a>
+                </div>
+            </div>
+        </li>
+        <li class='yellow_s'>
+            <div class="box">
+                <div class="left">03</div>
+                <div class="right">
+                    普通会员若成功分享一个新普通会员完成注册，即可获得98元分享红包奖励。
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="index-plans_desc_copy">本活动最终解释权由雅歌布•赫伊所有</div>
+</div>
+
+<script>
+
+    function doAlert() {
+        var data = {ids: "{$list.id}"};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Index/plans_op')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+
+</script>

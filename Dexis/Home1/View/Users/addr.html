@@ -1,0 +1,44 @@
+<div class="weui-cells user-addr">
+
+    <volist name="list" id="v">
+        <div class="weui-cell weui-cell_access">
+            <a href="{:U('Users/addr_edit','id='.$v['id'])}" class="weui-cell__bd">
+                <p class="name">{$v.name}<span>{$v.phone}</span></p>
+                <p class="addr"><i class="icon-locs"></i>{$v.street}</p>
+            </a>
+            <a href="javascript:dels('{$v.id}');" class="weui-cell__ft"><i class="icon-dels"></i></a>
+        </div>
+    </volist>
+    <!--<div class="weui-cell weui-cell_access">
+        <a href="#" class="weui-cell__bd">
+            <p class="name">自提<span></span></p>
+            <p class="addr"><i class="icon-locs"></i>系统自提</p>
+        </a>
+        <a href="javascript:void 0;" class="weui-cell__ft"><i class="icon-dels"></i></a>
+    </div>-->
+</div>
+
+<input type="hidden" id="view" value="{$view}">
+<a href="{:U('Users/addr_add','sn='.$sn.'&nums='.$nums)}" class="user-addr_btn">+添加收获地址</a>
+
+<script>
+
+    function dels(ids) {
+        var data = {id: ids,status:0};
+        showPreLoading();
+        $.ajax({
+            // url: "{:U('Core/dels','model=acc_addr')}",
+            url:  "{:U('users/dels')}",
+            type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.reload();
+            }
+        });
+    }
+
+</script>

@@ -1,0 +1,87 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        内容管理
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li class="active">皇家学院</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">文章列表</h3>
+            <p>
+                <a href="{:U('Conte/artaddon')}" class="btn btn-xs btn-info">添加内容</a>
+            </p>
+        </div>
+        <div class="panel-body">
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="datatables">
+                    <thead>
+                        <tr>
+                            <th width="10%">#</th>
+                            <th width="15%">分类</th>
+                            <th>内容标题</th>
+                            <th width="10%">发布状态</th>
+                            <th width="15%">发布时间</th>
+                            <th width="20%">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <volist name='list.list' id='v'>
+                        <tr>
+                            <td>{$v.id}</td>
+                            <td>{$v['types']}</td>
+                            <td>{$v.title}</td>
+                            <td>{$v['status']?'显示':'隐藏'}</td>
+                            <td>{$v.times|date='Y-m-d H:i:s',###}</td>
+                            <td>
+                                <a href="{:U('Conte/artedits','id='.$v['id'])}" class='btn btn-xs btn-info'>修改</a>
+                                <a href="javascript:dels('{$v.id}');" class='btn btn-xs btn-danger'>删除</a>
+                            </td>
+                        </tr>
+                    </volist>
+
+                    </tbody>
+                </table>
+            </div>
+            {$list.show}
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function dels(id) {
+        if (!confirm("确定要删除吗？")) {
+            return;
+        }
+        var configURL = "{:U('Core/dels', 'model=school')}";
+        var data = {id: id};
+        //
+        $.ajax({
+            url: configURL, type: "post", dataType: 'json', data: data,
+            success: function (data) {
+                if (data.status !== 1) {
+                    alert(data.msg);
+                    return false;
+                }
+                window.location.reload();
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+        return false;
+    }
+
+</script>

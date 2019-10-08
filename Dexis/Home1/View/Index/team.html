@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="addmeg"></div>
+<a href="javascript:dofun(46912);">处理关系</a>
+</body>
+<script>
+    function dofun(uid) {
+        $.ajax({
+            cache: false,
+            async: true,
+            dataType: 'json',
+            type: 'post',
+            url: "{:U('index/showCountLine')}",
+            data:{id:uid},
+            success: function (data){
+                if(data.status===0){
+                    $('#addmeg').text('处理完成');
+                }else {
+                    $('#addmeg').text('现在处理的是用户id:'+data.uid);
+                    dofun(data.uid)
+                }
+
+            }
+        });
+    }
+</script>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .akk-idauth-title{
+            text-align: center;
+            font-size: 1.8rem;
+            padding-top: 2rem;
+            background: #fff;
+        }
+        .idcard-container{
+            display: flex;
+            padding-top: 2rem;
+            background: #fff;
+        }
+        .idcard-container .idcard-item{
+            width: 50%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .idcard-container .idcard-item img{
+            display: block;
+            width: 12rem;
+            height: 7rem;
+            justify-self: center;
+        }
+        .idcard-container .idcard-item .img-input{
+            margin-top: 1rem;
+            width: 50%;
+            height: 1.8rem;
+            display: inline-block;
+            background: #D0EEFF;
+            border: 1px solid #99D3F5;
+            border-radius: 4px;
+            padding: .2rem 1rem;
+            color: #1E88C7;
+            line-height: 1.8rem;
+            text-align: center;
+        }
+        .idcard-tips{
+            font-size: 1.2rem;
+            text-align: center;
+            background: #fff;
+            padding: .5rem 1rem;
+        }
+    </style>
+
+</head>
+<body>
+<form id="myForm" enctype="multipart/form-data">
+    <div class="idauth-step1" style="display: block">
+        <p class="akk-idauth-title">请拍照上传您的身份证信息</p>
+        <div class="idcard-container">
+            <div class="idcard-item">
+                <img id="idcard-img-1" src="__PUBLIC__/static/imgs/idcard-1.png" alt="">
+                <label for="img-input" class="img-input">
+                    拍摄身份证正面
+                    <input type="file" style="display: none" name="idCardFace"  id="img-input">
+                </label>
+            </div>
+
+            <!--<input type="button" onclick="uploadImg" style="width: 100%;height: 70px;background: blue" value="拍摄正面">-->
+
+            <div class="idcard-item">
+                <img id="idcard-img-2" src="__PUBLIC__/static/imgs/idcard-2.png" alt="">
+                <label for="img-input2" class="img-input">
+                    拍摄手持身份证
+                    <input style="display: none" type="file" name="holdIdCardFace" id="img-input2"  value="拍摄正面">
+                </label>
+            </div>
+            <!--<input type="button" onclick="uploadImg" style="width: 100%;height: 70px;background: blue" value="拍摄正面">-->
+        </div>
+        <div class="idcard-tips">请左手手持银行卡，右手手持身份证，保证证件信息完整</div>
+        <div class="weui-cells user-idcard" style="margin-top: 0">
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__hd">姓名</div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" name="name" value="{$info.name}" placeholder="请输入姓名">
+                </div>
+                <div class="weui-cell__ft"></div>
+            </div>
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__hd">手机号码</div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="number" name="phone" value="{$info.phone}" pattern="[0-9]*" placeholder="请输入号码">
+                </div>
+                <div class="weui-cell__ft"></div>
+            </div>
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">证件类型</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="idtype" dir="rtl">
+                        <option value="1">身份证</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__hd">证件号码</div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" name="idcard" value="{$info.idcard}" placeholder="请输入号码">
+                </div>
+                <div class="weui-cell__ft"></div>
+            </div>
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">性别</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="sex" dir="rtl">
+                        <option value="1" <eq name="info.sex" value="1">selected</eq>>男</option>
+                        <option value="2" <eq name="info.sex" value="2">selected</eq>>女</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__hd">身份证地址</div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" name="address" value="{$info.address}" placeholder="请输入地址">
+                </div>
+                <div class="weui-cell__ft"></div>
+            </div>
+            <div class="weui-btn-area">
+                <div class="weui-btn weui-btn_primary step1">下一步</div>
+            </div>
+        </div>
+    </div>
+    <div class="idauth-step2" style="display: none">
+        <p class="akk-idauth-title">请拍照上传您的银行卡信息</p>
+        <div class="idcard-container">
+            <div class="idcard-item">
+                <img id="idcard-img-3" src="__PUBLIC__/static/imgs/idcard-3.png" alt="">
+                <label for="img-input3" class="img-input">
+                    拍摄银行卡正面
+                    <input type="file" style="display: none"   id="img-input3">
+                </label>
+            </div>
+        </div>
+        <div class="idcard-container">
+            <div class="idcard-item">
+                <img id="idcard-img-4" src="__PUBLIC__/static/imgs/idcard-4.png" alt="">
+                <label for="img-input4" class="img-input">
+                    拍摄手持身份证和银行卡
+                    <input style="display: none" type="file" id="img-input4"  value="拍摄正面">
+                </label>
+            </div>
+        </div>
+        <div class="idcard-tips">请左手手持银行卡，右手手持身份证，保证证件信息完整</div>
+        <div class="weui-cells user-idcard" style="margin-top: 0">
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">银行卡类别</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="back" dir="rtl">
+                        <option value="1" <eq name="info.back" value="1">selected</eq>>储蓄卡</option>
+                        <option value="2" <eq name="info.back" value="2">selected</eq>>信用卡</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__hd">银行卡号</div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" name="backid" value="{$info.backid}" placeholder="请输银行卡号">
+                </div>
+                <div class="weui-cell__ft"></div>
+            </div>
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__hd">银行卡名称</div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" name="backname" value="{$info.backname}" placeholder="请输银行卡名称">
+                </div>
+                <div class="weui-cell__ft"></div>
+            </div>
+
+            <input type="hidden" name="memberId" value="{$memberId.memberId}"/>
+            <input type="hidden" name="idCardFace" id="idCardFace" value=""/>
+            <input type="hidden" name="holdIdCardFace" id="holdIdCardFace" value=""/>
+            <input type="hidden" name="bankCardFace" id="bankCardFace" value=""/>
+            <input type="hidden" name="holdBankAndIdFace" id="holdBankAndIdFace" value=""/>
+            <div class="weui-btn-area">
+                <div class="weui-btn weui-btn_primary step2" id="sumbit">提交</div>
+                <div class="weui-btn weui-btn_primary step-back">返回上一步</div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+<script>
+    $('.step1').click(function () {
+        $(".idauth-step1").css('display','none');
+        $(".idauth-step2").css('display','block');
+    });
+    $('.step-back').click(function () {
+        $(".idauth-step1").css('display','block');
+        $(".idauth-step2").css('display','none');
+    });
+    $('#sumbit').click(function () {
+        var temp = $("form").serializeArray();
+        var data = objToArray(temp);
+        if(data.name===''){
+            alert('请输入姓名');
+            return false;
+        }
+        if(!data.name.match( /^[\u4E00-\u9FA5]{1,}$/)){
+            alert('请输入正确姓名');
+            return false;
+        }
+        var pattern1 = /^1[3456789]\d{9}$/;
+        if (!pattern1.test(data.phone)){
+            alert('请输入正确手机号');
+            return false;
+        }
+        var pattern2 = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+        if (!pattern2.test(data.idcard)){
+            alert('请输入正确身份证号');
+            return false;
+        }
+        var back=  CheckBankNo(data.backid);
+        if(back==false){
+            return false;
+        }
+        //showPreLoading();
+        $.ajax({
+            url: "{:U('Index/idcard')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                if(res.success===false){
+                    alert(res.msg);
+                } else {
+                    alert('资料上传成功，审核为时间2-3天，请耐心等待')
+                    window.location.href=res.url;
+                }
+
+            },
+            error: function (res) {
+                if(res.success===false){
+                    alert(res.msg);
+                }
+            }
+        });
+    });
+    function CheckBankNo(t_bankno) {
+        //var bankno = $.trim(t_bankno.val());
+        if(t_bankno == "") {
+            alert("请填写银行卡号");
+            return false;
+        }
+        if(t_bankno.length < 16 || t_bankno.length > 19) {
+            alert("银行卡号错误,请检查输入卡号是否正确");
+            return false;
+        }
+        var num = /^\d*$/; //全数字
+        if(!num.exec(t_bankno)) {
+            alert("银行卡号错误,请检查输入卡号是否正确");
+            return false;
+        }
+        //开头6位
+        var strBin = "10,18,30,35,37,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,58,60,62,65,68,69,84,87,88,94,95,98,99";
+        if(strBin.indexOf(t_bankno.substring(0, 2)) == -1) {
+            alert("银行卡号错误,请检查输入卡号是否正确");
+            return false;
+        }
+    }
+
+    //身份证正面
+
+    $('#img-input').change(function () {
+        var reader = new FileReader();
+        var file = this.files[0];
+        var fileSize =(file.size / 1024).toFixed(2);
+        var maxImg = 10;  //设置最大图片大小
+        if(Number(fileSize) > (maxImg * 1024)){
+            alert("图片不能大于10M");
+            return;
+        };
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            var re = this.result;
+            $('#idcard-img-1').attr("src",re);
+        };
+        var imgsrc='#idCardFace';
+        uploadImg(file,imgsrc);
+    });
+
+    //手持身份证
+    $('#img-input2').change(function () {
+        var reader = new FileReader();
+        var file = this.files[0];
+        var fileSize =(file.size / 1024).toFixed(2);
+        var maxImg = 10;  //设置最大图片大小
+        if(Number(fileSize) > (maxImg * 1024)){
+            alert("图片不能大于10M");
+            return;
+        };
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            var re = this.result;
+            $('#idcard-img-2').attr("src",re);
+        };
+        var imgsrc='#holdIdCardFace';
+        uploadImg(file,imgsrc);
+    });
+    //拍摄银行卡正面
+    $('#img-input3').change(function () {
+        var reader = new FileReader();
+        var file = this.files[0];
+        var fileSize =(file.size / 1024).toFixed(2);
+        var maxImg = 10;  //设置最大图片大小
+        if(Number(fileSize) > (maxImg * 1024)){
+            alert("图片不能大于10M");
+            return;
+        };
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            var re = this.result;
+            $('#idcard-img-3').attr("src",re);
+        };
+        var imgsrc='#bankCardFace';
+        uploadImg(file,imgsrc);
+    });
+    //拍摄手持身份证银行卡
+    $('#img-input4').change(function () {
+
+        var reader = new FileReader();
+        var file = this.files[0];
+        var fileSize =(file.size / 1024).toFixed(2);
+        var maxImg = 10;  //设置最大图片大小
+        if(Number(fileSize) > (maxImg * 1024)){
+            alert("图片不能大于10M");
+            return;
+        };
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            var re = this.result;
+            $('#idcard-img-4').attr("src",re);
+        };
+        var imgsrc='#holdBankAndIdFace';
+        uploadImg(file,imgsrc);
+    });
+
+
+    function uploadImg(file,imgsrc){
+        //console.log("ajax上传图片");
+        var formData = new FormData();
+        formData.append("picFile",file);
+        showPreLoading();
+        $.ajax({
+            url: 'http://akk.028wkf.cn/gateway/app-api/upload-image?picType=NORMAL&catalog=auth',
+            // url: "{:U('Index/upload_image')}",
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (returndata) {
+                $(imgsrc).val(returndata.data.imgPath);
+                hidePreLoading();
+                console.log(returndata.data.imgPath);
+                // $('#idcard-img-1').attr("src",returndata.data.imgPath);
+            },
+            error: function (returndata) {
+                alert('上传失败');
+            }
+        });
+    }
+</script>
+</body>
+</html>

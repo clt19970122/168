@@ -1,0 +1,41 @@
+<div class="index-money_list index-tious">
+    <a href="{:U('Index/tious')}" class="index-money_list_item"><span>等级榜</span></a>
+    <a href="{:U('Index/tious_mo')}" class="index-money_list_item"><span>金库榜</span></a>
+    <a href="{:U('Index/tious_sr')}" class="index-money_list_item on"><span>分享榜</span></a>
+</div>
+
+<div class="index-tious_bang">
+    <div class="index-tious_bang-item">
+        <p><img src="__PUBLIC__/home/imgs/index_level_2.png" class="v"/></p>
+        <p class="name">{$list[1]['nickname']}</p>
+        <p class="num">{$list[1]['nums']}</p>
+    </div>
+    <div class="index-tious_bang-item">
+        <p><img src="__PUBLIC__/home/imgs/index_level_1.png"/></p>
+        <p class="name little">{$list[0]['nickname']}</p>
+        <p class="num">{$list[0]['nums']}</p>
+    </div>
+    <div class="index-tious_bang-item">
+        <p><img src="__PUBLIC__/home/imgs/index_level_3.png" class="v"/></p>
+        <p class="name">{$list[2]['nickname']}</p>
+        <p class="num">{$list[2]['nums']}</p>
+    </div>
+</div>
+
+<div class="index-money_item">
+
+    <volist name="next" id="v" key='k'>
+        <div class="index-money_item-box">
+            <div class="item">{$k+3}</div>
+            <div class="item">
+                <img src="__PUBLIC__/home/imgs/head.png" class="head"/>
+            </div>
+            <div class="item">{$v.name}</div>
+            <div class="item">
+                <i class="icon-peop"></i>
+                <span>{$v['nums']}</span>
+            </div>
+        </div>
+    </volist>
+
+</div>

@@ -1,0 +1,170 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        团队管理奖
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li>账户管理</li>
+            <li class="active">团队管理奖</li>
+        </ol>
+    </div>
+
+</div>
+
+<div class="contentpanel">
+    <div></div>
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <a href="javascript:saveteam();">
+            <div class="panel panel-dark panel-stat">
+                <div class="panel-heading">
+                    <div class="stat">
+                        <div class="row">
+                            <h4>更新团队管理奖数据</h4>
+                        </div><!-- row -->
+                    </div><!-- stat -->
+                </div><!-- panel-heading -->
+            </div><!-- panel -->
+            </a>
+        </div>
+        <!--<div class="col-md-4">
+            <h5 class="subtitle mb5">添加广告</h5>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form role="form" name="addItems">
+                        <div class="form-group">
+                            <label>广告位置</label>
+                            <select name="models" class="form-control">
+                                <option value="index_banner">头部背景图</option>
+                                <option value="index_middle">商品列表上背景图</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>链接</label>
+                            <input type="text" name="links" class="form-control" placeholder="请输入广告链接">
+                        </div>
+                        <div class="form-group">
+                            <label>广告图</label>
+                            <input type="file" name="file" id="file"/>
+                        </div>
+                        <button type="button" class="btn btn-info" onclick="adsLog();">新增</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>-->
+        <div class="col-md-8">
+            <h5 class="subtitle mb5">团队列表</h5>
+            <div class="btn btn-default btn-sm" id="doExcel" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出数据</div>
+            <form action="{:U('show_list')}">
+                <select name="month">
+                    <volist name="month" id="vo">
+                        <option value="{$vo}" <if condition="$get_month eq $vo"> selected="selected"</if>>{$vo}</option>
+                    </volist>
+                </select>
+
+                <input type="submit" value="查询">
+            </form>
+            <table class="table mb30">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>昵称</th>
+                    <th>姓名</th>
+                    <th >金额</th>
+                    <th >团队进货量</th>
+                    <th>月份</th>
+                    <th>添加时间</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <volist name="list" id="v">
+                    <tr>
+                        <td>{$v.id}</td>
+                        <td>
+                            {$v.nickname}
+                        </td>
+                        <td>{$v.name}</td>
+                        <td>{$v.money}</td>
+                        <td>{$v.team_num}</td>
+                        <td>{$v.month}</td>
+                        <td>{$v.add_time}</td>
+                    </tr>
+                </volist>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    function adsLog() {
+        var configURL = "{:U('Core/addon', 'model=sysads')}";
+        var formelemt = $("form[name=addItems]").serializeArray();
+        var data = objToArray(formelemt);
+        $.ajaxFileUpload({
+            url: configURL,
+            secureuri: false,
+            fileElementId: "file",
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+                if (data.status !== 1) {
+                    alert(data.msg);
+                    return false;
+                }
+                window.location.reload();
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+        return false;
+    }
+
+    function dels(id) {
+        if (!confirm("确定要删除吗？")) {
+            return;
+        }
+        var configURL = "{:U('Core/dels', 'model=sysads')}";
+        var data = {id: id};
+        ajaxRt(configURL, data);
+    }
+</script>
+
+<script>
+    function saveteam(length) {
+        $.ajax({
+            type: "post", //提交方式
+            url: "{:U('team/addTeam_getMoney')}",//路径
+            data: {
+                "length":length
+            },
+            success: function (result) {
+                console.log(result.id)
+                if(result.status===1){
+                    saveteam(result.length);
+                }else {
+                    alert('发送完成');
+                }
+            }
+        });
+    }
+</script>
+<script>
+    $("#doExcel").on('click',function(){
+        var month =$('#month').val();
+        /*var name =$('#name').val();
+        var phone =$('#phone').val();
+        var start =$('#single_start').val();
+        var ends =$('#single_end').val();
+        var status =$('#sssssssss').val();*/
+        window.location.href="{:U('Backet/Doexc/doexcel_team_money')}?month="+month;
+    });
+</script>

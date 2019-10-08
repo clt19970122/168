@@ -1,0 +1,126 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        进销存列表
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li class="active">进销存列表</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">列表list</h3>
+            <p>
+                <a href="{:U('sale/stockAndSale')}" class="btn btn-xs btn-info">添加内容</a>
+                <span>tag:公司进货是从仓库入,总量不加</span>
+            </p>
+            <p>
+                <a href="{:U('sale/addOutCode')}" class="btn btn-xs btn-info">增加出货记录</a>
+            </p>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <!--进-->
+                <div class="col-sm-6 col-md-3" id="inNums">
+                    <div class="panel panel-success panel-stat">
+                        <div class="panel-heading">
+                            <div class="stat">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <img src="__PUBLIC__/backet/images/is-document.png" alt="">
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <small class="stat-label">购进</small>
+                                        <h1>{$data_info.all_in}</h1>
+                                    </div>
+                                </div><!-- row -->
+                            </div><!-- stat -->
+                        </div><!-- panel-heading -->
+                    </div><!-- panel -->
+                </div><!-- col-sm-6 -->
+                <!--出-->
+                <div class="col-sm-6 col-md-3" id="outNums">
+                    <div class="panel panel-danger panel-stat">
+                        <div class="panel-heading">
+                            <div class="stat">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <img src="__PUBLIC__/backet/images/is-document.png" alt="">
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <small class="stat-label">销售</small>
+                                        <h1>{$data_info.all_sale}</h1>
+                                    </div>
+                                </div><!-- row -->
+                            </div><!-- stat -->
+                        </div><!-- panel-heading -->
+                    </div><!-- panel -->
+                </div><!-- col-sm-6 -->
+                <!--存-->
+                <div class="col-sm-6 col-md-3" id="saveNums">
+                    <div class="panel panel-primary panel-stat">
+                        <div class="panel-heading">
+                            <div class="stat">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <img src="__PUBLIC__/backet/images/is-document.png" alt="">
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <!--<small class="stat-label">剩余库存</small>-->
+                                        <h2>剩余库存<!--{$data_info.all_save}--></h2>
+                                    </div>
+                                </div><!-- row -->
+                            </div><!-- stat -->
+                        </div><!-- panel-heading -->
+                    </div><!-- panel -->
+                </div><!-- col-sm-6 -->
+                <!--报表-->
+                <div class="col-sm-6 col-md-3" id="tableNums">
+                    <div class="panel panel-primary panel-stat">
+                        <div class="panel-heading">
+                            <div class="stat">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <img src="__PUBLIC__/backet/images/is-document.png" alt="">
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <small class="stat-label"></small>
+                                        <h2>统计报表</h2>
+                                    </div>
+                                </div><!-- row -->
+                            </div><!-- stat -->
+                        </div><!-- panel-heading -->
+                    </div><!-- panel -->
+                </div><!-- col-sm-6 -->
+            </div>
+            <!--start载入模板-->
+            <include file="$temple"/>
+            <!--end-->
+            {$list.show}
+        </div>
+    </div>
+</div>
+
+<script>
+
+    laydate.render({elem: '#single_start'});
+    laydate.render({elem: '#single_end'});
+    $('#inNums').on('click',function (){
+        window.location.href="{:U('sale/salelist',array('type'=>2))}";
+    });
+    $('#outNums').on('click',function(){
+        window.location.href="{:U('sale/salelist',array('type'=>1))}";
+    }) ;
+    $('#saveNums').on('click',function(){
+        window.location.href="{:U('sale/salelist',array('type'=>3))}";
+    });
+    $('#tableNums').on('click',function(){
+        window.location.href="{:U('sale/salelist',array('type'=>4))}";
+    })
+
+</script>

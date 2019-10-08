@@ -1,0 +1,72 @@
+<div class="home">
+
+    <volist name="list" id="v">
+        <div class="home-item">
+            <a href="{:U('Malls/goods','sn='.$v['gsn'])}" class="home-item_thumb home-item_thumb_shadow">
+                <img src="__PUBLIC__/uploads/goods/{$img|getGoodsImg=$v['gsn'],###}"/>
+            </a>
+            <div class="home-item_cont">
+                <div class="home-item_cont_title overflow"><i class="order-list-name-icon orange">HOT</i>{$v.name}</div>
+                <div class="home-item_cont_descs">{$v.subname}</div>
+                <div class="home-item_cont_price">
+                    <span><font>￥</font>{$v.price}</span>
+                    <a class="blue" href="{:U('Malls/goods','sn='.$v['gsn'])}">立即购买</a>
+                </div>
+            </div>
+        </div>
+    </volist>
+    <!--<div class="" style="width: 100%;text-align: left;font-size: 24px;background: #fff;font-weight: 500;color: #000;padding-top: 15px;padding-left: 1rem">周边产品</div>-->
+    <div class="mall-title"></div>
+    <div style="display: flex">
+        <!--<volist name="datap" id="v">
+            <div class="home-item">
+                <a href="{:U('Malls/goods','sn='.$v['gsn'])}" class="home-item_thumb">
+                    <img style="border-radius: .5rem" src="__PUBLIC__/uploads/goods/{$img|getGoodsImg=$v['gsn'],###}"/>
+                </a>
+                <div class="home-item_cont">
+                    <div class="home-item_cont_title" style="font-size: 1.4rem;height: 3.6rem"><i class="order-list-name-icon green">New</i>{$v.name}</div>
+                    <div class="home-item_cont_descs">{$v.subname}
+                    <div class="home-item_cont_price">
+                        <span><font>￥</font>{$v.price}<font>元</font></span>
+                        <a class="blue" href="{:U('Malls/goods','sn='.$v['gsn'])}">立即购买</a>
+                    </div>
+                </div>
+            </div>
+        </volist>-->
+    </div>
+    <div style="display: flex">
+        <volist name="data" id="v">
+            <div class="home-item">
+                <a href="{:U('Malls/goods','sn='.$v['gsn'])}" class="home-item_thumb">
+                    <img style="border-radius: .5rem" src="__PUBLIC__/uploads/goods/{$img|getGoodsImg=$v['gsn'],###}"/>
+                </a>
+                <div class="home-item_cont">
+                    <div class="home-item_cont_title" style="font-size: 1.4rem;height: 3.6rem"><i class="order-list-name-icon green">New</i>{$v.name}</div>
+                    <!--<div class="home-item_cont_descs">{$v.subname}</div>-->
+                    <div class="home-item_cont_price">
+                        <span><font>￥</font>{$v.price}<font></font></span>
+                        <a class="blue" href="{:U('Malls/goods','sn='.$v['gsn'])}">立即购买</a>
+                    </div>
+                </div>
+            </div>
+        </volist>
+
+
+        <!--<div class="home-item">
+            <a href="{:U('Malls/goods','sn='.$v['gsn'])}" class="home-item_thumb">
+                <img style="border-radius: .5rem" src="__PUBLIC__/uploads/goods/{$img|getGoodsImg=$v['gsn'],###}"/>
+            </a>
+            <div class="home-item_cont">
+                <div class="home-item_cont_title" style="font-size: 1.4rem;height: 3.6rem">{$v.name}</div>
+                &lt;!&ndash;<div class="home-item_cont_descs">{$v.subname}</div>&ndash;&gt;
+                <div class="home-item_cont_price">
+                    <span><font>￥</font>{$v.price}</span>
+                    <a class="blue" href="{:U('Malls/goods','sn='.$v['gsn'])}">立即购买</a>
+                </div>
+            </div>
+        </div>-->
+    </div>
+      
+
+
+</div>

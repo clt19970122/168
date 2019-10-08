@@ -1,0 +1,314 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        财务管理
+        <!--span>Subtitle goes here...</span-->
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li class="active">财务管理</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                提款列表
+                <!--a href="{:U('Goods/orderexport','model=orders&type='.$type)}" class="btn btn-primary btn-xs pull-right" target="_blank">导出</a-->
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form action="{:U('Fina/index')}" class="form-inline mb15" role="form">
+                <div class="form-group">
+                    <label class="sr-only">Email address</label>
+                    <input type="text" name='sn' class="form-control input-sm" id ='sn' value="{$get.sn}" placeholder="请输入订单编号"/>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">Email address</label>
+                    <input type="text" name='realname' class="form-control input-sm" id="realname" value="{$get.realname}" placeholder="请输入系统名称"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control input-sm" id="name" value="{$get.name}" placeholder="请输入持卡人名"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='start' class="form-control input-sm"  value="{$get.start}" id="single_start" placeholder="请选择开始时间"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='ends' class="form-control input-sm" value="{$get.ends}" id="single_end" placeholder="请选择结束时间"/>
+                </div>
+                <div class="form-group">
+                    <select name="type" id="sssssssss" class="form-control input-sm">
+                        <option value="11">全部</option>
+                        <option value="0">待处理</option>
+                        <option value="1">已处理</option>
+                        <option value="2">已退回</option>
+                        <!--<option value="4">已取消</option>-->
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-default btn-sm">搜索</button>
+                <div class="btn btn-default btn-sm" id="doExcel" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出数据</div>
+                <div class="btn btn-default btn-sm" id="doExcel1" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出可打款数据</div>
+                <div class="btn btn-default btn-sm" id="doExcel2" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出现金可打款数据</div>
+            </form>
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="datatables">
+                    <thead>
+                        <tr>
+                            <th width="5%">#</th>
+                            <th width="10%">订单编号</th>
+                            <th width="10%">提款用户</th>
+                            <th width="8%">会员等级</th>
+                            <th width="10%">金额</th>
+                            <th width="10%">持卡人</th>
+                            <th width="15%">提款银行</th>
+                            <th width="15%">银行卡号</th>
+                            <th width="15%">提款时间</th>
+                            <th width="15%">备注</th>
+                            <th width="5%">状态</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <volist name="list.list" id="v">
+                        <tr>
+                            <td>{$v.id}</td>
+                            <td>{$v.sn}</td>
+                            <td>{$v.usid|getUserInf=$v['usid'],'nickname',###}</td>
+                            <td>{$v.usid|getUserInf=$v['usid'],'level',###|getUserLevel}</td>
+                            <td>{$v.money}</td>
+                            <td>{$v.name}</td>
+                            <td>{$v.bank|getBankName=$v['bank'],'name',###}</td>
+                            <td>{$v.bankcode}</td>
+                            <td>{$v.times|date='Y/m/d H:i:s',###}</td>
+                            <td>{$v.sn|payRemake}</td>
+                            <td>
+                                {$v['status']==0?'待支付':''}
+                                {$v['status']==1?'已支付':''}
+                                {$v['status']==2?'已退回':''}
+                            </td>
+                            <td>
+                                <eq name="v.status" value="0">
+                                <a href="javascript:setRolls({$v.id});" class='btn btn-xs btn-success'>退回</a>
+                                <a href="javascript:void(0);" class='btn btn-xs btn-danger' onclick="doMakeMoney({$v.id})">打款</a>
+                                <a href="javascript:void(0);" class='btn btn-xs btn-warning' onclick="dobycard({$v.id})">银行卡支付</a>
+                                </eq>
+                            </td>
+                        </tr>
+                    </volist>
+
+                    </tbody>
+                </table>
+
+                <nav class="pagec pull-left">
+                    {$list.show}
+                </nav>
+                <div class="pull-right">
+                    <div class="col-sm-1 input-group input-group-sm">
+                        <input type="text" id="pages" class="form-control">
+                        <span class="input-group-addon" onclick="pagereload();">跳转</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <input type="hidden" id="ssssssssss"  value="{$type}">
+</div>
+<div class="modal fade in" id="makeMoney" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content"><div class="panel panel-dark panel-alt">
+            <div class="panel-heading">
+                <h3 class="panel-title">用户打款</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" name="trans">
+                    <div class="form-group">
+                        <label>打款用户</label>
+                        <p id="uinfo"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>打款金额</label>
+                        <p id="pmoney"></p>
+                    </div>
+                    <div class="form-group">
+                        <label>打款方式</label>
+                        <select class="form-control" name="type" id="type">
+                            <option value="1">微信零钱</option>
+                            <option value="2">银行卡</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>打款密码</label>
+                        <input type="password" class="form-control" id="pwd" name="pwd"/>
+                    </div>
+                    <div class="form-group">
+                        <label>备注</label>
+                        <textarea class="form-control" id="remake" name="remake"></textarea>
+                        <!--<input type="text" class="form-control" id="remake" name="remake"/>-->
+                    </div>
+                    <input type="hidden" value="" id="ids">
+                    <button type="button" class="btn btn-danger" onclick="doPayss();">打款</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    laydate.render({elem: '#single_start'});
+    laydate.render({elem: '#single_end'});
+    function pagereload() {
+        var page = $("#pages").val();
+        if ($.trim(page) === null || page <= 0) {
+            alert("请输入正确的页面编号");
+            return false;
+        }
+        window.location.href = url;
+    }
+
+    function setRolls(id) {
+        var urls = "{:U('Fina/doRolls')}";
+        var data = {ids: id};
+        ajaxRt(urls, data);
+    }
+
+    function setOrder(id) {
+        var urls = "{:U('Core/edits', 'model=money_draw')}";
+        var data = {ids: id, status: 1};
+        ajaxRt(urls, data);
+    }
+
+    // 打款方法弹出框
+    function doMakeMoney(id) {
+        $("#makeMoney").modal('toggle');
+        $.ajax({
+            type : "POST", //提交方式
+            url : "{:U('fina/getOneData')}",//路径
+            data : {
+                "id":id
+            },//数据，这里使用的是Json格式进行传输
+            success : function(result) {
+                $('#uinfo').text(result.data.name);
+                $('#pmoney').html(result.data.money);
+                $('#ids').val(result.data.id);
+            }
+        });
+    }
+
+
+    //打款逻辑
+    function doPayss() {
+        var type =$('#type').val();
+        var pwd =$('#pwd').val();
+        var id =$('#ids').val();
+        var remake =$('#remake').val();
+        var configURL = "{:U('pay/doPayLogic')}";
+
+     /*   var data=[];
+        data.type =type;
+        data.pwd=pwd;
+        data.id =id;*/
+        var data = {id: id,pwd: pwd, type: type, remake: remake};
+        console.log(data);
+
+        // var  jsondata =JSON.stringify( data );
+        ajaxRt(configURL,data)
+    }
+
+    function dobycard(id) {
+        var data = {id: id};
+        var configURL = "{:U('fina/doByCard')}";
+        ajaxRt(configURL,data)
+    }
+
+</script>
+<script>
+    $("#doExcel").on('click',function(){
+        var sn =$('#sn').val();
+        var name =$('#name').val();
+        var phone =$('#phone').val();
+        var start =$('#single_start').val();
+        var ends =$('#single_end').val();
+        var status =$('#ssssssssss').val();
+        
+            layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+                var data = {pwd: pass};
+                $.ajax({
+                    url: "{:U('Users/exportPermission')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        if (res.status !== 1) {
+                            return layer.msg(res.msg);
+                        }else {
+                            window.location.href="{:U('Backet/Docsv/export_fina')}?sn="+sn+"&name="+name+"&phone="+phone+"&start="+start+"&ends="+ends+"&type="+status;
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+        
+         // window.location.href="{:U('Backet/Doexc/doExcel_fina')}?sn="+sn+"&name="+name+"&phone="+phone+"&start="+start+"&ends="+ends+"&type="+status;
+       //  window.location.href="{:U('Backet/Docsv/export_fina')}?sn="+sn+"&name="+name+"&phone="+phone+"&start="+start+"&ends="+ends+"&type="+status;
+    });
+    $("#doExcel1").on('click',function(){
+        var sn =$('#sn').val();
+        var name =$('#name').val();
+        var phone =$('#phone').val();
+        var start =$('#single_start').val();
+        var ends =$('#single_end').val();
+        var status =$('#ssssssssss').val();
+       
+            layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+                var data = {pwd: pass};
+                $.ajax({
+                    url: "{:U('Users/exportPermission')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        if (res.status !== 1) {
+                            return layer.msg(res.msg);
+                        }else {
+                            window.location.href="{:U('Backet/Doexc/doexcel_by_plan_can_do')}?sn="+sn+"&name="+name+"&phone="+phone+"&start="+start+"&ends="+ends+"&type="+status;
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+        
+        // window.location.href="{:U('Backet/Doexc/doexcel_by_plan_can_do')}?sn="+sn+"&name="+name+"&phone="+phone+"&start="+start+"&ends="+ends+"&type="+status;
+     });
+    $("#doExcel2").on('click',function(){
+        var sn =$('#sn').val();
+        var name =$('#name').val();
+        var phone =$('#phone').val();
+        var start =$('#single_start').val();
+        var ends =$('#single_end').val();
+        var status =$('#ssssssssss').val();
+        
+            layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+                var data = {pwd: pass};
+                $.ajax({
+                    url: "{:U('Users/exportPermission')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        if (res.status !== 1) {
+                            return layer.msg(res.msg);
+                        }else {
+                            window.location.href="{:U('Backet/Doexc/doexcel_cash_pay')}?sn="+sn+"&name="+name+"&phone="+phone+"&start="+start+"&ends="+ends+"&type="+status;
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+        
+        // window.location.href="{:U('Backet/Doexc/doexcel_cash_pay')}?sn="+sn+"&name="+name+"&phone="+phone+"&start="+start+"&ends="+ends+"&type="+status;
+     });
+</script>

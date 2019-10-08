@@ -1,0 +1,256 @@
+<link rel="stylesheet" href="__PUBLIC__/libs/swiper/css/swiper.min.css">
+<style type="text/css">
+    #shipping {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.66);
+    z-index: 9999
+}
+
+#shipping #rotate-swiper {
+    height: 100%;
+}
+
+#shipping .block {
+    width: calc(100% - 50px);
+    margin-left: 25px;
+    height: 82%;
+    margin-top: 12%;
+    transform-origin: 0 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #fff;
+}
+
+#shipping .block .header {
+    /*background: linear-gradient(to right,#52b4fc,#0c90f2);*/
+    background: red;
+    color: #fff;
+}
+
+#shipping .block .header h3 {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 0;
+    font-weight: normal;
+    margin: 0 16px;
+}
+
+
+#shipping .block .body {
+    flex: 1;
+    overflow: hidden;
+}
+
+#shipping .block .body .swiper-container {
+    height: 100%;
+}
+
+#shipping .block .body .swiper-slide {
+    height: auto;
+}
+
+#shipping .block .body .swiper-slide ul {
+    padding: 20px 20px;
+}
+
+#shipping .block .body .swiper-slide li {
+    padding: 5px 0;
+    position: relative;
+    list-style: none;
+    z-index: 10;
+    text-indent: 26px;
+    font-size: 14px;
+}
+
+
+
+#shipping .block .footer {
+    padding: 6px 0;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+#shipping .block .footer input{
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+</style>
+<img src="__PUBLIC__/home/imgs/sushi1.jpg" class="index-plans_img"/>
+
+<div class="index-plans_desc" style="top:26rem">
+    <a href="javascript:doAlert(1);" class="index-plans_join" style="width:100%">
+        <img src="__PUBLIC__/home/imgs/s-join1.png"/>
+    </a>
+    <!-- <div class="index-plans_desc_top">注：本系统用户分为5个代理等级</div> -->
+    <ul>
+        <li class='red_s'>
+            <div class="box">
+                <div class="left">01</div>
+                <div class="right">
+					注册用户若申请单盒体验，提交相关身份信息并通过审核后即可获得1盒168太空素食，享受先体验后付款，30天之内付款无利息。
+                </div>
+            </div>
+        </li>
+        <li class='blue_s'>
+            <div class="box">
+                <div class="left">02</div>
+                <div class="right">
+                    单盒体验累计进货达到40盒，即可免费晋升黄金会员。
+					<!--<a href="{:U('Login/regs')}">皇金会员权益</a>-->
+                </div>
+            </div>
+        </li>
+        <!-- <li class='yellow_s'>
+            <div class="box">
+                <div class="left">03</div>
+                <div class="right">
+					白银会员若成功邀请一位新白银及以上等级会员完成注册，当购买168产品时即可获得对应推广红包奖励；
+                </div>
+            </div>
+        </li> -->
+    </ul>
+    <div class="index-plans_desc_copy" style="margin-top:4rem">本活动最终解释权归成都德熙爱汝实业集团股份有限公司所有</div>
+</div>
+
+<script>
+
+    function doAlert() {
+        var data = {ids: "{$list.id}"};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Index/plans_op')}", type: 'post',
+            data: data, 
+			dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+				console.log(res);
+                if (res.status !== 1) {
+                    //return alert_wec(res.msg);
+                    return alert(res.msg);
+					window.location.href = res.data;
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+
+</script>
+<div id="shipping">
+  <div class="swiper-container" id="rotate-swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="block">
+          <div class="header">
+            <h3 style="font-weight: bolder;">关于申请加入168太空素食官方商城“0元计划”项目的信用消费借款及购买168太空素食协议书</h3>
+          </div>
+          <div class="body">
+              <div class="swiper-container">
+              <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+
+                  </div>
+              </div>
+              <div class="swiper-scrollbar"></div>
+          </div>
+          </div>
+          <div class="footer">
+              <input type="button"class="close-btn" value="我已阅读并同意以上协议条款"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="__PUBLIC__/libs/swiper/js/swiper.min2.js"></script>
+<script>
+    var swiper = new Swiper('#rotate-swiper', {
+        on: {
+            init: function() {
+                this.emit('transitionEnd');
+            },
+            transitionEnd: function() {
+                if (this.slides[this.activeIndex].contentLoaded == undefined) {
+                    this.slides.eq(this.activeIndex).find('.swiper-slide').html('<ul>' +
+                    '<li style="color:red;">本协议是指符合相应条件的申请人，在168太空素食总经销方提供的官方商城平台注册成功后，通过该会员后台商城申请加入168太空素食官方商城“0元计划”项目，向金融服务方申请信用消费借款，用于向各级代理人购买168太空素食所订立的契约。</li>' +
+                    '<li>（一）声明：</li>'+
+                    '<li>1、在申请人确认同意本协议之前，应当事人先认真仔细阅读、理解本合同条款的全部内容，同意注册成为168太空素食官方商城的会员、申请加入168太空素食官方商城“0元计划”项目，通过深圳普惠快捷金融服务有限公司提供的借款服务，用于向各级代理人（出货人）购买168太空素食商品。</li>'+
+                    '<li>2、申请人务必审慎阅读、充分理解各条款内容，特别是信用借款、发货收货、还款金额和时间及争议解决条款。</li>'+
+                    '<li>3、一旦申请人通过总经销方提供的微信平台关注“168太空素食创业中心”微信公众号，填写申请人资料并申请加入168太空素食官方商城“0元计划”项目点击“同意”按钮的，即视为申请人已阅读并完全同意本协议所有条款，对本协议条款的含义及相应的法律后果已全部通晓并充分理解，同意接受本协议的约束。</li>'+
+                    '<li>4、阅读本协议的过程中，如对协议有任何疑问，可向官方商城、总经销方、各级代理人和金融服务方咨询。如果您不同意本协议或协议之中任一条款约定，您应立即停止并退出申请程序。</li>'+
+                    '<li>（二）术语定义：</li>'+
+                    '<li>1、本协议所称的“申请人”，指符合相应条件并在168太空素食总经销方提供的官方商城平台注册成功后，通过该会员后台商城申请加入168太空素食官方商城“0元计划”项目的申请人。</li>'+
+                    '<li>2、本协议所称的“168太空素食总经销方”，指具有全球范围内总经销的成都德熙爱汝实业集团股份有限公司。</li>'+
+                     '<li>3、本协议所称的“金融服务方”指深圳市普惠快捷金融服务有限公司，主要对有借款需求的客户提供信息中介服务，撮合借款客户在资金方获取借款资金，以用户购买“168太空素食”商品，并为客户提供还款渠道技术支撑，贷后信息咨询与管理服务。</li>'+
+                    '<li>4、本协议所称的“各级代理人（货物提供者）”，指从总经销方获得代理授权的各级代理人。</li>'+
+                    '<li>5、本协议所称的“168太空素食官方商城“0元计划”项目”，指申请人通过信用消费借款，向各级代理人购买168太空素食，包含“0元创业”、“月体验”、“周体验”和“单盒体验”。申请人的申请经审核通过后，申请人即可获得相应级别对应的会员待遇。</li>'+
+                    '<li>（三）申请人授权：</li>'+
+                    '<li>申请人授权总经销方、各级代理人及金融服务方通过合法渠道采集申请人的信息，包括但不限于申请人的个人信息、交易信息等。</li>'+
+                    '<li>（四）权利义务：</li>'+
+                    '<li>1、申请人申请成功后，必须自申请通过之日当天起算30天之内还款168元（单盒体验）、600元（4盒周体验）、1560元（12盒月体验）、3800元（40盒“0元创业”168太空素食金额，其中，30天之内还款无利息，提前还款可重复申请“0元创业”项目）。如逾期还款，申请人将承担自申请通过当日起算每日1‰的滞纳金，逾期7天以上的，申请人的个人信用将受影响。</li>'+
+                    '<li>2、申请人申请成功后，商城后台将在48小时内（节假日顺延）发货至申请人填写的收货地址。申请人收货后，应在申请通过后30天之内履行还款义务；如申请人拒收货物，将上述货物返回至发货地址，往返运费由申请人承担。</li>'+
+                    '<li>3、申请人收到货后7天内，在保证货物完整、不影响二次销售的情况下，可无理由退货，将上述货物返回至发货地址，往返运费由申请人承担。</li>'+
+                    '<li>4、本协议各方均同意对知悉的相对方的商业秘密及信息保密，未经允许，不得向任意第三方披露。</li>'+
+                    '<li>5、因下列状况导致无法向申请人提供或及时提供服务的，不承担任何违约或损害赔偿责任，包括：</li>'+
+                    '<li>（1）因台风、地震、海啸、洪水、停电、战争、恐怖袭击等不可抗力；</li>'+
+                    '<li>（2）由于黑客攻击、电信部门技术调整或故障等原因而造成平台服务中断或者延迟；</li>'+
+                    '<li>（3）因金融服务方审核未通过的；</li>'+
+                    '<li>（4）因信息使用方的问题造成服务中断、延迟、终止等；</li>'+
+                    '<li>（5）因申请人本人的问题造成服务中断、延迟、终止等；</li>'+
+                    '<li>（6）因其他法定或约定的原因造成服务中断、延迟、终止等。</li>'+
+                    '<li>6、申请人有下列情形发生，申请人授权并同意对其终止服务：</li>'+
+                    '<li>（1）申请人注册账户注销或被注销的；</li>'+
+                    '<li>（2）冒用他人名义、盗用他人账户申请的；</li>'+
+                    '<li>（3）申请人拒收货物，并将货物退回的；</li>'+
+                    '<li>（4）申请人拒不履行还款义务的；</li>'+
+                    '<li>（5）其他法定的或者约定的违法违规情形。</li>'+
+                    '<li style="color:red">（五）审慎注意事项：</li>'+
+                    '<li style="color:red">1、请仔细阅读以上协议，理性申请，并且，不得夸大、诱导、虚假或采用违法违规的方式宣传推广。</li>'+
+                    '<li style="color:red">2、本协议书中所称的“天”均为日历天。</li>'+
+                    '<li style="color:red">3、因履行本协议发生纠纷的，友好协商解决，协商不成的，同意交由本合同签订地即四川自由贸易试验区有管辖权的人民法院受理。</li>'+
+                    '</ul>');
+                    new Swiper(this.slides.eq(this.activeIndex).find('.swiper-container'), {
+                        scrollbar: '.wrap-scroll',
+                        direction: 'vertical',
+                        slidesPerView: 'auto',
+                        mousewheelControl: true,
+                        freeMode: true
+                    });
+                    this.slides[this.activeIndex].contentLoaded = true;
+                }
+
+            }
+        }
+    });
+
+
+
+        var i=25;
+        var timehwnd=setInterval("Countdown()",1000);
+        function Countdown(){
+            i--;
+            if(i == 0){
+                $(".close-btn").val("我已阅读并同意以上协议条款");
+                $(".close-btn").css("background","#0c90f2");
+                $(".close-btn").css("color","#fff");
+                clearInterval(timehwnd);
+      closeSwiper();
+            }else{
+                $(".close-btn").val("我已阅读并同意以上协议条款("+i+")");
+            }
+
+        }
+        function closeSwiper(){
+            $(".close-btn").click(function(){
+                $("#shipping").css("display","none")
+            });
+        }
+
+</script>

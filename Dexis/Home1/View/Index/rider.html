@@ -1,0 +1,120 @@
+<style>
+    .user-info-about {
+        margin: 5px;
+        padding: 5px 10px;
+        background-color: #ebebeb;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .user-info-about .user-info-number{
+        font-size: 14px;
+    }
+    .user-info-about .user-info-desc{
+        font-size: 12px;
+    }
+    .rider-number p{
+        font-size: 13px;
+        text-align: right;
+    }
+</style>
+<div class='index-rider'>
+    <p class="head"><img src="{$user.headimgurl}"/></p>
+    <p class="name">{$user.nickname}</p>
+    <p class="level">
+        <button style="color: #C3A66B">{$level|getUserLevel=$user['level'],###}</button>
+    </p>
+    <p class="peop" >已推荐人数: <span id="count">{$user.teams}</span></p>
+</div>
+
+<volist name="list2" id="vo">
+    <div class='index-rider_box' style="font-size:1.2rem;text-align:center;color:#666;">
+        <p style="font-size:1.4rem;text-align:center;margin-bottom:.8rem;color:#333">{$vo.name}</p>
+        <volist name=":SidType($vo['id'],$user['sysid'])" id="vo" empty="该等级暂时没有代理 ">
+            <div class="weui-cell" style="align-items: flex-start">
+                <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                    <img src="{$vo.headimgurl}" style="width: 50px;display: block;border-radius: 5px">
+                </div>
+                <div class="weui-cell__bd">
+                    <a href="{:U('index/rider',array('sysid'=>$vo['sysid']))}">
+                        <div style="display: flex;justify-content: space-between;align-items: center;text-align: left;">
+                            <div>
+                                <div style="display: inline-flex;justify-content: center;align-items: center">
+                                    <p style="font-size: 17px"><if condition="$vo['name'] eq null or $vo['name'] eq ' '"><span style="color: red">未实名注册会员</span><else/>{$vo.name}</if></p>
+                                    <span style="background: #153afa;border-radius: 5px;font-size: 11px;padding: 2px 6px;color: #fff;margin-left: 5px;height: 15px">{$vo.level}</span>
+                                </div>
+                                <p style="font-size: 13px;color: #888888;">系统账号：{$vo.sysid}</p>
+                                <if condition="$vo['phone'] neq null">
+                                 <span style="font-size: 13px;color: #888888;">手机号码：<a  href="tel:{$vo.phone}" >{$vo.phone}</a></span>
+                                </if>
+                                <p style="font-size: 13px;color: #888888;">注册时间：{$vo.times|date='Y-m-d H:i:s', ###}</p>
+                            </div>
+
+                            <!--<div class="rider-number" style="flex-grow: 1">
+                                <p>团队人数</p>
+                                <p style="font-size: 17px;color: #005DAC;margin-top: .3rem;font-weight: 500">{$vo.count_child}人</p>
+                            </div>-->
+                            <div>
+                                <div style="content: '';display: inline-block;height: 6px;width: 6px;border-width: 2px 2px 0 0;border-color: #c8c8cd;border-style: solid;-webkit-transform: matrix(.71,.71,-.71,.71,0,0);transform: matrix(.71,.71,-.71,.71,0,0);margin-top: 8px;right: 15px">
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="weui-flex" style="flex-wrap:wrap">
+                        <div class="weui-flex__item">
+                            <div class="user-info-about">
+                                <p class="user-info-number">{$vo.outnums}</p>
+                                <p class="user-info-desc">销售量</p>
+                            </div>
+                        </div>
+                        <div class="weui-flex__item">
+                            <div class="user-info-about">
+                                <p class="user-info-number">￥{$vo.salemoney}</p>
+                                <p class="user-info-desc">销售额</p>
+                            </div>
+                        </div>
+                        <div class="weui-flex__item">
+                            <div class="user-info-about">
+                                <p class="user-info-number">￥{$vo.innums}</p>
+                                <p class="user-info-desc">进货量</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="index-rider_box-item">
+                <a href="{:U('index/rider',array('sysid'=>$vo['sysid']))}">
+                    <p class="head"><img src="{$vo.headimgurl}"/></p>
+                    <p class="name">{$vo.nickname}</p>
+                    <p class="level">
+                        <button>{$level|getUserLevel=$vo['level'],###}</button>
+                    <p>进货量:{$vo.innums}出货量:{$vo.outnums}</p>
+
+                    </p>
+                </a>
+            </div>-->
+        </volist>
+    </div>
+</volist>
+
+
+<script>
+    $(document).ready(function() {
+        var sysid="{$user.id}";
+        console.log(sysid);
+        $.ajax({
+            cache: false,
+            async: false,
+            dataType: 'json',
+            type: 'post',
+            url: "{:U('index/getTeamNums')}",
+            data:{sysid:sysid},
+            success: function (data){
+                $('#count').html(data);
+            }
+        });
+
+    })
+</script>
+
+
+

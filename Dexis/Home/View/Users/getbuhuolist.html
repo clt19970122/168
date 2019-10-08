@@ -1,0 +1,57 @@
+<div class="order-menu">
+    <a href="{:U('users/getbuhuolist')}" class="order-menu_item <eq name='st' value='10'>order-menu_item_on</eq>">全部</a>
+    <a href="{:U('users/getbuhuolist','st=0')}" class="order-menu_item <eq name='st' value='1'>order-menu_item_on</eq>">未支付</a>
+    <a href="{:U('users/getbuhuolist','st=1')}" class="order-menu_item <eq name='st' value='2'>order-menu_item_on</eq>">已支付</a>
+</div>
+<volist name="list" id="v">
+    <div class="weui-panel order-list">
+        <div class="weui-panel__bd">
+            <a href="{:U('Order/infos','id='.$v['id'])}" class="weui-media-box weui-media-box_appmsg">
+                <div class="weui-media-box__hd">
+                    <img class="weui-media-box__thumb" src="__PUBLIC__/uploads/goods/{$v.gimgs}"/>
+                </div>
+                <div class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">{$v.gname}</h4>
+                     <p class="weui-media-box__desc">{$v.times|date='Y年m月d日 H:i:s',###} 数量:{$v.gnums}</p>
+                    <p class="weui-media-box__price">
+                        ¥{$v.money}<font>元</font>
+                        <eq name="v.status" value="0"><span class="waits">未支付</span></eq>
+                        <eq name="v.status" value="1"><span class="saves">已支付</span></eq>
+                        <eq name="v.status" value="4"><span class="cancel">已取消</span></eq>
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="weui-panel__ft">
+            <div class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd">
+                    <if condition="$v['status'] eq 0">
+                        <a href="{:U('Malls/payer','sn='.$v['sn'])}" class="waits">去支付</a>
+                        <a href="javascript:doOption('{$v.id}');" class="cancel">取消</a>
+                    </if>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</volist>
+
+<script>
+
+    function doOption(id) {
+        var data = {ids: id, status: 4};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Core/edits','model=orders')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.reload();
+            }
+        });
+    }
+
+</script>

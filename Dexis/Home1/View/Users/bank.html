@@ -1,0 +1,43 @@
+<div class="weui-panel weui-panel_access">
+    <div class="weui-panel__bd">
+
+        <volist name="list" id="v">
+            <div class="weui-media-box weui-media-box_appmsg">
+                <div class="weui-media-box__hd">
+                    <img class="weui-media-box__thumb" src="__PUBLIC__/home/imgs/bank/{$ban|getBankName=$v['bank'],'code',###}_01.png">
+                </div>
+                <a href="{:U('Users/bank_edit','id='.$v['id'])}" class="weui-cell__bd" style='color:black;'>
+                    <h4 class="weui-media-box__title">开户人：{$v.name}</h4>
+                    <p class="weui-media-box__desc">
+                        开户银行：{$ban|getBankName=$v['bank'],###}<br/>
+                        开户账户：{$v.card}
+                    </p>
+                </a>
+                <a href="javascript:dels('{$v.id}');" class="weui-cell__ft"><i class="icon-dels"></i></a>
+            </div>
+        </volist>
+
+    </div>
+</div>
+
+<a href="{:U('Users/bank_add')}" class="user-addr_btn">+添加银行卡</a>
+
+<script>
+
+    function dels(ids) {
+        var data = {id: ids};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Core/dels','model=acc_bank')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.reload();
+            }
+        });
+    }
+
+</script>

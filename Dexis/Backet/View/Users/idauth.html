@@ -1,0 +1,81 @@
+<form>
+    <input type="hidden" name="uid" value="{$uid}"/>
+    <div class="weui-cells user-idcard">
+
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__hd">姓名</div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="name" value="{$info.name}" placeholder="请输入姓名">
+            </div>
+            <div class="weui-cell__ft"></div>
+        </div>
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__hd">手机号码</div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="number" name="phone" value="{$info.phone}" pattern="[0-9]*" placeholder="请输入号码">
+            </div>
+            <div class="weui-cell__ft"></div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">证件类型</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" name="idtype" dir="rtl">
+                    <option value="1">身份证</option>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__hd">证件号码</div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="idcard" value="{$info.idcard}" placeholder="请输入号码">
+            </div>
+            <div class="weui-cell__ft"></div>
+        </div>
+        <div class="weui-cell weui-cell_select weui-cell_select-after">
+            <div class="weui-cell__hd">
+                <label class="weui-label">性别</label>
+            </div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" name="sex" dir="rtl">
+                    <option value="1" <eq name="info.sex" value="1">selected</eq>>男</option>
+                    <option value="2" <eq name="info.sex" value="2">selected</eq>>女</option>
+                </select>
+            </div>
+        </div>
+        <!--div class="weui-cell weui-cell_access">
+            <div class="weui-cell__hd">出生年月</div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="number" name="myear" pattern="[0-9]*"  value="{$info.myear}" placeholder="请输入">
+            </div>
+            <div class="weui-cell__ft"></div>
+    </div-->
+
+    </div>
+</form>
+
+<div class="weui-btn-area">
+    <a class="weui-btn weui-btn_primary" href="javascript:doOption();">保存</a>
+</div>
+
+<script>
+
+    function doOption() {
+        var temp = $("form").serializeArray();
+        var data = objToArray(temp);
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Users/idauth_op')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+
+</script>

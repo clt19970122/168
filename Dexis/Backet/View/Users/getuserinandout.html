@@ -1,0 +1,221 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        用户出货统计
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li class="active">出货统计</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+    <div class="contentpanel">
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                    <div class="panel panel-success panel-stat">
+                        <div class="panel-heading">
+
+                            <div class="stat">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <img src="__PUBLIC__/backet/images/is-document.png" alt="">
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <small class="stat-label">总销售量</small>
+                                        <h1>{$all_out}</h1>
+                                    </div>
+                                </div><!-- row -->
+                            </div><!-- stat -->
+                        </div><!-- panel-heading -->
+                    </div><!-- panel -->
+                </div><!-- col-sm-6 -->
+        </div>
+
+    </div>
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+            <div class="panel-btns">
+                <!--a href="" class="panel-close">&times;</a-->
+                <!--a href="" class="minimize">&minus;</a-->
+            </div><!-- panel-btns -->
+            <!--h3 class="panel-title">
+                会员列表
+                <a href="{:U('Goods/orderexport','model=account&type='.$type)}" class="btn btn-primary btn-xs pull-right" target="_blank">导出</a>
+            </h3-->
+        </div>
+        <div class="panel-body">
+            <form action="{:U('Users/getUserInAndOut')}" class="form-inline mb15" role="form">
+                <div class="form-group">
+                    <select name="level"  id="level" class="form-control input-sm">
+                        <option value="">会员等级</option>
+                        <volist name='level' id='v'>
+                            <option value="{$v.id}" <?php if($v['id']==$setlevel) echo "selected";?>>{$v.name}</option>
+                        </volist>
+                    </select>
+                </div>
+                <!--<div class="form-group">
+                    <select name="time"  id="time" class="form-control input-sm">
+                        <option value="">选择时间</option>
+                        <option value="1day" <?php if($settime=='1day') echo "selected='selected'";?>>一天内</option>
+                        <option value="1week" <?php if($settime=='1week') echo "selected='selected'";?>>这周内</option>
+                        <option value="1month" <?php if($settime=='1month') echo "selected='selected'";?>>这月内</option>
+                        <option value="2month" <?php if($settime=='2month') echo "selected='selected'";?>>上月</option>
+                    </select>
+                </div>-->
+
+                <div class="form-group">
+                    <input type="text" name='start' class="form-control input-sm" id="single_start" value='{$get.start}' placeholder="请选择上架开始时间"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='ends' class="form-control input-sm" id="single_end" value='{$get.ends}' placeholder="请选择上架结束时间"/>
+                </div>
+                <input type="hidden" name="id" id="ids" value="{$id}">
+                <button type="submit" class="btn btn-default btn-sm">搜索</button>
+
+                <div class="btn btn-default btn-sm" id="doExcel" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出数据</div>
+            </form>
+            <div class="table-responsive">
+                <table class="table table-striped" id="datatables">
+                    <thead>
+                    <tr>
+                        <th width="5%">排序</th>
+                        <th width="10%">昵称</th>
+                        <th width="10%">名字</th>
+                        <th width="10%">等级</th>
+                        <th width="10%">进货数量</th>
+                        <th width="5%">出货数量</th>
+                        <th width="5%">总进货量</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <volist name="data" id="v">
+                        <tr>
+                            <td><a href="javascript:getinfo('{$v.sn}');">{$v.id}</a></td>
+                            <td>{$v.nickname}</td>
+                            <td>{$v.name}</td>
+                            <td>{$v.level|getUserLevel}</td>
+                            <td>{$v.innums}</td>
+                            <td >{$v.outnums}</td>
+                            <td >{$v.totalpoints}</td>
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+            </div>
+            {$list.show}
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    laydate.render({elem: '#single_start'});
+    laydate.render({elem: '#single_end'});
+
+    function dels(id) {
+        if (!confirm("确定要删除吗？")) {
+            return;
+        }
+        var configURL = "{:U('Core/dels', 'model=account')}";
+        var data = {id: id};
+        ajaxRt(configURL, data);
+    }
+
+    function onChange(id, st) {
+        var configURL = "{:U('Users/accStatus')}";
+        var data = {ids: id, status: st};
+        ajaxRt(configURL, data);
+    }
+
+    function showList(id){
+        var url = "{:U('users/getList')}?id="+id;
+        window.location.href=url;
+    }
+
+    function getinfo(sn) {
+        var id= $("#ids").val();
+        $.ajax({
+            url: "{:U('goods/getOrdersInfo')}",
+            type: 'get',
+            data: {sn:sn,id:id},
+            dataType: "json",
+            success: function (res) {
+
+                // hidePreLoading();
+                if(res.status) {
+                    var html='';
+                    /*html += "<div class='modal-dialog modal-lg' role='document'>"+
+                        "<div class='modal-content tx-size-sm'>"+
+                        "<div class='modal-header pd-x-20' id='popup_header'>"+
+                        "<h6 class='tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold'>订单详情</h6>"+
+                        "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>"+
+                        "<span aria-hidden='true'>&times;</span>"+
+                    "</button>"+
+                    "</div>"+
+                    "<div class='modal-body pd-20' id='popup_body'>"+
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>订单类型：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>11：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>进货人：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>数量：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>金额：</div>"+
+                        "</div>"+
+                    "<div class='modal-footer'>"+
+                    "<button type='button' class='btn btn-primary tx-size-xs' data-dismiss='modal'>确认</button>"+
+                        "</div>"+
+                        "</div>"+
+                        "</div>";*/
+                    html +=
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>订单类型：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>11：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>进货人：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>数量：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>金额：</div>";
+
+                    $("#modaldemo3").html(html)
+                }
+            }
+        });
+    }
+</script>
+
+
+<script>
+    $("#doExcel").on('click',function(){
+        var username =$('#username').val();
+        var sn =$('#sn').val();
+        var tjid =$('#tjid').val();
+        var phone =$('#phone').val();
+        var start =$('#single_start').val();
+        var ends =$('#single_end').val();
+        var status =$('#sssss').val();
+        var type =$('#type').val();
+        var  gid=$('#gid').val();
+        var  paytype=$('#payway').val();
+        var buy_level =$('#level').val();
+        
+            layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+                var data = {pwd: pass};
+                $.ajax({
+                    url: "{:U('Users/exportPermission')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        if (res.status !== 1) {
+                            return layer.msg(res.msg);
+                        }else {
+                            window.location.href="{:U('Backet/Doexc/doExcel_out')}?start="+start+"&ends="+ends+'&buy_level='+buy_level;
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+        
+        //window.location.href="{:U('Backet/Doexc/doExcel_out')}?start="+start+"&ends="+ends+'&buy_level='+buy_level;
+    });
+</script>
+

@@ -1,0 +1,221 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        进销存列表->添加采购
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li class="active">添加采购</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">列表list</h3>
+            <p>
+                <a href="{:U('sale/stockAndSale')}" class="btn btn-xs btn-info">添加进货记录</a>
+                <span>tag:公司进货是从仓库入,库存总量不会增加</span>
+            </p>
+           <!-- <form action="{:U('sale/salelist','p='.$page)}" class="form-inline mb15" role="form">
+                <div class="form-group">
+                    <select name="gid" id="gid" class="form-control input-sm">
+                        <volist name="goods" id="vo">
+                            <option value="{$vo.id}"<if condition="$vo['id'] eq $get['gid']">selected="selected"</if> >{$vo.name}</option>
+                        </volist>
+                    </select>
+
+                    <button type="submit" class="btn btn-default btn-sm">搜索</button>
+                </div>
+            </form>
+            <p>
+                <a href="{:U('sale/addOutCode')}" class="btn btn-xs btn-info">增加出货记录</a>
+            </p>-->
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <!--进货量-->
+                <div class="col-sm-6 col-md-3" id="inNums">
+                    <div class="panel panel-success panel-stat">
+                        <div class="panel-heading">
+                            <div class="stat">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <img src="__PUBLIC__/backet/images/is-document.png" alt="">
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <small class="stat-label">进货量</small>
+                                        <h1>{$data_info.all_in}</h1>
+                                    </div>
+                                </div><!-- row -->
+                            </div><!-- stat -->
+                        </div><!-- panel-heading -->
+                    </div><!-- panel -->
+                </div><!-- col-sm-6 -->
+                <!--出货量-->
+                <!--<div class="col-sm-6 col-md-3" id="outNums">
+                    <div class="panel panel-danger panel-stat">
+                        <div class="panel-heading">
+                            <div class="stat">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <img src="__PUBLIC__/backet/images/is-document.png" alt="">
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <small class="stat-label">出货量</small>
+                                        <h1>{$data_info.all_sale}</h1>
+                                    </div>
+                                </div>&lt;!&ndash; row &ndash;&gt;
+                            </div>&lt;!&ndash; stat &ndash;&gt;
+                        </div>&lt;!&ndash; panel-heading &ndash;&gt;
+                    </div>&lt;!&ndash; panel &ndash;&gt;
+                </div>--><!-- col-sm-6 -->
+                <!--剩余库存-->
+                <div class="col-sm-6 col-md-3">
+                    <div class="panel panel-primary panel-stat">
+                        <div class="panel-heading">
+                            <div class="stat">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <img src="__PUBLIC__/backet/images/is-document.png" alt="">
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <small class="stat-label">剩余库存</small>
+                                        <h1>{$data_info.all_save}</h1>
+                                    </div>
+                                </div><!-- row -->
+                            </div><!-- stat -->
+                        </div><!-- panel-heading -->
+                    </div><!-- panel -->
+                </div><!-- col-sm-6 -->
+
+            </div>
+
+            <form action="{:U('sale/salelist','type='.$get['type'])}" class="form-inline mb15" role="form">
+                <!--<div class="form-group">
+                    <input type="text" name='sn' id="sn" class="form-control input-sm" value="{$sn}" placeholder="请输入订单编号"/>
+                </div>-->
+                <input type="hidden" value="{$get.type}" id="type" name="type">
+                <!--选择产品-->
+                <select name="gid" id="gid" class="form-control input-sm">
+                    <volist name="goods" id="vo">
+                        <option value="{$vo.id}"<if condition="$vo['id'] eq $get['gid']">selected="selected"</if> >{$vo.name}</option>
+                    </volist>
+                </select>
+
+                <!--选择变动类型-->
+                <div class="form-group">
+                    <select name="where" id="where" class="form-control">
+                        <option value="" <if condition="$get['where'] eq null">selected</if>>入库地址</option>
+                        <option value="0" <if condition="$get['where'] eq 0">selected</if> >公司</option>
+                        <option value="1" <if condition="$get['where'] eq 1">selected</if>>仓库</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='start' class="form-control input-sm" value="{$get.start}" id="single_start" placeholder="请选择开始时间"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='ends' class="form-control input-sm" value="{$get.ends}" id="single_end" placeholder="请选择结束时间"/>
+                </div>
+                <button type="submit" class="btn btn-default btn-sm">搜索</button>
+
+                <div class="btn btn-default btn-sm" id="doExcel" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出数据</div>
+            </form>
+            <div class="table-responsive">
+                <table class="table table-bordered" id="datatables">
+                    <thead>
+                    <tr>
+                        <th width="5%">系统序号</th>
+                        <th width="">产品</th>
+                        <th width="">购进方式</th>
+                        <th width="">购进数量</th>
+                        <th width="">变动类型</th>
+                        <th width="">剩余库存</th>
+                        <th width="">添加时间</th>
+                        <th width="">备注</th>
+                        <th width="">供应商</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <volist name='list.list' id='v'>
+                        <tr>
+                            <td>{$v.id}</td>
+                            <td>{$v.name}</td>
+                            <td>{$v.inOrOut}</td>
+                            <if condition="$v['type'] eq 1">
+                                <td style="color: red">-{$v.nums}</td>
+                                <else/>
+                                <td style="color: blue">+{$v.nums}</td>
+                            </if>
+                            <td >{$v.inwhere}</td>
+                            <td>{$v.rest_save}</td>
+                            <td>{$v.time}</td>
+                            <td>{$v.remake}</td>
+                            <td>{$v.supplier}</td>
+                            <!--<td>
+                                <a href="{:U('Conte/quesedits','id='.$v['id'])}" class='btn btn-xs btn-info'>修改</a>
+                                <a href="javascript:dels('{$v.id}');" class='btn btn-xs btn-danger'>删除</a>
+                            </td>-->
+                        </tr>
+                    </volist>
+
+                    </tbody>
+                </table>
+            </div>
+            {$list.show}
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    laydate.render({elem: '#single_start'});
+    laydate.render({elem: '#single_end'});
+
+    function dels(id) {
+        if (!confirm("确定要删除吗？")) {
+            return;
+        }
+        var configURL = "{:U('Core/dels', 'model=question')}";
+        var data = {id: id};
+        //
+        $.ajax({
+            url: configURL, type: "post", dataType: 'json', data: data,
+            success: function (data) {
+                if (data.status !== 1) {
+                    alert(data.msg);
+                    return false;
+                }
+                window.location.reload();
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+        return false;
+    }
+
+    $('#inNums').on('click',function () {
+        window.location.href="{:U('sale/salelist',array('type'=>2))}";
+    });
+    $('#outNums').on('click',function () {
+        window.location.href="{:U('sale/salelist',array('type'=>1))}";
+    })
+
+</script>
+
+<script>
+    $("#doExcel").on('click',function(){
+        var start =$('#single_start').val();
+        var ends =$('#single_end').val();
+        var goods =$('#gid').val();
+        var where =$('#where').val();
+        var type =$('#type').val();
+        window.location.href="{:U('Backet/Doexc/doexcel_saleList')}?start="+start+"&ends="+ends+'&gid='+goods+'&where='+where+'&type='+type;
+    });
+</script>

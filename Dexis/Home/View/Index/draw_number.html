@@ -1,0 +1,57 @@
+<style>
+    html,body{
+        background: #fff;
+    }
+</style>
+<div class="draw-way m32">
+    <div class="draw-reach">提现到</div>
+    <div class="wechat-account"><i class="iconfont">&#xe61e;</i>微信零钱</div>
+</div>
+<div class="draw-money-number">
+    <p>提现金额</p>
+    <span>￥{$user.money}</span>
+</div>
+
+
+
+<div class="msg-info-container m32">
+    <div class="msg-info-tips">
+        <p><i>1</i>您当前可提现总金额为￥{$user.money},其中￥{$frozen_money}为0元计划收入￥{$user.money}为现金收入。</p>
+        <p><i>2</i>0元计划产生的收入到账日期为提交提现日期的7天后。</p>
+        <p><i>3</i>现金产生的收入到账日期为提交提现日期的3天后。</p>
+    </div>
+
+</div>
+<div class="m32">
+    <a href='javascript:onDraw();' class="default-btn blue mt2">立即提现</a>
+</div>
+
+
+
+<script>
+    function onDraw() {
+        var bank = {$bank};
+        if (bank.length <= 0) {
+            return alert_wec("请绑定银行卡后在进行提现");
+        }
+        console.log(bank);
+        weui.picker({$bank}, {
+            onConfirm: function (result) {
+                var data = {bank: result[0]};
+                showPreLoading();
+                $.ajax({
+                    url: "{:U('Index/money_draw')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        hidePreLoading();
+                        if (res.status !== 1) {
+                            return alert_wec(res.msg);
+                        }
+                        window.location.href = res.data;
+                    }
+                });
+            }
+        });
+    }
+
+</script>

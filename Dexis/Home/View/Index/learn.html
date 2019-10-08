@@ -1,0 +1,53 @@
+<!--div class="index-learn">
+
+    <volist name="list" id="v">
+        <a href="{:U('Index/learn_infos','id='.$v['id'])}" class="index-learn_item">
+            <div class="box">
+                <label class="quns">问</label>
+                <div class="content quns">{$v.title}</div>
+            </div>
+            <div class="box">
+                <label class="answ">答</label>
+                <div class="content answ">{$v.descs}</div>
+            </div>
+        </a>
+    </volist>
+
+</div-->
+<div class="weui-search-bar" id="searchBar">
+    <form action="{:U('Index/learn','type='.$get['type'])}" class="weui-search-bar__form" method="get">
+        <div class="weui-search-bar__box">
+            <i class="weui-icon-search"></i>
+            <input type="search" name="keys" class="weui-search-bar__input" placeholder="输入关键字">
+        </div>
+    </form>
+</div>
+
+<div class="index-learn_type">
+    <ul>
+        <volist name='cat' id='v'>
+            <li>
+                <a href="{:U('Index/learn','type='.$v['id'])}" class="weui-btn <if condition='$v[id] eq $get[type]'>active</if>">{$v.name}</a>
+            </li>
+        </volist>
+    </ul>
+</div>
+
+<div class="index-learn">
+
+    <volist name="list" id="v">
+        <a href="{:U('Index/learn_infos','id='.$v['id'])}" class="index-learn_item">
+            <div class="box">
+                <label class="quns">
+                    <img src="__PUBLIC__/home/imgs/index_learn.png"/>
+                </label>
+                <div class="content quns">{$v.title}</div>
+            </div>
+            <div class="box">
+                <!--label class="answ">答</label-->
+                <div class="content answ">{$v.descs}</div>
+            </div>
+        </a>
+    </volist>
+
+</div>

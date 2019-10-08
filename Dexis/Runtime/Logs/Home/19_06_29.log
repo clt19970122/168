@@ -1,0 +1,1445 @@
+[ 2019-06-29T23:08:10+08:00 ] 183.3.255.35 /Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000286s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000444s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0008s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `sysconfig` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `sysconfig` WHERE ( type in ('draw','base') )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `sysads` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `goods` WHERE `ind` = 1 AND `status` = 1  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `goods_level` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `goods` WHERE `gsn` = '415244730815416283' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `goods` WHERE `gsn` = '815526127943355165' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `sysads` WHERE `models` = 'index_banner' AND `status` = 1 ORDER BY id desc  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `sysads` WHERE `models` = 'index_middle' AND `status` = 1 ORDER BY id desc  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `order_sr` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `order_sr` WHERE `status` = 5 LIMIT 10   [ RunTime:0.0740s ]
+SQL: SHOW COLUMNS FROM `school` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `school` WHERE `type` = 1  [ RunTime:0.0005s ]
+SQL: SELECT * FROM `school` ORDER BY times desc LIMIT 6   [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `account` WHERE `recid` = '15bec13accbe88' LIMIT 1   [ RunTime:0.0620s ]
+SQL: SELECT SUM(teams) AS tp_sum FROM `account` WHERE `recid` = '15bec13accbe88' LIMIT 1   [ RunTime:0.0662s ]
+SQL: UPDATE `account` SET `teams`='0' WHERE `sysid` = '15bec13accbe88' [ RunTime:0.1987s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000128s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000184s ]
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 35 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 36 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 37 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 38 行.
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 213 行.
+SQL: SHOW COLUMNS FROM `goods_img` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '415244730815416283' ORDER BY id asc LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 227 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '415244730815416283' ORDER BY id asc LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 227 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '815526127943355165' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 274 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '415244730815416283' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 274 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '815526127943355165' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 313 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022508s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022553s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000129s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000164s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000408s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000466s ]
+
+[ 2019-06-29T23:08:10+08:00 ] 157.255.172.17 /Home/index/getTeamNums.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000203s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000268s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000299s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `sysconfig` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `sysconfig` WHERE ( type in ('draw','base') )  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `acc_contect` [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `acc_contect` WHERE `ancestor_id` = 15 LIMIT 1   [ RunTime:0.8237s ]
+SQL: SELECT `teams` FROM `account` WHERE `id` = 15 LIMIT 1   [ RunTime:0.0001s ]
+
+[ 2019-06-29T23:08:12+08:00 ] 157.255.172.14 /Home/Wcix/share/sysid/15bec13accbe88.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000303s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `wcticket` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `wcticket` WHERE `times` > 1561814492 ORDER BY id desc LIMIT 1   [ RunTime:0.0003s ]
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000084s ]
+NOTIC: [8] Undefined variable: name /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 72 行.
+NOTIC: [8] Undefined variable: weburl /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 81 行.
+NOTIC: [8] Undefined variable: id /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 81 行.
+NOTIC: [8] Undefined variable: weburl /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 82 行.
+NOTIC: [8] Undefined variable: name /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 93 行.
+NOTIC: [8] Undefined variable: weburl /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 94 行.
+NOTIC: [8] Undefined variable: id /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 94 行.
+NOTIC: [8] Undefined variable: weburl /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 95 行.
+NOTIC: [8] Undefined variable: weburl /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 113 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003924s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003950s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000079s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000100s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000288s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000322s ]
+
+[ 2019-06-29T23:08:24+08:00 ] 183.3.255.35 /Home/Malls/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000204s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000299s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `goods` WHERE `ind` = 1 AND `status` = 1  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `goods_level` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `goods` WHERE `gsn` = '415244730815416283' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `goods` WHERE `gsn` = '815526127943355165' LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `goods` WHERE `status` = 1 AND `catid` = 4  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `goods` WHERE `gsn` = '915360537990536142' LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `goods` WHERE `gsn` = '515382251920431381' LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `goods` WHERE `gsn` = '815526127943355165' LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000063s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000094s ]
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/93c07bcf9da1987a7d87caf32717d045.php 第 35 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/93c07bcf9da1987a7d87caf32717d045.php 第 36 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/93c07bcf9da1987a7d87caf32717d045.php 第 37 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/93c07bcf9da1987a7d87caf32717d045.php 第 38 行.
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/93c07bcf9da1987a7d87caf32717d045.php 第 74 行.
+SQL: SHOW COLUMNS FROM `goods_img` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '415244730815416283' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/93c07bcf9da1987a7d87caf32717d045.php 第 74 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '815526127943355165' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/93c07bcf9da1987a7d87caf32717d045.php 第 90 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '815526127943355165' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/93c07bcf9da1987a7d87caf32717d045.php 第 105 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '915360537990536142' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/93c07bcf9da1987a7d87caf32717d045.php 第 105 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '515382251920431381' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/93c07bcf9da1987a7d87caf32717d045.php 第 120 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '515382251920431381' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010547s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010574s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000093s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000113s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000295s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000326s ]
+
+[ 2019-06-29T23:08:47+08:00 ] 183.3.255.35 /Home/Wcix/share/sysid/15bec13accbe88.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000199s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000298s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `wcticket` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `wcticket` WHERE `times` > 1561814527 ORDER BY id desc LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000037s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000067s ]
+NOTIC: [8] Undefined variable: name /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 72 行.
+NOTIC: [8] Undefined variable: weburl /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 81 行.
+NOTIC: [8] Undefined variable: id /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 81 行.
+NOTIC: [8] Undefined variable: weburl /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 82 行.
+NOTIC: [8] Undefined variable: name /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 93 行.
+NOTIC: [8] Undefined variable: weburl /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 94 行.
+NOTIC: [8] Undefined variable: id /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 94 行.
+NOTIC: [8] Undefined variable: weburl /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 95 行.
+NOTIC: [8] Undefined variable: weburl /www/web/168/Dexis/Runtime/Cache/Home/c9c04aae43f3867dd27b16e4ad431f6a.php 第 113 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003934s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003960s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000081s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000101s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000282s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000306s ]
+
+[ 2019-06-29T23:08:50+08:00 ] 183.3.255.35 /Home/Order/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000203s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000252s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000295s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `orders` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `acc_nums` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `orders` WHERE `uid` = 4967 AND `is_add` = 0 ORDER BY id desc LIMIT 0,10   [ RunTime:0.0108s ]
+SQL: SELECT * FROM `orders` WHERE `uid` = 4967 AND `is_add` = 0 ORDER BY id desc LIMIT 10,10   [ RunTime:0.0080s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000070s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000110s ]
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/a97b7c8967a153a243abbfbe4e5d7f77.php 第 35 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/a97b7c8967a153a243abbfbe4e5d7f77.php 第 36 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/a97b7c8967a153a243abbfbe4e5d7f77.php 第 37 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/a97b7c8967a153a243abbfbe4e5d7f77.php 第 38 行.
+NOTIC: [8] Undefined variable: v /www/web/168/Dexis/Runtime/Cache/Home/a97b7c8967a153a243abbfbe4e5d7f77.php 第 199 行.
+NOTIC: [8] Undefined variable: v /www/web/168/Dexis/Runtime/Cache/Home/a97b7c8967a153a243abbfbe4e5d7f77.php 第 223 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009939s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009969s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000082s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000103s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000271s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000302s ]
+
+[ 2019-06-29T23:09:00+08:00 ] 183.3.255.35 /Home/Users/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000203s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000304s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `acc_level` [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `orders` [ RunTime:0.0004s ]
+SQL: SELECT SUM(gnums) AS tp_sum FROM `orders` WHERE `uid` = 4967 AND `status` = 1 LIMIT 1   [ RunTime:0.0026s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `sysid` = '15be53f04b6656' LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `acc_level` WHERE `id` > '0' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `acc_nums` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `acc_money` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4967' AND `models` = 'REBACK'  [ RunTime:0.0168s ]
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 1638 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 1638 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000118s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000152s ]
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/7d19ed9694df53e8bfe2525d43aa4f65.php 第 35 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/7d19ed9694df53e8bfe2525d43aa4f65.php 第 36 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/7d19ed9694df53e8bfe2525d43aa4f65.php 第 37 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/7d19ed9694df53e8bfe2525d43aa4f65.php 第 38 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/7d19ed9694df53e8bfe2525d43aa4f65.php 第 80 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/7d19ed9694df53e8bfe2525d43aa4f65.php 第 87 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: team /www/web/168/Dexis/Runtime/Cache/Home/7d19ed9694df53e8bfe2525d43aa4f65.php 第 131 行.
+NOTIC: [8] Undefined variable: tuser /www/web/168/Dexis/Runtime/Cache/Home/7d19ed9694df53e8bfe2525d43aa4f65.php 第 161 行.
+NOTIC: [8] Undefined variable: tuser /www/web/168/Dexis/Runtime/Cache/Home/7d19ed9694df53e8bfe2525d43aa4f65.php 第 161 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009831s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009858s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000092s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000114s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000300s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000332s ]
+
+[ 2019-06-29T23:09:01+08:00 ] 183.3.255.35 /Home/index/getTeamNums.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000200s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000247s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000278s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `sysconfig` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `sysconfig` WHERE ( type in ('draw','base') )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `acc_contect` [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `acc_contect` WHERE `ancestor_id` = 4967 LIMIT 1   [ RunTime:0.6226s ]
+SQL: SELECT `teams` FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2019-06-29T23:09:04+08:00 ] 183.3.255.28 /Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000251s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000282s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `sysconfig` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `sysconfig` WHERE ( type in ('draw','base') )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `sysads` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `goods` WHERE `ind` = 1 AND `status` = 1  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `goods_level` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `goods` WHERE `gsn` = '415244730815416283' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `goods_level` WHERE `gsn` = '415244730815416283' AND `lid` = 6 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `goods` WHERE `gsn` = '815526127943355165' LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `goods_level` WHERE `gsn` = '815526127943355165' AND `lid` = 6 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `sysads` WHERE `models` = 'index_banner' AND `status` = 1 ORDER BY id desc  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `sysads` WHERE `models` = 'index_middle' AND `status` = 1 ORDER BY id desc  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `order_sr` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `order_sr` WHERE `status` = 5 LIMIT 10   [ RunTime:0.0538s ]
+SQL: SHOW COLUMNS FROM `school` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `school` WHERE `type` = 1  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `school` ORDER BY times desc LIMIT 6   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `account` WHERE `recid` = '15be53f04b6656' LIMIT 1   [ RunTime:0.0318s ]
+SQL: SELECT SUM(teams) AS tp_sum FROM `account` WHERE `recid` = '15be53f04b6656' LIMIT 1   [ RunTime:0.0335s ]
+SQL: UPDATE `account` SET `teams`='511' WHERE `sysid` = '15be53f04b6656' [ RunTime:0.1136s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000095s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000137s ]
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 35 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 36 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 37 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 38 行.
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 213 行.
+SQL: SHOW COLUMNS FROM `goods_img` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '415244730815416283' ORDER BY id asc LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 227 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '415244730815416283' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 227 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '815526127943355165' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 274 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '415244730815416283' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 274 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '815526127943355165' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 313 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014250s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014281s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000117s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000140s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000311s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000351s ]
+
+[ 2019-06-29T23:09:06+08:00 ] 183.3.255.28 /Home/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000200s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000260s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000304s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0003s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `openid` = 'oJQO41XF5IchCpqtIjuIaaByrn9A' LIMIT 1   [ RunTime:0.0045s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000043s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000084s ]
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/3d0b3f2fc67f9edb61b802a6f90e73d2.php 第 34 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/3d0b3f2fc67f9edb61b802a6f90e73d2.php 第 35 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/3d0b3f2fc67f9edb61b802a6f90e73d2.php 第 36 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/3d0b3f2fc67f9edb61b802a6f90e73d2.php 第 37 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004027s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004055s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000081s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000102s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000296s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000324s ]
+
+[ 2019-06-29T23:09:10+08:00 ] 183.3.255.28 /Home/Login/logWechat.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000222s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000246s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000276s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `login_information` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `account` WHERE `openid` = 'oJQO41XF5IchCpqtIjuIaaByrn9A' LIMIT 1   [ RunTime:0.0045s ]
+SQL: INSERT INTO `login_information` (`sysid`,`live`,`ip`,`region`,`city`,`area`,`time`) VALUES ('15be53f04b6656','6','101.206.171.129','四川','成都','','1561820950') [ RunTime:0.0027s ]
+SQL: SHOW COLUMNS FROM `acc_idauth` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0001s ]
+
+[ 2019-06-29T23:09:11+08:00 ] 157.255.172.17 /Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000204s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000267s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000299s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `sysconfig` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `sysconfig` WHERE ( type in ('draw','base') )  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `goods` [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `sysads` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `goods` WHERE `ind` = 1 AND `status` = 1  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `goods_level` [ RunTime:0.0003s ]
+SQL: SELECT * FROM `goods` WHERE `gsn` = '415244730815416283' LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `goods_level` WHERE `gsn` = '415244730815416283' AND `lid` = 6 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `goods` WHERE `gsn` = '815526127943355165' LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `goods_level` WHERE `gsn` = '815526127943355165' AND `lid` = 6 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `sysads` WHERE `models` = 'index_banner' AND `status` = 1 ORDER BY id desc  [ RunTime:0.0001s ]
+SQL: SELECT * FROM `sysads` WHERE `models` = 'index_middle' AND `status` = 1 ORDER BY id desc  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `order_sr` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `order_sr` WHERE `status` = 5 LIMIT 10   [ RunTime:0.0404s ]
+SQL: SHOW COLUMNS FROM `school` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `school` WHERE `type` = 1  [ RunTime:0.0003s ]
+SQL: SELECT * FROM `school` ORDER BY times desc LIMIT 6   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `account` WHERE `recid` = '15be53f04b6656' LIMIT 1   [ RunTime:0.0315s ]
+SQL: SELECT SUM(teams) AS tp_sum FROM `account` WHERE `recid` = '15be53f04b6656' LIMIT 1   [ RunTime:0.0335s ]
+SQL: UPDATE `account` SET `teams`='511' WHERE `sysid` = '15be53f04b6656' [ RunTime:0.1107s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000094s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000132s ]
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 35 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 36 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 37 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 38 行.
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 213 行.
+SQL: SHOW COLUMNS FROM `goods_img` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '415244730815416283' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 227 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '415244730815416283' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 227 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '815526127943355165' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 274 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '415244730815416283' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: img /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 274 行.
+SQL: SELECT * FROM `goods_img` WHERE `gsn` = '815526127943355165' ORDER BY id asc LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Home/87136953e1dc4c41d89791c69ab63310.php 第 313 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013984s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014014s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000095s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000117s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000315s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000353s ]
+
+[ 2019-06-29T23:09:19+08:00 ] 183.3.255.28 /Home/Index/rider.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000205s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000256s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000304s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `sysconfig` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `sysconfig` WHERE ( type in ('draw','base') )  [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `acc_level` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `acc_level` ORDER BY id desc  [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `sysid` = '15be53f04b6656' LIMIT 1   [ RunTime:0.0045s ]
+SQL: SELECT `level`,count(id) FROM `account` WHERE `recid` = '15be53f04b6656' GROUP BY level  [ RunTime:0.0360s ]
+SQL: SELECT * FROM `account` WHERE `times` > 1561561757 AND `recid` = '15be53f04b6656'  [ RunTime:0.1000s ]
+SQL: SELECT * FROM `account` WHERE `sysid` = '15be53f04b6656' LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `sysid` = '15bddb8b67fc77' LIMIT 1   [ RunTime:0.0039s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000075s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000111s ]
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 35 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 36 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 37 行.
+NOTIC: [8] Undefined variable: ticket /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 38 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 75 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 92 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `acc_nums` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `account` WHERE `recid` = '15be53f04b6656' AND `level` = 6  [ RunTime:0.1001s ]
+SQL: SELECT * FROM `account` WHERE `recid` = '15be53f04b6656' AND `level` = 5  [ RunTime:0.1001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 4645 AND `type` > 20 LIMIT 1   [ RunTime:0.0076s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 4645 AND `type` < 20 LIMIT 1   [ RunTime:0.0045s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4645 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `acc_money` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4645' AND `models` = 'REBACK'  [ RunTime:0.0161s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '415462178893007775' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0088s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '415462178893007775' LIMIT 1   [ RunTime:0.0019s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '915524675008517562' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0088s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '915524675008517562' LIMIT 1   [ RunTime:0.0052s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 5215 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 5215 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 5215 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '5215' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '315441445170712261' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '315441445170712261' LIMIT 1   [ RunTime:0.0015s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '615442654363515912' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '615442654363515912' LIMIT 1   [ RunTime:0.0015s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '515445171300889531' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '515445171300889531' LIMIT 1   [ RunTime:0.0016s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '315445267250482356' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '315445267250482356' LIMIT 1   [ RunTime:0.0015s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '315445272041051868' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '315445272041051868' LIMIT 1   [ RunTime:0.0015s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '615446042867963157' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '615446042867963157' LIMIT 1   [ RunTime:0.0015s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '715448727215103389' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '715448727215103389' LIMIT 1   [ RunTime:0.0016s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '215448731455272623' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0088s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '215448731455272623' LIMIT 1   [ RunTime:0.0016s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '615451077971002969' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '615451077971002969' LIMIT 1   [ RunTime:0.0017s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '215451088421481786' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0088s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '215451088421481786' LIMIT 1   [ RunTime:0.0017s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '215453191018917943' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '215453191018917943' LIMIT 1   [ RunTime:0.0017s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '115453622960573634' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0088s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '115453622960573634' LIMIT 1   [ RunTime:0.0017s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '515457029373668937' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '515457029373668937' LIMIT 1   [ RunTime:0.0018s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '515457175162438982' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '515457175162438982' LIMIT 1   [ RunTime:0.0018s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '2018A5c21242711027317' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0088s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '2018A5c21242711027317' LIMIT 1   [ RunTime:0.0018s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '315458951927228262' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '315458951927228262' LIMIT 1   [ RunTime:0.0018s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '2018A5c21282751815572' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0088s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '2018A5c21282751815572' LIMIT 1   [ RunTime:0.0019s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '2018A5c21222721816199' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0088s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '2018A5c21222721816199' LIMIT 1   [ RunTime:0.0019s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '115469167917602287' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0088s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '115469167917602287' LIMIT 1   [ RunTime:0.0021s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '2018A5c30151581810063' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0088s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '2018A5c30151581810063' LIMIT 1   [ RunTime:0.0023s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '2018A5c60221591931570' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0088s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '2018A5c60221591931570' LIMIT 1   [ RunTime:0.0028s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '615521799632617483' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '615521799632617483' LIMIT 1   [ RunTime:0.0048s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '115511502827062944' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0088s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '115511502827062944' LIMIT 1   [ RunTime:0.0050s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '315525521010947418' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '315525521010947418' LIMIT 1   [ RunTime:0.0053s ]
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 103264 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 103264 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 103264 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '103264' AND `models` = 'REBACK'  [ RunTime:0.0119s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 107677 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 107677 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 107677 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '107677' AND `models` = 'REBACK'  [ RunTime:0.0119s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `recid` = '15be53f04b6656' AND `level` = 3  [ RunTime:0.1008s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 4805 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 4805 AND `type` < 20 LIMIT 1   [ RunTime:0.0045s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4805 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4805' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 6570 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 6570 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 6570 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '6570' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '915514150043041181' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '915514150043041181' LIMIT 1   [ RunTime:0.0042s ]
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 6668 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 6668 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 6668 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '6668' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 7644 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 7644 AND `type` < 20 LIMIT 1   [ RunTime:0.0045s ]
+SQL: SELECT * FROM `account` WHERE `id` = 7644 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '7644' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 48242 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 48242 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 48242 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '48242' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 91718 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 91718 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 91718 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '91718' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 106345 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 106345 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 106345 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '106345' AND `models` = 'REBACK'  [ RunTime:0.0119s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 107094 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 107094 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 107094 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '107094' AND `models` = 'REBACK'  [ RunTime:0.0119s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 107510 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 107510 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 107510 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '107510' AND `models` = 'REBACK'  [ RunTime:0.0119s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 109655 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 109655 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 109655 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '109655' AND `models` = 'REBACK'  [ RunTime:0.0119s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 3 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `recid` = '15be53f04b6656' AND `level` = 2  [ RunTime:0.0998s ]
+SQL: SELECT * FROM `account` WHERE `recid` = '15be53f04b6656' AND `level` = 1  [ RunTime:0.0997s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 10091 AND `type` > 20 LIMIT 1   [ RunTime:0.0045s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 10091 AND `type` < 20 LIMIT 1   [ RunTime:0.0045s ]
+SQL: SELECT * FROM `account` WHERE `id` = 10091 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '10091' AND `models` = 'REBACK'  [ RunTime:0.0120s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `recid` = '15be53f04b6656' AND `level` = 0  [ RunTime:0.1054s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 4681 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 4681 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4681 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4681' AND `models` = 'REBACK'  [ RunTime:0.0118s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 4688 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 4688 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4688 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4688' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 4700 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 4700 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4700 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4700' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 4726 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 4726 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4726 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4726' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 4729 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 4729 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4729 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4729' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 4788 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 4788 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4788 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4788' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 4794 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 4794 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4794 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4794' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 4795 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 4795 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4795 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4795' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 4801 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 4801 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4801 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4801' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 4803 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 4803 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4803 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4803' AND `models` = 'REBACK'  [ RunTime:0.0116s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 4820 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 4820 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4820 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4820' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 4967 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 4967 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4967 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '4967' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 5206 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 5206 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 5206 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '5206' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 6191 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 6191 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 6191 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '6191' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 6312 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 6312 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 6312 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '6312' AND `models` = 'REBACK'  [ RunTime:0.0116s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 6332 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 6332 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 6332 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '6332' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 6333 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 6333 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 6333 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '6333' AND `models` = 'REBACK'  [ RunTime:0.0116s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 6335 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 6335 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 6335 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '6335' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 6338 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 6338 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 6338 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '6338' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 6340 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 6340 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 6340 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '6340' AND `models` = 'REBACK'  [ RunTime:0.0116s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 6354 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 6354 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 6354 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '6354' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 6817 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 6817 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 6817 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '6817' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 7726 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 7726 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 7726 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '7726' AND `models` = 'REBACK'  [ RunTime:0.0116s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 8040 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 8040 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 8040 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '8040' AND `models` = 'REBACK'  [ RunTime:0.0116s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 9002 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 9002 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 9002 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '9002' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 9094 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 9094 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 9094 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '9094' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 9113 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 9113 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 9113 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '9113' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 9663 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 9663 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 9663 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '9663' AND `models` = 'REBACK'  [ RunTime:0.0118s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 9678 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 9678 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 9678 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '9678' AND `models` = 'REBACK'  [ RunTime:0.0118s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 9830 AND `type` > 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 9830 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 9830 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '9830' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 9940 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 9940 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 9940 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '9940' AND `models` = 'REBACK'  [ RunTime:0.0118s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 10111 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 10111 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 10111 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '10111' AND `models` = 'REBACK'  [ RunTime:0.0118s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 10397 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 10397 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 10397 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '10397' AND `models` = 'REBACK'  [ RunTime:0.0119s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 22666 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 22666 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 22666 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '22666' AND `models` = 'REBACK'  [ RunTime:0.0117s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 102507 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 102507 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 102507 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '102507' AND `models` = 'REBACK'  [ RunTime:0.0119s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 104278 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 104278 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 104278 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '104278' AND `models` = 'REBACK'  [ RunTime:0.0118s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 104306 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 104306 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 104306 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '104306' AND `models` = 'REBACK'  [ RunTime:0.0118s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 106600 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 106600 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 106600 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '106600' AND `models` = 'REBACK'  [ RunTime:0.0118s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 108359 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 108359 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 108359 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '108359' AND `models` = 'REBACK'  [ RunTime:0.0118s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 109000 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 109000 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 109000 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '109000' AND `models` = 'REBACK'  [ RunTime:0.0119s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 109001 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 109001 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 109001 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '109001' AND `models` = 'REBACK'  [ RunTime:0.0119s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 109667 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 109667 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 109667 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '109667' AND `models` = 'REBACK'  [ RunTime:0.0119s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 109879 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 109879 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 109879 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '109879' AND `models` = 'REBACK'  [ RunTime:0.0119s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 109896 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 109896 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 109896 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '109896' AND `models` = 'REBACK'  [ RunTime:0.0121s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 110014 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 110014 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 110014 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '110014' AND `models` = 'REBACK'  [ RunTime:0.0118s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 110605 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 110605 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 110605 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '110605' AND `models` = 'REBACK'  [ RunTime:0.0118s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 110654 AND `type` > 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 110654 AND `type` < 20 LIMIT 1   [ RunTime:0.0043s ]
+SQL: SELECT * FROM `account` WHERE `id` = 110654 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '110654' AND `models` = 'REBACK'  [ RunTime:0.0118s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [8] Undefined variable: salemoney /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 952 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: count_child /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 162 行.
+NOTIC: [8] Undefined variable: level /www/web/168/Dexis/Runtime/Cache/Home/4ff532dd8b8d4c47425c2b8dd51afa65.php 第 201 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:2.275467s ]
+INFO: [ view_parse ] --END-- [ RunTime:2.275501s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000169s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000193s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000472s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000516s ]
+
+[ 2019-06-29T23:09:21+08:00 ] 157.255.172.17 /Home/index/getTeamNums.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000280s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0007s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 4522 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `sysconfig` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `sysconfig` WHERE ( type in ('draw','base') )  [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `acc_contect` [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `acc_contect` WHERE `ancestor_id` = 15 LIMIT 1   [ RunTime:0.6116s ]
+SQL: SELECT `teams` FROM `account` WHERE `id` = 15 LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2019-06-29T23:30:47+08:00 ] 42.156.254.59 /Home/Wcix/share.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000205s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000274s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000307s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `wcticket` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `wcticket` WHERE `times` > 1561815846 ORDER BY id desc LIMIT 1   [ RunTime:0.0052s ]
+SQL: SHOW COLUMNS FROM `wctoken` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `wctoken` WHERE `times` > 1561815846 ORDER BY id desc LIMIT 1   [ RunTime:0.0060s ]
+SQL: INSERT INTO `wctoken` (`access_token`,`expires_in`,`times`) VALUES ('23_JcAChiRJIwZw95dBwkPDqaU3tPGrW_rfWKa5oIkMoPTEspC8OwMZGHWa_cbj5x7-7xBPeZsbY1uir4Wlkrugye0P1L6jj6NLeeBEFlZAIKi1rRj8phJ7LtHIiq7pmqpEz0LBXq0KJN1x26VOBOQfAEAJWY','7200','1561822247') [ RunTime:0.0027s ]
+SQL: INSERT INTO `wcticket` (`ticket`,`expires_in`,`times`) VALUES ('HoagFKDcsGMVCIY2vOjf9pqqiCttQrCOE1wAEF1wBiJ31zZ6nNk_qrDYKVRX3OereJaYGUtYIIFd3Ge_QuOpsg','7200','1561822247') [ RunTime:0.0021s ]
+
+[ 2019-06-29T23:30:47+08:00 ] 42.156.254.55 /Home/Wcix/getInfos.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000200s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000254s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000287s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `wcticket` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `wcticket` WHERE `times` > 1561815847 ORDER BY id desc LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2019-06-29T23:38:29+08:00 ] 140.207.54.76 /Home/Wcix/respay.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000205s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000299s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `wcticket` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `wcticket` WHERE `times` > 1561816309 ORDER BY id desc LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `sysconfig` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `sysconfig` WHERE `models` = 'CONF_VISITER' LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `wcpaylog` [ RunTime:0.0004s ]
+SQL: INSERT INTO `wcpaylog` (`attach`,`openid`,`out_trade_no`,`result_code`,`return_code`,`total_fee`,`transaction_id`,`json_code`,`times`) VALUES ('微信支付','oJQO41faA_fKA1AiFXDo-rFWb4BI','15d10642971504076','SUCCESS','SUCCESS','16800','4200000296201906298513041661','{\"appid\":\"wx35e214c1721ff689\",\"attach\":\"\\u5fae\\u4fe1\\u652f\\u4ed8\",\"bank_type\":\"ABC_DEBIT\",\"cash_fee\":\"16800\",\"device_info\":\"web\",\"fee_type\":\"CNY\",\"is_subscribe\":\"Y\",\"mch_id\":\"1505023651\",\"nonce_str\":\"be4268c0d164b93350f373bcddb26fc5\",\"openid\":\"oJQO41faA_fKA1AiFXDo-rFWb4BI\",\"out_trade_no\":\"15d10642971504076\",\"result_code\":\"SUCCESS\",\"return_code\":\"SUCCESS\",\"sign\":\"C74C079158CADC32B4BE71968B57ED77\",\"time_end\":\"20190629150417\",\"total_fee\":\"16800\",\"trade_type\":\"JSAPI\",\"transaction_id\":\"4200000296201906298513041661\"}','1561822709') [ RunTime:0.0028s ]
+NOTIC: [8] Undefined variable: tmp /www/web/168/Dexis/Home/Logic/WcResLogic.class.php 第 151 行.
+SQL: SHOW COLUMNS FROM `syspaysn` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `syspaysn` WHERE `sn` = '15d10642971504076' AND `status` = 0 LIMIT 1   [ RunTime:0.0077s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000302s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000331s ]
+
+[ 2019-06-29T23:41:23+08:00 ] 112.97.163.57 /Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000224s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000316s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+
+[ 2019-06-29T23:41:24+08:00 ] 112.97.163.57 /Home/Wcix/getInfos.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000219s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000283s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `wcticket` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `wcticket` WHERE `times` > 1561816484 ORDER BY id desc LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2019-06-29T23:41:42+08:00 ] 112.97.163.57 /Home/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000200s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000254s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000287s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+
+[ 2019-06-29T23:41:43+08:00 ] 112.97.163.57 /Home/Wcix/getInfos.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000193s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000263s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000295s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `wcticket` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `wcticket` WHERE `times` > 1561816503 ORDER BY id desc LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2019-06-29T23:44:12+08:00 ] 42.120.160.111 /Home/Wcix/share.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000203s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000302s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `wcticket` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `wcticket` WHERE `times` > 1561816652 ORDER BY id desc LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2019-06-29T23:44:13+08:00 ] 42.120.160.111 /Home/Wcix/getInfos.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000201s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000301s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `wcticket` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `wcticket` WHERE `times` > 1561816653 ORDER BY id desc LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2019-06-29T23:55:42+08:00 ] 140.207.54.76 /Home/Wcix/respay.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000220s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000252s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000286s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `wcticket` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `wcticket` WHERE `times` > 1561817342 ORDER BY id desc LIMIT 1   [ RunTime:0.0002s ]
+SQL: SHOW COLUMNS FROM `sysconfig` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `sysconfig` WHERE `models` = 'CONF_VISITER' LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `wcpaylog` [ RunTime:0.0004s ]
+SQL: INSERT INTO `wcpaylog` (`attach`,`openid`,`out_trade_no`,`result_code`,`return_code`,`total_fee`,`transaction_id`,`json_code`,`times`) VALUES ('微信支付','oJQO41Q6M_F8juIJxRTHSoG9AGRg','85d10652981221168','SUCCESS','SUCCESS','9500','4200000292201906293231135068','{\"appid\":\"wx35e214c1721ff689\",\"attach\":\"\\u5fae\\u4fe1\\u652f\\u4ed8\",\"bank_type\":\"CFT\",\"cash_fee\":\"9500\",\"device_info\":\"web\",\"fee_type\":\"CNY\",\"is_subscribe\":\"Y\",\"mch_id\":\"1505023651\",\"nonce_str\":\"16d81327fec2a897703e19fb3abee7ae\",\"openid\":\"oJQO41Q6M_F8juIJxRTHSoG9AGRg\",\"out_trade_no\":\"85d10652981221168\",\"result_code\":\"SUCCESS\",\"return_code\":\"SUCCESS\",\"sign\":\"228E0003DA4DA94AC641A2C7DC66A99A\",\"time_end\":\"20190629122127\",\"total_fee\":\"9500\",\"trade_type\":\"JSAPI\",\"transaction_id\":\"4200000292201906293231135068\"}','1561823742') [ RunTime:0.0027s ]
+NOTIC: [8] Undefined variable: tmp /www/web/168/Dexis/Home/Logic/WcResLogic.class.php 第 151 行.
+SQL: SHOW COLUMNS FROM `syspaysn` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `syspaysn` WHERE `sn` = '85d10652981221168' AND `status` = 0 LIMIT 1   [ RunTime:0.0049s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000282s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000312s ]
+

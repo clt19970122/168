@@ -1,0 +1,143 @@
+<if condition="$info['gid'] neq 8">
+<div class="weui-panel order-info">
+    <div class="weui-panel__bd">
+        <div class="weui-media-box weui-media-box_small-appmsg">
+            <div class="weui-cells">
+
+                <a class="weui-cell weui-cell_access" href="{:U('Order/trans','sn='.$info['sn'])}">
+                    <div class="weui-cell__hd"><i class="icon-cars"></i></div>
+                    <div class="weui-cell__bd weui-cell_primary">
+                        <p class="trans">{$info.tag}</p>
+                        <!--p class="times">2017年10月1日 19:50:06</p-->
+                    </div>
+                    <span class="weui-cell__ft"></span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+</if>
+
+<div class="weui-panel order-info order-addr">
+    <div class="weui-panel__bd">
+        <div class="weui-media-box weui-media-box_small-appmsg">
+            <div class="weui-cells">
+
+                <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__hd"><i class="icon-locs"></i></div>
+                    <div class="weui-cell__bd weui-cell_primary">
+                        <p class="trans">{$name|getUserAddr=$info['addr'],'name',###}  {$name|getUserAddr=$info['addr'],'phone',###}</p>
+                        <p class="times">地址：{$name|getUserAddr=$info['addr'],'street',###}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="weui-panel order-list order-info_goods">
+    <div class="weui-panel__bd">
+        <a href="javascript:;" class="weui-media-box weui-media-box_appmsg">
+            <div class="weui-media-box__hd">
+                <img class="weui-media-box__thumb" src="__PUBLIC__/uploads/goods/{$info.gimgs}"/>
+            </div>
+            <div class="weui-media-box__bd">
+                <h4 class="weui-media-box__title">{$info.gname}</h4>
+                <p class="weui-media-box__desc">{$info.times|date='Y年m月d日 H:i:s',###} 数量:{$info.gnums}</p>
+                <p class="weui-media-box__price">¥{$info.money}<font>元</font></p>
+            </div>
+        </a>
+    </div>
+    <div class="weui-panel__ft">
+        <div class="weui-cell weui-cell_link">
+            <a class="weui-cell__bd">
+                联系客服
+            </a>
+        </div>    
+    </div>
+</div>
+
+<div class="weui-form-preview order-info_item">
+    <div class="weui-form-preview__bd">
+        <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">订单状态</label>
+            <span class="weui-form-preview__value">
+                {$info['status']==0?'待支付':''}
+                {$info['status']==1?($info['gid']==8?'已入库':'待发货'):''}
+                {$info['status']==2?'待收货':''}
+                {$info['status']==3?'已完成':''}
+                {$info['status']==4?'已取消':''}
+                {$info['status']==5?'自提':''}
+            </span>
+        </div>
+        <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">下单时间</label>
+            <span class="weui-form-preview__value">{$info.times|date='Y年m月d日 H:i:s',###}</span>
+        </div>
+        <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">支付方式</label>
+            <span class="weui-form-preview__value">{$info['paytype']==4?'余额':($info['paytype']==1?'微信':'无')}</span>
+        </div>
+        <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">订单号</label>
+            <span class="weui-form-preview__value">{$info.sn}</span>
+        </div>
+        <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">商品总额</label>
+            <span class="weui-form-preview__value">¥{$info.gprice}*{$info.gnums}</span>
+        </div>
+        <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">+运费</label>
+            <!--<span class="weui-form-preview__value">￥{$info.trans_pay}</span>-->
+            <if condition="$info['gid'] neq 8">
+                <span class="weui-form-preview__value"  style="color:red;">包邮</span>
+                <else/>
+                <span class="weui-form-preview__value"  style="color:red;">补充库存后自提付款</span>
+            </if>
+            <!--<span class="weui-form-preview__value" style="color:red;">运费自理，货到付款</span>-->
+        </div>
+        <div class="weui-form-preview__item">
+        <label class="weui-form-preview__label">订单备注</label>
+        <span class="weui-form-preview__value" style="text-align: left;color: #005dac">{$info.remakes}</span>
+    </div>
+    </div>
+    <div class="weui-form-preview__ft">
+        <a class="weui-form-preview__btn" href="javascript:;">总费用</a>
+        <a class="weui-form-preview__btn">¥{$info.money}<font>元</font></a>
+    </div>
+</div>
+
+<if condition="$info['status'] eq 0">
+    <div class="order-btns">
+        <a href="javascript:doOption();">取消订单</a>
+        <a href="{:U('Malls/payer')}?sn={$info.sn}" class="full">去支付</a>
+    </div>
+</if>
+
+<if condition="$info['status'] gt 1">
+    <div class="order-btns">
+        <a href="{:U('Malls/buyer','sn='.$info['gsn'].'&nums='.$info['gnums'])}" class="full">再次购买</a>
+    </div>
+</if>
+
+
+<script>
+
+    function doOption() {
+        var data = {ids: "{$info.id}", status: 4};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Core/edits','model=orders')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.reload();
+            }
+        });
+    }
+
+</script>

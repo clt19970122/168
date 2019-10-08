@@ -1,0 +1,116 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        费用设置
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li><a href="{:U('Membs/level')}">升级返利费用</a></li>
+            <li class="active">修改返利费用</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <form class="form">
+                <input type='hidden' name='ids' value='{$info.id}'/>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">级别名称</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="name" class="form-control" value="{$info.name}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">月达标数量</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="months" class="form-control" value="{$info.months}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">一级代理</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="first" class="form-control" value="{$info.first}"/>
+                            </div>
+                        </div><div class="form-group">
+                            <label class="col-sm-3 control-label">购买数量设置</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="buynum" class="form-control" value="{$info.buynum}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">二级代理</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="second" class="form-control" value="{$info.second}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">三级代理</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="third" class="form-control" value="{$info.third}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">状态</label>
+                            <div class="col-sm-5">
+                                <select name="status" class="form-control">
+                                    <option value="1" <eq name="info.status" value="1">selected</eq>>开启</option>
+                                    <option value="0" <eq name="info.status" value="0">selected</eq>>关闭</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" onclick="onsubattr();">更新</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    KindEditor.ready(function (K) {
+        window.editor = K.create('#editor_id', {
+            afterBlur: function () {
+                this.sync();
+            }
+        });
+    });
+
+    function onsubattr() {
+        var formelemt = $("form").serializeArray();
+        var data = objToArray(formelemt);
+        $.ajaxFileUpload({
+            url: "{:U('Core/edits', 'model=acc_level')}",
+            secureuri: false, fileElementId: "file",
+            dataType: 'json', data: data,
+            success: function (data) {
+                if (data.status !== 1) {
+                    alert(data.msg);
+                    return false;
+                }
+                window.location.href = "{:U('Membs/level')}";
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+        return false;
+    }
+
+</script>

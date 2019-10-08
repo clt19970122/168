@@ -1,0 +1,77 @@
+<form action="{:U('sale/salelist','type='.$get['type'])}" class="form-inline mb15" role="form">
+    <!--<div class="form-group">
+        <input type="text" name='sn' id="sn" class="form-control input-sm" value="{$sn}" placeholder="请输入订单编号"/>
+    </div>-->
+    <input type="hidden" value="{$get.type}" name="type">
+
+    <select name="gid" id="gid" class="form-control">
+        <option value="" <if condition="$get['gid'] eq null">selected</if>>全部</option>
+        <volist name="goods" id="vo">
+            <option value="{$vo.id}"<if condition="$vo['id'] eq $get['gid']">selected="selected"</if> >{$vo.name}</option>
+        </volist>
+    </select>
+    <div class="form-group">
+        <select name="where" class="form-control">
+            <option value="" <if condition="$get['where'] eq -1">selected</if>>全部</option>
+            <option value="0" <if condition="$get['where'] eq 0">selected</if> >公司仓库</option>
+            <option value="1" <if condition="$get['where'] eq 1">selected</if>>中通仓库</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <select name="way" class="form-control">
+            <option value="" <if condition="$get['where'] eq -1">selected</if>>全部</option>
+            <option value="0" <if condition="$get['where'] eq 0">selected</if>>内部调拨	</option>
+            <option value="1" <if condition="$get['where'] eq 1">selected</if> >采购入库</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="text" name='start' class="form-control input-sm" value="{$get.start}" id="single_start" placeholder="请选择开始时间"/>
+    </div>
+    <div class="form-group">
+        <input type="text" name='ends' class="form-control input-sm" value="{$get.ends}" id="single_end" placeholder="请选择结束时间"/>
+    </div>
+    <button type="submit" class="btn btn-default btn-sm">搜索</button>
+
+    <div class="btn btn-default btn-sm" id="doExcel" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出数据</div>
+</form>
+<div class="table-responsive">
+    <table class="table table-bordered" id="datatables">
+        <thead>
+        <tr>
+            <th width="6%">序号</th>
+            <th width="">产品名称</th>
+            <th width="">规格型号</th>
+            <th width="">计量单位</th>
+            <th width="">购进数量</th>
+            <th width="">购进方式</th>
+            <th width="">仓库</th>
+            <th width="">购进时间</th>
+            <th width="">供应商名称</th>
+            <th width="">备注</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <volist name='list.list' id='v'>
+            <tr>
+                <td>{$v.id}</td>
+                <td>{$v.name}</td>
+                <td>{$v.model}</td>
+                <td>{$v.unit}</td>
+                <td >{$v.nums}</td>
+                <td >{$v.inOutType}</td>
+                <td>{$v.inwhere}</td>
+                <td>{$v.time}</td>
+                <td>{$v.supplier}</td>
+                <td>{$v.remake}</td>
+                <!--<td>
+                    <a href="{:U('Conte/quesedits','id='.$v['id'])}" class='btn btn-xs btn-info'>修改</a>
+                    <a href="javascript:dels('{$v.id}');" class='btn btn-xs btn-danger'>删除</a>
+                </td>-->
+            </tr>
+        </volist>
+        <tr><td>小计：</td><td></td><td></td><td></td><td>{$all_count}</td></tr>
+        </tbody>
+
+    </table>
+</div>

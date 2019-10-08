@@ -1,0 +1,39 @@
+<style>
+    .weui-media-box__desc{
+        color: #000;
+    }
+</style>
+<div class="order-menu">
+    <a href="{:U('users/number_list',array('id'=>$user['id'],'type'=>1))}" class="order-menu_item <eq name='type' value='1'>order-menu_item_on</eq>">出售记录</a>
+    <a href="{:U('users/number_list',array('id'=>$user['id'],'type'=>2))}" class="order-menu_item <eq name='type' value='2'>order-menu_item_on</eq>">转让记录</a>
+    <a href="{:U('users/rebate_list',array('id'=>$user['id'],'type'=>3))}" class="order-menu_item <eq name='type' value='3'>order-menu_item_on</eq>">返利记录</a>
+</div>
+<volist name="list" id="v">
+
+
+
+<div class="weui-panel">
+    <div class="weui-panel__bd" style="margin-top: 1rem">
+        <div class="weui-media-box weui-media-box_text">
+
+            <h4 class="weui-media-box__title">佣金变动金额：
+                <if condition="$v.money lt 0"><span style="color: red">{$v.money}</span>
+                    <else/><span style="color: #3ab22c">{$v.money}</span>
+
+                </if>
+            </h4>
+            <p class="weui-media-box__desc">订单号：{$v.sn}</p>
+            <div class="weui-flex">
+                <div class="weui-flex__item"><p class="weui-media-box__desc" style="margin-top: 8px">上级用户：{$v.up_buyer}</p></div>
+                <div class="weui-flex__item"><p class="weui-media-box__desc" style="margin-top: 8px">购买用户：{$v.buyer}</p></div>
+            </div>
+            <div class="weui-flex">
+                <div class="weui-flex__item"><p class="weui-media-box__desc" style="margin-top: 8px">购买数量：{$v.buy_nums}(盒)</p></div>
+            </div>
+            <ul class="weui-media-box__info">
+                <li class="weui-media-box__info__meta">交易时间：<em class="num">{$v.times|date='Y-m-d H:i:s',###}</em></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</volist>

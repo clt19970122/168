@@ -1,0 +1,141 @@
+<link rel="stylesheet" href="__PUBLIC__/libs/swiper/css/swiper.min.css">
+<style type="text/css">
+	#shipping {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.66);
+	z-index: 9999
+}
+
+#shipping #rotate-swiper {
+	height: 100%;
+}
+
+#shipping .block {
+	width: calc(100% - 34px);
+	margin-left: 17px;
+	height: 82%;
+	margin-top: 12%;
+	transform-origin: 0 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	border-radius: 10px;
+	background: #fff;
+}
+
+#shipping .block .header {
+	background: linear-gradient(to right,#52b4fc,#0c90f2);
+	color: #fff;
+}
+
+#shipping .block .header h3 {
+	text-align: center;
+	font-size: 14px;
+	padding: 10px 0;
+	font-weight: normal;
+	margin: 0 16px;
+}
+
+
+#shipping .block .body {
+	flex: 1;
+	overflow: hidden;
+}
+
+#shipping .block .body .swiper-container {
+	height: 100%;
+}
+
+#shipping .block .body .swiper-slide {
+	height: auto;
+}
+
+#shipping .block .body .swiper-slide ul {
+	padding: 20px 20px;
+}
+
+#shipping .block .body .swiper-slide li {
+	padding: 10px 0;
+	position: relative;
+	list-style: none;
+	z-index: 10;
+    text-indent: 26px;
+    font-size: 14px;
+}
+
+
+
+#shipping .block .footer {
+	padding: 6px 0;
+	text-align: center;
+	border-top: 1px solid #eee;
+}
+#shipping .block .footer input{
+	font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+</style>
+<img src="__PUBLIC__/home/imgs/zbg.png" class="index-plans_img"/>
+
+<div class="index-plans_desc">
+    <a href="javascript:doAlert();" class="index-plans_join">
+        <img src="__PUBLIC__/home/imgs/z_join.png?v=10"/>
+    </a>
+    <div class="index-plans_desc_top">注：本系统用户分为普通会员与皇室会员</div>
+    <ul>
+        <li class='red'>
+            <div class="box">
+                <div class="left">01</div>
+                <div class="right">
+                    注册用户若申请0元创业，请提交对应信息并完成认证后，即可升级成为雅歌布•赫伊皇室会员，获得3960元的天使创业基金，可一次性购买20套皇室精华护肤套装；
+                </div>
+            </div>
+        </li>
+        <li class='blue'>
+            <div class="box">
+                <div class="left">02</div>
+                <div class="right">
+                    认证成功的雅歌布•赫伊皇室会员，若成功邀请一位新会员，新会员完成注册后，即可获得对应分享红包奖励，若成功推荐一位新用户（注册非认证会员），将获得对应推广红包奖励，红包详情参见；
+                    <a href="{:U('Login/regs')}">我要成为皇室会员 >></a>
+                </div>
+            </div>
+        </li>
+        <li class='yellow'>
+            <div class="box">
+                <div class="left">03</div>
+                <div class="right">
+                    凡皇室会员直属下的用户或会员，成功分享或推荐第三方后，该皇室会员都可获得相应的指导红包奖励，红包详情参见；
+                    <a href="{:U('Login/regs')}">我要成为皇室会员 >></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="index-plans_desc_copy">本活动最终解释权由雅歌布•赫伊所有</div>
+</div>
+
+<script>
+    
+    function doAlert() {
+        var data = {ids: "{$list.id}"};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Index/plans_op')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+
+</script>
+

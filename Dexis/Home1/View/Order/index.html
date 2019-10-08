@@ -1,0 +1,81 @@
+<div class="order-menu">
+    <a href="{:U('Order/index')}" class="order-menu_item <eq name='st' value='10'>order-menu_item_on</eq>">全部</a>
+    <a href="{:U('Order/index','st=0')}" class="order-menu_item <eq name='st' value='0'>order-menu_item_on</eq>">待支付</a>
+    <a href="{:U('Order/index','st=1')}" class="order-menu_item <eq name='st' value='1'>order-menu_item_on</eq>">已入库</a>
+    <!--<a href="{:U('Order/index','st=2')}" class="order-menu_item <eq name='st' value='2'>order-menu_item_on</eq>">待收货</a>-->
+    <a href="{:U('Order/index','st=4')}" class="order-menu_item <eq name='st' value='4'>order-menu_item_on</eq>">已取消</a>
+</div>
+
+<volist name="list" id="v">
+    <div class="weui-panel order-list">
+        <div class="weui-panel__hd">
+            <i class="icon-cars"></i>{$v.tag}
+        </div>
+        <div class="weui-panel__bd">
+            <a href="{:U('Order/infos','id='.$v['id'])}" class="weui-media-box weui-media-box_appmsg">
+                <div class="weui-media-box__hd">
+                    <img class="weui-media-box__thumb" src="__PUBLIC__/uploads/goods/{$v.gimgs}"/>
+                </div>
+                <div class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">{$v.gname}</h4>
+                    <p class="weui-media-box__desc">{$v.times|date='Y年m月d日 H:i:s',###} 数量:{$v.gnums}</p>
+                    <p class="weui-media-box__desc">订单备注：{$v['remakes']==null?'无':$v['remakes']}</p>
+                    <if condition="$v['up_user'] neq null"> <p class="weui-media-box__desc">出货人：{$v['up_user']}&nbsp;&nbsp;电话：{$v['phone']}</p></if>
+
+                    <p class="weui-media-box__price">
+                        ¥{$v.money}<font>元</font>
+                        <eq name="v.status" value="0"><span class="waits">待支付</span></eq>
+                        <eq name="v.status" value="1"><span class="saves">{$v['status']==1?($v['gid']==8?'已入库':'待发货'):''}</span></eq>
+                        <!--<eq name="v.status" value="2"><span class="saves">待收货</span></eq>-->
+                        <eq name="v.status" value="3"><span>已完成</span></eq>
+                        <eq name="v.status" value="4"><span class="cancel">已取消</span></eq>
+                        <eq name="v.status" value="5"><span class="cancel">自提</span></eq>
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="weui-panel__ft">
+            <div class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd">
+                    <if condition="$v['status'] eq 0">
+                        <a href="{:U('Malls/payer','sn='.$v['sn'])}" class="waits">去支付</a>
+                        <a href="javascript:doOption('{$v.id}');" class="cancel">取消</a>
+                    </if>
+                    <if condition="$v['status'] eq 1">
+                        <a href="{:U('Order/infos','id='.$v['id'])}" class="cancel">查看订单</a>
+                    </if>
+                    <if condition="$v['status'] eq 2">
+                        <a href="{:U('Order/trans','sn='.$v['sn'])}" class="cancel">查看物流</a>
+                        <a href="{:U('Malls/buyer','sn='.$v['gsn'].'&nums='.$v['gnums'])}" class="again">再次购买</a>
+                    </if>
+                    <if condition="$v['status'] eq 3">
+                        <a href="{:U('Malls/buyer','sn='.$v['gsn'].'&nums='.$v['gnums'])}" class="again">再次购买</a>
+                    </if>
+                    <if condition="$v['status'] eq 4">
+                        <a href="{:U('Malls/buyer','sn='.$v['gsn'].'&nums='.$v['gnums'])}" class="again">再次购买</a>
+                    </if>
+                </div>
+            </div>    
+        </div>
+    </div>
+</volist>
+
+<script>
+
+    function doOption(id) {
+        var data = {ids: id, status: 4};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Core/edits','model=orders')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.reload();
+            }
+        });
+    }
+
+</script>

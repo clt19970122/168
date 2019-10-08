@@ -1,0 +1,64 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        费用设置
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li class="active">升级返利费用</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">返利费用列表</h3>
+            <!--p>
+                <a href="{:U('Conte/artaddon')}" class="btn btn-xs btn-info">添加内容</a>
+            </p-->
+        </div>
+        <div class="panel-body">
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="datatables">
+                    <thead>
+                        <tr>
+                            <th width="10%">#</th>
+                            <th width="10%">级别名称</th>
+                            <th width="10%">达标订单数量</th>
+                            <th width="15%">上级代理返利</th>
+                            <th width="15%">二级代理返利</th>
+                            <th width="15%">三级代理返利</th>
+                            <th width="15%">最低购买数量</th>
+                            <th width="10%">级别状态</th>
+                            <th width="20%">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <volist name='list' id='v'>
+                        <tr>
+                            <td>{$v.id}</td>
+                            <td>{$v.name}</td>
+                            <td>{$v.months}单</td>
+                            <td>{$v.first}元</td>
+                            <td>{$v.second}元</td>
+                            <td>{$v.third}元</td>
+                            <td>{$v.buynum}盒</td>
+                            <td>{$v['status']>0?'使用中':'暂停'}</td>
+                            <td>
+                                <a href="{:U('Membs/leveledit','id='.$v['id'])}" class='btn btn-xs btn-info'>修改</a>
+                            </td>
+                        </tr>
+                    </volist>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,188 @@
+<style>
+    .table thead > tr > th{ text-align:center;}
+</style>
+
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        订单管理
+        <!--span>Subtitle goes here...</span-->
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li><a href="{:U('Goods/order')}">订单列表</a></li>
+            <li class="active">订单详情</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+    <div class="row">
+        <div class="col-md-6">
+            <h5 class="subtitle mb10">订单信息</h5>
+            <div class="table-responsive">
+                <table class="table mb30">
+                    <tbody>
+                        <tr>
+                            <td>订单编号</td>
+                            <td>{$info.sn}</td>
+                            <td>购买人昵称</td>
+                            <td>{$info.openid|getUserInf=$info['uid'],'nickname',###}</td>
+                        </tr>
+                        <tr>
+                            <td>购买人</td>
+                            <td>{$info.addr|getUserAddr=$info['addr'],'name',###}</td>
+                            <td>手机</td>
+                            <td>{$info.addr|getUserAddr=$info['addr'],'phone',###}</td>
+                        </tr>
+                        <tr>
+                            <td>推荐用户</td>
+                            <!--<td colspan='3'>{$rec|getRecUser=$info['uid'],###}</td>-->
+                            <td >{$rec|getRecUser=$info['uid'],###}</td>
+                            <td>支付方式</td>
+                            <td >{$info['paytype']|getpaytype}</td>
+                        </tr>
+                        <tr>
+                            <td>收货地址</td>
+                            <td>{$info.addr|getUserAddr=$info['addr'],'street',###}</td>
+                            <td>金额</td>
+                            <td>{$info.money}</td>
+                        </tr>
+                        <tr>
+                            <td>支付时间</td>
+                            <td>
+                                {$info['paytime']==''?'-':''}
+                                {$info['paytime']!=''?$info.paytime|date='Y/m/d H:i:s',###:''}
+                            </td>
+                            <td>发货时间</td>
+                            <td>
+                                {$info['trantime']==''?'-':''}
+                                {$info['trantime']!=''?$info.trantime|date='Y/m/d H:i:s',###:''}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>收货时间</td>
+                            <td>
+                                {$info['comtime']==''?'-':''}
+                                {$info['comtime']!=''?$info.comtime|date='Y/m/d H:i:s',###:''}
+                            </td>
+                            <td>提交时间</td>
+                            <td>{$info.times|date='Y/m/d H:i:s',###}</td>
+                        </tr>
+                        <tr>
+                            <td>备注</td>
+                            <td>{$info.tag}</td>
+                            <td>当前状态</td>
+                            <td>
+                                {$info['status']==0?'待付款':''}
+                                {$info['status']==1?'已付款':''}
+                                {$info['status']==2?'已发货':''}
+                                {$info['status']==3?'已完成':''}
+                                {$info['status']==4?'已取消':''}
+                                {$info['status']==5?'自提':''}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>物流公司</td>
+                            <td>{$th.transid|getTransNm=$th['transid'],###}</td>
+                            <td>物流单号</td>
+                            <td>{$th.vosn}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div><!-- table-responsive -->
+        </div><!-- col-md-6 -->
+        <div class="col-md-6">
+            <h5 class="subtitle mb10">商品信息</h5>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>商品名称</th>
+                        <th>商品图片</th>
+                        <th>商品价格</th>
+                        <th>商品数量</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr align="center">
+                        <td>{$info.gname}</td>
+                        <td><img src="__PUBLIC__/uploads/goods/{$info.gimgs}" width="100"/></td>
+                        <td>{$info.gprice}</td>
+                        <td>{$info.gnums}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <if condition="$info.status eq 1">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#trans">发货</button>
+                <button type="button" class="btn btn-success" onclick="transziti();">自提</button>
+            </if>
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade in" id="trans" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content"><div class="panel panel-dark panel-alt">
+                <div class="panel-heading">
+                    <h3 class="panel-title">发货</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" name="trans">
+                        <div class="form-group">
+                            <label>物流公司</label>
+                            <select class="form-control" name="transid">
+                                <option value="0">请选择</option>
+                                <volist name="trans" id="v">
+                                    <option value="{$v.id}">{$v.name}</option>
+                                </volist>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>物流编号</label>
+                            <input type="text" class="form-control" name="vosn"/>
+                        </div>
+                        <button type="button" class="btn btn-danger" onclick="transInvo();">发货</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function setOrder() {
+        var urls = "{:U('Goods/orderConanel')}";
+        var data = {sn: "{$info.sn}"};
+        ajaxRt(urls, data);
+    }
+
+    function transInvo() {
+        var configURL = "{:U('Goods/orderTrans')}";
+        var formelemt = $("form[name=trans]").serializeArray();
+        var data = objToArray(formelemt);
+        data.sn = "{$info.sn}";
+        ajaxRt(configURL, data);
+    }
+    function transziti() {
+        var configURL = "{:U('Goods/orderTrans')}";
+        var formelemt = $("form[name=trans]").serializeArray();
+        var data = objToArray(formelemt);
+        data.sn = "{$info.sn}";
+        data.type = 1;
+        ajaxRt(configURL, data);
+    }
+
+</script>

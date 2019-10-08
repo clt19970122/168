@@ -1,0 +1,199 @@
+<div class="weui-cells mall-payer_info">
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <p>订单号码<span>{$info.sn}</span></p>
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <p>充值金额<span class="gold">{$info.money}</span></p>
+        </div>
+    </div>
+</div>
+
+<div class="weui-panel weui-panel_access mall-payer_type">
+
+    <div class="weui-panel__bd">
+
+        <a href="javascript:wechatPays();" class="weui-media-box weui-media-box_appmsg weui-cell_access">
+            <div class="weui-media-box__hd">
+                <img class="weui-media-box__thumb" src="__PUBLIC__/home/imgs/pay_wechat.png"/>
+            </div>
+            <div class="weui-media-box__bd">
+                <h4 class="weui-media-box__title">微信支付</h4>
+                <p class="weui-media-box__desc">使用微信安全支付</p>
+            </div>
+            <span class="weui-cell__ft"></span>
+        </a>
+        <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg weui-cell_access" id="showIOSDialog1">
+            <div class="weui-media-box__hd">
+                <img class="weui-media-box__thumb" src="__PUBLIC__/home/imgs/pay_gold.png"/>
+            </div>
+            <div class="weui-media-box__bd">
+                <h4 class="weui-media-box__title">余额支付</h4>
+                <p class="weui-media-box__desc">使用余额快捷支付</p>
+            </div>
+            <span class="weui-cell__ft"></span>
+        </a>
+
+    </div>
+
+</div>
+
+<script type="text/javascript" class="dialog js_show">
+    $(function(){
+        var $iosDialog1 = $('#iosDialog1'),
+            $iosDialog2 = $('#iosDialog2'),
+            $androidDialog1 = $('#androidDialog1'),
+            $androidDialog2 = $('#androidDialog2');
+
+        $('#dialogs').on('click', '.weui-dialog__btn', function(){
+            $(this).parents('.js_dialog').fadeOut(200);
+        });
+
+        $('#showIOSDialog1').on('click', function(){
+            $iosDialog1.fadeIn(200);
+        });
+        $('#showIOSDialog2').on('click', function(){
+            $iosDialog2.fadeIn(200);
+        });
+        $('#showAndroidDialog1').on('click', function(){
+            $androidDialog1.fadeIn(200);
+        });
+        $('#showAndroidDialog2').on('click', function(){
+            $androidDialog2.fadeIn(200);
+        });
+    });</script>
+
+    <div class="page">
+        <div id="dialogs">
+            <!--BEGIN dialog1-->
+            <div class="js_dialog" id="iosDialog1" style="display: none;">
+                <div class="weui-mask"></div>
+                <div class="weui-dialog">
+                    <div class="weui-dialog__hd"><strong class="weui-dialog__title">确认余额支付</strong></div>
+                    <div class="weui-dialog__bd">确认后将使用余额进行支付，会扣除余额金额</div>
+                    <div class="weui-dialog__ft">
+                        <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">取消</a>
+                        <a href="javascript:walletPays();" class="weui-dialog__btn weui-dialog__btn_primary">确认</a>
+                    </div>
+                </div>
+            </div>
+            <!--END dialog4-->
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            var $iosDialog1 = $('#iosDialog1'),;
+
+            $('#dialogs').on('click', '.weui-dialog__btn', function(){
+                $(this).parents('.js_dialog').fadeOut(200);
+            });
+
+            $('#showIOSDialog1').on('click', function(){
+                $iosDialog1.fadeIn(200);
+            });
+        });
+</script>
+<script>
+
+    function wechatPays() {
+        var data = {sn: "{$info.sn}", paytype: 1};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Malls/creatPay')}", type: 'post', data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status === 0) {
+                    return alert_wec(res.msg);
+                }
+                if (res.status ===3) {
+                    onBridgeother(res.data);
+                }else {
+                    onBridgeReady(res.data);
+                }
+            },
+            error: function () {
+                hidePreLoading();
+                return alert_wec("网络错误");
+            }
+        });
+    }
+
+
+    /**
+     * 微信支付
+     * @param {type} data
+     * @returns {undefined}
+     */
+    function onBridgeReady(data) {
+        var pay = {
+            appId: data.appId, timeStamp: data.timeStamp, nonceStr: data.nonceStr, package: data.package,
+            signType: data.signType, paySign: data.paySign
+        };
+        //
+        WeixinJSBridge.invoke(
+                'getBrandWCPayRequest', pay,
+                function (res) {
+                    if (res.err_msg === "get_brand_wcpay_request:ok") {
+                        // window.location.href = "{:U('Order/index')}";
+                        window.location.href = "{:U('malls/pay_success')}";
+                        return;
+                    }
+                    return alert_wec("支付取消");
+                }
+        );
+    }
+    /**
+     * 微信支付其他商品的逻辑
+     * @param {type} data
+     * @returns {undefined}
+     */
+    function onBridgeother(data) {
+        var pay = {
+            appId: data.appId, timeStamp: data.timeStamp, nonceStr: data.nonceStr, package: data.package,
+            signType: data.signType, paySign: data.paySign
+        };
+        //
+        WeixinJSBridge.invoke(
+                'getBrandWCPayRequest', pay,
+                function (res) {
+                    if (res.err_msg === "get_brand_wcpay_request:ok") {
+                        // window.location.href = "{:U('Order/index')}";
+                        window.location.href = "{:U('Order/index')}";
+                        return;
+                    }
+                    return alert_wec("支付取消");
+                }
+        );
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+
+    function walletPays() {
+
+        var data = {sn: "{$info.sn}", paytype: 4};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Malls/creatPay')}", type: 'post', data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                console.log(res);
+                if (res.status === 0) {
+                    return alert_wec(res.msg);
+                }else if(res.status ===2){
+                    window.location.href ="{:U('Users/getbuhuolist')}";
+                }else if(res.status ===3){
+                    window.location.href = "{:U('order/index')}";
+                }else {
+                    window.location.href = "{:U('malls/pay_success')}";
+                }
+            },
+            error: function () {
+                hidePreLoading();
+                return alert_wec("网络错误");
+            }
+        });
+    }
+
+</script>

@@ -1,0 +1,117 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        广告位
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li>系统设置</li>
+            <li class="active">广告位</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <h5 class="subtitle mb5">添加广告</h5>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form role="form" name="addItems">
+                        <div class="form-group">
+                            <label>广告位置</label>
+                            <select name="models" class="form-control">
+                                <option value="index_banner">头部背景图</option>
+                                <option value="index_middle">商品列表上背景图</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>链接</label>
+                            <input type="text" name="links" class="form-control" placeholder="请输入广告链接">
+                        </div>
+                        <div class="form-group">
+                            <label>广告图</label>
+                            <input type="file" name="file" id="file"/>
+                        </div>
+                        <button type="button" class="btn btn-info" onclick="adsLog();">新增</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <h5 class="subtitle mb5">广告列表</h5>
+            <table class="table mb30">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>位置</th>
+                        <th>图片</th>
+                        <th width='35%'>链接</th>
+                        <th>上传时间</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                <volist name="list" id="v">
+                    <tr>
+                        <td>{$v.id}</td>
+                        <td>
+                            {$v['models']=='index_banner'?'头部背景图':''}
+                            {$v['models']=='index_middle'?'商品列表上背景图':''}
+                        </td>
+                        <td><img src="__PUBLIC__/uploads/ads/{$v.imgs}" width="60"/></td>
+                        <td>{$v.links}</td>
+                        <td>{$v.times|date='Y/m/d H:i:s',###}</td>
+                        <td><a href='javascript:dels({$v.id});' class='btn btn-xs btn-danger'>删除</a></td>
+                    </tr>
+                </volist>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    function adsLog() {
+        var configURL = "{:U('Core/addon', 'model=sysads')}";
+        var formelemt = $("form[name=addItems]").serializeArray();
+        var data = objToArray(formelemt);
+        $.ajaxFileUpload({
+            url: configURL,
+            secureuri: false,
+            fileElementId: "file",
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+                if (data.status !== 1) {
+                    alert(data.msg);
+                    return false;
+                }
+                window.location.reload();
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+        return false;
+    }
+
+    function dels(id) {
+        if (!confirm("确定要删除吗？")) {
+            return;
+        }
+        var configURL = "{:U('Core/dels', 'model=sysads')}";
+        var data = {id: id};
+        ajaxRt(configURL, data);
+    }
+
+</script>

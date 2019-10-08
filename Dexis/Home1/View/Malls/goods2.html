@@ -1,0 +1,147 @@
+<link rel="stylesheet" href="__PUBLIC__/libs/swiper/css/swiper.min.css">
+<script src="__PUBLIC__/libs/swiper/js/swiper.min.js"></script>
+
+<div class="swiper-container goods-scroll">
+    <div class="swiper-wrapper">
+        <volist name="list" id="v">
+            <div class="swiper-slide"><img src="__PUBLIC__/uploads/goods/{$v.imgs}"/></div>
+        </volist>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<div class="goods-descs">
+    <div class="goods-descs_title overflow">{$info.name}</div>
+    <div class="goods-descs_descs">{$info.subname}</div>
+    <div class="goods-descs_price">
+        <span id="goods-pice"><font>参考价:</font>￥{$info.price}<font>元</font></span>
+        <div class="goods-descs_price_input">
+            <a href="javascript:changeItemNums(0);"><img src="__PUBLIC__/home/imgs/goods_ceil.png"/></a>
+            <input type="text" name="nums" value="1" id='goods_num'/>
+            <a href="javascript:changeItemNums(1);"><img src="__PUBLIC__/home/imgs/goods_adds.png"/></a>
+        </div>
+    </div>
+</div>
+
+<div class="goods-menu">
+    <div class="goods-menu_item goods-menu_item_on" id="desc">商品介绍</div>
+    <div class="goods-menu_item" id="para">商品参数</div>
+    <div class="goods-menu_item" id="adse">广告大片</div>
+</div>
+
+<div class="goods-infos">
+    <div class="goods-infos_desc" id="desc_on">
+        {$info.context|htmlspecialchars_decode}
+    </div>
+    <div class="goods-infos_para none" id="para_on">
+
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">原产国/原产地：</div>
+            <div class="goods-infos_para_item_conts">{$info.locs}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">净含量：</div>
+            <div class="goods-infos_para_item_conts">{$info.net}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">产品保质期：</div>
+            <div class="goods-infos_para_item_conts">{$info.daty}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">生产批号：</div>
+            <div class="goods-infos_para_item_conts">{$info.batch}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">适用皮肤类型：</div>
+            <div class="goods-infos_para_item_conts">{$info.suit}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">使用顺序：</div>
+            <div class="goods-infos_para_item_conts">{$info.sorts}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">产品介绍：</div>
+            <div class="goods-infos_para_item_conts">{$info.product}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">使用方法：</div>
+            <div class="goods-infos_para_item_conts">{$info.method}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">使用建议：</div>
+            <div class="goods-infos_para_item_conts">{$info.advice}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">注意事项：</div>
+            <div class="goods-infos_para_item_conts">{$info.tips}</div>
+        </div>
+
+    </div>
+    <div class="goods-infos_adse none" id="adse_on">
+        <iframe src='{$info.video}' frameborder='0'></iframe>
+    </div>
+</div>
+
+<a href="javascript:doBuyer();" class="goods-buys">立即购买</a>
+
+
+<script>
+
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        loop: true,
+    });
+
+    function changeItemNums(type) {
+        var value = $("#goods_num").val();
+        var newcs = type > 0 ? parseInt(value) + 1 : parseInt(value) - 1;
+        var result = newcs > 0 ? newcs : 1;
+        $("#goods_num").val(result);
+        var goodsId = {$info['gsn']};
+        if (goodsId == '315154661968628559') {
+            changeGoodsPrice(result);
+        } 
+    }
+
+    function changeGoodsPrice(nums) {
+        var price = {$info.price};
+        if (nums >=4 && nums <20) {
+            price = '218.00';
+        } else if (nums >=20 && nums <50) {
+            price = '198.00';
+        } else if (nums >=50 && nums <200) {
+            price = '178.00';
+        } else if (nums >=200 && nums <850) {
+            price = '148.00';
+        } else if (nums >=850 && nums <5000) {
+            price = '118.00';
+        } else if (nums >=5000) {
+            price = '98.00';
+        }
+
+        var str = "<font>参考价:</font>￥" + price + "<font>元</font>";
+        $("#goods-pice").html(str);
+    }
+
+
+    $("#desc_on img").css("width", "100%");
+
+
+    $(document).on("click touchstart", ".goods-menu_item", function () {
+        var type = $(this).attr("id");
+        $(".goods-menu div").removeClass("goods-menu_item_on");
+        $(".goods-infos_desc").addClass("none");
+        $(".goods-infos_para").addClass("none");
+        $(".goods-infos_adse").addClass("none");
+        //
+        $(this).addClass("goods-menu_item_on");
+        $("#" + type + "_on").removeClass("none");
+    });
+
+    function doBuyer() {
+        var value = $("#goods_num").val();
+        var links = "{:U('Malls/buyer','sn='.$info['gsn'])}?nums=" + value;
+        window.location.href = links;
+    }
+
+</script>

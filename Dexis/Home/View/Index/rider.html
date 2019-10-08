@@ -1,0 +1,215 @@
+<!--
+<div class='index-rider'>
+    <p class="head"><img src="{$user.headimgurl}"/></p>
+    <p class="name">{$user.nickname}</p>
+    <p class="level">
+        <button style="color: #C3A66B">{$level|getUserLevel=$user['level'],###}</button>
+    </p>
+    <p class="peop" >已推荐人数: <span id="count"></span></p>
+</div>-->
+<style>
+
+</style>
+<div class="user-header member-header" style="overflow: hidden;height: auto;padding-bottom: 5.6rem;">
+    <div class="index-rider">
+        <div class="head" id="showIOSActionSheet">
+            <img src="{$user.headimgurl}">
+            <p class="name">
+                <neq name="user.name" value="">{$user.name}</neq>
+            </p>
+        </div>
+        <div style="width: 100%">
+            <p class="level" style="text-align: left">
+                <button class="{$class}"><i class="iconfont">{$icon}</i>{$level|getUserLevel=$user['level'],###}</button>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<div class="user-menu up-user-item">
+    <a href="" class="user-menu_item">
+        <p class="icon"><img src="{$top_u.headimgurl}"></p>
+        <p class="fonts up-user-title">总代理</p>
+        <p class="fonts">{$top_u.name}</p>
+    </a>
+    <a href="" class="user-menu_item">
+        <p class="icon"><img src="{$out_u.headimgurl}"></p>
+        <p class="fonts up-user-title">出货人</p>
+        <p class="fonts">{$out_u.name}</p>
+    </a>
+    <a href="" class="user-menu_item">
+        <p class="icon"><img src="{$push_u.headimgurl}"></p>
+        <p class="fonts up-user-title">推荐人</p>
+        <p class="fonts">{$push_u.name}</p>
+    </a>
+</div>
+<if condition ='count($new_data) neq 0'>
+    <div class="weui-cells user-item recent-member" style="margin-top: 1rem">
+        <diV class="weui-cell weui-cell_access">
+            <div class="weui-cell__bd">
+                <volist name="new_data" id="news">
+                    <img class="recent-member-headerimg" src="{$news.headimgurl}">
+                </volist>
+            </div>
+            <div class="weui-cell__ft"><span class="sysid" style="color: #dcb29f">新增成员动态</span>
+                <!--<i class="icon-36"></i>-->
+            </div>
+        </div>
+    </div>
+</if>
+<div class="user-list-contain">
+    <div class="index_w_o p32">
+        <div class="z"><a href="#"><span>团队成员</span></a></div>
+        <a href="{:U('Index/search_member')}"><div class="member-search"><i class="iconfont">&#xe65c;</i>搜索</div></a>
+        <!--<div class="member-search"><i class="iconfont">&#xe65c;</i>搜索</div>-->
+    </div>
+    <volist name="list2" id="vo">
+        <div class="page-bd" id="sysid">
+            <div class='index-rider_box collapse'>
+                <li>
+                    <div class="weui-flex js-category" >
+                        <div class="weui-flex__item"><i class="iconfont">{$vo.icon}</i>{$vo.name}</div>
+                        <!--<i class="icon icon-74"></i>-->
+                        <span class="member-number" style="margin-right: 10px;color: #999">{$vo.count}</span>
+                        <i class="icon-74">
+                        </i>
+                    </div>
+                    <!--<p style="font-size:1.4rem;text-align:center;margin-bottom:.8rem;color:#333">{$vo.name}</p>-->
+                    <volist name=":SidType($vo['id'],$user['sysid'],$selfId)" id="vo">
+                        <div class="page-category js-categoryInner page-category-content">
+                            <div class="weui-cell weui-cell_access" style="align-items: flex-start">
+                                <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                                    <img src="{$vo.headimgurl}" style="width: 50px;display: block;border-radius: 5px">
+                                </div>
+                                <div class="weui-cell__bd">
+
+                                        <div style="display: flex;justify-content: space-between;align-items: center;text-align: left;">
+                                            <div>
+                                                <div style="display: inline-flex;justify-content: center;align-items: center">
+                                                    <p style="font-size: 17px"><if condition="$vo['name'] eq null or $vo['name'] eq ' '"><span style="color: red">未实名注册会员</span><else/>{$vo.name}</if></p>
+                                                    <!--<span style="background: #153afa;border-radius: 5px;font-size: 11px;padding: 2px 6px;color: #fff;margin-left: 5px;height: 15px">{$vo.level}</span>-->
+                                                </div>
+                                                <p style="font-size: 13px;color: #888888;">系统账号：{$vo.sysid}<button class="weui-btn weui-btn_mini orange" style="padding: 0 .5rem;line-height: 1.6rem;font-size: 1.2rem" onclick="copy('{$vo.sysid}')">复制</button></p>
+                                                <p style="font-size: 13px;color: #888888;">注册时间：{$vo.times|date='Y-m-d H:i:s', ###}</p>
+                                            </div>
+
+                                            <!--<div class="rider-number" style="flex-grow: 1">
+                                                <p>团队人数</p>
+                                                <p style="font-size: 17px;color: #005DAC;margin-top: .3rem;font-weight: 500">{$vo.count_child}人</p>
+                                            </div>-->
+                                            <a href="{:U('index/rider',array('sysid'=>$vo['sysid']))}">
+                                            <div>
+                                                <div style="content: '';display: inline-block;height: 6px;width: 6px;border-width: 2px 2px 0 0;border-color: #c8c8cd;border-style: solid;-webkit-transform: matrix(.71,.71,-.71,.71,0,0);transform: matrix(.71,.71,-.71,.71,0,0);margin-top: 8px;right: 15px">
+                                                </div>
+                                            </div>
+                                            </a>
+                                        </div>
+
+                                    <div class="weui-flex" style="flex-wrap:wrap">
+                                        <div class="weui-flex__item">
+                                            <div class="user-info-about">
+                                                <p class="user-info-number">{$vo.outnums}</p>
+                                                <p class="user-info-desc">销售量</p>
+                                            </div>
+                                        </div>
+                                        <div class="weui-flex__item">
+                                            <div class="user-info-about">
+                                                <p class="user-info-number">￥{$vo.salemoney}</p>
+                                                <p class="user-info-desc">销售额</p>
+                                            </div>
+                                        </div>
+                                        <div class="weui-flex__item">
+                                            <div class="user-info-about">
+                                                <p class="user-info-number">￥{$vo.innums}</p>
+                                                <p class="user-info-desc">进货量</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--<div class="index-rider_box-item">
+                            <a href="{:U('index/rider',array('sysid'=>$vo['sysid']))}">
+                                <p class="head"><img src="{$vo.headimgurl}"/></p>
+                                <p class="name">{$vo.nickname}</p>
+                                <p class="level">
+                                    <button>{$level|getUserLevel=$vo['level'],###}</button>
+                                <p>进货量:{$vo.innums}出货量:{$vo.outnums}</p>
+
+                                </p>
+                            </a>
+                        </div>-->
+                    </volist>
+                </li>
+            </div>
+        </div>
+
+    </volist>
+</div>
+<!--BEGIN toast-->
+<div id="toast" style="display: none;">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <p class="weui-toast__content">系统账号已复制</p>
+    </div>
+</div>
+<!--end toast-->
+
+
+<script>
+    $(document).ready(function() {
+        var sysid="{$user.sysid}";
+        console.log(sysid);
+        $.ajax({
+            cache: false,
+            async: true,
+            dataType: 'json',
+            type: 'post',
+            url: "{:U('index/getTeamNums')}",
+            data:{sysid:sysid},
+            success: function (data){
+                $('#count').html(data);
+            }
+        });
+    })
+</script>
+<script>
+    $(function(){
+        $('.collapse .js-category').click(function(){
+            $parent = $(this).parent('li');
+            if($parent.hasClass('js-show')){
+                $parent.removeClass('js-show');
+                $(this).children('i').removeClass('icon-35').addClass('icon-74');
+            }else{
+                $parent.siblings().removeClass('js-show');
+                $parent.addClass('js-show');
+                $(this).children('i').removeClass('icon-74').addClass('icon-35');
+                $parent.siblings().find('i').removeClass('icon-35').addClass('icon-74');
+            }
+        });
+
+    });
+
+</script>
+
+<script language="javascript">
+    function copy(message) {
+        var input = document.createElement("input");
+        input.value = message;
+        document.getElementById('sysid').appendChild(input);
+        input.select();
+        input.setSelectionRange(0, input.value.length), document.execCommand('Copy');
+        document.getElementById('sysid').removeChild(input);
+
+        var $toast = $('#toast');
+        if ($toast.css('display') != 'none') return;
+        $toast.fadeIn(100);
+        setTimeout(function () {
+            $toast.fadeOut(100);
+        }, 2000);
+    }
+</script>
+

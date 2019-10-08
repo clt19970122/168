@@ -1,0 +1,53 @@
+<div class="weui-cells user-addr">
+
+    <volist name="list" id="v">
+        <div class="weui-cell weui-cell_access">
+            <a href="javascript:addr_index('{$v.id}');" class="weui-cell__bd">
+                <p class="name">{$v.name}<span>{$v.phone}</span></p>
+                <p class="addr"><i class="icon-locs"></i>{$v.street}</p>
+            </a>
+            <a href="javascript:dels('{$v.id}');" class="weui-cell__ft"><i class="icon-dels"></i></a>
+        </div>
+    </volist>
+</div>
+
+<input type="hidden" id="view" value="{$view}">
+<a href="{:U('Users/addr_add','type=8')}" class="user-addr_btn">+添加地址</a>
+
+<script>
+
+    function dels(ids) {
+        var data = {id: ids,status:0};
+        showPreLoading();
+        $.ajax({
+            // url: "{:U('Core/dels','model=acc_addr')}",
+            url:  "{:U('users/dels')}",
+            type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.reload();
+            }
+        });
+    }
+    function addr_index(ids) {
+        var data = {id: ids};
+        showPreLoading();
+        $.ajax({
+            url:  "{:U('Index/addr_index')}",
+            type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = 'https://activity.touna.cn/immortal/#/promoterFemale?channel=XD_168TKSS&fromUrl=https%3A%2F%2Fjinxiang.touna.cn';
+            }
+        });
+    }
+
+</script>

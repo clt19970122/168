@@ -1,0 +1,827 @@
+[ 2019-08-20T18:07:15+08:00 ] 222.209.33.6 /Backet/users/getTeam.html?ssid=15c6cd11991088
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000203s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000251s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000284s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `acc_level` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0005s ]
+SQL: SELECT `nickname`,`name` FROM `account` WHERE `sysid` = '15c6cd11991088' LIMIT 1   [ RunTime:0.0474s ]
+SQL: SELECT `id`,`recid`,`sysid`,`nickname`,`name`,`phone`,`status`,`level`,`times`,`stock`,`totalpoints`,`money` FROM `account` WHERE `recid` = '15c6cd11991088'  [ RunTime:0.0893s ]
+SQL: SELECT `id`,`recid`,`sysid`,`nickname`,`name`,`phone`,`status`,`level`,`times`,`stock`,`totalpoints`,`money` FROM `account` WHERE `recid` IN ('15c6cd1c84ff91','15c6e480fbb3fb','15c70bb6759d90','15c7122430668c','15c7e524aef980','15c7f6bba43ef3','15c85fd8cd0b30','15c889ead16419','15c8dadcead100','15c8db4a91c860','15c91eae2ce2f9','15c9347c5c92c5','15c94f4fa6bcf5','15c958c7ece0fb','15c958ec33ed05','15c95913a6dea3','15c9592a603839','15c959745a2c5d','15c959f5657893','15c95a1717379d','15c95a741e0710','15c95aedcd91f9','15c95b6add3795','15c95bbc18ba49','15c95c4d309390','15c95c68e1f1a1','15c95c8edf29b8','15c95ca73a29dc','15c95d2aa4cdc8','15c95d9724ed32','15c95e56743ec0','15c96f135c00ad','15c96f48fb5a1c','15c96fa4e9f54f','15c96fd64efae1','15c970302ba595','15c970b3720089','15c97192e3affa','15c971e4263d2c','15c98600ac004d','15c99b3ad4d119','15c9b0ee7200a9','15c9b0f6dc542d','15c9dcc5840f33','15c9f16d78b7ac','15ca18ec9754a7','15ca33ca80e92a','15ca371f47e87a','15ca55d0f04ad9','15ca9492eb7380','15cac0aae312d9','15cb9367da773a','15cb94ce883ecb','15cbc42077dd7b','15cc7976b5216f','15cc7afbc91a4b','15ccad76f72548','15cd40d7fa64c3','15d15649d96aca','15d393cd537921')  [ RunTime:0.0799s ]
+SQL: SELECT `id`,`recid`,`sysid`,`nickname`,`name`,`phone`,`status`,`level`,`times`,`stock`,`totalpoints`,`money` FROM `account` WHERE `recid` IN ('15c6f7f151ce7c','15c70bd8fe27cb','15c70cf98eb0de','15c7e549edc04e','15c81c1f2d3602','15c8de8cec765f','15c94f5da9f9e5','15c95b2d3c1de4','15c9866c049e80','15c987391a3667','15c988d4a8f6a2','15c98e05211fb3','15c99882b3bff4','15c99b4338097b','15c99c1cae5e88','15c9a41b039bc8','15c9ae82c0a6d0','15c9b7eeb0b4c8','15c9cc9427ff57','15c9db67cb6f74','15c9db6d03f871','15ca17ae630e23','15ca2f3c8ddeae','15ca5f2a7568c0','15cac01ab883df','15cc1373f2ae89','15d1577303a316','15d1aa032adb60')  [ RunTime:0.0759s ]
+SQL: SELECT `id`,`recid`,`sysid`,`nickname`,`name`,`phone`,`status`,`level`,`times`,`stock`,`totalpoints`,`money` FROM `account` WHERE `recid` IN ('15c70c30f387cd','15c70d0b630d3e','15c7f98e074c8d','15c80c71b8d10a','15c8c68512b472','15c95a6204e7e5','15c95af74dab4b','15c95b56fd35a6','15c95d9bb6f4e8','15c95e26ed6dff','15c95ececa0225','15c96ef8bf3c06','15c96f6e4abf63','15c96ffe7b9e91','15c971d5d1bbd0','15c998cdc04add','15c9992abea23d','15c9a0f4b4475c','15c9f60df6f787','15ca1818a49d6d','15ca19c8c2d141','15ca2fc0c087d8','15ca5c8f020ea5','15ca6e2af9cb57','15cb6ae03b6382','15cb6e8e06b062','15cc10e379919a')  [ RunTime:0.0753s ]
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined index: headimgurl /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 110 行.
+NOTIC: [8] Undefined offset: 3 /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 117 行.
+NOTIC: [8] Undefined offset: 0 /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 117 行.
+NOTIC: [8] Undefined offset: 5 /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 117 行.
+SQL: SELECT * FROM `acc_level`  [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000104s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000141s ]
+NOTIC: [8] Undefined index: level /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 361 行.
+NOTIC: [8] Undefined index: level /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 361 行.
+NOTIC: [8] Undefined offset: 1 /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 362 行.
+NOTIC: [8] Undefined index: level /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 361 行.
+NOTIC: [8] Undefined offset: 2 /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 362 行.
+NOTIC: [8] Undefined index: level /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 361 行.
+NOTIC: [8] Undefined index: level /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 361 行.
+NOTIC: [8] Undefined index: level /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 361 行.
+NOTIC: [8] Undefined offset: 6 /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 362 行.
+NOTIC: [8] Undefined variable: type /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 385 行.
+NOTIC: [8] Undefined variable: page /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 390 行.
+NOTIC: [8] Undefined variable: select /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 392 行.
+NOTIC: [8] Undefined variable: select /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 395 行.
+NOTIC: [8] Undefined variable: select /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 398 行.
+NOTIC: [8] Undefined variable: select /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 401 行.
+NOTIC: [8] Undefined index: level /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 407 行.
+NOTIC: [8] Undefined index: level /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 407 行.
+NOTIC: [8] Undefined index: level /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 407 行.
+NOTIC: [8] Undefined index: level /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 407 行.
+NOTIC: [8] Undefined index: level /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 407 行.
+NOTIC: [8] Undefined index: level /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 407 行.
+NOTIC: [8] Undefined variable: select /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 411 行.
+NOTIC: [8] Undefined variable: select /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 414 行.
+NOTIC: [8] Undefined index: show /www/web/168/Dexis/Runtime/Cache/Backet/a2175d5fa1b08fbac273beb225454d02.php 第 483 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.017383s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.017420s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000099s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000120s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000277s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000313s ]
+
+[ 2019-08-20T18:07:42+08:00 ] 222.209.33.6 /Backet/users/getList.html?id=54961
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000210s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000292s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `acc_money` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `acc_nums` [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `syspaysn` [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `orders` [ RunTime:0.0004s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `acc_money` WHERE `uid` = '54961' LIMIT 1   [ RunTime:0.0059s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '54961' ORDER BY id desc LIMIT 0,20   [ RunTime:0.0038s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '2018A5d10682841127419' LIMIT 1   [ RunTime:0.0072s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '2018A5d10682841127419' LIMIT 1   [ RunTime:0.0049s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '2018A5d10682841127419' LIMIT 1   [ RunTime:0.0076s ]
+SQL: SELECT * FROM `account` WHERE `id` = 110924 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SHOW COLUMNS FROM `order_sr` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `order_drs` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '2018A5d10682841127419' LIMIT 1   [ RunTime:0.0413s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '615546802638579753' LIMIT 1   [ RunTime:0.0070s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '615546802638579753' LIMIT 1   [ RunTime:0.0048s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '615546802638579753' LIMIT 1   [ RunTime:0.0076s ]
+SQL: SELECT * FROM `account` WHERE `id` = null LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: name /www/web/168/Dexis/Common/Common/local.php 第 175 行.
+SQL: SELECT * FROM `acc_money` WHERE `models` = 'REBACK' AND `sn` = '615546802638579753'  [ RunTime:0.0125s ]
+NOTIC: [8] Undefined variable: rebk /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 194 行.
+NOTIC: [2] implode(): Invalid arguments passed /www/web/168/Dexis/Backet/Controller/UsersController.class.php 第 194 行.
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '615546802638579753' LIMIT 1   [ RunTime:0.0414s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '515535675885709319' LIMIT 1   [ RunTime:0.0069s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '515535675885709319' LIMIT 1   [ RunTime:0.0047s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '515535675885709319' LIMIT 1   [ RunTime:0.0074s ]
+SQL: SELECT * FROM `account` WHERE `id` = 108781 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '515535675885709319' LIMIT 1   [ RunTime:0.0415s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '1555577424.0382' LIMIT 1   [ RunTime:0.0073s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '1555577424.0382' LIMIT 1   [ RunTime:0.0049s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '1555577424.0382' LIMIT 1   [ RunTime:0.0076s ]
+SQL: SELECT * FROM `account` WHERE `id` = null LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: name /www/web/168/Dexis/Common/Common/local.php 第 175 行.
+SQL: SHOW COLUMNS FROM `money_draw` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `money_draw` WHERE `sn` = '1555577424.0382' LIMIT 1   [ RunTime:0.0022s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '1555577424.0382' LIMIT 1   [ RunTime:0.0413s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '215527050676567512' LIMIT 1   [ RunTime:0.0066s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '215527050676567512' LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '215527050676567512' LIMIT 1   [ RunTime:0.0069s ]
+SQL: SELECT * FROM `account` WHERE `id` = 76289 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '215527050676567512' LIMIT 1   [ RunTime:0.0414s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '315553857317984253' LIMIT 1   [ RunTime:0.0065s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '315553857317984253' LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '315553857317984253' LIMIT 1   [ RunTime:0.0069s ]
+SQL: SELECT * FROM `account` WHERE `id` = 108852 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '315553857317984253' LIMIT 1   [ RunTime:0.0414s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '115536018587741263' LIMIT 1   [ RunTime:0.0066s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '115536018587741263' LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '115536018587741263' LIMIT 1   [ RunTime:0.0069s ]
+SQL: SELECT * FROM `account` WHERE `id` = 108852 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '115536018587741263' LIMIT 1   [ RunTime:0.0414s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '2018A5ca0480881015577' LIMIT 1   [ RunTime:0.0072s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '2018A5ca0480881015577' LIMIT 1   [ RunTime:0.0049s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '2018A5ca0480881015577' LIMIT 1   [ RunTime:0.0067s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `models` = 'REBACK' AND `sn` = '2018A5ca0480881015577'  [ RunTime:0.0125s ]
+SQL: SELECT * FROM `account` WHERE `id` = 25405 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 10751 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 10055 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '2018A5ca0480881015577' LIMIT 1   [ RunTime:0.0414s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '1554614341.0719' LIMIT 1   [ RunTime:0.0072s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '1554614341.0719' LIMIT 1   [ RunTime:0.0049s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '1554614341.0719' LIMIT 1   [ RunTime:0.0076s ]
+SQL: SELECT * FROM `account` WHERE `id` = null LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: name /www/web/168/Dexis/Common/Common/local.php 第 175 行.
+SQL: SELECT * FROM `money_draw` WHERE `sn` = '1554614341.0719' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '1554614341.0719' LIMIT 1   [ RunTime:0.0412s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '415530675706035172' LIMIT 1   [ RunTime:0.0062s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '415530675706035172' LIMIT 1   [ RunTime:0.0041s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '415530675706035172' LIMIT 1   [ RunTime:0.0066s ]
+SQL: SELECT * FROM `account` WHERE `id` = 108238 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '415530675706035172' LIMIT 1   [ RunTime:0.0414s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '215528785634914669' LIMIT 1   [ RunTime:0.0061s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '215528785634914669' LIMIT 1   [ RunTime:0.0041s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '215528785634914669' LIMIT 1   [ RunTime:0.0066s ]
+SQL: SELECT * FROM `account` WHERE `id` = 104525 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '215528785634914669' LIMIT 1   [ RunTime:0.0414s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '1554190810.2571' LIMIT 1   [ RunTime:0.0072s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '1554190810.2571' LIMIT 1   [ RunTime:0.0049s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '1554190810.2571' LIMIT 1   [ RunTime:0.0076s ]
+SQL: SELECT * FROM `account` WHERE `id` = null LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: name /www/web/168/Dexis/Common/Common/local.php 第 175 行.
+SQL: SELECT * FROM `money_draw` WHERE `sn` = '1554190810.2571' LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '1554190810.2571' LIMIT 1   [ RunTime:0.0412s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '715528826651354181' LIMIT 1   [ RunTime:0.0060s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '715528826651354181' LIMIT 1   [ RunTime:0.0040s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '715528826651354181' LIMIT 1   [ RunTime:0.0064s ]
+SQL: SELECT * FROM `account` WHERE `id` = 105557 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '715528826651354181' LIMIT 1   [ RunTime:0.0416s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '115537505428578382' LIMIT 1   [ RunTime:0.0060s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '115537505428578382' LIMIT 1   [ RunTime:0.0040s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '115537505428578382' LIMIT 1   [ RunTime:0.0064s ]
+SQL: SELECT * FROM `account` WHERE `id` = 108815 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '115537505428578382' LIMIT 1   [ RunTime:0.0414s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '715523598106971741' LIMIT 1   [ RunTime:0.0058s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '715523598106971741' LIMIT 1   [ RunTime:0.0039s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '715523598106971741' LIMIT 1   [ RunTime:0.0063s ]
+SQL: SELECT * FROM `account` WHERE `id` = 63410 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '715523598106971741' LIMIT 1   [ RunTime:0.0414s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '1553765956.9182' LIMIT 1   [ RunTime:0.0072s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '1553765956.9182' LIMIT 1   [ RunTime:0.0049s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '1553765956.9182' LIMIT 1   [ RunTime:0.0076s ]
+SQL: SELECT * FROM `account` WHERE `id` = null LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: name /www/web/168/Dexis/Common/Common/local.php 第 175 行.
+SQL: SELECT * FROM `money_draw` WHERE `sn` = '1553765956.9182' LIMIT 1   [ RunTime:0.0019s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '1553765956.9182' LIMIT 1   [ RunTime:0.0413s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '915537505160171626' LIMIT 1   [ RunTime:0.0056s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '915537505160171626' LIMIT 1   [ RunTime:0.0038s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '915537505160171626' LIMIT 1   [ RunTime:0.0062s ]
+SQL: SELECT * FROM `account` WHERE `id` = 108815 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '915537505160171626' LIMIT 1   [ RunTime:0.0414s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '315535663010744693' LIMIT 1   [ RunTime:0.0056s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '315535663010744693' LIMIT 1   [ RunTime:0.0037s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '315535663010744693' LIMIT 1   [ RunTime:0.0061s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54974 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '315535663010744693' LIMIT 1   [ RunTime:0.0415s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '915530668510293272' LIMIT 1   [ RunTime:0.0053s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '915530668510293272' LIMIT 1   [ RunTime:0.0035s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '915530668510293272' LIMIT 1   [ RunTime:0.0058s ]
+SQL: SELECT * FROM `account` WHERE `id` = 108238 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '915530668510293272' LIMIT 1   [ RunTime:0.0416s ]
+SQL: SELECT * FROM `orders` WHERE `sn` = '815528785596291371' LIMIT 1   [ RunTime:0.0052s ]
+SQL: SELECT * FROM `syspaysn` WHERE `resn` = '815528785596291371' LIMIT 1   [ RunTime:0.0035s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '815528785596291371' LIMIT 1   [ RunTime:0.0057s ]
+SQL: SELECT * FROM `account` WHERE `id` = 104525 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `order_sr` WHERE `sn` = '815528785596291371' LIMIT 1   [ RunTime:0.0415s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `acc_nums` WHERE `uid` = 54961 LIMIT 1   [ RunTime:0.0034s ]
+SQL: SELECT * FROM `acc_nums` WHERE `uid` = 54961 OR `aboutid` = 54961 ORDER BY id desc  [ RunTime:0.0096s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 104525 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 110924 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 104525 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 104525 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 110924 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 110924 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 106636 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 106636 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 110508 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 110293 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 109773 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 16382 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 22846 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 10803 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 10751 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 106636 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 10751 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 10751 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `uid` = 54961 AND `type` > 20 LIMIT 1   [ RunTime:0.0045s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `acc_nums` WHERE `aboutid` = 54961 AND `type` < 20 LIMIT 1   [ RunTime:0.0044s ]
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `acc_money` WHERE `uid` = '54961' AND `models` = 'REBACK'  [ RunTime:0.0119s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '415523597960203382' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0088s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '415523597960203382' LIMIT 1   [ RunTime:0.0050s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '915524578637043754' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '915524578637043754' LIMIT 1   [ RunTime:0.0051s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '715527038730777629' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '715527038730777629' LIMIT 1   [ RunTime:0.0054s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '815527038808222177' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '815527038808222177' LIMIT 1   [ RunTime:0.0056s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '815528785596291371' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '815528785596291371' LIMIT 1   [ RunTime:0.0056s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '915530668510293272' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '915530668510293272' LIMIT 1   [ RunTime:0.0058s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '315535663010744693' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '315535663010744693' LIMIT 1   [ RunTime:0.0060s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '915537505160171626' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '915537505160171626' LIMIT 1   [ RunTime:0.0061s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '715523598106971741' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '715523598106971741' LIMIT 1   [ RunTime:0.0062s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '115537505428578382' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '115537505428578382' LIMIT 1   [ RunTime:0.0064s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '715528826651354181' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '715528826651354181' LIMIT 1   [ RunTime:0.0064s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '215528785634914669' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '215528785634914669' LIMIT 1   [ RunTime:0.0065s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '415530675706035172' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '415530675706035172' LIMIT 1   [ RunTime:0.0065s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '115536018587741263' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '115536018587741263' LIMIT 1   [ RunTime:0.0068s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '315553857317984253' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0088s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '315553857317984253' LIMIT 1   [ RunTime:0.0068s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '215527050676567512' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '215527050676567512' LIMIT 1   [ RunTime:0.0069s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '515535675885709319' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '515535675885709319' LIMIT 1   [ RunTime:0.0073s ]
+SQL: SELECT * FROM `acc_money` WHERE `sn` = '2018A5d10682841127419' AND `models` = 'REBACK' ORDER BY money desc  [ RunTime:0.0087s ]
+SQL: SELECT * FROM `acc_nums` WHERE `sn` = '2018A5d10682841127419' LIMIT 1   [ RunTime:0.0074s ]
+NOTIC: [8] Undefined variable: reback_money /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+NOTIC: [2] array_sum() expects parameter 1 to be array, null given /www/web/168/Dexis/Common/Common/local.php 第 947 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000118s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000151s ]
+NOTIC: [8] Undefined variable: page /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 454 行.
+NOTIC: [8] Undefined variable: select /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 456 行.
+NOTIC: [8] Undefined variable: select /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 459 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SHOW COLUMNS FROM `acc_level` [ RunTime:0.0005s ]
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: up_user /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 488 行.
+NOTIC: [8] Undefined index: up_level /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 489 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = null LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: change_nums /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 491 行.
+NOTIC: [8] Undefined index: after_nums /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 492 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: up_user /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 488 行.
+NOTIC: [8] Undefined index: up_level /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 489 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = null LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: change_nums /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 491 行.
+NOTIC: [8] Undefined index: after_nums /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 492 行.
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: up_user /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 488 行.
+NOTIC: [8] Undefined index: up_level /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 489 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = null LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: change_nums /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 491 行.
+NOTIC: [8] Undefined index: after_nums /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 492 行.
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: up_user /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 488 行.
+NOTIC: [8] Undefined index: up_level /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 489 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = null LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: change_nums /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 491 行.
+NOTIC: [8] Undefined index: after_nums /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 492 行.
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: up_user /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 488 行.
+NOTIC: [8] Undefined index: up_level /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 489 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = null LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: change_nums /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 491 行.
+NOTIC: [8] Undefined index: after_nums /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 492 行.
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+NOTIC: [8] Undefined index: order_type /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 486 行.
+NOTIC: [8] Undefined index: pick_goods /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+NOTIC: [8] Undefined index: money_do /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 487 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_info /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 494 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: in_name /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 529 行.
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: in_name /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 529 行.
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: in_name /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 529 行.
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: in_name /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 529 行.
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: in_name /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 529 行.
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: in_name /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 529 行.
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: in_name /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 529 行.
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: in_name /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 529 行.
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = null LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: in_name /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 529 行.
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+SQL: SELECT * FROM `acc_level` WHERE `id` = 6 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: reback_infos /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 531 行.
+NOTIC: [8] Undefined index: status /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 536 行.
+NOTIC: [8] Undefined index: id /www/web/168/Dexis/Runtime/Cache/Backet/7092214914a29b5a6d0aeab9d7818c9c.php 第 537 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029548s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029576s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000106s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000127s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000289s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000323s ]
+
+[ 2019-08-20T18:09:12+08:00 ] 222.209.33.6 /Backet/Goods/order_sr.html?phone=&username=%E5%87%80%E6%85%A7A&name=&status=&start=&ends=
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000217s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000306s ]
+NOTIC: [8] Undefined index: lite /www/web/168/ThinkPHP/Library/Think/Db.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `order_drs` [ RunTime:0.0006s ]
+SQL: SHOW COLUMNS FROM `account` [ RunTime:0.0005s ]
+SQL: SHOW COLUMNS FROM `systrans` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `account` WHERE `nickname` LIKE '%净慧A%'  [ RunTime:0.1087s ]
+NOTIC: [8] Undefined index: dotype /www/web/168/Dexis/Backet/Controller/GoodsController.class.php 第 622 行.
+NOTIC: [8] Undefined index: dotype /www/web/168/Dexis/Backet/Controller/GoodsController.class.php 第 625 行.
+NOTIC: [8] Undefined index: dotype /www/web/168/Dexis/Backet/Controller/GoodsController.class.php 第 628 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `order_drs` WHERE `uid` IN ('54961') LIMIT 1   [ RunTime:0.0052s ]
+SQL: SELECT * FROM `order_drs` WHERE `uid` IN ('54961') ORDER BY id desc LIMIT 0,10   [ RunTime:0.0018s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `order_drs` WHERE `uid` IN ('54961') AND `status` = 3 AND `have_pay` = 1 LIMIT 1   [ RunTime:0.0025s ]
+SQL: SELECT SUM(nums) AS tp_sum FROM `order_drs` WHERE `uid` IN ('54961') AND `status` = 4 AND `have_pay` = 3 AND `sure` = 1 LIMIT 1   [ RunTime:0.0024s ]
+NOTIC: [8] Undefined index: dotype /www/web/168/Dexis/Backet/Controller/GoodsController.class.php 第 709 行.
+SQL: SELECT * FROM `systrans` WHERE ( status=1 )  [ RunTime:0.0002s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000107s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000140s ]
+NOTIC: [8] Undefined variable: rec /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 454 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0002s ]
+SQL: SELECT * FROM `account` WHERE `sysid` = '15c6776e5018c2' LIMIT 1   [ RunTime:0.0238s ]
+SQL: SHOW COLUMNS FROM `acc_level` [ RunTime:0.0006s ]
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: p /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 455 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: same /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 460 行.
+NOTIC: [8] Undefined index: same_pro /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 461 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+NOTIC: [8] Undefined index: transid /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+SQL: SELECT * FROM `systrans` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Use of undefined constant idcard - assumed 'idcard' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 476 行.
+SQL: SHOW COLUMNS FROM `acc_addr` [ RunTime:0.0004s ]
+SQL: SELECT * FROM `acc_addr` WHERE `id` = 33593 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: rec /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 454 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `sysid` = '15c6776e5018c2' LIMIT 1   [ RunTime:0.0235s ]
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: p /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 455 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: same /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 460 行.
+NOTIC: [8] Undefined index: same_pro /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 461 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+NOTIC: [8] Undefined index: transid /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+SQL: SELECT * FROM `systrans` WHERE `id` = 20 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Use of undefined constant idcard - assumed 'idcard' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 476 行.
+SQL: SELECT * FROM `acc_addr` WHERE `id` = 33449 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: rec /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 454 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `sysid` = '15c6776e5018c2' LIMIT 1   [ RunTime:0.0235s ]
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: p /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 455 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: same /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 460 行.
+NOTIC: [8] Undefined index: same_pro /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 461 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+NOTIC: [8] Undefined index: transid /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+SQL: SELECT * FROM `systrans` WHERE `id` = 20 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Use of undefined constant idcard - assumed 'idcard' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 476 行.
+SQL: SELECT * FROM `acc_addr` WHERE `id` = 33192 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: rec /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 454 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `sysid` = '15c6776e5018c2' LIMIT 1   [ RunTime:0.0234s ]
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: p /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 455 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: same /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 460 行.
+NOTIC: [8] Undefined index: same_pro /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 461 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+NOTIC: [8] Undefined index: transid /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+SQL: SELECT * FROM `systrans` WHERE `id` = 20 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Use of undefined constant idcard - assumed 'idcard' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 476 行.
+SQL: SELECT * FROM `acc_addr` WHERE `id` = 33394 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: rec /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 454 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `sysid` = '15c6776e5018c2' LIMIT 1   [ RunTime:0.0237s ]
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: p /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 455 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: same /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 460 行.
+NOTIC: [8] Undefined index: same_pro /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 461 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+NOTIC: [8] Undefined index: transid /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+SQL: SELECT * FROM `systrans` WHERE `id` = 20 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Use of undefined constant idcard - assumed 'idcard' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 476 行.
+SQL: SELECT * FROM `acc_addr` WHERE `id` = 33192 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: rec /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 454 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `sysid` = '15c6776e5018c2' LIMIT 1   [ RunTime:0.0235s ]
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: p /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 455 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: same /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 460 行.
+NOTIC: [8] Undefined index: same_pro /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 461 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+NOTIC: [8] Undefined index: transid /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+SQL: SELECT * FROM `systrans` WHERE `id` = 20 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Use of undefined constant idcard - assumed 'idcard' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 476 行.
+SQL: SELECT * FROM `acc_addr` WHERE `id` = 33193 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: rec /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 454 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `sysid` = '15c6776e5018c2' LIMIT 1   [ RunTime:0.0234s ]
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: p /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 455 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: same /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 460 行.
+NOTIC: [8] Undefined index: same_pro /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 461 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+NOTIC: [8] Undefined index: transid /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+SQL: SELECT * FROM `systrans` WHERE `id` = 20 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Use of undefined constant idcard - assumed 'idcard' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 476 行.
+SQL: SELECT * FROM `acc_addr` WHERE `id` = 33192 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: rec /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 454 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `sysid` = '15c6776e5018c2' LIMIT 1   [ RunTime:0.0236s ]
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: p /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 455 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: same /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 460 行.
+NOTIC: [8] Undefined index: same_pro /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 461 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+NOTIC: [8] Undefined index: transid /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+SQL: SELECT * FROM `systrans` WHERE `id` = 20 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Use of undefined constant idcard - assumed 'idcard' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 476 行.
+SQL: SELECT * FROM `acc_addr` WHERE `id` = 33078 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: rec /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 454 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `sysid` = '15c6776e5018c2' LIMIT 1   [ RunTime:0.0239s ]
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: p /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 455 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: same /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 460 行.
+NOTIC: [8] Undefined index: same_pro /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 461 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+NOTIC: [8] Undefined index: transid /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+SQL: SELECT * FROM `systrans` WHERE `id` = 7 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Use of undefined constant idcard - assumed 'idcard' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 476 行.
+SQL: SELECT * FROM `acc_addr` WHERE `id` = 32939 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: rec /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 454 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+SQL: SELECT * FROM `account` WHERE `sysid` = '15c6776e5018c2' LIMIT 1   [ RunTime:0.0235s ]
+SQL: SELECT * FROM `acc_level` WHERE `id` = 5 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: p /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 455 行.
+SQL: SELECT * FROM `account` WHERE `id` = 54961 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: same /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 460 行.
+NOTIC: [8] Undefined index: same_pro /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 461 行.
+NOTIC: [8] Use of undefined constant name - assumed 'name' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+NOTIC: [8] Undefined index: transid /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 463 行.
+SQL: SELECT * FROM `systrans` WHERE `id` = 20 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Use of undefined constant idcard - assumed 'idcard' /www/web/168/Dexis/Runtime/Cache/Backet/5cf58fa4bb0e9bc3e63fa3f27df85943.php 第 476 行.
+SQL: SELECT * FROM `acc_addr` WHERE `id` = 31855 LIMIT 1   [ RunTime:0.0002s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.269098s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.269130s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000188s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000211s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000354s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000391s ]
+

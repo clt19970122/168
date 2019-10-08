@@ -1,0 +1,172 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+    <head>
+        <title><?php echo ($conf_title); ?></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <meta name="format-detection" content="telephone=no" />
+        <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate">
+<meta HTTP-EQUIV="expires" CONTENT="Wed, 26 Feb 1997 08:21:57 GMT">
+<meta HTTP-EQUIV="expires" CONTENT="0">
+        <link href="/Public/libs/weui/style/weui.min.css" rel="stylesheet">
+        <link href="/Public/libs/weui/style/weui-picker.css" rel="stylesheet">
+        <link href="/Public/home/css/app.css?v=<?php echo ($version); ?>" rel="stylesheet">
+        <link href="/Public/home/css/icon.css?v=<?php echo ($version); ?>" rel="stylesheet">
+        <script src="/Public/libs/jquery.min.js" charset="utf-8"></script>
+        <script src="/Public/libs/weui/js/weui.min.js" charset="utf-8"></script>
+        <script src="/Public/libs/common.js" charset="utf-8"></script>
+        <script src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js'></script>
+
+
+<!--        <link rel="stylesheet" type="text/css" href="/Public/home/areachoose/jsdaima.com.css">
+        <link rel="stylesheet" href="/Public/home/areachoose/LArea.css">
+        <script src="/Public/home/areachoose/LAreaData1.js"></script>
+        <script src="/Public/home/areachoose/LAreaData2.js"></script>
+        <script src="/Public/home/areachoose/LArea.js"></script>-->
+        <script src="/Public/home/areachoose/weui.min.js"></script>
+        <script src="/Public/home/areachoose/addrData.js"></script>
+        <script src="/Public/home/areachoose/addrDataOrigin.js"></script>
+        <script>
+
+            wx.config({
+                debug: false,
+                appId: '<?php echo ($ticket["appid"]); ?>',
+                timestamp: '<?php echo ($ticket["timestamp"]); ?>',
+                nonceStr: '<?php echo ($ticket["noncestr"]); ?>',
+                signature: '<?php echo ($ticket["signature"]); ?>',
+                jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage']
+            });
+
+        </script>
+    </head>
+    <body>
+        <div class="page">
+
+            <div id="loadingToast" class="none">
+                <div class="weui-mask_transparent"></div>
+                <div class="weui-toast">
+                    <i class="weui-loading weui-icon_toast"></i>
+                    <p class="weui-toast__content">处理中</p>
+                </div>
+            </div>
+
+            <div class="js_dialog none" id="iosDialog">
+                <div class="weui-mask"></div>
+                <div class="weui-dialog">
+                    <div class="weui-dialog__bd" id="iosDialogTitle">&nbsp;</div>
+                    <div class="weui-dialog__ft">
+                        <a href="javascript:;" class="weui-dialog__btn">知道了</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <form>
+    <div class="regs">
+        <div class="regs-form">
+            <p class="label"><input type="text" value="<?php echo ($phone); ?>" id="nowphone" name="phone" placeholder="请输入手机号"/></p>
+            <input type="hidden" id="lastphone" value="<?php echo ($phone); ?>">
+            <p class="label">
+                <input type="text" name="code" placeholder="请输入验证码"/>
+                <a href="javascript:getSysCode();" id="verifycode">获取验证码</a>
+            </p>
+            <?php if(empty($$phone)): ?><a class="regs" href="javascript:doOption();">绑定手机</a>
+            <?php else: ?>
+                <a class="regs" href="javascript:doOption();">绑定手机</a><?php endif; ?>
+            <!--<p class="regs-form_login"><a href="<?php echo U('Login/index');?>">已有账号，去登陆？</a></p>-->
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+
+    function getSysCode() {
+        var phone = $("input[name='phone']").val();
+        if (!checkPhone(phone)) {
+            return alert_wec("请输入正确的手机号码");
+        }
+        showPreLoading();
+        $.ajax({
+            url: "<?php echo U('Login/regs_sms');?>", type: 'post',
+            data: {phone: phone}, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                setTimtout(120);
+            }
+        });
+    }
+
+    function setTimtout(t) {
+        var codeRd = $("#verifycode");
+        codeRd.attr("href", "javascript:void(0);");
+        codeRd.addClass("gray");
+        var timers = setInterval(function () {
+            t--;
+            codeRd.html(t);
+            if (t <= 0) {
+                clearInterval(timers);
+                codeRd.removeClass("gray");
+                codeRd.attr("href", "javascript:getSysCode();");
+                codeRd.html("获取验证码");
+            }
+        }, 1000);
+    }
+
+    function doOption() {
+        var temp = $("form").serializeArray();
+        var data = objToArray(temp);
+        var lastphone =$('#lastphone').val();
+        var nowphone =$('#nowphone').val();
+        ////
+        if (!checkPhone(data.phone)) {
+            return alert_wec("请填写正确的手机号码");
+        }
+        if (data.code === null || data.code === "") {
+            return alert_wec("请填写验证码");
+        }
+        if(lastphone ==nowphone){
+            return alert_wec("已绑定该手机号,请勿重复绑定");
+        }
+
+        ////
+        showPreLoading();
+        $.ajax({
+            url: "<?php echo U('users/bindphone_op');?>", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+
+</script>
+            </div>
+
+        </div>
+        <script>
+            window.onload = function () {
+                document.addEventListener('touchstart', function (event) {
+                    if (event.touches.length > 1) {
+                        event.preventDefault();
+                    }
+                });
+                var lastTouchEnd = 0;
+                document.addEventListener('touchend', function (event) {
+                    var now = (new Date()).getTime();
+                    if (now - lastTouchEnd <= 300) {
+                        event.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
+            }
+        </script>
+    </body>
+</html>

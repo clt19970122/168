@@ -1,0 +1,89 @@
+<form>
+    <div class="regs">
+        <div class="regs-form">
+            <p class="label"><input type="text" value="{$phone}" id="nowphone" name="phone" placeholder="请输入手机号"/></p>
+            <input type="hidden" id="lastphone" value="{$phone}">
+            <p class="label">
+                <input type="text" name="code" placeholder="请输入验证码"/>
+                <a href="javascript:getSysCode();" id="verifycode">获取验证码</a>
+            </p>
+            <empty name="$phone">
+                <a class="regs" href="javascript:doOption();">绑定手机</a>
+            <else/>
+                <a class="regs" href="javascript:doOption();">绑定手机</a>
+
+            </empty>
+            <!--<p class="regs-form_login"><a href="{:U('Login/index')}">已有账号，去登陆？</a></p>-->
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+
+    function getSysCode() {
+        var phone = $("input[name='phone']").val();
+        if (!checkPhone(phone)) {
+            return alert_wec("请输入正确的手机号码");
+        }
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Login/regs_sms')}", type: 'post',
+            data: {phone: phone}, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                setTimtout(120);
+            }
+        });
+    }
+
+    function setTimtout(t) {
+        var codeRd = $("#verifycode");
+        codeRd.attr("href", "javascript:void(0);");
+        codeRd.addClass("gray");
+        var timers = setInterval(function () {
+            t--;
+            codeRd.html(t);
+            if (t <= 0) {
+                clearInterval(timers);
+                codeRd.removeClass("gray");
+                codeRd.attr("href", "javascript:getSysCode();");
+                codeRd.html("获取验证码");
+            }
+        }, 1000);
+    }
+
+    function doOption() {
+        var temp = $("form").serializeArray();
+        var data = objToArray(temp);
+        var lastphone =$('#lastphone').val();
+        var nowphone =$('#nowphone').val();
+        ////
+        if (!checkPhone(data.phone)) {
+            return alert_wec("请填写正确的手机号码");
+        }
+        if (data.code === null || data.code === "") {
+            return alert_wec("请填写验证码");
+        }
+        if(lastphone ==nowphone){
+            return alert_wec("已绑定该手机号,请勿重复绑定");
+        }
+
+        ////
+        showPreLoading();
+        $.ajax({
+            url: "{:U('users/bindphone_op')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+
+</script>

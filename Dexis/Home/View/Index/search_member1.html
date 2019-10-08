@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .search-container{
+            display: flex;
+            padding: .4rem;
+            height: 4rem;
+            align-items: center;
+            font-size: 1.4rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .select-level{
+            font-size: 1.4rem;
+            position: relative;
+            color: #323436;
+            flex: 1;
+        }
+        #idNumber1 {
+            overflow: hidden;
+            text-align: left;
+            height: 2.6rem;
+            border: none;
+            font-size: 1.4rem;
+            width: 100%;
+            flex: 3;
+        }
+        #idNumber1::-webkit-input-placeholder{
+            color: #898e92;
+        }
+        #idNumber1::-moz-placeholder{  //不知道为何火狐的placeholder的颜色是粉红色，怎么改都不行，希望有大牛路过帮忙指点
+            color: #898e92;
+        }
+        #idNumber1:-ms-input-placeholder{  //由于我的IE刚好是IE9，支持不了placeholder，所以也测试不了(⊙﹏⊙)，有IE10以上的娃可以帮我试试
+            color: #898e92;
+        }
+        .delete{
+            margin: 0 15px;
+        }
+        .delete>div {
+            height: 3rem;
+            line-height: 3rem;
+            padding: 0 1rem;
+            text-align: center;
+            font-size: 1.2rem;
+            box-sizing:border-box;
+            color: #898e92;
+            margin-right: 1rem;
+            background: #f3f6f8;
+            border-radius: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .history{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #search {
+            height:3rem;
+            font-size: 14px;
+            line-height: 14px;
+            color: #005cac;
+            padding: 0 .8rem;
+            font-weight: bold;
+            border: none;
+            background: none;
+        }
+
+        #his-dele {
+
+        }
+
+        #idNumber1 input[type="image"]{
+            width: 1.16rem;height: 1.16rem;
+            float: left;
+            margin-right: .42rem;
+        }
+        #idNumber1 input[type="text"]{
+            height: 1.16rem;
+            line-height: 1.16rem;
+            float: left;
+            color: #878787;
+            text-align: left;
+            font-size: .62rem;
+            background: none;
+        }
+        .search-history-titile{
+            display: flex;
+            font-size: 1.2rem;
+            height: 4rem;
+            line-height: 4rem;
+            color: #898e92;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body style="background: #fff;height: 100vh">
+<!--<a href="JavaScript:history.back(-1)"><img src="img/back.png" style="position: absolute;top:1.7rem;left: 1rem;" /></a>-->
+<!--<img src="img/icon_search.png" style="position: absolute;top:1.9rem;left:4rem;width:1.6rem;height:1.6rem;" />-->
+<!--<form action="{:U('Index/rider_list')}" class="form-inline" method="post">
+    <input type="text"  placeholder="请输入用户真实姓名" name="name" value="">
+    <select name="level" >
+        <option value="">会员等级</option>
+        <volist name='list2' id='v'>
+            <option value="{$v.id}">{$v.name}</optin>
+        </volist>
+    </select>
+    <input type="submit" name="" value="搜索">
+</form>-->
+<form action="{:U('Index/search_member')}"  method="post">
+<div class="search-container">
+    <select name="level" class="weui-select select-level">
+        <option value="">全部等级</option>
+        <volist name='list2' id='v'>
+        <option value="{$v.id}">{$v.name}</option>
+
+        </volist>
+<!--
+        <option value="">选择等级</option>
+-->
+        <!--<volist name='list2' id='v'>
+            <option value="{$v.id}">{$v.name}</option>
+        </volist>-->
+    </select>
+    <i class="iconfont">&#xe65b;</i>
+    <div class="board" style="border-right:1px solid #d9d9d9;width: 2px;color: red;height: 1.8rem;margin: 0 1rem"></div>
+    <input type="text" class="" name="name" id="idNumber1" placeholder="请输入用户真实姓名" style="text-overflow:ellipsis;">
+
+    <button id="search">搜索</button>
+</div>
+</form>
+<div class="search-history-titile m32">
+<div>搜索历史</div>
+<div class="history" id="his-dele" style="display: none"><i class="iconfont">&#xe6be;</i>清除搜索记录</div>
+</div>
+
+<div class="delete history">
+</div>
+<volist name="list" id="vo">
+    <div class="page-category js-categoryInner page-category-content">
+        <div class="weui-cell weui-cell_access" style="align-items: flex-start">
+            <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                <img src="{$vo.headimgurl}" style="width: 50px;display: block;border-radius: 5px">
+            </div>
+            <div class="weui-cell__bd">
+
+                <div style="display: flex;justify-content: space-between;align-items: center;text-align: left;">
+                    <div>
+                        <div style="display: inline-flex;justify-content: center;align-items: center">
+                            <p style="font-size: 17px"><if condition="$vo['name'] eq null or $vo['name'] eq ' '"><span style="color: red">未实名注册会员</span><else/>{$vo.name}</if></p>
+                            <span style="background: #153afa;border-radius: 5px;font-size: 11px;padding: 2px 6px;color: #fff;margin-left: 5px;height: 15px">{$vo.level}</span>
+                        </div>
+                        <p style="font-size: 13px;color: #888888;">系统账号：{$vo.sysid} <button class="weui-btn weui-btn_mini orange" style="padding: 0 .5rem;line-height: 1.6rem;font-size: 1.2rem" onclick="copy('{$vo.sysid}')">复制</button></p>
+                        <p style="font-size: 13px;color: #888888;">注册时间：{$vo.times|date='Y-m-d H:i:s', ###}</p>
+                    </div>
+
+                    <!--<div class="rider-number" style="flex-grow: 1">
+                        <p>团队人数</p>
+                        <p style="font-size: 17px;color: #005DAC;margin-top: .3rem;font-weight: 500">{$vo.count_child}人</p>
+                    </div>-->
+                    <a href="{:U('index/rider',array('sysid'=>$vo['sysid']))}">
+                        <div>
+                            <div style="content: '';display: inline-block;height: 6px;width: 6px;border-width: 2px 2px 0 0;border-color: #c8c8cd;border-style: solid;-webkit-transform: matrix(.71,.71,-.71,.71,0,0);transform: matrix(.71,.71,-.71,.71,0,0);margin-top: 8px;right: 15px">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="weui-flex" style="flex-wrap:wrap">
+                    <div class="weui-flex__item">
+                        <div class="user-info-about">
+                            <p class="user-info-number">{$vo.outnums}</p>
+                            <p class="user-info-desc">销售量</p>
+                        </div>
+                    </div>
+                    <div class="weui-flex__item">
+                        <div class="user-info-about">
+                            <p class="user-info-number">￥{$vo.salemoney}</p>
+                            <p class="user-info-desc">销售额</p>
+                        </div>
+                    </div>
+                    <div class="weui-flex__item">
+                        <div class="user-info-about">
+                            <p class="user-info-number">￥{$vo.innums}</p>
+                            <p class="user-info-desc">进货量</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="index-rider_box-item">
+        <a href="{:U('index/rider',array('sysid'=>$vo['sysid']))}">
+            <p class="head"><img src="{$vo.headimgurl}"/></p>
+            <p class="name">{$vo.nickname}</p>
+            <p class="level">
+                <button>{$level|getUserLevel=$vo['level'],###}</button>
+            <p>进货量:{$vo.innums}出货量:{$vo.outnums}</p>
+
+            </p>
+        </a>
+    </div>-->
+</volist>
+<!--清空历史记录-->
+
+<script type="text/javascript">
+    $(document).delegate(".delete>div", "click", function() {
+        $("#idNumber1").val($(this).text());
+    });
+
+    /*搜索记录相关*/
+    //从localStorage获取搜索时间的数组
+    var hisTime;
+    //从localStorage获取搜索内容的数组
+    var hisItem;
+    //从localStorage获取最早的1个搜索时间
+    var firstKey;
+
+    function init() {
+        //每次执行都把2个数组置空
+        hisTime = [];
+        hisItem = [];
+        //模拟localStorage本来有的记录
+        //localStorage.setItem("a",12333);
+        //本函数内的两个for循环用到的变量
+        var i = 0
+        for(; i < localStorage.length; i++) {
+            if(!isNaN(localStorage.key(i))) {
+                hisItem.push(localStorage.getItem(localStorage.key(i)));
+                hisTime.push(localStorage.key(i));
+            }
+        }
+        i = 0;
+        //执行init(),每次清空之前添加的节点
+        $(".delete").html("");
+        for(; i < hisItem.length; i++) {
+            //alert(hisItem);
+            $(".delete").prepend('<div class="word-break">' + hisItem[i] + '</div>')
+        }
+    }
+    init();
+
+    $("#search").click(function() {
+        var value = $("#idNumber1").val();
+        var time = (new Date()).getTime();
+        if(!value) {
+            alert("请输入搜索内容");
+            return false;
+        }
+
+        //输入的内容localStorage有记录
+        if($.inArray(value, hisItem) >= 0) {
+            for(var j = 0; j < localStorage.length; j++) {
+                if(value == localStorage.getItem(localStorage.key(j))) {
+                    localStorage.removeItem(localStorage.key(j));
+                }
+            }
+            localStorage.setItem(time, value);
+        }
+        //输入的内容localStorage没有记录
+        else {
+            //由于限制了只能有6条记录，所以这里进行判断
+            if(hisItem.length > 10) {
+                firstKey = hisTime[0]
+                localStorage.removeItem(firstKey);
+                localStorage.setItem(time, value);
+            } else {
+                localStorage.setItem(time, value)
+            }
+        }
+        init();
+        //正式的时候要提交的！！！
+        //$("#form1").submit()
+
+    });
+
+    //清除记录功能
+    $("#his-dele").click(function() {
+        var f = 0;
+        for(; f < hisTime.length; f++) {
+            localStorage.removeItem(hisTime[f]);
+        }
+        init();
+    });
+    //苹果手机不兼容出现input无法取值以下是解决方法
+    $(function() {
+        $('.word-break').click(function() {
+            var div = $(this).text();
+            $('#idNumber1').val(div);
+        })
+        //取到值以后button存储无法取值，这里强迫浏览器强行刷新可解决
+        $('#search').click(function() {
+            window.location.reload();
+        })
+    })
+    if(($(".word-break").length)>6){
+        $("#his-dele").css("display","block")
+    }
+
+</script>
+
+</body>
+</html>

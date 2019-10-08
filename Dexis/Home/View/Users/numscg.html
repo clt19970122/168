@@ -1,0 +1,21 @@
+<div class="index-money_item" id="d">
+    <div class="index-money_item-box">
+        <div class="item"><b>下单用户</b></div>
+        <div class="item"><b>下单时间</b></div>
+        <!--<div class="item">{$v.times|date='H:i:s',###}</div>-->
+        <div class="item"><b>数量</b></div>
+        <div class="item"><b>剩余</b></div>
+        <div class="item"><b>进出</b></div>
+    </div>
+    <volist name="nums" id="v">
+        <div class="index-money_item-box">
+            <div class="item"><span>{$v.lowuser}</span></div>
+            <div class="item"><span>{$v.time}</span></div>
+            <div class="item"><span>{$v.nums}</span></div>
+            <div class="item"><span>{$v.show_rest}</span></div>
+            <div class="item"><span>{$v.type}</span></div>
+        </div>
+    </volist>
+        {$page}
+
+</div>

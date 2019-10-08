@@ -1,0 +1,99 @@
+<form>
+    <input type="hidden" name="ids" value="{$info.id}"/>
+    <div class="weui-cells weui-cells_form user-addr_add">
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">收货人</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="name" value="{$info.name}"/>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">联系电话</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="phone" value="{$info.phone}"/>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">详细地址</label></div>
+            <div class="weui-cell__bd">
+                <input id="cascadePickerBtn" class="weui-input" type="text" name="province" readonly="" value="{$info.pro}" />
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label idcard">详细地址</label></div>
+            <div class="weui-cell__bd">
+                <textarea class="weui-textarea" name="street" placeholder="详细地址" rows="2"></textarea>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label idcard">备注</label></div>
+            <div class="weui-cell__bd">
+                <textarea class="weui-textarea" name="idcard" rows="2">{$info.idcard}</textarea>
+            </div>
+        </div>
+        <div class="weui-cell weui-cell_switch">
+            <div class="weui-cell__bd">设置默认地址<br/><p>注：每次下单时会使用该地址</p></div>
+            <div class="weui-cell__ft">
+                <input class="weui-switch" type="checkbox" name="def" value="1" <eq name='info.def' value='1'>checked</eq>/>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+<div class="weui-btn-area">
+    <a class="weui-btn weui-btn_primary" href="javascript:doOption();">保存</a>
+</div>
+
+<input type="hidden" id="view" value="{$view}">
+
+<script>
+
+    function doOption() {
+        var temp = $("form").serializeArray();
+        var data = objToArray(temp);
+        var view =$('#view').val();
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Core/edits','model=acc_addr')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                if(view){
+                    window.location.href = "{:U('Users/"+view+"')}";
+                }else {
+                    window.location.href = "{:U('Users/addr')}";
+                }
+            }
+        });
+    }
+
+</script>
+
+<script src="__PUBLIC__/home/areachoose/addrData.js"></script>
+<script src="__PUBLIC__/home/areachoose/addrDataOrigin.js"></script>
+
+<script>
+    // 级联选择器
+    document.querySelector('#cascadePickerBtn').addEventListener('click', function () {
+        let addrData = iosProvinces;
+        weui.picker(addrData,{
+            depth: 3,
+            defaultValue: [22, 0, 3],
+            onChange: function onChange(result) {
+                // console.log(result);
+            },
+            onConfirm: function onConfirm(result) {
+                var data = result[0].label+','+result[1].label+','+result[2].label;
+                $('#cascadePickerBtn').val(data);
+                // console.log(data);
+            },
+            id: 'cascadePicker'
+        });
+    });
+
+</script>

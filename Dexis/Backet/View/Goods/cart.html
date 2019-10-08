@@ -1,0 +1,125 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        转货信息
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li>系统设置</li>
+            <li class="active">库存转让</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <h5 class="subtitle mb5">导出转货信息</h5>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form role="form" name="addItems">
+                        <div class="form-group">
+                            <label>导出转货用户系统id</label>
+                            <input type="text" name="out" class="form-control" id="111" onblur="blue(11)" placeholder="输入转货人的系统账号">
+                        </div>
+                        <p id="11" style="color: red;text-align: center;font-size: 20px"></p>
+                        <button type="button" class="btn btn-success" onclick="cart_list();">查询</button>
+                        <button type="button" class="btn btn-info" onclick="adsLog();">导出</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+         <div class="table-responsive">
+            <table class="table table-bordered" id="datatables">
+                <thead>
+                <tr>
+                    <th width="15%">用户名</th>
+                    <th>转单号</th>
+                    <th width="10%">被转入人</th>
+                    <th width="15%">被转入人昵称</th>
+                    <th width="15%">转入盒数</th>
+                    <th width="15%">转入时间</th>
+                </tr>
+                </thead>
+                <tbody id="cart_list">
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    function adsLog() {
+        var start =$('.form-control').val();
+        //console.log(start);
+        window.location.href="{:U('Backet/Docsv/cart_Excel')}?out="+start;
+    }
+
+    function cart_list() {
+        $("#cart_list").empty();
+        var start =$('.form-control').val();
+        var html = '';
+        showPreLoading();
+        $.ajax({
+            url: "{:U('goods/cart')}", type: 'post',
+            data: {status:start}, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                $(res.data).each(function(i,e){
+                    html += '  <tr>\
+                                <td>'+ e.name+'</td>\
+                                <td>'+ e.sn+'</td>\
+                                <td>'+ e.aboutname+'</td>\
+                                <td>'+ e.uname+'</td>\
+                                <td>'+ e.nums+'</td>\
+                                <td>'+ e.time+'</td>\
+                               <tr>';
+                });
+                $("#cart_list").append(html);
+            }
+        });
+    }
+
+    function dels(id) {
+        if (!confirm("确定要删除吗？")) {
+            return;
+        }
+        var configURL = "{:U('Core/dels', 'model=sysads')}";
+        var data = {id: id};
+        ajaxRt(configURL, data);
+    }
+
+    function getuserinfo() {
+        var id =$('#out').val();
+        var configURL = "{:U('Core/dels', 'model=sysads')}";
+        var data = {id: id};
+    }
+
+</script>
+<script>
+    function blue(tag) {
+        $.ajax({
+            type: "GET",
+            url: "{:U('users/getuserbysys')}",
+            data: {srsid: $("#"+tag+"1").val()},
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                if (data == null) {
+                    $('#'+tag+'').html('用户不存在，请检查系统号是否正确');
+                } else {
+                    $('#'+tag+'').html('用户名:' + data.name);
+                }
+            }
+        })
+
+    };
+</script>

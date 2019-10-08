@@ -1,0 +1,235 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        冻结金额
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li>系统设置</li>
+            <li class="active">冻结金额</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <h5 class="subtitle mb5">冻结金额</h5>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form role="form" name="addItems">
+                        <div class="form-group">
+                            <label>姓名</label>
+                            <p>{$name}</p>
+                        </div>
+                        <div class="form-group">
+                            <label>余额</label>
+                            <p>￥{$datas.money}</p>
+                        </div>
+                        <div class="form-group">
+                           <label>冻结总金额</label>
+                           <p>￥{$money}</p>
+                        </div>
+                        <div class="form-group">
+                            <label>操作金额</label>
+                            <input type="text" name="frozen_money" class="form-control" id="221"  placeholder="请输入金额">
+                            <input type="hidden" name="uid" class="form-control" value="{$get.ssid}">
+                            <input type="hidden" name="money" class="form-control" value="{$datas.money}">
+                        </div>
+                        <div class="form-group">
+                            <label>备注</label>
+                            <textarea class="form-control" name="content"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>操作密码</label>
+                            <input type="password" name="pwd" class="form-control" id=""  placeholder="请输入密码">
+                        </div>
+                        <h5 class="subtitle mb5" style="color:red;">ps:转入转出金额直接进入用户余额</h5>
+                        <button type="button" class="btn btn-info" onclick="frozen();">冻结</button>
+                        <button type="button" class="btn btn-info" onclick="unfreeze();">解冻</button>
+                        <button type="button" class="btn btn-info" onclick="frozen_all();">一键冻结</button>
+                        <button type="button" class="btn btn-info" onclick="unfreeze_all();">一键解冻</button>
+                    </form>
+
+                </div>
+                <!--<div class="panel-body">
+                    <form role="form" name="unfreeze">
+                        <p id="12" style="color: red;text-align: center;font-size: 20px"></p>
+                        <div class="form-group">
+                            <label>转出冻结</label>
+                        </div>
+                        <div class="form-group">
+                            <label>冻结金额</label>
+                            <input type="text" name="frozen_money" class="form-control"  placeholder="请输入金额">
+                            <input type="hidden" name="uid" class="form-control" value="{$get.ssid}">
+                        </div>
+                        <div class="form-group">
+                            <label>备注</label>
+                            <textarea class="form-control"  name="content"></textarea>
+                        </div>
+                        <button type="button" class="btn btn-info" onclick="unfreeze();">解冻</button>
+                    </form>
+                </div>-->
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <h5 class="subtitle mb5">冻结记录</h5>
+            <table class="table mb30">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>编号</th>
+                    <th>用户</th>
+                    <th >操作</th>
+                    <th >操作前余额</th>
+                    <th >操作后余额</th>
+                    <th >金额</th>
+                    <th>时间</th>
+                    <th>备注</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <volist name="count.list" id="v">
+                    <tr>
+                        <td>{$v.id}</td>
+                        <td>{$v.sn}</td>
+                        <td>{$v.uid|getNameById}</td>
+                        <td>{$v.type|FrozenType}</td>
+                        <td>{$v.money}</td>
+                        <td>{$v.d_money}</td>
+                        <td>{$v.frozen_money}</td>
+                        <td>{$v.time|date='Y/m/d H:i:s',###}</td>
+                        <td>{$v.remark}</td>
+                    </tr>
+                </volist>
+                </tbody>
+            </table>
+            {$count.show}
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    function frozen() {
+        var configURL = "{:U('users/frozenMoney')}";
+        var formelemt = $("form[name=addItems]").serializeArray();
+        var num=formelemt.length;
+        formelemt[num]={name:'type',value:1};
+        var data = objToArray(formelemt);
+        $.ajax({
+            url: configURL,
+            secureuri: false,
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+                if (data.status !== 1) {
+                    alert(data.msg);
+                    return false;
+                }
+
+                window.location.reload();
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+        return false;
+    }
+
+    function unfreeze() {
+        var configURL = "{:U('users/frozenMoney')}";
+        var formelemt = $("form[name=addItems]").serializeArray();
+        var num=formelemt.length;
+        formelemt[num]={name:'type',value:2};
+        var data = objToArray(formelemt);
+        $.ajax({
+            url: configURL,
+            secureuri: false,
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+                if (data.status !== 1) {
+                    alert(data.msg);
+                    return false;
+                }
+                window.location.reload();
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+        return false;
+    }
+    function frozen_all() {
+        var configURL = "{:U('users/frozenMoneyall')}";
+        var uid =$('[name="uid"]').val();
+        var content =$('[name="content"]').val();
+        var pwd =$('[name="pwd"]').val();
+        var money =$('[name="money"]').val();
+        $.ajax({
+            url: configURL,
+            secureuri: false,
+            dataType: 'json',
+            data: {pwd:pwd,type:1,content:content,uid:uid,money:money},
+            success: function (data) {
+                if (data.status !== 1) {
+                    alert(data.msg);
+                    return false;
+                }
+                window.location.reload();
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+        return false;
+    }
+
+    function unfreeze_all() {
+        var configURL = "{:U('users/frozenMoneyall')}";
+        var uid =$('[name="uid"]').val();
+        var content =$('[name="content"]').val();
+        var pwd =$('[name="pwd"]').val();
+        var money =$('[name="money"]').val();
+        $.ajax({
+            url: configURL,
+            secureuri: false,
+            dataType: 'json',
+            data: {pwd:pwd,type:2,content:content,uid:uid,money:money},
+            success: function (data) {
+                if (data.status !== 1) {
+                    alert(data.msg);
+                    return false;
+                }
+                window.location.reload();
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+        return false;
+    }
+    function dels(id) {
+        if (!confirm("确定要删除吗？")) {
+            return;
+        }
+        var configURL = "{:U('Core/dels', 'model=sysads')}";
+        var data = {id: id};
+        ajaxRt(configURL, data);
+    }
+
+    function getuserinfo() {
+        var id =$('#out').val();
+        var configURL = "{:U('Core/dels', 'model=sysads')}";
+        var data = {id: id};
+    }
+
+</script>

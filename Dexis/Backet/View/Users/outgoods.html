@@ -1,0 +1,611 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        账户管理
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li class="active">出货统计</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+        <div class="row">
+            <!--黄金雨-->
+          <div class="col-sm-6 col-md-3">
+              <div class="panel panel-dark panel-stat">
+                  <div class="panel-heading">
+
+                      <div class="mb15"></div>
+                      <div class="container-fluid" style="color: #FFFFFF">
+                          <div class="row">
+                              <!--  <div class="col-xs-4">
+                                    <img src="__PUBLIC__/backet/images/is-money.png" alt="">
+                                </div>-->
+                              <div class="col-xs-12">
+                                  <div class="row">
+                                      <div class="col-xs-4">
+                                          <img src="__PUBLIC__/backet/images/is-user.png" alt="">
+                                      </div>
+                                      <div class="col-xs-6">
+                                          <small class="stat-label">黄金雨总数</small>
+                                          <h1 id=""><?php echo $gold_data['all_gold'];?></h1>
+                                      </div>
+                                      <!-- <div class="col-xs-6">
+                                          <small class="stat-label">今日黄金雨总数</small>
+                                          <h1 id=""><?php echo $gold_data['this_gold'];?></h1>
+                                      </div> -->
+                                  </div>
+                              </div>
+                          </div><!-- row -->
+                          <div class="mb15"></div>
+
+                      </div><!-- stat -->
+                  </div><!-- panel-heading -->
+              </div>
+          </div>
+          <!--钻石雨-->
+          <div class="col-sm-6 col-md-3">
+              <div class="panel panel-dark panel-stat">
+                  <div class="panel-heading">
+
+                      <div class="mb15"></div>
+                      <div class="container-fluid" style="color: #FFFFFF">
+                          <div class="row">
+                        
+                              <div class="col-xs-12">
+                                  <div class="row">
+                                                                        <div class="col-xs-4">
+                                    <img src="__PUBLIC__/backet/images/is-user.png" alt="">
+                              </div>
+                                      <div class="col-xs-6">
+                                          <small class="stat-label">钻石雨总数</small>
+                                          <h1 id=""><?php echo $gold_data['all_ston'];?></h1>
+                                      </div>
+                                      <!-- <div class="col-xs-6">
+                                          <small class="stat-label">今日钻石雨总数</small>
+                                          <h1 id=""><?php echo $gold_data['this_ston'];?></h1>
+                                      </div> -->
+                                  </div>
+                              </div>
+                          </div><!-- row -->
+                          <div class="mb15"></div>
+
+                      </div><!-- stat -->
+                  </div><!-- panel-heading -->
+              </div>
+          </div>
+            <div class="col-sm-6">
+                <div class="panel panel-primary" style="color: #fff">
+                    <div class="panel-heading">
+                        <div class="stat">
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <small class="stat-label">出货量</small>
+                                    <h2>总 计：<br>{$outnums}盒</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tinystat pull-right">
+
+                            <!-- <div class="datainfo">
+                                <span class="text-muted">2018年出货量</span>
+
+                                <h4>系统：{$lastyear}盒</h4>
+                                <h4>加上：线下记录 11889 盒</h4>
+                                <h4>减去：noe的妈妈 200盒</h4>
+                                <h4>合计：{$lastyear +11889 -200 }盒</h4>
+                                <h4>128134盒</h4>
+                            </div> -->
+                        </div>
+                        <div class="tinystat pull-left doexcel">
+                            <div class="datainfo">
+                                <span class="text-muted">2019年出货量</span>
+                                <h4>{$thisyear}盒</h4>
+                            </div>
+                        </div><!-- tinystat -->
+                    </div>
+                </div><!-- panel -->
+            </div>
+
+            <div class="col-sm-6">
+                <div class="panel panel-dark" style="color: #fff">
+                    <div class="panel-heading">
+                        <div class="stat">
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <small class="stat-label">销售额</small>
+                                    <h2>总 计：{$salemoney}元</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="tinystat pull-left">
+
+                            <div class="datainfo">
+                                <span class="text-muted">2019年销售额</span>
+                                <h4>{$thismoney}元</h4>
+                            </div>
+                        </div><!-- tinystat -->
+                        <!-- <div class="tinystat pull-right ">
+                            <div class="datainfo">
+                                <span class="text-muted">2018年销售额</span>
+                                <h4>{$lastmoney}元</h4>
+                            </div>
+                        </div> -->
+                    </div>
+                </div><!-- panel -->
+
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="panel panel-success panel-stat">
+                    <div class="panel-heading">
+
+                        <div class="stat">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <small class="stat-label">所有用户总库存量(云库存)</small>
+                                    <h1>{$stocknums}盒</h1>
+                                </div>
+                            </div><!-- row -->
+                        </div><!-- stat -->
+                    </div><!-- panel-heading -->
+                </div><!-- panel -->
+            </div><!-- col-sm-6 -->
+
+           <!-- <div class="col-sm-6 col-md-3">
+                <div class="panel panel-primary panel-stat">
+                    <div class="panel-heading">
+
+                        <div class="stat">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <img src="__PUBLIC__/backet/images/is-document.png" alt="">
+                                </div>
+                                <div class="col-xs-8">
+                                    <small class="stat-label">用户总提款额</small>
+                                    <h1>{$drowmoney}</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <!--<div class="col-sm-6 col-md-3">
+                    <div class="panel panel-success panel-stat">
+                        <div class="panel-heading">
+
+                            <div class="stat">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <img src="__PUBLIC__/backet/images/is-document.png" alt="">
+                                    </div>
+                                    <div class="col-xs-8">
+                                        <small class="stat-label">返利额</small>
+                                        <h1>{$summary.reback_money}</h1>
+                                    </div>
+                                </div>&lt;!&ndash; row &ndash;&gt;
+                            </div>&lt;!&ndash; stat &ndash;&gt;
+                        </div>&lt;!&ndash; panel-heading &ndash;&gt;
+                    </div>&lt;!&ndash; panel &ndash;&gt;
+                </div>&lt;!&ndash; col-sm-6 &ndash;&gt;-->
+
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h5 class="subtitle mb5">各个等级云库存数量</h5>
+                                    <div id="userOutStock"  style="width: 100%; height: 350px;"></div>
+                                </div><!-- col-sm-8 -->
+
+                            </div><!-- row -->
+                        </div><!-- panel-body -->
+                    </div><!-- panel -->
+                </div><!-- col-sm-9 -->
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h5 class="subtitle mb5">公司各个等级云库存数量</h5>
+                                    <div id="companyOutStock"  style="width: 100%; height: 350px;"></div>
+                                </div><!-- col-sm-8 -->
+
+                            </div><!-- row -->
+                        </div><!-- panel-body -->
+                    </div><!-- panel -->
+                </div><!-- col-sm-9 -->
+        </div>
+    <div class="panel panel-default">
+
+        <div class="panel-heading">
+            <div class="panel-btns">
+                <!--a href="" class="panel-close">&times;</a-->
+                <!--a href="" class="minimize">&minus;</a-->
+            </div><!-- panel-btns -->
+            <!--h3 class="panel-title">
+                会员列表
+                <a href="{:U('Goods/orderexport','model=account&type='.$type)}" class="btn btn-primary btn-xs pull-right" target="_blank">导出</a>
+            </h3-->
+        </div>
+        <div class="panel-body">
+            <form action="{:U('Users/outGoods')}" class="form-inline mb15" role="form">
+                <!--<div class="form-group">
+                    <select name="level"  id="level" class="form-control input-sm">
+                        <option value="">会员等级</option>
+                        <volist name='level' id='v'>
+                            <option value="{$v.id}" <?php if($v['id']==$setlevel) echo "selected='selected'";?>>{$v.name}</option>
+                        </volist>
+                    </select>
+                </div>-->
+                <!--<div class="form-group">
+                    <select name="time"  id="time" class="form-control input-sm">
+                        <option value="">选择时间</option>
+                        <option value="1day" <?php if($settime=='1day') echo "selected='selected'";?>>一天内</option>
+                        <option value="1week" <?php if($settime=='1week') echo "selected='selected'";?>>这周内</option>
+                        <option value="1month" <?php if($settime=='1month') echo "selected='selected'";?>>这月内</option>
+                        <option value="2month" <?php if($settime=='2month') echo "selected='selected'";?>>上月</option>
+                    </select>
+                </div>-->
+
+                <div class="form-group">
+                    <input type="text" name='start' class="form-control input-sm" id="single_start" value='{$start}' placeholder="请选择上架开始时间"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='ends' class="form-control input-sm" id="single_end" value='{$ends}' placeholder="请选择上架结束时间"/>
+                </div>
+                <input type="hidden" name="id" id="ids" value="{$id}">
+                <button type="submit" class="btn btn-default btn-sm">搜索</button>
+                <div class="btn btn-default btn-sm" id="doExcel" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出数据</div>
+            </form>
+            <div class="table-responsive">
+                <table class="table table-striped" id="datatables">
+                    <thead>
+                    <tr>
+                        <th width="15%">订单</th>
+                        <th width="10%">出货人</th>
+                        <th width="10%">进货人</th>
+                        <th width="10%">等级</th>
+                        <th width="5%">数量</th>
+                        <th width="5%">操作</th>
+                        <th width="10%">时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <volist name="data" id="v">
+                        <tr>
+                            <td><a href="javascript:getinfo('{$v.sn}');">{$v.sn}</a></td>
+                            <td>{$v.out_name}</td>
+                            <td>{$v.name}</td>
+                            <td>{$v.level|getUserLevel}</td>
+                            <td >{$v.nums}</td>
+                            <td >{$v.type}</td>
+                            <td>{$v.time}</td>
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+            </div>
+            {$list.show}
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    laydate.render({elem: '#single_start'});
+    laydate.render({elem: '#single_end'});
+
+    function dels(id) {
+        if (!confirm("确定要删除吗？")) {
+            return;
+        }
+        var configURL = "{:U('Core/dels', 'model=account')}";
+        var data = {id: id};
+        ajaxRt(configURL, data);
+    }
+
+    function onChange(id, st) {
+        var configURL = "{:U('Users/accStatus')}";
+        var data = {ids: id, status: st};
+        ajaxRt(configURL, data);
+    }
+
+    function showList(id){
+        var url = "{:U('users/getList')}?id="+id;
+        window.location.href=url;
+    }
+
+    function getinfo(sn) {
+        var id= $("#ids").val();
+        $.ajax({
+            url: "{:U('goods/getOrdersInfo')}",
+            type: 'get',
+            data: {sn:sn,id:id},
+            dataType: "json",
+            success: function (res) {
+
+                // hidePreLoading();
+                if(res.status) {
+                    var html='';
+                    /*html += "<div class='modal-dialog modal-lg' role='document'>"+
+                        "<div class='modal-content tx-size-sm'>"+
+                        "<div class='modal-header pd-x-20' id='popup_header'>"+
+                        "<h6 class='tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold'>订单详情</h6>"+
+                        "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>"+
+                        "<span aria-hidden='true'>&times;</span>"+
+                    "</button>"+
+                    "</div>"+
+                    "<div class='modal-body pd-20' id='popup_body'>"+
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>订单类型：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>11：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>进货人：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>数量：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>金额：</div>"+
+                        "</div>"+
+                    "<div class='modal-footer'>"+
+                    "<button type='button' class='btn btn-primary tx-size-xs' data-dismiss='modal'>确认</button>"+
+                        "</div>"+
+                        "</div>"+
+                        "</div>";*/
+                    html +=
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>订单类型：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>11：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>进货人：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>数量：</div>" +
+                        "<div style='border-bottom:#cb938a 1px solid ;margin-top: 10px'>金额：</div>";
+
+                    $("#modaldemo3").html(html)
+                }
+            }
+        });
+    }
+</script>
+<!--图表-->
+<script src="__PUBLIC__/backet/js/echarts.common.min.js"></script>
+<script>
+    window.addEventListener("resize", function () {
+        option.chart.resize();
+
+    });
+    var userOutStock = echarts.init(document.getElementById('userOutStock'));
+    userOutStock.setOption({
+        tooltip: {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        legend: {
+            show: true,
+            data: ['数量']
+        },
+        grid: {
+        left: '1%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    	},
+        xAxis: {
+            data: [],
+            axisLabel:{
+                interval:0,
+                rotate:45,
+                marginTop:20,
+                textStyle:{
+                    color:"#222"
+                }},
+        },
+        yAxis: {
+            name: '数量',
+        },
+        series: [{
+            name: '库存数量',
+            type: 'bar',
+            data: [],
+            itemStyle: {
+                normal: {
+                    // 随机显示
+                    //color:function(d){return "#"+Math.floor(Math.random()*(256*256*256-1)).toString(16);}
+                    label:{
+                        show: true,
+                        position:'top',
+                        textStyle: {
+                            color: '#000'
+                        }
+
+                    },
+                    // 定制显示（按顺序）
+                    color: function(params) {
+                        var colorList = ['#C33531','#EFE42A','#64BD3D','#EE9201','#29AAE3', '#B74AE5','#0AAF9F' ];
+                        return colorList[params.dataIndex]
+                    }
+                }
+            }
+        }]
+    });
+    userOutStock.showLoading();
+    var level=[];
+    var numStock=[];
+    $.ajax({
+        type: "POST", //提交方式
+        url: "{:U('dash/getUserStock')}",//路径
+        data: {},//数据，这里使用的是Json格式进行传输
+        dataType: "json",        //返回数据形式为json
+        success: function (result) {
+            console.log(result);
+            var levelArray =result.level;
+            var outNumbersArray=result.data;
+
+            $.each(levelArray,function(name,value) {
+                level.push(value.name);    //每日进货数据并填入销量数组
+            });
+            $.each(outNumbersArray,function(name,value) {
+                numStock.push(value.count);    //每日进货数据并填入销量数组
+            });
+            userOutStock.hideLoading();
+
+            // 各个等级周变动
+            userOutStock.setOption({        //加载数据图表
+                xAxis: {
+                    data: level
+                },
+                series: [{
+
+                    data: numStock
+                }]
+            });
+
+        }
+
+    });
+</script>
+<script>
+    var comOutStock = echarts.init(document.getElementById('companyOutStock'));
+    comOutStock.setOption({
+        tooltip: {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        legend: {
+            show: true,
+            data: ['数量']
+        },
+        grid: {
+        left: '1%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+        },
+        xAxis: {
+            data: [],
+            axisLabel:{
+                interval:0,
+                rotate:45,
+                marginTop:20,
+                textStyle:{
+                    color:"#222"
+                }},
+        },
+        yAxis: {
+            name: '数量',
+        },
+        series: [{
+            name: '库存数量',
+            type: 'bar',
+            data: [],
+            itemStyle: {
+                normal: {
+                    // 随机显示
+                    //color:function(d){return "#"+Math.floor(Math.random()*(256*256*256-1)).toString(16);}
+                    label:{
+                        show: true,
+                        position:'top',
+                        textStyle: {
+                            color: '#000'
+                        }
+
+                    },
+                    // 定制显示（按顺序）
+                    color: function(params) {
+                        var colorList = ['#C33531','#EFE42A','#64BD3D','#EE9201','#29AAE3', '#B74AE5','#0AAF9F' ];
+                        return colorList[params.dataIndex]
+                    }
+                }
+            }
+        }]
+    });
+    comOutStock.showLoading();
+    var level1=[];
+    var numStock1=[];
+    $.ajax({
+        type: "POST", //提交方式
+        url: "{:U('dash/getUserStock')}",//路径
+        data: {},//数据，这里使用的是Json格式进行传输
+        dataType: "json",        //返回数据形式为json
+        success: function (result) {
+            console.log(result);
+            var levelArray1 =result.level;
+            var comNumbersArray=result.company;
+
+            $.each(levelArray1,function(name,value) {
+                level1.push(value.name);    //每日进货数据并填入销量数组
+            });
+            $.each(comNumbersArray,function(name,value) {
+                numStock1.push(value.count);    //每日进货数据并填入销量数组
+            });
+            comOutStock.hideLoading();
+
+            // 各个等级周变动
+            comOutStock.setOption({        //加载数据图表
+                xAxis: {
+                    data: level1
+                },
+                series: [{
+
+                    data: numStock1
+                }]
+            });
+
+        }
+
+    });
+</script>
+
+<script>
+    $('.doexcel').on('click',function(){
+        var id = $(this).attr('attr-id');
+        var message = $(this).attr("attr-message");
+        //var url = SCOPE.set_status_url;
+        console.log(message);
+        /*  data = {};
+          data['id'] = id;
+          data['status'] = -1;*/
+
+        layer.open({
+            type : 0,
+            title : '提示',
+            btn: ['导出', '暂不'],
+            icon : 3,
+            // closeBtn : 2,
+            content: "老大同意才可导出表格，是否确定",
+            scrollbar: true,
+            yes: function(){
+                // 执行相关跳转
+                doexcel();
+            },
+        });
+
+    });
+    function doexcel(){
+        window.location.href="{:U('Backet/Doexc/doexcel_nums')}";
+        layer.msg('导出表格成功');
+    }
+</script>
+
+<script>
+    $("#doExcel").on('click',function(){
+        var nickname =$('#nickname').val();
+        var up_nickname =$('#up_nickname').val();
+        var phone =$('#phone').val();
+        var start =$('#single_start').val();
+        var ends =$('#single_end').val();
+        var level =6;
+        window.location.href="{:U('Backet/Doexc/Doexcel_outgoods')}?nickname="+nickname+"&phone="+phone+"&level="+level+"&up_nickname="+up_nickname+"&start="+start+"&ends="+ends+"&status="+status;
+    });
+</script>

@@ -1,0 +1,52 @@
+<div class="pageheader">
+    <h2><i class="fa fa-home"></i> 密码修改</h2>
+</div>
+
+<div class="contentpanel">
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <h5 class="subtitle mb5">添加附加费</h5>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form role="form" name="addItems">
+                        <div class="form-group">
+                            <label>旧密码</label>
+                            <input type="password" name="old" class="form-control" placeholder="请输入旧密码">
+                        </div>
+                        <div class="form-group">
+                            <label>新密码</label>
+                            <input type="password" name="new" class="form-control" placeholder="请输入新密码">
+                        </div>
+                        <div class="form-group">
+                            <label>验证新密码</label>
+                            <input type="password" name="vim" class="form-control" placeholder="请输入验证新密码">
+                        </div>
+                        <!--div class="form-group">
+                            <label>状态</label>
+                            <select name="status" class="form-control">
+                                <option value='1'>使用</option>
+                                <option value='0'>关闭</option>
+                            </select>
+                        </div-->
+                        <button type="button" class="btn btn-info" onclick="adsLog();">更新</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    function adsLog() {
+        var configURL = "{:U('Dash/sett_op')}";
+        var formelemt = $("form[name=addItems]").serializeArray();
+        var data = objToArray(formelemt);
+        ajaxRt(configURL, data);
+    }
+
+</script>

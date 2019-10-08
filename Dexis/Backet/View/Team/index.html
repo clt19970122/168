@@ -1,0 +1,192 @@
+<!--<link rel="stylesheet" type="text/css" href="__PUBLIC__/backet/js/lencharts/css/bootstrap.min.css" />-->
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/backet/js/lencharts/css/orgtree.css" />
+<script type="text/javascript" src="__PUBLIC__/backet/js/lencharts/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/backet/js/lencharts/js/jquery.lenchart.js"></script>
+<style type="text/css">
+    /*加减号样式*/
+    .orgWrap .content .plusMinus{
+        position:absolute;
+        bottom:3px;
+        left: 3px;
+        cursor:pointer;
+        top: auto;
+    }
+    ul,ol{
+        margin-left: 21px;
+    }
+    /*第一层减号图标去掉*/
+    .orgWrap .level1 i.plusMinus{
+        display: none;
+    }
+    .level2s {
+        position: relative;
+        z-index: 2;
+        background: none;
+        margin: 0;
+        padding: 0;
+    }
+    .tree{
+        background: none;
+    }
+    .divider{
+        background: none;
+    }
+    .level2s .level2{
+        position: relative;
+        vertical-align:top;
+        min-width:215px;
+    }
+    /*新加的css*/
+    /*组织样式*/
+    .orgWrap .content.organization{
+        background:#F3F3F3;
+    }
+    .orgWrap .content .numWrap{
+        padding-left: 10px;
+        background: #D9D9D9;
+    }
+    .orgWrap .content .numWrap>div{
+        /*display:inline-block;*/
+        /*width:50%;*/
+    }
+    .orgWrap .content .name{
+        height:30px;
+        line-height: 30px;
+        font-weight:bold;
+        /*border-bottom: 1px solid #B9DC93;*/
+    }
+    /*岗位样式*/
+    .orgWrap .content.position{
+        background:#C3D7E9;
+    }
+    .orgWrap .content .person{
+        background:#E1EBF3;
+    }
+</style>
+<div class="pageheader">
+    <h2><i class="fa fa-home"></i> 系统概览</h2>
+</div>
+<!--放大缩小-->
+<div class="zoomInOut">
+          <span >
+              <i class="glyphicon glyphicon-zoom-in"></i>
+              <i class="glyphicon glyphicon-zoom-out"></i>
+          </span>
+
+</div>
+<div class="contentpanel"  style="overflow: hidden">
+    <div class="orgWrap">
+    </div>
+</div>
+<script type="text/javascript">
+        $(function () {
+            $.ajax({
+                url: "{:U('Team/index')}",
+                type: 'get',
+                dataType: "json",
+                success: function (data) {
+                    // hidePreLoading();
+                    // console.log(data);
+                    var obj = data;
+                    // console.log(d);
+                    addBox(obj);
+                   console.log(obj);
+                }
+            });
+            function addBox(obj){
+                $('.orgWrap').lenChart({
+                    data:obj,
+                    drag:true,
+                    renderdata:function(data,$dom){
+                        var value = data.data;
+                        if (value && Object.keys(value).length) {
+                            var $name = $('<div class="name"></div>')
+                            !!(value.name) && $name.text(value.name);
+
+                            //组织
+                            //等级
+                            var $onduty = $('<div class="parentLevelBox"><span>等级:</span><span class="num teamMoney"></span></div>');
+                            !!(value.level) && $onduty.find('.num').text(value.level);
+                            if(value.level=="联合创始人"){
+                                !!(value.level) && $onduty.find('.num').css("color","#fff");
+                                !!(value.level) && $onduty.find('span').css("color","#fff");
+                                !!(value.level) && $onduty.find('.num').parent().css("background","blue");
+                            }
+
+                            // 本月进货量
+                            var $monthNum = $('<div class="text-left"><span>本月个人进货量:</span><span class="num"></span></div>');
+                            !!(value.month_in) && $monthNum.find('.num').text(value.month_in+'盒');
+
+                            // 团队进货量
+                            var $teamNum = $('<div class="text-left"><span>团队进货量:</span><span class="num"></span></div>');
+                            !!(value.team_num) && $teamNum.find('.num').text(value.team_num);
+
+
+                            // 团队销售额
+                            var $teamMoney = $('<div class="text-left"><span>团队业绩:</span><span class="num"></span></div>');
+                            !!(value.team_money) && $teamMoney.find('.num').text(value.team_money);
+
+
+
+                                //库存
+                                var $plait = $('<div><span>库存:</span><span class="num"></span></div>');
+                                !!(value.stock) && $plait.find('.num').text(value.stock+"盒");
+
+                                //个人进货量
+                                var $short = $('<div><span>个人总进货量:</span><span class="num"></span></div>');
+                                !!(value.totalpoints) && $short.find('.num').text(value.totalpoints);
+
+                                $dom.append($name,$onduty,$monthNum,$teamNum,$teamMoney);
+
+
+                                var $wrap = $('<div class="numWrap"></div>');
+                                $wrap.append($plait, $short);
+                                $dom.addClass('organization');
+                                $dom.append($wrap);
+
+                                //岗位
+                                var $person = $('<div class="person"></div>');
+                                !!(value.person) && $person.text(value.person);
+                                $dom.addClass('position');
+                                $dom.append($person);
+
+                            var icon = '<i class="icon plusMinus icon-minus-sign"></i>';
+                            var $icon = $(icon);
+                            if (data.children && data.children.length) {
+                                $dom.append($icon);
+                            }
+
+                        }
+                    },
+                    callback:function(){
+                    }
+                })
+            }
+//放大缩小功能
+            var initialScale = 1.0;
+            $('.zoomInOut').on('click','.glyphicon',function(e){
+                //放大
+                if($(this).hasClass('glyphicon-zoom-in')){
+                    if(initialScale<1.5){
+                        initialScale += 0.1;
+                        $('.orgWrap').css({ transform: 'scale(' + initialScale + ')' })
+                    }
+
+                }else{
+                    if(initialScale>0.5){
+                        initialScale -= 0.1;
+                        $('.orgWrap').css({ transform: 'scale(' + initialScale + ')' })
+                    }
+
+                }
+            })
+
+           /* if($('.teamMoney').text()=='联合创始人'){
+                this.css("color","red");
+            }*/
+
+
+        })
+
+
+</script>

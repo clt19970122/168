@@ -1,0 +1,157 @@
+<form>
+    <input type="hidden" name="sn" value="{$get.nsn}"/>
+    <input type="hidden" name="gsn" value="{$get.sn}"/>
+    <input type="hidden" name="gnums" value="{$get.nums}"/>
+    <input type="hidden" name="addr" value="{$deft.id}"/>
+    <input type="hidden" name="yunfei" value="{$price}"/>
+    <input type="hidden" name="add_stock" id="is_add" value="{$status}"/>
+    <input type="hidden" name="money"  value="{$info['price']*$get['nums']}"/>
+    <if condition="$status neq 9">
+        <div class="weui-panel order-info order-addr">
+            <div class="weui-panel__bd">
+                <div class="weui-media-box weui-media-box_small-appmsg">
+                    <div class="weui-cells">
+
+                            <a href="{:U('Users/addr','gsn='.$get['sn'].'&nums='.$get['nums'])}" class="weui-cell weui-cell_access">
+                                <div class="weui-cell__bd weui-cell_primary">
+                                    <p>添加收货地址</p>
+                                </div>
+                            </a>
+                        <if condition="$deft neq null">
+                            <a class="weui-cell  " id="showPicker">
+                                <div class="weui-cell__hd"><i class="icon-locs"></i></div>
+                                <div class="weui-cell__bd weui-cell_primary">
+                                    <p class="trans">{$deft.name}  {$deft.phone}</p>
+                                    <p class="times">地址：{$deft.street}</p>
+                                </div>
+                            </a>
+                        </if>
+                        <if condition="$deft eq null and $count gt 0">
+                            <a class="weui-cell weui-cell_access" id="showPicker">
+                                <div class="weui-cell__hd"><i class="icon-locs"></i></div>
+                                <div class="weui-cell__bd weui-cell_primary">
+                                    <p class="trans">请选择</p>
+                                    <p class="times">收货地址</p>
+                                </div>
+                            </a>
+                        </if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </if>
+
+
+    <div class="weui-panel order-list order-info_goods">
+        <div class="weui-panel__bd">
+            <a href="javascript:;" class="weui-media-box weui-media-box_appmsg">
+                <div class="weui-media-box__hd">
+                    <img class="weui-media-box__thumb" src="__PUBLIC__/uploads/goods/{$img|getGoodsImg=$info['gsn'],###}"/>
+                </div>
+                <div class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">{$info.name}</h4>
+                    <p class="weui-media-box__desc">{$get.times|date='Y-m-d H:i:s',###} 数量:{$get.nums}</p>
+                    <p class="weui-media-box__price">¥{$info['price']*$get['nums']}<font>元</font></p>
+                </div>
+            </a>
+        </div>
+        <div class="weui-panel__ft">
+            <div class="weui-cell weui-cell_link">
+                <a class="weui-cell__bd">
+                    联系客服
+                </a>
+            </div>    
+        </div>
+    </div>
+
+</form>
+
+<div class="weui-form-preview order-info_item">
+    <div class="weui-form-preview__bd">
+        <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">下单时间</label>
+            <span class="weui-form-preview__value">{$get.times|date='Y-m-d H:i:s',###}</span>
+        </div>
+        <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">订单号</label>
+            <span class="weui-form-preview__value">{$get.nsn}</span>
+        </div>
+        <div class="weui-form-preview__item">
+            <label class="weui-form-preview__label">商品总额</label>
+            <span class="weui-form-preview__value">¥{$info['price']*$get['nums']}</span>
+        </div>
+        <if condition="$get.type eq 2">
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">+运费</label>
+                <!--<span class="weui-form-preview__value">￥{$price}</span>-->
+                <!--<span class="weui-form-preview__value"  style="color:red;">运费自理，货到付款</span>-->
+                <if condition="$get.type eq 2">
+                    <span class="weui-form-preview__value"  style="color:red;">包邮</span>
+                    <else/>
+                    <span class="weui-form-preview__value"  style="color:red;">补充库存后自提付款</span>
+                </if>
+            </div>
+        </if>
+    </div>
+    <div class="weui-form-preview__ft">
+        <a class="weui-form-preview__btn" href="javascript:">总费用</a>
+        <a class="weui-form-preview__btn">¥{$info['price']*$get['nums']+$price}<font>元</font></a>
+    </div>
+    <!--文本域备注-->
+    <if condition="$get.type eq 2">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <textarea name="remakes" id="remakes" class="weui-textarea" placeholder="可输入订单备注信息" rows="5" style="font-size: 2rem"></textarea>
+                <!--<div class="weui-textarea-counter"><span>0</span>/200</div>-->
+            </div>
+        </div>
+    </if>
+</div>
+
+<div class="order-btns">
+    <a href="javascript:doOption();" class="full">去支付</a>
+</div>
+
+<script>
+    var addr = {$addr};
+    $('#showPicker').on('click', function () {
+        weui.picker({$addrshow}, {
+            onConfirm: function (result) {
+                var res = addr[result];
+                var names = res["name"] + "  " + res["phone"];
+                var addrs = "地址：" + res["street"];
+                $("input[name='addr']").val(res["id"]);
+                $("#showPicker").find("p[class='trans']").html(names);
+                $("#showPicker").find("p[class='times']").html(addrs);
+            }
+        });
+    });
+
+    function doOption() {
+        var temp = $("form").serializeArray();
+        var data = objToArray(temp);
+        var statuss =$('#is_add').val();
+        //产品分类doOption
+        data['type'] ="{$get.type}";
+        data['remakes'] =$('#remakes').val();
+        if(!statuss){
+            if ($.trim(data.addr) === null || $.trim(data.addr) === "") {
+                return alert_wec("请选择地址");
+            }
+        }
+        ////
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Malls/doBuyerOpt')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+
+</script>

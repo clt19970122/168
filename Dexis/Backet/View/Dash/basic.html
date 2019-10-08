@@ -1,0 +1,78 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        基本设置
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li>系统设置</li>
+            <li class="active">基本设置</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="datatables">
+                    <thead>
+                        <tr>
+                            <th width='25%'>#</th>
+                            <th width='25%'>模块</th>
+                            <th width='25%'>值</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <volist name='list' id='v'>
+                        <form name='{$v.id}'>
+                            <tr>
+                                <td>{$v.id}</td>
+                                <td>{$v.name}</td>
+                                <td><input type='text' class='form-control input-sm' name='value' value='{$v.value}'/></td>
+                                <td>
+                                    <a href="javascript:upset('{$v.id}');" class="btn btn-sm btn-primary">更新</a>
+                                </td>
+                            </tr>
+                        </form>
+                    </volist>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    function upset(id) {
+        var configURL = "{:U('Core/edits','model=sysconfig')}";
+        var formelemt = $('form[name=' + id + ']').serializeArray();
+        var data = objToArray(formelemt);
+        if (id === "20" && !checknum(data.value)) {
+            alert("请填写数字");
+            return;
+        }
+        if (id === "20" && data.value < 0) {
+            alert("请填写正确的值");
+            return;
+        }
+        data.ids = id;
+        ajaxRt(configURL, data);
+    }
+
+    function checknum(val) {
+        if (isNaN(val)) {
+            return false;
+        }
+        return true;
+    }
+
+</script>

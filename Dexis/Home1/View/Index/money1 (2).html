@@ -1,0 +1,118 @@
+<div class="index-money_head">
+    <p class="title">您的当前余额</p>
+    <p class="money">¥{$user.money}</p>
+    <p class="button">
+        <a href="javascript:onDraw();">立即提现</a>
+    </p>
+    <a href="javascript:;" class="ques">
+        <img src="__PUBLIC__/home/imgs/index_ques.png"/>
+    </a>
+</div>
+
+<div class="index-money_list">
+    <div class="index-money_list_item on" title="a"><span>我的业绩</span></div>
+    <!--<div class="index-money_list_item" title="b"><span>销售明细</span></div>-->
+    <div class="index-money_list_item" title="c"><span>提现记录</span></div>
+    <div class="index-money_list_item" title="d" onclick="list()"><span>库存记录</span></div>
+</div>
+
+<div class="index-money_item index-money_serv" id="a">
+    <p class="head"><img src="{$user.headimgurl}"/></p>
+    <p class="name">{$user.nickname}</p>
+    <p class="level">
+        <button>{$level|getUserLevel=$user['level'],###}</button>
+    </p>
+    <div class="index-money_serv_data">
+        <div class="index-money_serv_data_i"><span>利润:<br/><font>{$user.person}</font></span></div>
+        <div class="index-money_serv_data_i"><span>总进货量:<br/><font>{$user.totalpoints}</font></span></div>
+       <!-- <div class="index-money_serv_title">
+            <img src="__PUBLIC__/home/imgs/index_calen.png"/>&nbsp;本月业绩
+        </div>-->
+    </div>
+</div>
+
+
+
+<div class="index-money_item none" id="c">
+
+    <volist name="draw.list" id="v">
+        <div class="index-money_item-box">
+            <div class="item">{$v.times|date='Y-m-d',###}</div>
+            <div class="item">{$v.times|date='H:i:s',###}</div>
+            <div class="item"><span>{$v['type']>0?'+':'-'}{$v.money}</span></div>
+            <div class="item">
+                {$v['status']==0?'<span>审核中</span>':''}
+                {$v['status']==1?'<span style="color: #3dbf3e">已支付</span>':''}
+                {$v['status']==2?'<span style="color: red">被驳回</span>':''}
+            </div>
+        </div>
+    </volist>
+
+    {$draw.show}
+
+</div>
+<div class="index-money_item none" id="d">
+    <div class="index-money_item-box">
+        <div class="item"><b>下单用户</b></div>
+        <div class="item"><b>下单时间</b></div>
+        <!--<div class="item">{$v.times|date='H:i:s',###}</div>-->
+        <div class="item"><b>进出</b></div>
+        <div class="item"><b>数量</b></div>
+        <div class="item"><b>剩余</b></div>
+    </div>
+    <volist name="nums" id="v">
+        <div class="index-money_item-box">
+            <div class="item">{$v.lowuser}</div>
+            <div class="item">{$v.time}</div>
+            <div class="item">{$v.type}</div>
+            <div class="item"><span>{$v.nums}</span></div>
+            <div class="item">
+                <span>{$v.show_rest}</span>
+            </div>
+        </div>
+    </volist>
+
+    {$page}
+
+</div>
+
+<script>
+
+    function onDraw() {
+        var bank = {$bank};
+        if (bank.length <= 0) {
+            return alert_wec("请绑定银行卡后在进行提现");
+        }
+        weui.picker({$bank}, {
+            onConfirm: function (result) {
+                var data = {bank: result[0]};
+                showPreLoading();
+                $.ajax({
+                    url: "{:U('Index/money_draw')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        hidePreLoading();
+                        if (res.status !== 1) {
+                            return alert_wec(res.msg);
+                        }
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+    }
+
+    $(document).on("click touchstart", ".index-money_list_item", function () {
+        var id = $(this).attr("title");
+        $(".index-money_list_item").removeClass("on");
+        $(".index-money_item").hide();
+        $(this).addClass("on");
+        $("#" + id).show();
+    });
+    
+
+
+</script>
+
+
+

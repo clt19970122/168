@@ -1,0 +1,14 @@
+<div class="index-schol">
+
+    <volist name="list" id="v">
+        <a href="{:U('Index/plans_info','sn='.$v['gsn'])}" class="index-schol_item">
+            <img src="__PUBLIC__/uploads/goods/{$img|getGoodsImg=$v['gsn'],###}"/>
+        </a>
+    </volist>
+
+</div>
+
+<div class='index-plan_tip'>
+    <p class='provide'>0元计划由优亿白条提供</p>
+    <p class='descrp'>"先消费，后付款"<br/>30天内还款无息</p>
+</div>

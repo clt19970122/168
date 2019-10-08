@@ -1,0 +1,310 @@
+
+
+<!--    <volist name="list" id="v">
+        <div class="home-item">
+            <a href="{:U('Malls/goods','sn='.$v['gsn'])}" class="home-item_thumb">
+                <img src="__PUBLIC__/uploads/goods/{$img|getGoodsImg=$v['gsn'],###}"/>
+            </a>
+            <div class="home-item_cont">
+                <div class="home-item_cont_title overflow">{$v.name}</div>
+                <div class="home-item_cont_descs">{$v.subname}</div>
+                <div class="home-item_cont_price">
+                    <span>￥{$v.price}<font>元</font></span>
+                    <span>剩余：{$v.nums}<font>份</font></span>
+                    <span>已卖：{$v.sales}<font>份</font></span>
+                    <span>{$v.starttime}<font>份</font></span>
+
+                    <a href="{:U('Malls/goods','sn='.$v['gsn'])}">立即购买</a>
+                </div>
+            </div>
+        </div>
+    </volist>-->
+
+        <!--<div class="limit-banner">-->
+
+        <!--</div>-->
+<img style="width: 100%;line-height: 0;vertical-align: middle" src="__PUBLIC__/home/imgs/limit2/sl1.jpg" alt="">
+<img style="width: 100%;line-height: 0;font-size: 0;vertical-align: middle" src="__PUBLIC__/home/imgs/limit2/sl2.jpg" alt="">
+<img style="width: 100%;line-height: 0;font-size: 0;vertical-align: middle" src="__PUBLIC__/home/imgs/limit2/sl3.jpg" alt="">
+<!--3000创业-->
+<img style="width: 100%;line-height: 0;font-size: 0;vertical-align: middle" src="__PUBLIC__/home/imgs/limit2/sl4.jpg" alt="">
+<div class="limit-p1-bg" style="position: relative">
+    <img style="width: 100%;line-height: 0;font-size: 0;vertical-align: middle" src="__PUBLIC__/home/imgs/limit2/3000.jpg" alt="">
+    <div class="l-p1-des" starttime="{$starttime}" endtime="{$endtime}">
+        <volist name="list" id="v">
+        <div style="padding-left: .8rem;padding-right: 1.2rem;padding-bottom: 1.8rem;height: auto;overflow: hidden">
+            <div style="clear: both;font-size: 1.4rem;height: auto;overflow: hidden">
+                <div style="float: left;color: #fff">已抢购:&nbsp;{$v.sales}</div>
+                <div style="float: right;background: #fff;color: #ff163c;padding-left: .3rem;padding-right: .3rem;font-weight: bold;border-radius: 4px;">仅剩:&nbsp;{$v.nums}</div>
+            </div>
+            <div style="clear: both;display: none" class="left-time">
+                <div class="left-time-containter">
+                    <p class="l-time-words">&nbsp;仅剩</p>
+                    <div class="l-border sH"></div>
+                    <p class="l-time-words">小时</p>
+                    <div class="l-border sM"></div>
+                    <p class="l-time-words">分</p>
+                    <div class="l-border sS"></div>
+                    <p class="l-time-words">秒</p>
+                </div>
+            </div>
+            <div style="clear: both;height: auto;overflow: hidden;display: none" class="distance-time">
+                <div class="distance-time-container">
+                    <p class="l-time-words-red">距离活动开始还有:</p>
+                    <div class="l-border-red RemainH"></div>
+                    <p class="l-time-words-red">小时</p>
+                    <div class="l-border-red RemainM"></div>
+                    <p class="l-time-words-red">分</p>
+                    <div class="l-border-red RemainS"></div>
+                    <p class="l-time-words-red">秒</p>
+                </div>
+            </div>
+            <if condition="$v.nums eq 0">
+                <div style="color: white;font-size: 15px;background-color: #2a3edb;margin-top: 10px">
+                    您来晚了,今天已被抢光了
+                </div>
+                <else/>
+                <div class="link-btn">
+                    <a class="l-link-btn" href="{:U('Index/plans_info','sn='.$v['gsn'])}">
+                        <img src="__PUBLIC__/home/imgs/limit/slbtn.png" alt="">
+                    </a>
+                </div>
+            </if>
+            <div class="over-text">
+                今日抢购活动已结束,明天快点来
+            </div>
+        </div>
+        </volist>
+    </div>
+
+</div>
+
+<!--1200月体验-->
+<img style="width: 100%;line-height: 0;font-size: 0;vertical-align: middle" src="__PUBLIC__/home/imgs/limit2/1200des.jpg" alt="">
+<div class="limit-p1-bg" style="position: relative">
+    <img style="width: 100%;line-height: 0;font-size: 0;vertical-align: middle" src="__PUBLIC__/home/imgs/limit2/1200.jpg" alt="">
+    <div class="l-p1-des" starttime="{$starttime}" endtime="{$endtime}">
+        <volist name="list2" id="v">
+            <div style="padding-left: .8rem;padding-right: 1.2rem;padding-bottom: 1.8rem;height: auto;overflow: hidden">
+                <div style="clear: both;font-size: 1.4rem;height: auto;overflow: hidden">
+                    <div style="float: left;color: #fff">已抢购:&nbsp;{$v.sales}</div>
+                    <div style="float: right;background: #fff;color: #ff163c;padding-left: .3rem;padding-right: .3rem;font-weight: bold;border-radius: 4px;">仅剩:&nbsp;{$v.nums}</div>
+                </div>
+                <div style="clear: both;display: none" class="left-time">
+                    <div class="left-time-containter">
+                        <p class="l-time-words">&nbsp;仅剩</p>
+                        <div class="l-border sH"></div>
+                        <p class="l-time-words">小时</p>
+                        <div class="l-border sM"></div>
+                        <p class="l-time-words">分</p>
+                        <div class="l-border sS"></div>
+                        <p class="l-time-words">秒</p>
+                    </div>
+                </div>
+                <div style="clear: both;height: auto;overflow: hidden;display: none" class="distance-time">
+                    <div class="distance-time-container">
+                        <p class="l-time-words-red">距离活动开始还有:</p>
+                        <div class="l-border-red RemainH"></div>
+                        <p class="l-time-words-red">小时</p>
+                        <div class="l-border-red RemainM"></div>
+                        <p class="l-time-words-red">分</p>
+                        <div class="l-border-red RemainS"></div>
+                        <p class="l-time-words-red">秒</p>
+                    </div>
+                </div>
+                <if condition="$v.nums eq 0">
+                    <div style="color: white;font-size: 15px;background-color: #2a3edb;margin-top: 10px">
+                        您来晚了,今天已被抢光了
+                    </div>
+                    <else/>
+                    <div class="link-btn">
+                        <a class="l-link-btn" href="{:U('Index/plans_info','sn='.$v['gsn'])}">
+                            <img src="__PUBLIC__/home/imgs/limit/slbtn.png" alt="">
+                        </a>
+                    </div>
+                </if>
+                <div class="over-text">
+                    今日抢购活动已结束,明天快点来
+                </div>
+            </div>
+        </volist>
+    </div>
+
+</div>
+
+<!--480周体验-->
+<img style="width: 100%;line-height: 0;font-size: 0;vertical-align: middle" src="__PUBLIC__/home/imgs/limit2/480des.jpg" alt="">
+<div class="limit-p1-bg" style="position: relative">
+    <img style="width: 100%;line-height: 0;font-size: 0;vertical-align: middle" src="__PUBLIC__/home/imgs/limit2/480.jpg" alt="">
+    <div class="l-p1-des" starttime="{$starttime}" endtime="{$endtime}">
+        <volist name="list3" id="v">
+        <div style="padding-left: .8rem;padding-right: 1.2rem;padding-bottom: 1.8rem;height: auto;overflow: hidden">
+            <div style="clear: both;font-size: 1.4rem;height: auto;overflow: hidden">
+                <div style="float: left;color: #fff">已抢购:&nbsp;{$v.sales}</div>
+                <div style="float: right;background: #fff;color: #ff163c;padding-left: .3rem;padding-right: .3rem;font-weight: bold;border-radius: 4px;">仅剩:&nbsp;{$v.nums}</div>
+            </div>
+            <div style="clear: both;display: none" class="left-time">
+                <div class="left-time-containter">
+                    <p class="l-time-words">&nbsp;仅剩</p>
+                    <div class="l-border sH"></div>
+                    <p class="l-time-words">小时</p>
+                    <div class="l-border sM"></div>
+                    <p class="l-time-words">分</p>
+                    <div class="l-border sS"></div>
+                    <p class="l-time-words">秒</p>
+                </div>
+            </div>
+            <div style="clear: both;height: auto;overflow: hidden;display: none" class="distance-time">
+                <div class="distance-time-container">
+                    <p class="l-time-words-red">距离活动开始还有:</p>
+                    <div class="l-border-red RemainH"></div>
+                    <p class="l-time-words-red">小时</p>
+                    <div class="l-border-red RemainM"></div>
+                    <p class="l-time-words-red">分</p>
+                    <div class="l-border-red RemainS"></div>
+                    <p class="l-time-words-red">秒</p>
+                </div>
+            </div>
+            <if condition="$v.nums eq 0">
+                <div style="color: white;font-size: 15px;background-color: #2a3edb;margin-top: 10px">
+                    您来晚了,今天已被抢光了
+                </div>
+                <else/>
+                <div class="link-btn">
+                    <a class="l-link-btn" href="{:U('Index/plans_info','sn='.$v['gsn'])}">
+                        <img src="__PUBLIC__/home/imgs/limit/slbtn.png" alt="">
+                    </a>
+                </div>
+            </if>
+            <div class="over-text">
+                今日抢购活动已结束,明天快点来
+            </div>
+        </div>
+        </volist>
+    </div>
+
+</div>
+
+<!--168体验-->
+<img style="width: 100%;line-height: 0;font-size: 0;vertical-align: middle" src="__PUBLIC__/home/imgs/limit2/168des.jpg" alt="">
+<div class="limit-p1-bg" style="position: relative">
+    <img style="width: 100%;line-height: 0;font-size: 0;vertical-align: middle" src="__PUBLIC__/home/imgs/limit2/168.jpg" alt="">
+    <div class="l-p1-des" starttime="{$starttime}" endtime="{$endtime}">
+        <volist name="list4" id="v">
+            <div style="padding-left: .8rem;padding-right: 1.2rem;padding-bottom: 1.8rem;height: auto;overflow: hidden">
+                <div style="clear: both;font-size: 1.4rem;height: auto;overflow: hidden">
+                    <div style="float: left;color: #fff">已抢购:&nbsp;{$v.sales}</div>
+                    <div style="float: right;background: #fff;color: #ff163c;padding-left: .3rem;padding-right: .3rem;font-weight: bold;border-radius: 4px;">仅剩:&nbsp;{$v.nums}</div>
+                </div>
+                <div style="clear: both;display: none" class="left-time">
+                    <div class="left-time-containter">
+                        <p class="l-time-words">&nbsp;仅剩</p>
+                        <div class="l-border sH"></div>
+                        <p class="l-time-words">小时</p>
+                        <div class="l-border sM"></div>
+                        <p class="l-time-words">分</p>
+                        <div class="l-border sS"></div>
+                        <p class="l-time-words">秒</p>
+                    </div>
+                </div>
+                <div style="clear: both;height: auto;overflow: hidden;display: none" class="distance-time">
+                    <div class="distance-time-container">
+                        <p class="l-time-words-red">距离活动开始还有:</p>
+                        <div class="l-border-red RemainH"></div>
+                        <p class="l-time-words-red">小时</p>
+                        <div class="l-border-red RemainM"></div>
+                        <p class="l-time-words-red">分</p>
+                        <div class="l-border-red RemainS"></div>
+                        <p class="l-time-words-red">秒</p>
+                    </div>
+                </div>
+                <if condition="$v.nums eq 0">
+                    <div style="color: white;font-size: 15px;background-color: #2a3edb;margin-top: 10px">
+                        您来晚了,今天已被抢光了
+                    </div>
+                    <else/>
+                    <div class="link-btn">
+                        <a class="l-link-btn" href="{:U('Index/plans_info','sn='.$v['gsn'])}">
+                            <img src="__PUBLIC__/home/imgs/limit/slbtn.png" alt="">
+                        </a>
+                    </div>
+                </if>
+                <div class="over-text">
+                    今日抢购活动已结束,明天快点来
+                </div>
+            </div>
+        </volist>
+    </div>
+
+</div>
+
+
+<img style="width: 100%;line-height: 0;vertical-align: middle" src="__PUBLIC__/home/imgs/limit2/footer.jpg" alt="">
+<script>
+    $(function() {
+            $('.l-p1-des').each(function () {
+                var obj = $(this);
+                fn(obj);
+            });
+
+                function  fn(obj) {
+                    var oTimer=null;
+                    var onoff=true;
+                    var gt=null;
+                    if (onoff) {
+                        FreshTime();
+                        oTimer=setInterval(FreshTime,1000);
+                    }else{
+                        return;
+                    }
+                    function FreshTime() {
+                        var starttime = new Date(obj.attr('starttime'));
+                        var nowtime = new Date();//当前时间
+                        var lefttime = parseInt((starttime.getTime() - nowtime.getTime()) / 1000); //距离活动时间
+                        var h = parseInt(lefttime / (60 * 60) % 24);
+                        var m = parseInt(lefttime / 60 % 60);
+                        var s = parseInt(lefttime % 60);
+                        obj.find(".RemainH").text(toZero(h));
+                        obj.find(".RemainM").text(toZero(m));
+                        obj.find(".RemainS").text(toZero(s));
+                        if (lefttime <= 0) {
+                            goTime();
+                            clearInterval(oTimer);
+                            gt=setInterval(goTime,500);
+                        } else{ //大于0
+                            obj.find(".distance-time").show();
+                            obj.find(".left-time").hide();
+                            obj.find(".link-btn").hide();
+                            return;
+                        }
+                    }
+                    function goTime() {
+                        obj.find(".left-time").show();
+                        obj.find(".link-btn").show();
+                        obj.find(".distance-time").hide();
+                        var endtime = new Date(obj.attr('endtime'));
+                        var nowtime = new Date();//当前时间
+                        var time = parseInt((endtime.getTime() - nowtime.getTime()) / 1000); //活动时间
+                        var sh = parseInt(time / (60 * 60) % 24);
+                        var sm = parseInt(time / 60 % 60);
+                        var ss = parseInt(time % 60);
+                        obj.find(".sH").text(toZero(sh));
+                        obj.find(".sM").text(toZero(sm));
+                        obj.find(".sS").text(toZero(ss));
+                        if (time <= 0) {
+                            clearInterval(gt);
+                            obj.find(".left-time").hide();
+                            obj.find(".link-btn").hide();
+                            obj.find(".over-text").show();
+                        }
+                    }
+                }
+        function toZero(num){
+            if ( num < 10 ) {
+                return '0'+num;  //str类型
+            }else{
+                return ''+num; //为了保持一致，str
+            };
+        }
+    })
+</script>

@@ -1,0 +1,52 @@
+<volist name="list" id="v">
+    <div class="weui-panel order-list">
+        <div class="weui-panel__bd">
+            <a href="javascript:;" class="weui-media-box weui-media-box_appmsg" style="padding-bottom: 0">
+                <div class="weui-media-box__hd">
+                    <img class="weui-media-box__thumb" src="__PUBLIC__/uploads/goods/{$v.gimgs}"/>
+                </div>
+                <div class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">{$v.gname}</h4>
+                    <p class="weui-media-box__desc">订单编号:{$v.sn}<br/>申请日期:{$v.times|date='Y年m月d日 H:i:s',###} </p>
+                    <p class="weui-media-box__price">
+                        ¥{$v.money}<font>元</font>
+                    </p>
+                
+                </div>
+          
+            </a>
+                  <div style="padding: 0 1rem;">
+                        <p class="weui-media-box__price">
+                        <eq name="v.status" value="0"><span class="waits">已提交</span></eq>
+                        <eq name="v.status" value="1"><span class="saves">资料通过,等待人工电话确认</span></eq>
+                        <eq name="v.status" value="2"><span class="waits">资料审核未通过</span></eq>
+                        <eq name="v.status" value="3"><span class="saves">正在审核中</span></eq>
+                        <eq name="v.status" value="4"><span class="saves">已还款</span></eq>
+                        <eq name="v.status" value="5"><a href="javascript:doRespay('{$v.sn}');" class="respay-btn" style="font-size: 1.6rem">去还款</a><span class="success">已确认办理</span></eq>
+                        <eq name="v.status" value="6"><span class="saves">取消办理</span></eq>
+                        <eq name="v.status" value="7"><span class="saves"><font color=red>业务已逾期</font></span><a href="javascript:doRespay('{$v.sn}');" class="respay-btn" style="font-size: 1.6rem">去还款</a></eq>
+                    </p>
+                </div>
+        </div>
+    </div>
+</volist>
+        <script>
+
+        function doRespay(data) {
+        // var data = {ids: "{$list.gids}"};
+        var data = {ids: data};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Index/plans_respay')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+
+</script>

@@ -1,0 +1,42 @@
+<div class="index-sorts">
+    <p class="head"><img src="__PUBLIC__/home/imgs/index_star.png"/></p>
+    <p class="name">{$user.nickname}</p>
+    <p class="level">
+        <button>当前等级：{$level|getUserLevel=$user['level'],###}</button>
+    </p>
+    <div class="uplevel">
+
+        <volist name="items" id="v">
+            <div class="item">
+                <span>
+                    <if condition="$user['level'] egt $v['id']"><i></i></if>
+                </span>
+                <p><img src="__PUBLIC__/home/imgs/index_star.png"/><br/>{$v.name}</p>
+            </div>
+        </volist>
+
+    </div>
+    <p class="points">
+        当前累积分数：<font>{$user.points}分</font>
+        <span>总分：<font>{$user.totalpoints}分</font></span>
+    </p>
+    <p class="tips">
+        差<font>{$level['months']-$user['points']}分</font>升级到
+        <font>{$level.name}</font><br/>每购买一盒168太空素食增加1分
+    </p>
+</div>
+
+<div class="index-money_list">
+    <div class="index-money_list_item"><span>累积分获取记录</span></div>
+</div>
+<div class="index-money_item">
+
+    <volist name="list" id="v">
+        <div class="index-money_item-box">
+            <div class="item">{$v.times|date='Y-m-d',###}</div>
+            <div class="item">{$v.times|date='H:i:s',###}</div>
+            <div class="item"><span>+{$v.point}</span></div>
+        </div>
+    </volist>
+
+</div>

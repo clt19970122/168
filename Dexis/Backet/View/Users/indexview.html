@@ -1,0 +1,230 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        账户管理
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li><a href="{:U('Users/index')}">用户管理</a></li>
+            <li class="active">用户信息</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+
+    <div class="row">
+        <div class="col-sm-5">
+            <h5 class="subtitle">基本信息</h5>
+
+            <form>
+                <input type="hidden" name="ids" value="{$info.id}"/>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td width="25%">系统ID</td>
+                            <td width="25%">{$info.sysid}</td>
+                            <td width="25%">推荐人</td>
+                            <td width="25%">{$info.recid}</td>
+                        </tr>
+                        <tr>
+                            <td width="25%">上级联创</td>
+                            <td width="25%">{$info.top_name}</td>
+                            <td width="25%">上级钻石</td>
+                            <td width="25%">{$info.two_name}</td>
+                        </tr>
+                        <tr>
+                            <td>等级</td>
+                            <td>
+                                {$info['level']|getUserLevel}
+                            </td>
+                            <td>昵称</td>
+                            <td>{$info.nickname}</td>
+                        </tr>
+                        <tr>
+                            <td>姓名</td>
+                            <td>{$info.name}</td>
+                            <td>电话</td>
+                            <td onclick="checkPassword(this,{$info['id']})">{$info.phone|yc_phone}</td>
+                        </tr>
+                        <tr>
+                            <td>库存</td>
+                            <td>{$info.stock}</td>
+                            <td>头像</td>
+                            <td>
+                                <img src="{$info.headimgurl}" width="80"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>变动库存</td>
+                            <!--<td><input type="text" name="money" class="form-control input-sm" value="{$info.money}"/></td>-->
+                            <td><input type="text" name="stock" class="form-control input-sm" /></td>
+                            <td>等级</td>
+                            <td>
+                                <select name="level" class="form-control input-sm">
+                                    <option value='0'>游客</option>
+                                    <volist name="level" id="v">
+                                        <option value='{$v.id}' <if condition="$info['level'] eq $v['id']">selected</if>>{$v.name}</option>
+                                    </volist>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>状态</td>
+                            <td>{$info['status']==1?'正常':'冻结'}</td>
+                            <td>加入时间</td>
+                            <td>{$info.times|date='Y/m/d H:i:s',###}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+
+        <div class="col-md-7">
+            <h5 class="subtitle mb5">分期记录</h5>
+            <table class="table mb30">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>用户</th>
+                    <th>申请等级</th>
+                    <th >分期/每期金额</th>
+                    <th >分期支付时间</th>
+                    <th >优惠</th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                <volist name="stages" id="vo">
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td>{$vo.uid|getNameById}</td>
+                        <td>{$vo.level|getUserLevel}</td>
+                        <td>{$vo.payway}期/{$vo.every_pay}</td>
+                        <td>{$vo.pay_time}</td>
+                        <td>
+                            <table>
+                                <th >赠送优惠名</th>
+                                <th >优惠量</th>
+                                <th >优惠价</th>
+                                <th >优惠升级</th>
+                                <th >优惠活动时间</th>
+                                <th>添加时间</th>
+                                <volist name="vo['dis_arr']" id="voo">
+                                    <tr>
+                                        <td>{$voo.discount_name}</td>
+                                        <td>{$voo.discount_num}</td>
+                                        <td>{$voo.discount_buy_num}</td>
+                                        <td>{$voo.change_level}</td>
+                                        <td>{$voo.start_time}至{$voo.end_time}</td>
+                                        <td>{$voo.time|date='Y/m/d H:i:s',###}</td>
+                                    </tr>
+                                </volist>
+                            </table>
+                        </td>
+
+                    </tr>
+                </volist>
+                </tbody>
+            </table>
+            <div class="col-md-4">
+                <form action="{:U('users/add_stages_list')}">
+                    <input type="hidden" name="uid" value="{$info.id}"/>
+                    分期：<input type="radio" name="payway" value="1"/>全款<input type="radio" name="payway" value="2"/>两期<input type="radio" name="payway" value="3"/>三期<input type="radio" name="payway" value="6"/>六期
+                    <br/>
+                    支付：<input type="text" name="money"  placeholder="总金额"/>
+                    <br/>
+                    <div class="input-group" id="centerIpGroup">
+                        <label class="input-group-addon" id="basic-addon5">优惠活动:</label>
+                        <button class="btn btn-info" type="button" data-toggle="tooltip" title="新增" id="addCenterIpGrpBtn" style="z-index: 99" onclick="addCenterIpGrp(this)" ><span class="glyphicon glyphicon-plus"></span></button>
+                    </div>
+                    <br/>
+                    <button type="submit" class="btn btn-success">添加分期</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <button type="button" class="btn btn-success" onclick="upset()">更新</button>
+            |--------old------>|
+            <button type="button" class="btn btn-success" onclick="upsetold()">去年分期（45元价格）</button>
+        </div>
+
+    </div>
+
+</div>
+<script>
+    function checkPassword(obj,id){
+        layer.prompt({title: '查看信息请输入密码', formType: 1}, function(pass, index){
+            var data = {pwd: pass,uid:id};
+            $.ajax({
+                url: "{:U('Users/examine')}", type: 'post',
+                data: data, dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                    if (res.status !== 1) {
+                        return layer.msg(res.msg);
+                    }else {
+                        $(obj).html(res.msg);
+                    }
+                }
+            });
+            layer.close(index);
+        });
+    }
+</script>
+<script>
+
+    function upset() {
+        var configURL = "{:U('users/editsSelf')}";
+        var formelemt = $('form').serializeArray();
+        var data = objToArray(formelemt);
+        ajaxRt(configURL, data);
+    }
+    function upsetold() {
+        var configURL = "{:U('users/oldPrice')}";
+        var formelemt = $('form').serializeArray();
+        var data = objToArray(formelemt);
+        ajaxRt(configURL, data);
+    }
+
+    //添加中心机IP输入框项
+    function addCenterIpGrp(obj){
+        var html = '<div class="input-group centerIp">'+
+        '<label class="input-group-addon">优惠名：</label>'+
+        '<input type="text" class="form-control" style="width: 70px" name="dis_name[]" id="name">'+
+        '<label class="input-group-addon">优惠量：</label>'+
+        '<input type="text" class="form-control" style="width: 40px" name="dis_val[]"  id="val">'+
+        '<label class="input-group-addon">优惠价：</label>'+
+        '<input type="text" class="form-control" style="width: 40px" name="dis_pri[]"  id="price">'+
+        '<label class="input-group-addon">升级等级：</label>'+
+        '<input type="text" class="form-control" style="width: 30px" name="dis_level[]"  id="price">'+
+        '<label class="input-group-addon">开始时间：</label>'+
+        '<input type="text" class="form-control" style="width: 80px" name="start[]"  id="price">'+
+        '<label class="input-group-addon">结束时间：</label>'+
+        '<input type="text" class="form-control" style="width: 80px" name="end[]"  id="price">'+
+        '<span class="input-group-btn">'+
+        '<button class="btn btn-info" type="button" data-toggle="tooltip" title="删除" id="delCenterIpGrp"><span class="glyphicon glyphicon-minus"></span></button>'+
+        '</span>'+
+        '</div>'
+        obj.insertAdjacentHTML('beforebegin',html)
+    }
+
+    $(document).on('click','#delCenterIpGrp',function(){
+        var el = this.parentNode.parentNode;
+        var centerIp = $(this).parent().parent().find('#ipInput').val();
+        layer.confirm('您确定要删除选中的命令？',
+                function(e){
+                    if(e){
+                        el.parentNode.removeChild(el);
+                        layer.msg('已删除', {icon:1,time: 800});
+                    }
+                }
+        )
+    })
+</script>
+

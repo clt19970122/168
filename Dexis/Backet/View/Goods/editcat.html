@@ -1,0 +1,87 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        分类管理
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li><a href="{:U('Conte/question')}">分类管理</a></li>
+            <li class="active">添加分类</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <form class="form-horizontal">
+                <div class="row">
+                    <div class="col-md-5">
+                        <input type="hidden" name="ids" value="{$info.id}"/>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">分类名称</label>
+                            <div class="col-sm-9">
+                                <!--<input type="text" name="name" class="form-control" value="{$info.name}"/>-->
+                                <input type="text" name="name" class="form-control" value="{$info.name}"/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">发布状态</label>
+                            <div class="col-sm-5">
+                                <select name="status" class="form-control">
+                                    <option value="1" <eq name="info.status" value="1">selected</eq>>显示</option>
+                                    <option value="0" <eq name="info.status" value="0">selected</eq>>关闭</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" onclick="onsubattr();">更新</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+/*
+    function onsubattr() {
+        var formelemt = $("form").serializeArray();
+        var data = objToArray(formelemt);
+        console.log(data);
+        $.ajax({
+            url: "{:U('Core/edit', 'model=syscat')}", type: "post", dataType: 'json',
+            data: data,
+            success: function (data) {
+                if (data.status !== 1) {
+                    alert(data.msg);
+                    return false;
+                }
+                window.location.href = "{:U('Goods/catlist')}";
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+        //
+        return false;
+    }
+*/
+function onsubattr() {
+    var configURL = "{:U('Core/edits', 'model=syscat')}";
+    var formelemt = $("form").serializeArray();
+    var data = objToArray(formelemt);
+    ajaxRt(configURL, data);
+}
+</script>

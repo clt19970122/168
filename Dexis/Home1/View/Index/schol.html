@@ -1,0 +1,26 @@
+<!--<div class="index-money_list index-tious">
+    <volist name="banner" id="vo">
+        <a href="{:U('Index/schol',array('type'=>$vo['id']))}" class="index-money_list_item <eq name='id' value='$vo.id'>on</eq>"><span>{$vo.name}</span></a>
+    </volist>
+</div>-->
+
+<div class="index-learn_type">
+    <ul>
+        <volist name='banner' id='vo'>
+            <li>
+                <a href="{:U('Index/schol','id='.$vo['id'])}" class="weui-btn <if condition='$vo[id] eq $id'>active</if>">{$vo.name}</a>
+            </li>
+        </volist>
+    </ul>
+</div>
+
+<div class="index-schol">
+
+    <volist name="list" id="v">
+        <a href="{:U('Index/schol_infos','id='.$v['id'])}" class="index-schol_item">
+            <img src="__PUBLIC__/uploads/school/{$v.imgs}"/>
+            <div class="title">{$v.title}</div>
+        </a>
+    </volist>
+
+</div>

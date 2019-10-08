@@ -1,0 +1,100 @@
+<style>
+    .weui-toast{
+        top: 50%;
+    }
+    .index-tious_bang{
+        flex-direction: column;
+    }
+    .index-rider{
+        background: none;
+    }
+    .des_tious{
+    	background: none;
+    	text-align: center;
+    	font-size: 16px;
+    }
+</style>
+<div class="index-money_list index-tious">
+    <a href="{:U('Index/tious')}" class="index-money_list_item on"><span>本月团队业绩</span></a>
+</div>
+
+<div class="index-tious_bang">
+    <div class="index-rider">
+        <p class="head"><img src="{$user.headimgurl}"></p>
+        <p class="name">{$user.name}</p>
+        <!--<p class="peop">已推荐人数:8</p>-->
+    </div>
+    <div style="display:flex;flex-direction: row">
+        <div class="index-tious_bang-item">
+            <!--<p><img src="__PUBLIC__/home/imgs/index_level_2.png" class="v"/></p>-->
+            <p class="name">本月管理奖</p>
+            <p class="num">{$thismonth.money}</p>
+        </div>
+        <div class="index-tious_bang-item">
+            <!--<p><img src="__PUBLIC__/home/imgs/index_level_1.png"/></p>-->
+            <!--<p class="name little">本月团队业绩</p>-->
+            <p class="name">上月团队管理奖</p>
+            <p class="num">{$data.money}</p>
+        </div>
+        <div class="index-tious_bang-item">
+            <!--<p><img src="__PUBLIC__/home/imgs/index_level_3.png" class="v"/></p>-->
+            <p class="name">团队进货量</p>
+            <p class="num">{$data.team_num}</p>
+        </div>
+
+    </div>
+</div>
+<style>
+    .index-money_item-box:after{
+        content: " ";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 1px;
+        border-top: 1px solid #d9d9d9;
+        color: #d9d9d9;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: scaleY(.5);
+        transform: scaleY(.5);
+    }
+</style>
+<!--<div><h1 style="text-align: center">加油，您是最棒的</h1></div>-->
+<!--<div class="index-money_item-box">
+    <div class="item">头像</div>
+    <div class="item">姓名</div>
+    <div class="item">团队进货量</div>
+    <div class="item">团队业绩</div>
+</div>
+<div class="index-money_item">
+	<div class="des_tious"></div>
+</div>-->
+<!--
+<script>
+    $(function () {
+        showPreLoading();
+        $.ajax({
+
+            url: "{:U('Team/getMyTopTeam')}",
+            type: 'get',
+            dataType: "json",
+            success: function (data) {
+                hidePreLoading();
+                   if(data==''){
+ 						$('.des_tious').html("您团队没有联合创始人");
+                    }
+                $.each(data,function(i,result){
+                    item=
+                        '<div class="index-money_item-box">'+
+                        '<div class="item"><img src="'+result.headimg+'" class="head"/></div>'+
+                            '<div class="item">'+result.name+'</div>'+
+                            '<div class="item">'+result.team_num+'</div>'+
+                            '<div class="item"><span>'+result.team_money+'</span></div>'+
+                        '</div>';
+                    $('.index-money_item').append(item);
+                })
+            }
+        });
+    });
+</script>-->

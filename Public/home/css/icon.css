@@ -1,0 +1,32 @@
+.icon-cars{
+    background:url("../imgs/order_car.png") no-repeat; background-size:100%; display:inline-block;
+    height:1.5rem; vertical-align:middle; width:2rem;
+}
+
+.icon-locs{
+    background:url("../imgs/order_loc.png") no-repeat; background-size:100%; display:inline-block;
+    height:1.6rem; vertical-align:middle; width:1.2rem;
+}
+
+.icon-dels{
+    background:url("../imgs/user_dels.png") no-repeat; background-size:100%; display:inline-block;
+    height:1.8rem; vertical-align:middle; width:1.5rem;
+}
+
+.icon-money{
+    background:url("../imgs/index_icon_money.png") no-repeat; background-size:100%; display:inline-block;
+    height:1.7rem; vertical-align:middle; width:1.7rem; margin-top:-0.3rem;
+}
+
+.icon-point{
+    background:url("../imgs/index_icon_point.png") no-repeat; background-size:100%; display:inline-block;
+    height:1.7rem; vertical-align:middle; width:1.3rem; margin-top:-0.3rem;
+}
+
+.icon-peop{
+    background:url("../imgs/index_icon_point.png") no-repeat; background-size:100%; display:inline-block;
+    height:1.1rem; vertical-align:middle; width:1.4rem; margin-top:-0.3rem;
+}
+
+
+/******************************************************************************/

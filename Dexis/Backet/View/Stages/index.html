@@ -1,0 +1,221 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        分期管理
+        <!--span>Subtitle goes here...</span-->
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li class="active">分期申请列表</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                分期申请
+                <!--a href="{:U('Goods/orderexport','model=orders&type='.$type)}" class="btn btn-primary btn-xs pull-right" target="_blank">导出</a-->
+            </h3>
+        </div>
+        <div class="panel-body">
+
+            <form action="{:U('Goods/order','type='.$type.'&p='.$page)}" class="form-inline mb15" role="form">
+                <div class="form-group">
+                    <input type="text" name='sn' class="form-control input-sm" id="sn" value="{$sn}" placeholder="请输入订单编号"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='username' class="form-control input-sm" id="username" value="{$username}" placeholder="请输入下单用户"/>
+                </div>
+                <div class="form-group">
+                    <select name="status" id="sssss" class="form-control input-sm">
+                        <option value="">全部状态</option>
+                        <option value="0">待确认</option>
+                        <option value="1">分期中</option>
+                        <option value="2">已完成</option>
+                        <option value="3">已取消</option>
+                    </select>
+                </div>
+                <!--<div class="form-group">
+                    <select name="paytype" id="payway" class="form-control input-sm">
+                        <option value="">全部支付方式</option>
+                        <option value="1" <if condition="1 eq $get['paytype']">selected="selected"</if>>微信支付</option>
+                        <option value="4"<if condition="4 eq $get['paytype']">selected="selected"</if>>余额支付</option>
+                    </select>
+                </div>-->
+                <div class="form-group">
+                    <input type="text" name='start' class="form-control input-sm" value="{$start}" id="single_start" placeholder="请选择申请开始时间"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='ends' class="form-control input-sm"value="{$end}" id="single_end" placeholder="请选择申请结束时间"/>
+                </div>
+                <button type="submit" class="btn btn-default btn-sm">搜索</button>
+                <input type="hidden" id="type" value="{$get.type}">
+                <!--<div class="btn btn-default btn-sm" id="doExcel" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出数据</div>-->
+            </form>
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="datatables">
+                    <thead>
+                    <tr>
+                        <th width="5%">#</th>
+                        <th width="10%">联创用户</th>
+                        <th width="10%">推荐用户</th>
+                        <th width="18%">下单用户</th>
+                        <th width="10%">订单编号</th>
+                        <th width="9%">申请等级</th>
+                        <th width="15%">申请时间</th>
+                        <th width="5%">状态</th>
+                        <!--<th width="10%">支付时间</th>-->
+                        <th width="9%">单期支付金额</th>
+                        <th width="10%">分期进度</th>
+                        <th width="">&nbsp;</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <volist name="list.list" id="v">
+                        <tr>
+                            <td>{$v.id}</td>
+                            <td>{$v.top}</td>
+                            <td>{$rec|getRecUser=$v['uid'],###}</td>
+                            <td>{$v['uid']|getNameById}</td>
+                            <td>{$v.sn}</td>
+                            <!--<td onclick="checkPassword(this,{$v['uid']})">{$p|getUserInf=$v['uid'],'phone',###|yc_phone}</td>-->
+                            <td>{$v.level}</td>
+                            <td>{$v.time}</td>
+                            <td>{$v.c_status}</td>
+                            <td>{$v.every_pay}</td>
+                            <td>{$v.pay_count}/{$v.payway}期</td>
+                            <td>
+                                <a href="{:U('stages/pay',['id'=>$v['id'],'type'=>1])}" class='btn btn-xs btn-info'>详情</a>
+                                <if condition="$v.status eq 0">
+                                    <a href="javascript:dels({$v.id});" class='btn btn-xs btn-danger'>取消订单</a>
+                                </if>
+                                <if condition="$v.status eq 1">
+                                    <!--<a href="javascript:chargeback({$v.id});" class='btn btn-xs btn-success'>退单</a>-->
+                                </if>
+                            </td>
+                        </tr>
+                    </volist>
+
+                    </tbody>
+                </table>
+
+                <nav class="pagec pull-left">
+                    {$list.show}
+                </nav>
+               <!-- <div class="pull-right">
+                    <div class="col-sm-1 input-group input-group-sm">
+                        <input type="text" id="pages" class="form-control">
+                        <span class="input-group-addon" onclick="pagereload();">跳转</span>
+                    </div>
+                </div>-->
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    laydate.render({elem: '#single_start'});
+    laydate.render({elem: '#single_end'});
+
+    function pagereload() {
+        var page = $("#pages").val();
+        if ($.trim(page) === null || page <= 0) {
+            alert("请输入正确的页面编号");
+            return false;
+        }
+        var url = "{:U('Goods/order','type='.$type.'&name='.$name.'&phone='.$phone)}?p=" + page;
+        window.location.href = url;
+    }
+
+    function dels(id) {
+        if (!confirm("确定要取消吗？")) {
+            return;
+        }
+        var configURL = "{:U('stages/edit')}";
+        var data = {id: id,status:3};
+        ajaxRt(configURL, data);
+    }
+
+    function setOrder(id) {
+        var urls = "{:U('Goods/orderConanel')}";
+        var data = {sn: id};
+        ajaxRt(urls, data);
+    }
+</script>
+<script>
+    function checkPassword(obj,id){
+        layer.prompt({title: '查看信息请输入密码', formType: 1}, function(pass, index){
+            var data = {pwd: pass,uid:id};
+            $.ajax({
+                url: "{:U('Users/examine')}", type: 'post',
+                data: data, dataType: "json",
+                success: function (res) {
+                    if (res.status !== 1) {
+                        return layer.msg(res.msg);
+                    }else {
+                        $(obj).html(res.msg);
+                    }
+                }
+            });
+            layer.close(index);
+        });
+    }
+</script>
+<script>
+    $("#doExcel").on('click',function(){
+        var username =$('#username').val();
+        var sn =$('#sn').val();
+        var tjid =$('#tjid').val();
+        var phone =$('#phone').val();
+        var start =$('#single_start').val();
+        var ends =$('#single_end').val();
+        var status =$('#sssss').val();
+        var type =$('#type').val();
+        var  gid=$('#gid').val();
+        var  paytype=$('#payway').val();
+        var buy_level =$('#level').val();
+        layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+            var data = {pwd: pass};
+            $.ajax({
+                url: "{:U('Users/exportPermission')}", type: 'post',
+                data: data, dataType: "json",
+                success: function (res) {
+                    if (res.status !== 1) {
+                        return layer.msg(res.msg);
+                    }else {
+                        window.location.href="{:U('Backet/Doexc/doExcel_Order')}?sn="+sn+"&username="+username+"&phone="+phone+"&tjid="+tjid+"&start="+start+"&ends="+ends+"&status="+status+"&type="+type+'&paytype='+paytype+'&gid='+gid+'&buy_level='+buy_level;
+                    }
+                }
+            });
+            layer.close(index);
+        });
+
+    });
+
+    function chargeback(obj){
+        console.log(obj);
+        $.ajax({
+            url: "{:U('Goods/DoReturnByOrder')}", type: 'post',
+            data: {sn:obj}, dataType: "json",
+            success: function (res) {
+                if (res.status !== 1) {
+                    return layer.msg(res.msg);
+                    location.reload();
+                }else {
+                    return layer.msg(res.msg);
+                }
+            }
+        });
+
+    }
+
+</script>

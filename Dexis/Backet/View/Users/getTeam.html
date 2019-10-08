@@ -1,0 +1,208 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        账户管理-----{$user}的团队
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li class="active">用户管理</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                会员个数--{$count_nums}
+            </h3>
+            <p class="pd-l-20 tx-12 lh-8 mg-b-0">各个等级会员总览</p>
+        </div>
+        <div class="panel-body">
+
+            <div class="widget-2">
+                <div class="card shadow-base overflow-hidden">
+
+                    <div class="card-body pd-0 bd-color-gray-lighter">
+                        <div class="row no-gutters tx-center">
+                            <volist name="level" id="vo">
+                                <!--<a href="{:U('Users/getTeam','level='.$vo['id'])}">-->
+                                    <div class="col-6 col-sm-2 pd-y-20 bd-l bd-color-gray-lighter" <if condition="$get['level'] eq $vo['id']">style="color:red;font-size:20px"</if>>
+                                    <h3 class="tx-inverse tx-lato tx-bold mg-b-5"><if condition="$levelData[$vo['id']] neq null">{$levelData[$vo['id']]}<else/>0</if></h3>
+                                    <p class="tx-12 mg-b-0">{$vo.name}</p>
+                                    </div>
+                                <!--</a>-->
+                            </volist>
+                    </div><!-- row -->
+                </div>
+
+            </div><!-- card -->
+        </div>
+    </div>
+
+</div>
+
+<div class="contentpanel">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-btns">
+                <!--a href="" class="panel-close">&times;</a-->
+                <!--a href="" class="minimize">&minus;</a-->
+            </div><!-- panel-btns -->
+            <!--h3 class="panel-title">
+                会员列表
+                <a href="{:U('Goods/orderexport','model=account&type='.$type)}" class="btn btn-primary btn-xs pull-right" target="_blank">导出</a>
+            </h3-->
+        </div>
+        <div class="panel-body">
+
+            <form action="{:U('Users/getTeam','p='.$page)}" class="form-inline mb15" role="form">
+                <!--<div class="form-group">
+                    <input type="text" name='phone' id="phone" class="form-control input-sm" value="{$select['phone']}" placeholder="请输入手机号码"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='up_nickname'id="up_nickname" class="form-control input-sm" value="{$select['up_nickname']}" placeholder="请输入上级系统号"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='nickname' id="nickname" class="form-control input-sm" value="{$select['nickname']}" placeholder="请输入用户昵称"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='name' id="name" class="form-control input-sm" value="{$select['name']}" placeholder="请输入用户真实姓名"/>
+                </div>-->
+                <input type="hidden" name="ssid" id="ssid" value="{$get.ssid}">
+                <div class="form-group">
+                    <select name="level"  id="level" class="form-control input-sm">
+                        <option value="">会员等级</option>
+                        <volist name='level' id='v'>
+                            <option value="{$v.id}" <if condition="$get['level'] eq $v['id']">select</if>>{$v.name}</option>
+                        </volist>
+                    </select>
+                </div>
+                <!--<div class="form-group">
+                    <input type="text" name='start' value="{$select['start']}" class="form-control input-sm" id="single_start" placeholder="请选择开始时间"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='ends' value="{$select['ends']}" class="form-control input-sm" id="single_end" placeholder="请选择结束时间"/>
+                </div>-->
+                <button type="submit" class="btn btn-default btn-sm">搜索</button>
+                <if condition="session('admin_info')['groups'] eq '0' ">
+                <div class="btn btn-default btn-sm" id="doExcel" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出数据</div>
+                </if>
+            </form>
+
+            <div class="table-responsive">
+                <table class="table table-striped" id="datatables">
+                    <thead>
+                    <tr>
+                        <th width="10%">id</th>
+                        <th width="10%">上级昵称</th>
+                        <th width="10%">上级等级</th>
+                        <th width="10%">昵称</th>
+                        <th width="10%">真实姓名</th>
+                        <if condition="session('admin_info')['groups'] eq '0' ">
+                        <th width="10%">手机号码</th>
+                        </if>
+                        <th width="10%">账户余额</th>
+                        <th width="5%">库存</th>
+                        <th width="5%">积分</th>
+                        <th width="10%">会员等级</th>
+                        <th width="5%">状态</th>
+                        <th width="10%">加入时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <volist name="list.list" id="v">
+                        <tr>
+                            <td>{$v.id}</td>
+                            <td >
+                                <?php if($v["recid"]=='' or $v["recid"]==0): ?>
+                                <span style="color: #910000">无上级</span>
+                                <?php else: ?>
+                                <span style="color: #399c36">
+                                     {$v.parent_name}
+                                </span>
+
+                                <?php endif; ?>
+                            </td>
+                            <td style="color: #910000">
+                                {$level|getUserLevel=$v['parent_level'],###}
+                            </td>
+                            <td>{$v.nickname}</td>
+                            <td>{$v.name}</td>
+                            <if condition="session('admin_info')['groups'] eq '0' ">
+                            <td>{$v.phone}</td>
+                            </if>
+                            <td>{$v.money}</td>
+                            <td>{$v.stock}</td>
+                            <td>{$v.totalpoints}</td>
+                            <td>{$level|getUserLevel=$v['level'],###}</td>
+                            <td>{$v['status']>0?'正常':'冻结'}</td>
+                            <td>{$v.times|date='Y/m/d H:i:s',###}</td>
+                            <td>
+                                <a href="{:U('Users/indexview','id='.$v['id'])}" class='btn btn-xs btn-info'>浏览</a>
+                                <!--eq name="v.status" value="1">
+                                <a href='javascript:onChange({$v.id}, 0);' class='btn btn-xs btn-warning'>冻结</a>
+                                </eq>
+                                <eq name="v.status" value="0">
+                                <a href='javascript:onChange({$v.id}, 1);' class='btn btn-xs btn-success'>解冻</a>
+                                </eq-->
+                                <!--<a href='javascript:dels({$v.id});' class='btn btn-xs btn-danger'>删除</a>-->
+                                <a href='javascript:team("{$v.sysid}");' class='btn btn-xs btn-danger'>团队</a>
+                                <a href='javascript:showList({$v.id});' class='btn btn-xs btn-success'>记录</a>
+                            </td>
+                        </tr>
+                    </volist>
+
+                    </tbody>
+                </table>
+            </div>
+
+            {$list.show}
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    laydate.render({elem: '#single_start'});
+    laydate.render({elem: '#single_end'});
+
+    function dels(id) {
+        if (!confirm("确定要删除吗？")) {
+            return;
+        }
+        var configURL = "{:U('Core/dels', 'model=account')}";
+        var data = {id: id};
+        ajaxRt(configURL, data);
+    }
+
+    function onChange(id, st) {
+        var configURL = "{:U('Users/accStatus')}";
+        var data = {ids: id, status: st};
+        ajaxRt(configURL, data);
+    }
+
+    function showList(id){
+        var url = "{:U('users/getList')}?id="+id;
+        window.location.href=url;
+    }
+
+    function team(id) {
+        var url = "{:U('users/getTeam')}?ssid="+id;
+        window.location.href=url;
+    }
+</script>
+
+<script>
+    $("#doExcel").on('click',function(){
+        var ssid =$('#ssid').val();
+        var level =$('#level').val();
+        window.location.href="{:U('Backet/Doexc/doExcel_team')}?ssid="+ssid+"&level="+level;
+    });
+</script>

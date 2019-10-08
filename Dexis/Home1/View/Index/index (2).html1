@@ -1,0 +1,570 @@
+<link rel="stylesheet" href="__PUBLIC__/libs/swiper/css/swiper.min.css">
+<script src="__PUBLIC__/libs/swiper/js/swiper.min.js"></script>
+<style type="text/css">
+    /*border-bottom: 1px solid #F0F0F0;*/
+    .huadong {width: 100%;height:4rem;padding: 0.5rem 0 0.3rem 0;background: red}
+    .huadong .huabox {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        line-height: 4rem;
+    }
+    /*.huadong .hdimg {float:left;line-height:3.5rem;}*/
+    .huadong h5 {font-size:1rem;float:left; line-height: 2.2rem; margin: 0.8rem 0 0 0; }
+    .huadong .gg_more a { font-size: 0.8rem; text-decoration:none;}
+
+    .huadong .notice_active {
+        /*float: left;*/
+        width: 82%;
+        height: 4rem;
+        padding: 0;
+        overflow: hidden;
+        position: relative;
+    }
+    .huadong .notice_active li{list-style-type:none;line-height: 3.5rem;overflow: hidden;}
+    .huadong .notice_active li .notice_active_ch{
+        display: flex;
+        justify-content: space-between;
+    }
+    .huadong .notice_active li .notice_active_ch span {
+        color:#656972;
+        font-size:1rem;
+        display: block;
+        overflow: hidden;
+        width:80%;
+        /*margin:0 0 2rem 0;*/
+    }
+
+    .huadong .notice_active li.notice_active_ch em {
+        text-align:right;
+        float:right;
+        color:#888;
+        font-size:0.8rem;
+        font-style:normal;
+    }
+    /*0元计划*/
+    .index_w {
+        width: 100%;
+        background: #FFFFFF;
+        padding-top: 0.16rem;
+        margin-top: 0.16rem;
+        padding-bottom: 1.2rem;
+    }
+    .index_w_t {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding-bottom: 0.3rem;
+        display: flex;
+    }
+    .p32 {
+        padding: 0 1.6rem 0;
+    }
+    .index_w_o {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+        align-items: center;
+        padding-top: 1rem;
+    }
+/*    .index_w_o .z a {
+        display: block;
+        background: url(../public/home/imgs/sbfw.png) no-repeat center;
+        background-size: 100% 100%;
+        width: 10rem;
+        height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 6px 10px 10px 0px;
+    }*/
+    .index_w_o .z a span {
+        color: #FFFFFF;
+        font-size: 16px;
+        display: inline-block;
+    }
+
+    .index_w_o .y a {
+        color: #999999;
+        font-size: 14px;
+        margin-top: 0.24rem;
+        display: block;
+        margin-right: 1rem;
+    }
+
+
+/*    .index_b .index_w_t .a1 {
+        background: url(../images/sbfw01.png) no-repeat center;
+        background-size: 100% 100%;
+    }
+    .index_b .index_w_t .a2 {
+        background: url(../images/sbfw02.png) no-repeat center;
+        background-size: 100% 100%;
+    }
+    .index_b .index_w_t .a3 {
+        background: url(../images/sbfw03.png) no-repeat center;
+        background-size: 100% 100%;
+    }
+    .index_b .index_w_t .a4 {
+        background: url(../images/sbfw04.png) no-repeat center;
+        background-size: 100% 100%;
+    }*/
+    .index-plan-bg{
+        width: 48%;
+        padding: 1rem 0;
+        margin-top: 1rem;
+        display: inline-block;
+        /*background: #f5f5f5;*/
+        border-radius: 5px;
+
+        background-color: #219EFD;
+        background-image: linear-gradient(171deg,#219EFD 0%,#2168FF 100%);
+        background-image: -webkit-linear-gradient(171deg,#219EFD 0%,#2168FF 100%);
+        background-image: -moz-linear-gradient(171deg,#219EFD 0%,#2168FF 100%);
+        background-image: -o-linear-gradient(171deg,#219EFD 0%,#2168FF 100%);
+        box-shadow: 0 4px 8px 0 rgba(7,17,27,.15);
+    }
+    .index_w_t a p {
+        margin-left: 0.2rem;
+    }
+    .index_w_t a .p1 {
+        color: #ffffff;
+        font-size: 16px;
+        margin-top: 0.38rem;
+        margin-left: 1rem;
+        font-weight: 500;
+    }
+    .index_w_t a .p2 {
+        color: #fff;
+        font-size: 12px;
+        margin-top: 0.16rem;
+        margin-left: 1rem;
+    }
+     /*新闻列表*/
+    .index-news-nav{
+        height: 4rem;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: .2rem 0 .7rem;
+ 
+    }
+    .index-news_item{
+        background: #fff;
+    }
+    .index-news_list_item{
+        text-align: center;
+        flex: 1;
+    }
+    .index-news_list_item span{
+        position: relative;
+        display: inline-block;
+        height: 2rem;
+        line-height: 2rem;
+        padding: .6rem 1.4rem;
+        font-size: 13px;
+        color: rgba(0,0,0,.2);
+    }
+/*    .index-news_list_item span:after{
+        content: " ";
+        width: 200%;
+        height: 200%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid rgba(0,0,0,.2);
+        -webkit-transform: scale(.5);
+        transform: scale(.5);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        box-sizing: border-box;
+        border-radius: 3rem;
+    }*/
+    .index-news-nav .on span{
+        background-color: #219EFD;
+        background-image: linear-gradient(171deg,#219EFD 0%,#2168FF 100%);
+        background-image: -webkit-linear-gradient(171deg,#219EFD 0%,#2168FF 100%);
+        background-image: -moz-linear-gradient(171deg,#219EFD 0%,#2168FF 100%);
+        background-image: -o-linear-gradient(171deg,#219EFD 0%,#2168FF 100%);
+        box-shadow: 0 4px 8px 0 rgba(7,17,27,.15);
+        border-radius: 3rem;
+        color: #fff;
+    }
+    .index-news_list_item span{
+        background: rgba(187,227,245,0.8);
+        border-radius: 3rem;
+        color: #666;
+    }
+    .index-news-nav .on span:after{
+        border: none;
+    }
+    .index-news-img{
+        width: 110px;
+        height: 75px;
+        margin-right: .8rem;
+    }
+    .index-news-img img{
+        width: 110px;
+        height: 75px;
+    }
+    .index-news-msg{
+        display: flex;
+
+    }
+    .index-msg-time{
+        color: #CECECE;
+        font-size: 13px;
+        line-height: 26px;
+        margin-top: 10px;
+    }
+    .weui-media-box__title{
+        white-space: pre-wrap;
+        line-height: 20px;
+    }
+
+
+}
+</style>
+<script type="text/javascript">
+    function timer(opj){
+        $(opj).find('ul').animate({
+            marginTop : "-3.5rem"
+        },500,function(){
+            $(this).css({marginTop : "0.7rem"}).find("li:first").appendTo(this);
+        })
+    }
+    $(function(){
+        var num = $('.notice_active').find('li').length;
+        if(num > 1){
+            var time=setInterval('timer(".notice_active")',3500);
+            $('.gg_more a').mousemove(function(){
+                clearInterval(time);
+            }).mouseout(function(){
+                time = setInterval('timer(".notice_active")',3500);
+            });
+        }
+    });
+</script>
+<div class='index'>
+    <div class="swiper-container index-goods-banner" id="top_banner">
+        <div class="swiper-wrapper">
+            <volist name="put.index_banner" id="v">
+                <div class="swiper-slide">
+                    <a href="{$v.links}">
+                        <img src="__PUBLIC__/uploads/ads/{$v.imgs}"/>
+                    </a>
+                </div>
+            </volist>
+        </div>
+		<div class="swiper-pagination"></div>
+    </div>
+</div>
+
+<div class='index-menu'>
+
+    <a href="{:U('Index/money')}" class="index-menu_item">
+        <p class="icon"><img src="__PUBLIC__/home/imgs/index_icon_a.png"/></p>
+        <p class="name">我的金库</p>
+    </a>
+    <a href="{:U('Index/rider')}" class="index-menu_item">
+        <p class="icon"><img src="__PUBLIC__/home/imgs/index_icon_b.png"/></p>
+        <p class="name">我的团队</p>
+    </a>
+    <a href="{:U('Index/sorts')}" class="index-menu_item">
+        <p class="icon"><img src="__PUBLIC__/home/imgs/index_icon_c.png"/></p>
+        <p class="name">我的等级</p>
+    </a>
+    <a href="{:U('Index/tious')}" class="index-menu_item">
+	<!-- <a href="javascript:;" onclick="alert('正在建设中')" class="index-menu_item"> -->
+        <p class="icon"><img src="__PUBLIC__/home/imgs/index_icon_d.png"/></p>
+        <p class="name">团队业绩</p>
+    </a>
+    <a href="{:U('Index/plans')}" class="index-menu_item">
+        <p class="icon"><img src="__PUBLIC__/home/imgs/index_icon_e.png"/></p>
+        <p class="name">0元计划申请</p>
+    </a>
+    <a href="{:U('Index/schol')}" class="index-menu_item">
+        <p class="icon"><img src="__PUBLIC__/home/imgs/index_icon_f.png"/></p>
+        <p class="name">素材中心</p>
+    </a>
+    <a href="{:U('Index/learn')}" class="index-menu_item">
+        <p class="icon"><img src="__PUBLIC__/home/imgs/index_icon_g.png"/></p>
+        <p class="name">系统问答</p>
+    </a>
+    <a href="tel:{$config.CONF_CUSTOM}" class="index-menu_item">
+        <p class="icon"><img src="__PUBLIC__/home/imgs/index_icon_h.png"/></p>
+        <p class="name">售后客服</p>
+    </a>
+<!--滚动信息-->
+<div style="display: flex;background: #fff;padding: 8px 15px;position: relative;margin-top: 5px">
+    <a href="http://www.jacobhooychina.cn/Home/Index/schol/id/1.html" style="line-height: 24px;font-size: 1.4rem;font-weight: bold;color: #c8000b">系统公告</a>
+    <div style="border-right:1px solid #d9d9d9;width: 2px;height:16px;color: red;margin: 0 6px;margin-top: 4px;"></div>
+    <div class="scrollDiv" id="s1" style="height: 24px;line-height: 24px;overflow: hidden;">
+        <ul>
+            <volist name="data" id="vo">
+                <li>
+                    <a href="{:U('Index/schol_infos','id='.$vo['id'])}" style="color: #666;font-size: 1.4rem">
+                        {$vo.title|substr=0,51}
+                    </a>
+                </li>
+            </volist>
+        </ul>
+    </div>
+    <div style="content: '';display: inline-block;height: 6px;width: 6px;border-width: 2px 2px 0 0;border-color: #c8c8cd;border-style: solid;-webkit-transform: matrix(.71,.71,-.71,.71,0,0);transform: matrix(.71,.71,-.71,.71,0,0);position: absolute;margin-top: 8px;right: 15px">
+    </div>
+</div>
+</div>
+
+<!--0元计划抢购-->
+<div class='index index_banner'>
+    <div class="swiper-container" id="banner" style="padding-left: 1rem;padding-right: 1rem">
+        <div class="swiper-wrapper">
+            <volist name="put.index_middle" id="v">
+                <div class="swiper-slide">
+                    <a href="{:U('Index/plans')}">
+                        <img style="border-radius: 1rem" src="__PUBLIC__/uploads/ads/{$v.imgs}"/>
+                    </a>
+                </div>
+            </volist>
+
+        </div>
+    </div>
+</div>
+<!-- 0元计划列表 -->
+<div class="index_w index_b">
+    <div class="index_w_o">
+        <div class="z"><a href="#"><span>0元计划</span></a></div>
+        <div class="y"><a href="#">先拿货 后付款</a></div>
+    </div>
+    <div class="index_w_t p32" style="clear: both">
+
+        <a href="{:U('Index/plans_info','sn=815264414134609747')}" class="index-plan-bg a1">
+            <p class="p1">0元创业</p>
+            <p class="p2">40盒 3800元</p>
+        </a>
+
+        <a href="{:U('Index/plans_info','sn=815270623423588968')}" class="index-plan-bg a2">
+            <p class="p1">月体验</p>
+            <p class="p2">12盒 1560元</p>
+        </a>
+        <a href="{:U('Index/plans_info','sn=715270469154287144')}" class="index-plan-bg a3">
+            <p class="p1">周体验</p>
+            <p class="p2">4盒 600元</p>
+        </a>
+        <a href="{:U('Index/plans_info','sn=315264382127443659')}" class="index-plan-bg a4">
+            <p class="p1">单盒体验</p>
+            <p class="p2">1盒 168元</p>
+        </a>
+    </div>
+ <!--   <div class="y" style="margin-top: 18px">
+        <marquee scrollamount="1" scrolldelay="50" direction="up" behavior="scroll" style="text-align: center;font-size: 12px;width: 100%;height: 20px;color: #666">
+            &lt;!&ndash;   <span class="gundong_phone">173****2386</span> 成功借款 <span class="gundong_money">18800</span>元! <br>
+               <span class="gundong_phone">178****1885</span> 成功借款 <span class="gundong_money">4200</span>元! <br>
+               <span class="gundong_phone">130****3487</span> 成功借款 <span class="gundong_money">19800</span>元! <br>
+               <span class="gundong_phone">177****7076</span> 成功借款 <span class="gundong_money">23000</span>元! <br>&ndash;&gt;
+            <span class="gundong_phone">182****9551</span> 成功申请 <span class="gundong_money">25900</span>元! <br>
+            <span class="gundong_phone">157****4966</span> 成功申请 <span class="gundong_money">24500</span>元! <br>
+            <span class="gundong_phone">152****9623</span> 成功申请 <span class="gundong_money">2700</span>元! <br>
+            <span class="gundong_phone">131****7684</span> 成功申请 <span class="gundong_money">23600</span>元! <br>
+            <span class="gundong_phone">171****5634</span> 成功申请 <span class="gundong_money">5400</span>元! <br>
+            <span class="gundong_phone">185****0335</span> 成功申请 <span class="gundong_money">10600</span>元! <br>
+            <span class="gundong_phone">181****1430</span> 成功申请 <span class="gundong_money">4400</span>元! <br>
+            <span class="gundong_phone">174****2659</span> 成功申请 <span class="gundong_money">10400</span>元! <br>
+            <span class="gundong_phone">154****1156</span> 成功申请 <span class="gundong_money">23500</span>元! <br>
+            <span class="gundong_phone">181****9869</span> 成功申请 <span class="gundong_money">7600</span>元! <br>
+            <span class="gundong_phone">134****5067</span> 成功申请 <span class="gundong_money">15500</span>元! <br>
+        </marquee>
+    </div>-->
+</div>
+<div class='index-product'>
+
+    <!--a class="index-product_item">
+        <img src="__PUBLIC__/home/imgs/index_goods.png"/>
+    </a-->
+
+    <volist name="list" id="v" key="k">
+        <a href="{:U('Malls/goods','sn='.$v['gsn'])}" class="index-product_item">
+            <img src="__PUBLIC__/uploads/goods/{$img|getGoodsImg=$v['gsn'],###}"/>
+            <p class="title overflow">{$v.name}</p>
+            <p class="descs">{$v.subname}</p>
+            <p class="price">
+                ¥{$v.price}<span>立即购买</span>
+            </p>
+        </a>
+    </volist>
+
+</div>
+<div style="background: #fff">
+	<div class="index_w_o">
+        <div class="z"><a href="#"><span>相关资讯</span></a></div>
+        <!-- <div class="y"><a href="">查看更多&gt;</a></div> -->
+    </div>
+    <div class="index-news-nav" style="display: flex">
+        <div class="index-news_list_item on" ids="4" title="a1"><span>公司新闻</span></div>
+        <div class="index-news_list_item" ids="5" title="b1"><span>行业新闻</span></div>
+        <div class="index-news_list_item" ids="6" title="c1"><span>产品相关</span></div>
+        <div class="index-news_list_item" ids="7" title="d1"><span>媒体报道</span></div>
+    </div>
+
+
+
+    <div class="weui-panel__bd index-news_item" id="a1">
+        <volist name="list1" id="vo">
+            <a href="{:U('Index/schol_infos','id='.$vo['id'])}" class="weui-media-box index-news-msg">
+                <div class="index-news-img">
+                    <img src="__PUBLIC__/uploads/school/{$vo.imgs}"/>
+                </div>
+                <div class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">{$vo.title}</h4>
+                   <!-- <p class="weui-media-box__desc">{$vo.content}</p> -->
+                    <p class="index-msg-time">发布时间：{$vo.times}</p>
+                </div>
+            </a>
+        </volist>
+    </div>
+</div>
+<!-- 侧边微信 -->
+<div class="pubtask index_pubbtn pri-bg"  id="showIOSDialog1" style="background: #fff">
+    <img src="__PUBLIC__/home/imgs/weixin.png" style="width: 100%;height: 100%">
+</div>
+
+<div class="js_dialog" id="iosDialog1" style="display: none">
+            <div class="weui-mask"></div>
+            <div class="weui-dialog">
+                <div class="weui-dialog__hd"><strong class="weui-dialog__title">客服微信</strong></div>
+                <div class="weui-dialog__bd" style="text-align: center;">
+                    <img style="width: 50%" src="__PUBLIC__/home/imgs/kf-erweima.jpg">
+                    <p>长按二维码识别</p>
+                </div>
+                <div class="weui-dialog__ft">
+                    <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+                </div>
+            </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        var $iosDialog1 = $('#iosDialog1');
+    
+
+        $('#dialogs').on('click', '.weui-dialog__btn', function(){
+            $(this).parents('.js_dialog').fadeOut(200);
+        });
+
+        $('#showIOSDialog1').on('click', function(){
+            $iosDialog1.fadeIn(200);
+        });
+
+    });
+</script>
+<!-- 侧边微信END -->
+
+<!-- <style>
+    .zz{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        z-index: 500;
+        top: 0px;
+        background: rgba(0,0,0, 0.7);
+   
+    }
+   .zpgz{
+       width: 80%;
+       height: auto;
+       position: fixed;
+       z-index: 600;
+       top: 14%;
+       left: 10%;
+       /*display: none;*/
+       text-align: center;
+   }
+   .cjgz-c {
+       width: 12%;
+       padding-top: 10px;
+   }
+   #cjgz-img {
+       width: 100%;
+       position: relative;
+   }
+</style> -->
+<!--遮罩&弹框-->
+<!-- <div class="zz"></div>
+
+<div class="zpgz" style="display: block;" id="iosDialog1">
+    <img src="__PUBLIC__/home/imgs/layer-banner.jpg" id="cjgz-img">
+    <img src="__PUBLIC__/home/imgs/close.png" class="cjgz-c">
+</div> -->
+<script>
+    $(document).on("click touchstart", ".index-news_list_item", function () {
+        var id = $(this).attr("title");
+        $(".index-news_list_item").removeClass("on");
+        $(".index-news_item").fadeOut();
+        $(this).addClass("on");
+        $("#" + id).fadeIn();
+//        $("#" + id).addClass("trans");
+        return false;
+    });
+</script>
+<script>
+
+    new Swiper('#top_banner', {pagination: '.swiper-pagination',paginationClickable: true, loop: true,autoplay: 4000});
+    function AutoScroll(obj) {
+        $(obj).find("ul:first").animate({
+                marginTop: "-24px"
+            },
+            500,
+            function() {
+                $(this).css({
+                    marginTop: "0px"
+                }).find("li:first").appendTo(this);
+            });
+    }
+    setInterval('AutoScroll("#s1")', 3000);
+
+</script>
+<script>
+    $(document).on("click touchstart", ".index-news_list_item", function () {
+        var id = $(this).attr("title");
+        var ids = $(this).attr("ids");
+        $(".index-news_list_item").removeClass("on");
+        // $(".index-news_item").fadeOut();
+        $(this).addClass("on");
+        // $("#" + id).fadeIn();
+        //showPreLoading();
+
+        $.ajax({
+            type: "GET",
+            url: "{:U('index/school')}",
+            data: {id:ids},
+            dataType: "json",
+            success: function(data){
+                //hidePreLoading();
+                $('#a1').empty();   //清空resText里面的所有内容
+                var html = '';
+                var  url="{:U('Index/schol_infos')}";
+                $.each(data, function(commentIndex, comment){
+                    html += '<a href="'+url+'?id='+comment['id']+'" class="weui-media-box index-news-msg">' +
+                        '<div class="index-news-img">' +
+                        '<img src="__PUBLIC__/uploads/school/'+comment['imgs']+'"/>' +
+                        '</div>' +
+                        '<div class="weui-media-box__bd">' +
+                        '<h4 class="weui-media-box__title">'+comment['title']+'</h4>' +
+                        // '<p class="weui-media-box__desc">'+comment['imgs']+'</p>' +
+                        '<p class="index-msg-time">发布时间：'+comment['times']+'</p>' +
+                        ' </div>' +
+                        '</a>';
+                });
+                $('#a1').html(html);
+            }
+        });
+//        $("#" + id).addClass("trans");
+        return false;
+    });
+</script>
+<!-- <script type="text/javascript">
+    $(".cjgz-c").on('click', function() {
+        $(".zz").hide();
+        $(".zpgz").hide();
+    });
+</script> -->

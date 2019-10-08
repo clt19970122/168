@@ -1,0 +1,9 @@
+<if condition="$info.video neq '#'">
+    <iframe src='{$info.video}' frameborder='0' style=" height:20rem; width:100%;"></iframe>
+</if>
+<div>
+    {$info.content|htmlspecialchars_decode}
+</div>
+<script>
+    $("img").css("width", "100%");
+</script>

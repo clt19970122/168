@@ -1,0 +1,41 @@
+<div class="share">
+    <img style="width: 100vw;height: 100vh" src="__PUBLIC__/home/imgs/share.jpg"/>
+    <div class="share_code" style="bottom:36vh">
+        <img style="position: absolute;right: 10vw" src="{:U('Wcix/share_qr','sysid='.$id)}"/>
+    </div>
+    <div style="color: #fff;border-bottom: 1vh" class="share_cont">来自{$name}的分享</div>
+</div>
+
+<script>
+
+    wx.ready(function () {
+
+        wx.onMenuShareTimeline({
+            title: '快来加入吧',
+            link: "{$weburl}Home/Wcix/share/sysid/{$id}.html",
+            imgUrl: '{$weburl}Public/home/imgs/share_code.png',
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+
+        wx.onMenuShareAppMessage({
+            title: '168太空素食快来加入吧', // 分享标题
+            desc: '来自{$name}的分享', // 分享描述
+            link: '{$weburl}Home/Wcix/share/sysid/{$id}.html',
+            imgUrl: '{$weburl}Public/home/imgs/share_code.png',
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+    });
+
+</script>

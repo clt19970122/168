@@ -1,0 +1,198 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        订单管理
+        <!--span>Subtitle goes here...</span-->
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li class="active">未还款金融用户提货</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                提货列表
+            </h3>
+        </div>
+        <div class="panel-body">
+
+            <form action="{:U('plans/getHavedPickPlanUser')}" class="form-inline mb15" role="form">
+                <!--<div class="form-group">
+                    <input type="text" name='phone' id="phone" class="form-control input-sm" value="{$get.phone}" placeholder="请输入手机号码"/>
+                </div>-->
+                <!--<input type="hidden" name="dotype" value="{$dotype}">-->
+                <!--<div class="form-group">
+                    <input type="text" name='username' id="name" class="form-control input-sm" value="{$get.username}" placeholder="请输入下单用户"/>
+                </div>-->
+                <div class="form-group">
+                    <select name="status1" id="st1" class="form-control input-sm">
+                        <option value="">全部金融状态</option>
+                        <option value="5">已确认办理</option>
+                        <option value="7">已逾期</option>
+                    </select>
+                </div><div class="form-group">
+                    <select name="status2" id="st2" class="form-control input-sm">
+                        <option value="">全部发货状态</option>
+                        <option value="1">已通过</option>
+                        <option value="3">已发货</option>
+                        <option value="3">自提</option>
+                        <option value="3">已取消</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='start' class="form-control input-sm" value="{$start}" id="single_start" placeholder="请选择申请开始时间"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='ends' class="form-control input-sm" value="{$ends}" id="single_end" placeholder="请选择申请结束时间"/>
+                </div>
+                <button type="submit" class="btn btn-default btn-sm">搜索</button>
+                <!--<a href="{:U('')}" class="btn btn-primary btn-xs pull-right" target="_blank">导出</a>-->
+                <div class="btn btn-default btn-sm" id="doExcel" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出数据</div>
+                <div class="btn btn-default btn-sm" id="doExcel1" style="padding-left: 20px;background-color: #2f27b2;color: white;">转货数据</div>
+            </form>
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="datatables">
+                    <thead>
+                    <tr>
+                        <th width="2%">#</th>
+                        <!--<th width="10%">推荐用户</th>-->
+                        <th width="6%">0元申请用户</th>
+                        <th width="5%">申请订单号</th>
+                        <th width="5%">申请金额</th>
+                        <th width="6%">申请时间</th>
+                        <th width="6%">申请状态</th>
+                        <th width="">提货用户</th>
+                        <th width="4%">提货电话</th>
+                        <th width="">提货地址</th>
+                        <th width="4%">提货数量</th>
+                        <th width="">运单号</th>
+                        <th width="8%">提货时间</th>
+                        <th width="5%">发货状态</th>
+                        <th width="5%">用户剩余库存</th>
+                        <th width="5%">用户等级</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <volist name="data" id="v">
+                        <tr>
+                            <td>{$v.id}</td>
+                            <!--<td>{$rec|getRecUser=$v['uid'],###}</td>-->
+                            <td>{$v.name}</td>
+                            <td>{$v.sn}</td>
+                            <td>{$v.money}</td>
+                            <td>{$v.times}</td>
+                            <td>{$v.status}</td>
+                            <td>{$v.getname}</td>
+                            <td>{$v.getphone}</td>
+                            <td>{$v.getaddress}</td>
+                            <td>{$v.getnums}</td>
+                            <td>{$v.trans}</td>
+                            <td>{$v.gettime}</td>
+                            <td>
+                                {$v['getstatus']==0?'审核中':''}
+                                {$v['getstatus']==1?'已通过':''}
+                                {$v['getstatus']==2?'未通过':''}
+                                {$v['getstatus']==3?'已发货':''}
+                                {$v['getstatus']==4?'自提 ':''}{$v['sure']==1?'-已确认 ':''}
+                                {$v['getstatus']==5?'已取消 ':''}
+                            </td>
+                            <td>
+                                {$v.stock}
+                            </td><td>
+                                {$v.level}
+                            </td>
+                        </tr>
+                    </volist>
+
+                    </tbody>
+                </table>
+
+                <nav class="pagec pull-left">
+                    {$page}
+                </nav>
+                <div class="pull-right">
+                    <div class="col-sm-1 input-group input-group-sm">
+                        <input type="text" id="pages" class="form-control">
+                        <span class="input-group-addon" onclick="pagereload();">跳转</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="__PUBLIC__/layer/layer.js"></script>
+<script>
+    var ids;
+    laydate.render({elem: '#single_start'});
+    laydate.render({elem: '#single_end'});
+
+    function pagereload() {
+        var page = $("#pages").val();
+        if ($.trim(page) === null || page <= 0) {
+            alert("请输入正确的页面编号");
+            return false;
+        }
+        var url = "{:U('Goods/order_sr','type='.$type.'&name='.$name.'&phone='.$phone.'&dotype='.$dotype)}?p=" + page;
+        window.location.href = url;
+    }
+</script>
+
+<script>
+    $("#doExcel").on('click',function(){
+        var start =$('#single_start').val();
+        var ends =$('#single_end').val();
+        var status1 =$('#st1').val();
+        var status2 =$('#st2').val();
+        // window.location.href="{:U('Backet/Doexc/doExcel_ordersr')}?name="+name+"&phone="+phone+"&start="+start+"&ends="+ends+"&status="+status;
+        
+            layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+                var data = {pwd: pass};
+                $.ajax({
+                    url: "{:U('Users/exportPermission')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        if (res.status !== 1) {
+                            return layer.msg(res.msg);
+                        }else {
+                            window.location.href="{:U('Backet/Doexc/doexcel_drsByplan')}?status1="+status1+"&status2"+status2+"&start="+start+"&ends="+ends;
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+        
+      //  window.location.href="{:U('Backet/Doexc/doexcel_drsByplan')}?status1="+status1+"&status2"+status2+"&start="+start+"&ends="+ends;
+    });
+    $("#doExcel1").on('click',function(){
+        // window.location.href="{:U('Backet/Doexc/doExcel_ordersr')}?name="+name+"&phone="+phone+"&start="+start+"&ends="+ends+"&status="+status;
+        
+            layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+                var data = {pwd: pass};
+                $.ajax({
+                    url: "{:U('Users/exportPermission')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        if (res.status !== 1) {
+                            return layer.msg(res.msg);
+                        }else {
+                            window.location.href="{:U('Backet/Doexc/turn_plan')}";
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+        
+      //  window.location.href="{:U('Backet/Doexc/turn_plan')}";
+    });
+</script>

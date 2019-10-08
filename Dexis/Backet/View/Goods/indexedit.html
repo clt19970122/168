@@ -1,0 +1,341 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        商品管理
+        <!--span>Subtitle goes here...</span-->
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li><a href="{:U('Goods/index')}">商品列表</a></li>
+            <li class="active">修改商品</li>
+        </ol>
+    </div>
+</div>
+
+<style>
+    .tab-pane{ height:580px; overflow-y:auto;}
+    #editContent{ margin-bottom:0px;}
+</style>
+<script src="__PUBLIC__/backet/js/select2.min.js"></script>
+<script src="__PUBLIC__/backet/js/bootstrap-wizard.min.js"></script>
+<script charset="utf-8" src="__PUBLIC__/libs/kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="__PUBLIC__/libs/kindeditor/lang/zh_CN.js"></script>
+<div class="contentpanel">
+
+    <div class="row">
+        <div class="col-md-7">
+
+            <div class="panel panel-default" id="editContent">
+                <div class="panel-body panel-body-nopadding">
+
+                    <form class="form-horizontal form-bordered" name="addItems">
+                        <input type="hidden" name="ids" value="{$info.id}"/>
+                        <input type="hidden" name="gsn" value="{$info.gsn}"/>
+
+                        <!-- BASIC WIZARD -->
+                        <div id="basicWizard" class="basic-wizard">
+
+                            <ul class="nav nav-pills nav-justified">
+                                <li><a href="#tab1" data-toggle="tab">基本信息</a></li>
+                                <li><a href="#tab2" data-toggle="tab">属性信息</a></li>
+                                <li><a href="#tab4" data-toggle="tab">图片信息</a></li>
+                                <li><a href="#tab5" data-toggle="tab">商品描述</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane" id="tab1">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">商品标题</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="name" class="form-control input-sm" value="{$info.name}"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">商品描述</label>
+                                            <div class="col-sm-9">
+                                                <textarea name="subname" class="form-control">{$info.subname}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">商品库存</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="nums" class="form-control input-sm" value="{$info.nums}"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">广告大片</label>
+                                            <div class="col-sm-9">
+                                                <textarea name="video" class="form-control">{$info.video}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">首页显示</label>
+                                            <div class="col-sm-9">
+                                                <select name="ind" class="form-control">
+                                                    <option value="1" <if condition="1 eq $info[ind]">selected</if>>是</option>
+                                                    <option value="0" <if condition="0 eq $info[ind]">selected</if>>否</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">0元计划</label>
+                                            <div class="col-sm-9">
+                                                <select name="zplan" class="form-control">
+                                                    <option value="1" <if condition="1 eq $info[zplan]">selected</if>>是</option>
+                                                    <option value="0" <if condition="0 eq $info[zplan]">selected</if>>否</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">商品分类</label>
+                                            <div class="col-sm-9">
+                                                <select name="catid" class="form-control">
+                                                    <volist name="catlist" id="v">
+                                                        <option value="{$v.id}" <if condition="$v['id'] eq $info['catid']">selected</if>>{$v.name}</option>
+                                                    </volist>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">商品状态</label>
+                                            <div class="col-sm-9">
+                                                <select name="status" class="form-control">
+                                                    <option value="1" <if condition="1 eq $info[status]">selected</if>>发布</option>
+                                                    <option value="0" <if condition="0 eq $info[status]">selected</if>>保存</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">体验价格</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="price" class="form-control input-sm" value="{$info.price}"/>
+                                            </div>
+                                        </div>
+                                        <volist name="list" id="v">
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label">{$v.name}价格</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" name="level[{$v.id}]" class="form-control input-sm" value="{$v.price}"/>
+                                                </div>
+                                            </div>
+                                        </volist>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="tab-pane" id="tab2">
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">产品类型</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="locs" class="form-control input-sm" value="{$info.locs}"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">产品规格</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="net" class="form-control input-sm" value="{$info.net}"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">保质期</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="daty" class="form-control input-sm" value="{$info.daty}"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">产品标准号</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="batch" class="form-control input-sm" value="{$info.batch}"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">生产许可证</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="suit" class="form-control input-sm" value="{$info.suit}"/>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">包装方式</label>
+                                            <div class="col-sm-9">
+                                                <textarea name="sorts" rows="3" class="form-control">{$info.sorts}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">贮藏方法</label>
+                                            <div class="col-sm-9">
+                                                <textarea name="product" rows="3" class="form-control">{$info.product}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">配方专利名称</label>
+                                            <div class="col-sm-9">
+                                                <textarea name="method" rows="3" class="form-control">{$info.method}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">配方专利号</label>
+                                            <div class="col-sm-9">
+                                                <textarea name="advice" rows="3" class="form-control">{$info.advice}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">注意事项</label>
+                                            <div class="col-sm-9">
+                                                <textarea name="tips" rows="3" class="form-control">{$info.tips}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="tab-pane" id="tab4">
+                                    <h4>新增图片</h4>
+                                    <div class="form-group">
+                                        <div class="col-sm-4">
+                                            <input name="file" id="file" class="form-control" type="file"/>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <a href="javascript:addImgs();" class="btn btn-primary-alt">上传</a>
+                                        </div>
+                                    </div>
+                                    <hr style="margin-top:0px;"/>
+
+                                    <div class="row-fluid clearfix filemanager" id="fileimg">
+
+                                        <volist name="imgs" id="v">
+
+                                            <div class="col-xs-6 col-sm-4 col-md-3 document bg-info padding5" id="imgs{$v.id}">
+                                                <div class="thmb">
+                                                    <div class="thmb-prev">
+                                                        <img src="__PUBLIC__/uploads/goods/{$v.imgs}" class="img-responsive" height="150"/>
+                                                    </div>
+                                                </div>
+                                                <h5 class="fm-title"><a href="javascript:dels('{$v.id}');">删除</a></h5>
+                                                <small class="text-muted">{$v.times|date='Y/m/d H:i:s',###}</small>
+                                            </div>
+
+                                        </volist>
+
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="tab5">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <script charset="utf-8" src="__PUBLIC__/libs/kindeditor/kindeditor.js"></script>
+                                            <script charset="utf-8" src="__PUBLIC__/libs/kindeditor/lang/zh_CN.js"></script>
+                                            <textarea class="form-control" id="editor_id" name="context" style="width:100%;height:500px;">{$info.context}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- tab-content -->
+
+                        </div><!-- #basicWizard -->
+                    </form>
+
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <button class="btn btn-primary" onclick="onsubattr();">保存(图片模块修改无需点击保存)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!--ROW-col-->
+    </div>
+
+</div>
+
+<script>
+
+    $('#basicWizard').bootstrapWizard();
+
+    KindEditor.ready(function (K) {
+        window.editor = K.create('#editor_id', {
+            afterBlur: function () {
+                this.sync();
+            }
+        });
+    });
+
+    function onsubattr() {
+        var configURL = "{:U('Core/edits', 'model=goods')}";
+        var formelemt = $("form[name=addItems]").serializeArray();
+        var data = objToArray(formelemt);
+        ajaxRt(configURL, data);
+    }
+
+    /**
+     * 修改图片
+     */
+    function addImgs() {
+        var data = {sn: "{$info.gsn}"};
+        $.ajaxFileUpload({
+            url: "{:U('Goods/indexadd_imgs')}",
+            secureuri: false,
+            fileElementId: "file",
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+                if (data.status !== 1) {
+                    alert(data.msg);
+                    return false;
+                }
+                var res = data.msg;
+                var imgs = "<div class='col-xs-6 col-sm-4 col-md-3 document bg-info padding5' id='imgs" + res.id + "'>";
+                imgs += "<div class='thmb'><div class='thmb-prev'>";
+                imgs += "<img src='__PUBLIC__/uploads/goods/" + res.imgs + "' class='img-responsive'/>";
+                imgs += "</div></div>";
+                imgs += "<h5 class='fm-title'><a href='javascript:dels(" + res.id + ");'>删除</a></h5>";
+                imgs += "<small class='text - muted'>" + res.times + "</small>";
+                $("#fileimg").append(imgs);
+            },
+            error: function (data) {
+                console.log(data);
+            }
+        });
+        return false;
+    }
+
+    /**
+     * 删除图片
+     * @param {type} id
+     * @returns {undefined}
+     */
+    function dels(id) {
+        if (!confirm("确定要删除吗？")) {
+            return;
+        }
+        var configURL = "{:U('Core/dels','model=goods_img')}";
+        var data = {id: id};
+        $.ajax({
+            url: configURL,
+            type: "post",
+            data: data,
+            dataType: "json",
+            success: function (res) {
+                if (res.status !== 1) {
+                    alert(res.msg);
+                }
+                $("#imgs" + res.msg.id).remove();
+            }
+        });
+        return false;
+    }
+
+</script>

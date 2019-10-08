@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>168减肥营</title>
+	<script src="__PUBLIC__/home/js/index.js"></script>
+	<link rel="stylesheet" href="__PUBLIC__/home/css/answer.css">
+</head>
+<body>
+<!--
+   <section id="loading" style="position: fixed;width: 100%;height: 100%;top: 0px;left: 0px; background-color:#FFFFFF;-webkit-box-pack: center;justify-content: center;-webkit-box-align: center;align-items: center;z-index: 999999;    display: -webkit-box;"><img style="width:4rem; height:4rem; border-radius:5%;" src="__PUBLIC__/home/imgs/images/loading.gif"></section>
+-->
+
+   <section id="start">
+       <div class="btn startBtn zt1">开始测试</div>
+   </section>
+   
+   <section id="dati" hidden>
+	   <div id="answer-bg"></div>
+       <!--<div class="dati_top"></div>-->
+	   <div class="timu_box text1">
+	   </div>
+	   <div class="q">Q</div>
+	   <form>
+	   <div id="xuanxiang">
+	   </div>
+	   </form>
+	   <div class="btn zt1 nextBtn">下一题</div>
+   </section>
+   
+   <section class="baoming" id="baoming" style="display: none">
+	   <div class="baoming-wrap">
+
+	   </div>
+       <div class="bigbox">
+		   <form action="">
+	       <div class="sbox">
+			   <div class="title">请耐心等待营养师为您定制减脂营养餐方案</div>
+		       <span>请输入您的姓名</span>
+		       <input name="name" type="text">
+			   <span>请输入您的手机号</span>
+			   <input name="phone" type="number">
+			   <span>方便联系您的时间</span>
+			   <select name="contact" >
+				   <option value="上午">上午</option>
+				   <option value="中午">中午</option>
+				   <option value="下午">下午</option>
+				   <option value="晚上">晚上</option>
+			   </select>
+			   <!--<input name="phone" type="number">-->
+			   <div  class="btn zt1 tijiao" id="tijiao">提交</div>
+		   </div>
+		   </form>
+	   </div>
+   </section>
+
+
+<!--   <section hidden id="tips" style="position: absolute;top:0;font-size: 1rem;font-weight: bolder;">
+	   <div>请选择一个选项哦</div>
+	   <div class="">知道啦</div>
+   </section>-->
+<section class="baoming" id="tips" style="display: none">
+	<div class="baoming-wrap">
+
+	</div>
+<div class="bigbox ">
+	<form action="">
+		<div class="sbox">
+			<div class="title">请选择一个选项哦</div>
+			<!--<input name="phone" type="number">-->
+			<div  class="btn zt1 tijiao know">知道啦</div>
+		</div>
+	</form>
+</div>
+</section>
+   <script src="__PUBLIC__/home/js/html2canvas.min.js"></script>
+  <script>
+      var i= 0;
+
+      var tdata=[
+          {t:"您的年龄 （单选）:",type:"one",d:['18以下','18~25岁','26~35岁','36~45岁','46~55岁','55岁以上'],name:"age"},
+          {t:"您的性别（单选）:",type:"one",d:['男','女'],name:"sex"},
+          {t:"您的身高（单选）:",type:"one",d:['160cm以下','161~170cm','170cm以上'],name:'height'},
+          {t:"您的体重（单选）:",type:"one",d:['100斤以下','100~110斤','111~120斤','121斤~130斤','130斤以上'],name:'weight'},
+          {t:"您的职业（单选）:",type:"one",d:['长时间看电脑','长时间站立','经常加班者','体力劳动者','自由时间者','其他'],name:'job'},
+          {t:"一般吃早餐时间？（单选）:",type:"one",d:['7点以前','7点~8点','8点以后','平时7点过但周末8点以后','不吃早饭'],name:'breakfast'},
+          {t:'胃肠道健康异常表现?（多选）',type:'more',d:['腹泻、腹胀','食欲不振','口气不清晰','便秘','情绪低落','面色暗黄、痘痘等皮肤','易生病'],name:'stomach'},
+          {t:'现在身体问题？（多选）',type:'more',d:['睡眠','便秘','嘴里有味道','皮肤暗黄泛油光','超重'],name:'problem'},
+          {t:'您平时的饮食习惯',type:'two',d:['只吃自己喜欢的食物','饥一顿饱一顿','经常在外就餐','按时吃饭'],name:'habit'},
+          {t:'您的口味偏好？（多选）',type:'two',d:['清淡','喜爱甜食','无辣不欢','重油重盐'],name:'taste'},
+          {t:'您的饮食偏好？（单选）',type:'one',d:['顿顿有肉','偏爱素菜','一天一顿肉菜','每顿必吃米饭或面食'],name:'diet'},
+          {t:'晚餐时间？（单选）',type:'one',d:['18点以前','18:00~19:30','19:31~20:30','20:30以后'],name:'time'},
+          {t:'有运动习惯吗？（单选）',type:'one',d:['无','偶尔','一周3~4次','每天'],name:'sport'},
+          {t:'此前用过什么方式减脂？ （多选）',type:'two',d:['减肥药','节食','代餐','运动'],name:'way'},
+          {t:'有没有相关疾病？',type:'more',d:['无','心脏病','三高','糖尿病','低血糖'],name:'effectLose'},
+          {t:'想要减到多少斤？（单选）',type:'one',d:['5斤以内','5~10斤','11斤~20斤','20斤以上'],name:'loseNum'},
+          {t:'期望多长时间实现目标？ （单选）',type:'one',d:['3天','7天','21天','30天以上'],name:'howlong'}
+      ];
+
+      $(document).ready(function(){
+          // var i=0;
+          init(0);
+
+      });
+
+      function init(ss) {
+          var i = ss;
+          $('.timu_box').html(tdata[i].t);
+          var option_html = [];
+          var dLength= tdata[i].d.length;
+          var int = tdata[i].type;
+
+          if(int=="one"){
+              for(k=0;k<dLength;k++){
+                  option_html += '<div class="xx">'+'<label><input type="radio" name="'+tdata[i].name+'" value="'+tdata[i].d[k]+'">'+tdata[i].d[k]+'</label>'+'</div>';
+              }
+              var one = '<div class="itemContainer">'+option_html+'</div>';
+              putItem(one);
+          }
+          if(int=="two"){
+              for(k=0;k<dLength;k++){
+                  option_html += '<div class="xx">'+'<label><input type="checkbox" name="'+tdata[i].name+'" value="'+tdata[i].d[k]+'">'+tdata[i].d[k]+'</label>'+'</div>';
+              }
+              var two = '<div class="itemContainer">'+option_html+'</div>';
+              putItem(two);
+          }
+          if(int=="more"){
+              for(k=0;k<dLength;k++){
+                  option_html += '<div class="xx">'+'<label><input type="checkbox" name="'+tdata[i].name+'" value="'+tdata[i].d[k]+'">'+tdata[i].d[k]+'</label>'+'</div>';
+              }
+              var more = '<div class="itemContainer">'+option_html+'<div class="xx">'+'其他'+'<input checked name="'+tdata[i].name+'" class="otherInput" value="">'+'</div></div>';
+              putItem(more);
+          }
+          if(int == "write"){
+              var write = '<div class="itemContainer">'+option_html+'<div class="xx"><input checked name="'+tdata[i].name+'" class="otherInput" value="">'+'</div></div>';
+              putItem(write);
+          }
+          function putItem(po) {
+              $('#xuanxiang').append(po);
+          }
+          $(".itemContainer").hide().eq($(this).index()).show();
+          btnClick();
+      }
+      $('.startBtn').click(function(){
+          $("#start").hide();
+          $("#dati").show();
+          // init(0);
+      });
+      function btnClick() {
+          var add = (function(){
+              var counter = 0;
+              return function(){
+                  return(++counter);
+              }
+          })();      //这里add已经是执行过后的函数了。即add指定了函数自我调用的返回值
+          $('.nextBtn').click(function(){
+
+              var inputNodes = $(".itemContainer")[i].getElementsByTagName("input");
+              inputArr = [];
+              for (j = 0; j < inputNodes.length; j++) {
+                 // var allInput = inputNodes[j].checked
+                  if (inputNodes[j].checked) {
+                      console.log(inputNodes[j].value);
+                      inputArr.push(inputNodes[j].value);
+                  }
+              }
+			  if(inputArr==""){
+				    console.log("还没选");
+				    return false;
+				}else {
+                  inputArr = [];
+			       var ss = add();
+			       console.log(ss);
+
+					init(ss);
+				}
+		  });
+      }
+      var add = (function(){
+          var counter = 0;
+          return function(){
+              return(++counter);
+          }
+      })();      //这里add已经是执行过后的函数了。即add指定了函数自我调用的返回值
+      console.log(add());   //counter为1
+      console.log(add());   //counter为1
+      console.log(add());   //counter为1
+
+
+
+	/*  function init(i) {
+
+		  console.log("i:"+i);
+		  var lastNum = tdata.length - 1;
+		  if(i>lastNum){
+			  baoming();
+			  return false;
+		  }
+		  console.log("lst:"+lastNum);
+
+			  $('.timu_box').html(tdata[i].t);
+			  var k=0;
+			  var option_html = [];
+			  var dLength= tdata[i].d.length;
+			  var int = tdata[i].type;
+
+			  if(int=="one"){
+				  for(k=0;k<dLength;k++){
+					  option_html += '<div class="xx">'+'<label><input type="radio" name="'+tdata[i].name+'" value="'+tdata[i].d[k]+'">'+tdata[i].d[k]+'</label>'+'</div>';
+				  }
+				  var one = '<div class="itemContainer">'+option_html+'</div>';
+				  putItem(one);
+			  }
+			  if(int=="two"){
+				  for(k=0;k<dLength;k++){
+					  option_html += '<div class="xx">'+'<label><input type="checkbox" name="'+tdata[i].name+'" value="'+tdata[i].d[k]+'">'+tdata[i].d[k]+'</label>'+'</div>';
+				  }
+				  var two = '<div class="itemContainer">'+option_html+'</div>';
+				  putItem(two);
+			  }
+			  if(int=="more"){
+				  for(k=0;k<dLength;k++){
+					  option_html += '<div class="xx">'+'<label><input type="checkbox" name="'+tdata[i].name+'" value="'+tdata[i].d[k]+'">'+tdata[i].d[k]+'</label>'+'</div>';
+				  }
+				  var more = '<div class="itemContainer">'+option_html+'<div class="xx">'+'其他'+'<input checked name="'+tdata[i].name+'" class="otherInput" value="">'+'</div></div>';
+				  putItem(more);
+			  }
+			  if(int == "write"){
+				  var write = '<div class="itemContainer">'+option_html+'<div class="xx"><input checked name="'+tdata[i].name+'" class="otherInput" value="">'+'</div></div>';
+				  putItem(write);
+			  }
+			  function putItem(po) {
+				  $('#xuanxiang').append(po);
+			  }
+			  $(".itemContainer").hide().eq($(this).index()).show();
+			  $('.nextBtn').click(function(){
+				  validate();
+			  });
+
+	  }*/
+
+
+/*      $('.startBtn').click(function(){
+		  $("#start").hide();
+	      $("#dati").show();
+		  init(0);
+	  });
+	  function validate() {
+
+		  var inputNodes = $(".itemContainer")[i].getElementsByTagName("input");
+		console.log($(".itemContainer")[i]);
+		  for (j = 0; j < inputNodes.length; j++) {
+				  if (inputNodes[j].checked && inputNodes[j].value !== "") {
+					  $("#tips").hide();
+					  i++;
+					  init(i);
+				  } else {
+					  $("#tips").show();
+					  // return false;
+				  }
+			  }
+	  }
+	  $(".know").click(function () {
+		  $("#tips").hide();
+      })
+		function baoming() {
+			$('#baoming').show();
+			$('#tijiao').click(function(){
+				var name=$('input[name="name"]').val();
+				var phone=$('input[name="phone"]').val();
+				if(name==''){
+					alert("请输入您的姓名");
+					return false;
+				}
+				if(!(/^1(3|4|5|6|7|8|9)\d{9}$/.test(phone))){
+					alert("手机号码有误，请重填");
+					return false;
+				}
+				formdata();
+			})
+		}
+	  function formdata() {
+
+		  var data = {};
+		  var t = $('form').serializeArray();
+		  $.each(t, function () {
+			  data [this.name] = this.value;
+		  });
+		  console.log(JSON.stringify(data));
+	  };*/
+  </script>
+</body>
+</html>

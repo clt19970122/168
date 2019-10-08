@@ -1,0 +1,376 @@
+<div class="user-header">
+    <div class="index-rider">
+        <div class="head" id="showIOSActionSheet">
+            <img src="{$user.headimgurl}">
+            <p class="name">
+                <neq name="user.name" value="">{$user.name}</neq>
+            </p>
+        </div>
+        <div style="width: 100%">
+            <p class="level" style="text-align: left">
+                <button>{$level|getUserLevel=$user['level'],###}</button>
+            </p>
+            <div class="user-grow" style="color: #fff;">
+                <p class="user-grow-name">会员成长值</p>
+                <div class="user-grow-point" style="display: flex;justify-content: space-between;width: 100%">
+                    <p class="grow-points">1208<span>分</span></p>
+                    <p class="points-target">还差6000分分升级联合创始人</p>
+                </div>
+            </div>
+            <div class="progress">
+                <div class="loader-container"></div>
+            </div>
+          <!--  <p style="text-align: center;color: #fff;font-size: 14px;margin-top: 5px">
+                系统账号：<span id="sysid">{$user.sysid}</span>
+                &lt;!&ndash; <textarea style="position: absolute;top: 0;left: 0;opacity: 0;z-index: -10;" id="input"></textarea> &ndash;&gt;
+                <button class="weui-btn weui-btn_mini weui-btn_default" onclick="copy('{$user.sysid}')" style="line-height: 1.8;color: #2b3c64;padding-left: 8px;padding-right: 8px">点击复制</button>
+            </p>-->
+            <div class="user-grow money-grow" style="color: #fff;">
+                <p class="user-grow-name">会员成长值</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="weui-flex user-data">
+        <div class="weui-flex__item">
+            <a href="{:U('users/number_list',array('id'=>$user['id'],'type'=>1))}">
+                <p class="weui-grid__label user-data-des">销售量(盒)</p>
+                <p class="weui-grid__label user-data-number">{$saleinfo.out_nums}</p>
+
+            </a>
+        </div>
+        <div class="weui-flex__item">
+
+            <a href="{:U('users/number_list',array('id'=>$user['id'],'type'=>1))}">
+                <p class="weui-grid__label user-data-des">销售额</p>
+                <p class="weui-grid__label user-data-number">{$saleinfo.salemoney}</p>
+            </a>
+        </div>
+
+        <div class="weui-flex__item">
+            <a href="{:U('index/rider')}">
+                <p class="weui-grid__label user-data-des">团队人数</p>
+                <p class="weui-grid__label user-data-number" id="count">{$user.team}</p>
+            </a>
+        </div>
+
+    </div>
+</div>
+<div class="weui-cells user-item" style="margin-top: 0">
+    <a class="weui-cell weui-cell_access" style="padding-bottom: 0;padding-top: 0">
+        <div class="weui-cell__bd">
+            <p>我的二维码</p>
+        </div>
+        <div class="weui-cell__ft"><i class="iconfont">&#xe641;</i></div>
+    </a>
+    <a class="weui-cell weui-cell_access">
+        <div class="weui-cell__bd">
+            <p>系统账号</p>
+        </div>
+        <div class="weui-cell__ft"><span id="sysid">{$user.sysid}</span> <button class="weui-btn weui-btn_mini weui-btn_default" onclick="copy('{$user.sysid}')">复制</button></div>
+    </a>
+</div>
+
+<div class="weui-panel weui-panel_access user-menu-main-title">
+    <div class="weui-panel__ft">
+        <div class="weui-cell weui-cell_access weui-cell_link">
+            <div class="weui-cell__bd user-menu-title">货物管理</div>
+            <span class="user-menu-title-left">库存剩余:<b>{$user.stock}盒</b></span>
+        </div>
+    </div>
+</div>
+<div class="user-menu">
+    <a href="{:U('malls/goods','sn=415244730815416283')}" class="user-menu_item">
+        <p>
+            <svg class="icon" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-zhongguohangtiantubiaoheji-weizhuanlunkuo-19"></use>
+            </svg>
+        </p>
+        <p class="fonts">补充库存</p>
+    </a>
+    <a  href="{:U('Users/stock')}" class="user-menu_item">
+        <p>
+            <svg class="icon" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-zhongguohangtiantubiaoheji-weizhuanlunkuo-4"></use>
+            </svg>
+        </p>
+        <p class="fonts">提货发货</p>
+    </a>
+    <a href="{:U('Users/getStockList')}" class="user-menu_item">
+        <p>
+            <svg class="icon" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-zhongguohangtiantubiaoheji-weizhuanlunkuo-28"></use>
+            </svg>
+        </p>
+        <p class="fonts">提货记录</p>
+    </a>
+    <a href="{:U('Users/turnstock')}" class="user-menu_item">
+        <p>
+            <svg class="icon" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-zhongguohangtiantubiaoheji-weizhuanlunkuo-1"></use>
+            </svg>
+        </p>
+        <p class="fonts">库存转让</p>
+    </a>
+</div>
+<div class="user-menu">
+    <a href="{:U('Users/charts')}" class="user-menu_item">
+        <p>
+            <svg class="icon" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-zhongguohangtiantubiaoheji-weizhuanlunkuo-2"></use>
+            </svg>
+        </p>
+        <p class="fonts">图表分析</p>
+    </a>
+
+    <a href="javacript:void(0)" class="user-menu_item">
+
+    </a>
+    <a href="javacript:void(0)" class="user-menu_item">
+
+    </a>
+    <a href="javacript:void(0)" class="user-menu_item">
+
+    </a>
+</div>
+
+<div class="weui-panel weui-panel_access user-menu-main-title">
+    <div class="weui-panel__ft">
+        <div class="weui-cell weui-cell_access weui-cell_link">
+            <div class="weui-cell__bd user-menu-title">0元计划</div>
+            <span class="user-menu-title-left">申请0元计划请先实名认证</span>
+        </div>
+    </div>
+</div>
+<div class="user-menu">
+    <a href="{:U('Users/plans')}" class="user-menu_item">
+        <p>
+            <svg class="icon" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-zhongguohangtiantubiaoheji-weizhuanlunkuo-23"></use>
+            </svg>
+        </p>
+        <p class="fonts">0元计划记录</p>
+    </a>
+    <a href="{:U('Users/idauth')}" class="user-menu_item">
+        <p>
+            <svg class="icon" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-tubiao-30"></use>
+            </svg>
+        </p>
+        <p class="fonts">实名认证</p>
+    </a>
+    <a href="javacript:void(0)" class="user-menu_item">
+
+    </a>
+    <a href="javacript:void(0)" class="user-menu_item">
+
+    </a>
+</div>
+
+<div class="weui-panel weui-panel_access user-menu-main-title">
+    <div class="weui-panel__ft">
+        <div class="weui-cell weui-cell_access weui-cell_link">
+            <div class="weui-cell__bd user-menu-title">个人信息</div>
+        </div>
+    </div>
+</div>
+<div class="user-menu">
+    <a href="{:U('Users/bingphone')}" class="user-menu_item">
+        <p>
+            <svg class="icon" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-zhongguohangtiantubiaoheji-weizhuanlunkuo-36"></use>
+            </svg>
+        </p>
+        <p class="fonts">手机绑定</p>
+    </a>
+    <a href="{:U('Users/addr')}" class="user-menu_item">
+        <p>
+            <svg class="icon" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-tubiao-65"></use>
+            </svg>
+        </p>
+        <p class="fonts">收货地址</p>
+    </a>
+    <a href="{:U('Users/bank')}" class="user-menu_item">
+        <p>
+            <svg class="icon" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-tubiao-42"></use>
+            </svg>
+        </p>
+        <p class="fonts">绑定银行卡</p>
+    </a>
+    <a href="{:U('Users/uppass')}" class="user-menu_item">
+        <p>
+            <svg class="icon" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-huiyuanziliao-1"></use>
+            </svg>
+        </p>
+        <p class="fonts">修改密码</p>
+    </a>
+</div>
+<!--<div class="weui-cells user-item">
+    <a class="weui-cell weui-cell_access" href="{:U('Users/codes')}">
+        <div class="weui-cell__bd">
+            <p>我的二维码</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+</div>-->
+<!--BEGIN toast-->
+<div id="toast" style="display: none;">
+    <div class="weui-mask_transparent"></div>
+    <div class="weui-toast">
+        <i class="weui-icon-success-no-circle weui-icon_toast"></i>
+        <p class="weui-toast__content">系统账号已复制</p>
+    </div>
+</div>
+<!--end toast-->
+<!--<a href="javascript:;" class="weui-btn weui-btn_default" id="showToast">成功提示</a>-->
+<!--BEGIN actionSheet-->
+<div>
+    <div class="weui-mask" id="iosMask" style="display: none"></div>
+    <div class="weui-actionsheet" id="iosActionsheet">
+        <div class="weui-actionsheet__menu">
+            <a href="{:U('Users/photochange')}"><div class="weui-actionsheet__cell">修改头像</div></a>
+        </div>
+        <div class="weui-actionsheet__action">
+            <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    // ios
+    $(function(){
+        var $iosActionsheet = $('#iosActionsheet');
+        var $iosMask = $('#iosMask');
+        function hideActionSheet() {
+            $iosActionsheet.removeClass('weui-actionsheet_toggle');
+            $iosMask.fadeOut(200);
+        }
+        $iosMask.on('click', hideActionSheet);
+        $('#iosActionsheetCancel').on('click', hideActionSheet);
+        $("#showIOSActionSheet").on("click", function(){
+            $iosActionsheet.addClass('weui-actionsheet_toggle');
+            $iosMask.fadeIn(200);
+        });
+    });
+</script>
+<a href="{:U('Users/out')}" class="weui-btn user-btns">退出帐号</a>
+<style>
+    #clipArea {
+        height: 300px;
+    }
+    #file,
+    #clipBtn {
+        margin: 20px;
+    }
+    #view {
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+        background-color: #666;
+    }
+</style>
+<!--<div id="clipArea"></div>-->
+<!--<input type="file" id="file">-->
+<!--<button id="clipBtn">截取</button>-->
+<!--<div id="view"></div>-->
+<script language="javascript">
+    function copy(message) {
+        var input = document.createElement("input");
+        input.value = message;
+        document.getElementById('sysid').appendChild(input);
+        input.select();
+        input.setSelectionRange(0, input.value.length), document.execCommand('Copy');
+        document.getElementById('sysid').removeChild(input);
+
+        var $toast = $('#toast');
+        if ($toast.css('display') != 'none') return;
+        $toast.fadeIn(100);
+        setTimeout(function () {
+            $toast.fadeOut(100);
+        }, 2000);
+    }
+
+    function gengxing() {
+        alert('提货系统正在升级中');
+    }
+</script>
+<!--头像剪裁-->
+<script src="__PUBLIC__/home/photoclip/js/hammer.min.js"></script>
+<script src="__PUBLIC__/home/photoclip/js/iscroll-zoom-min.js"></script>
+<script src="__PUBLIC__/home/photoclip/js/lrz.all.bundle.js"></script>
+
+<script src="__PUBLIC__/home/photoclip/js/PhotoClip.js"></script>
+
+<script>
+    var pc = new PhotoClip('#clipArea', {
+        size: 260,
+        outputSize: 640,
+        //adaptive: ['60%', '80%'],
+        file: '#file',
+        view: '#view',
+        ok: '#clipBtn',
+        //img: 'img/mm.jpg',
+        loadStart: function() {
+            console.log('开始读取照片');
+        },
+        loadComplete: function() {
+            console.log('照片读取完成');
+        },
+        done: function(dataURL) {
+            $.ajax({
+                url: "{:U('Users/editSelfinfo')}",//请求的url地址
+                dataType: "json",//返回的格式为json
+                async: true,//请求是否异步，默认true异步，这是ajax的特性
+                data: {"img": dataURL},//参数值
+                type: "POST",//请求的方式
+                beforeSend: function () {
+                },//请求前的处理
+                success: function (req) {
+                },//请求成功的处理
+                complete: function () {
+                },//请求完成的处理
+                error: function () {
+                }//请求出错的处理
+            })
+        },
+        fail: function(msg) {
+            alert(msg);
+        }
+    });
+
+    // 加载的图片必须要与本程序同源，否则无法截图
+    pc.load('img/mm.jpg');
+
+</script>
+<!--
+<script type="text/javascript">
+    function copyText() {
+        var text = document.getElementById("sysid").innerText;
+        var input = document.getElementById("input");
+        input.value = text; // 修改文本框的内容
+        input.select(); // 选中文本
+        document.execCommand("copy"); // 执行浏览器复制命令
+        alert("复制成功");
+    }
+</script>-->
+
+
+<script>
+    $(document).ready(function() {
+        var sysid="{$user.id}";
+        console.log(sysid);
+        $.ajax({
+            cache: false,
+            async: false,
+            dataType: 'json',
+            type: 'post',
+            url: "{:U('index/getTeamNums')}",
+            data:{sysid:sysid},
+            success: function (data){
+                $('#count').html(data);
+            }
+        });
+    })
+</script>

@@ -1,0 +1,71 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        费用设置
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li class="active">提现手续费</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-8">
+
+
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th width="20%">模块</th>
+                                <th width="50%">模块值</th>
+                                <th width="30%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        <volist name="list" id="v">
+                            <form name="{$v.id}">
+                                <input type="hidden" name="ids" value="{$v.id}"/>
+                                <tr>
+                                    <td>{$v.name}</td>
+                                    <td>
+                                        <input type="text" name="value" class="form-control input-sm" value="{$v.value}"/>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-xs" onclick="onsubattr('{$v.id}');">更新</button>
+                                    </td>
+                                </tr>
+                            </form>
+                        </volist>
+
+                        </tbody>
+                    </table>
+                    <p class="help-block">此处值为金额</p>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    function onsubattr(id) {
+        var configURL = "{:U('Core/edits', 'model=sysconfig&redc=sys_mindex')}";
+        var formelemt = $("form[name='" + id + "']").serializeArray();
+        var data = objToArray(formelemt);
+        ajaxRt(configURL, data);
+    }
+
+</script>

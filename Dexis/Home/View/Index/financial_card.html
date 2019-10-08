@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="weui-panel weui-panel_access credit-card-container" style="background: none;">
+    <div class="weui-panel__bd user-bank">
+        <a href="javascript:creditCard();">
+            <div class="weui-media-box weui-media-box_appmsg user-bank-item credit-card-item orange">
+                <div class="weui-cell__bd">
+                    <h1>申请信用卡</h1>
+                    <p class="weui-media-box__desc">
+                        轻松消费，创业无忧
+                    </p>
+                </div>
+            </div>
+        </a>
+       <!--  <a href="javascript:stageCard();">
+            <div class="weui-media-box weui-media-box_appmsg user-bank-item credit-card-item gold">
+                <div class="weui-cell__bd">
+                    <h1>消费分期</h1>
+                    <p class="weui-media-box__desc">
+                        轻松分期消费
+                    </p>
+                </div>
+            </div>
+        </a> -->
+        <a href="javascript:;" id="showIOSActionSheet">
+            <div class="weui-media-box weui-media-box_appmsg user-bank-item credit-card-item blue">
+                <div class="weui-cell__bd">
+                    <h1>信用卡提现</h1>
+                    <p class="weui-media-box__desc">
+                        信用卡提现，费率低
+                    </p>
+                </div>
+            </div>
+        </a>
+        <a href="javascript:repayment();" >
+            <div class="weui-media-box weui-media-box_appmsg user-bank-item credit-card-item green">
+                <div class="weui-cell__bd">
+                    <h1>信用卡还款</h1>
+                    <p class="weui-media-box__desc">
+                        轻松分期还款
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+<!--分期弹窗-->
+<div>
+    <div class="weui-mask" id="iosMask" style="display: none"></div>
+    <div class="weui-actionsheet" id="iosActionsheet">
+        <div class="weui-actionsheet__menu">
+            <div class="weui-actionsheet__cell"><a href="javascript:regularMembers();">普通会员入口</a></div>
+            <div class="weui-actionsheet__cell"><a href="javascript:vipMembers();">VIP会员入口</a></div>
+        </div>
+        <div class="weui-actionsheet__action">
+            <div class="weui-actionsheet__cell" id="iosActionsheetCancel">取消</div>
+        </div>
+    </div>
+</div>
+<!--END 分期弹窗-->
+<script>
+    function creditCard() {
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Index/credit_card')}",
+            type: 'post',
+            dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    alert(res.msg);
+                    window.location.href = res.data;
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+    //普通会员入口
+    function regularMembers() {
+        var memberid="{$data.memberId}";
+        console.log(memberid);
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Index/certification')}",
+            type: 'post',
+            data: {memberid:memberid},
+            dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                console.log(res.status,res.data);
+               if (res.status === 0) {
+                  alert(res.msg);
+                  window.location.href = res.data;
+                }else if(res.status === 2){
+                  alert(res.msg);
+                }else {
+                  window.location.href = 'http://akk.028wkf.cn/pay/speed2/quick-pay?token={$data.token}&type=QUICK';
+                }
+            }
+        });
+    }
+    //vip会员入口
+    function vipMembers() {
+        var memberid="{$data.memberId}";
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Index/certification')}",
+            type: 'post',
+            data: {memberid:memberid},
+            dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                console.log(res.status,res.data);
+                 if (res.status === 0) {
+                  alert(res.msg);
+                  window.location.href = res.data;
+                }else if(res.status === 2){
+                  alert(res.msg);
+                }else {
+                  window.location.href = 'http://akk.028wkf.cn/pay/speed2/quick-pay?token={$data.token}&type=QUICK';
+                }
+            }
+        });
+    }
+    //还款
+    function repayment() {
+        var memberid="{$data.memberId}";
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Index/repayment')}",
+            type: 'post',
+            dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                console.log(res.status,res.data);
+                if (res.status !== 1) {
+                    window.location.href = res.data;
+                }else {
+                    window.location.href = 'http://akk.028wkf.cn/pay/hlb-repay/homepage?memberId={$data.memberId}&providerID={$data.providerId}';
+                }
+            }
+        });
+    }
+    //
+
+    function stageCard() {
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Index/stageCard_card')}",
+            type: 'post',
+            dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    alert(res.msg);
+                    window.location.href = res.data;
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+</script>
+<script type="text/javascript">
+    // ios
+    $(function(){
+        var $iosActionsheet = $('#iosActionsheet');
+        var $iosMask = $('#iosMask');
+
+        function hideActionSheet() {
+            $iosActionsheet.removeClass('weui-actionsheet_toggle');
+            $iosMask.fadeOut(200);
+        }
+
+        $iosMask.on('click', hideActionSheet);
+        $('#iosActionsheetCancel').on('click', hideActionSheet);
+        $("#showIOSActionSheet").on("click", function(){
+            $iosActionsheet.addClass('weui-actionsheet_toggle');
+            $iosMask.fadeIn(200);
+        });
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<div class="index-money_item index-money_serv" id="a">
+
+    <!--<p class="head"><img src="{$user.headimgurl}"/></p>
+    <p class="name">{$user.nickname}</p>
+    <p class="level">
+        <button>{$level|getUserLevel=$user['level'],###}</button>
+    </p>
+    <div class="index-money_serv_data">
+        <div class="index-money_serv_data_i"><span>利润:<br/><font>{$user.person}</font></span></div>
+        <div class="index-money_serv_data_i"><span>总进货量:<br/><font>{$user.totalpoints}</font></span></div>
+        <div class="index-money_serv_title">
+            <img src="__PUBLIC__/home/imgs/index_calen.png"/>&nbsp;本月业绩
+        </div>
+    </div>-->
+
+    <div class="index-money_item p32">
+        <div class="index-money_item-box">
+            <div class="item text-left"><b class="text-left">日期时间</b></div>
+            <div class="item"><b>金额类型</b></div>
+            <!--<div class="item">{$v.times|date='H:i:s',###}</div>-->
+            <div class="item"><b>提现金额(￥)</b></div>
+            <div class="item"><b class="text-right">到账时间</b></div>
+        </div>
+    <volist name="data" id="v">
+        <div class="index-money_item-box">
+            <div class="item text-left">
+                <div class="item-time">
+                    <p>{$v.times|date='Y-m-d',###}</p><p>{$v.times|date='H:i:s',###}</p></div>
+            </div>
+            <?php if($v["type"]==1): ?>
+            <div class="item text-center">微信零钱</div>
+            <?php else: ?>
+            <div class="item text-center">银行卡</div>
+            <?php endif;?>
+            <div class="item"><span>{$v['type']>0?'+':'-'}{$v.money}</span></div>
+            <div class="item text-right">
+                {$v['status']==0?'<span>审核中</span>':''}
+                <?php if($v["status"]==1): ?>
+                <span>{$v.endtime|date='Y-m-d ',###}</span>
+                <?php endif;?>
+                {$v['status']==2?'<span>被驳回</span>':''}
+            </div>
+        </div>
+    </volist>
+        <div class="showtime"></div>
+
+        <!--<div class="index-money_item-box">
+            <div class="item text-left">
+                <div class="item-time">
+                    <p>2019-04-08</p><p>14:36</p>
+                </div>
+            </div>
+            <div class="item text-center">银行卡</div>
+            <div class="item"><span>200</span></div>
+            <div class="item text-right">
+                <div class="item-time">
+                    <p>2019-04-08</p><p>14:36</p>
+                </div>
+            </div>
+        </div>-->
+
+        <div class="load-more" id="ajax-get-self"><i class="iconfont"></i>点击加载更多</div>
+    </div>
+</div>
+
+
+<script>
+    $(function(){
+        var $iosDialog1 = $('#iosDialog1'),
+                $iosDialog2 = $('#iosDialog2'),
+                $androidDialog1 = $('#androidDialog1'),
+                $androidDialog2 = $('#androidDialog2');
+
+        $('#dialogs').on('click', '.weui-dialog__btn', function(){
+            $(this).parents('.js_dialog').fadeOut(200);
+        });
+
+        $('#showIOSDialog1').on('click', function(){
+            $iosDialog1.fadeIn(200);
+        });
+        $('#showIOSDialog2').on('click', function(){
+            $iosDialog2.fadeIn(200);
+        });
+        $('#showAndroidDialog1').on('click', function(){
+            $androidDialog1.fadeIn(200);
+        });
+        $('#showAndroidDialog2').on('click', function(){
+            $androidDialog2.fadeIn(200);
+        });
+    });
+
+    var p= {:I('p',1)};
+    $(function(){
+        $('#ajax-get-self').click(function(){
+            $.get("{:U('Index/draw_success')}",{'p':p+1},function(data){
+                if(data.error==1){
+                    var list = data.data;
+                    var html = '';
+                    console.log(list);
+                    $(list).each(function(i,e){
+                        if(e.d_type==''){
+                            html += '<div class="index-money_item-box">\
+                                    <div class="item text-left">\
+                                    <div class="item-time">\
+                                    <p>'+ e.a_time+'</p><p>'+ e.b_time+'</p></div>\
+                                    </div>\
+                                    <div class="item text-center">'+ e.d_type+'</div> \
+                                    <div class="item"><span>'+ e.jj+''+ e.money+'</span></div>\
+                                        <div class="item text-right">\
+                                             <span>'+ e.dete+'</span>\
+                                    </div>\
+                              </div>';
+                        }
+                        if(e.d_type!=''){
+                            html += '<div class="index-money_item-box">\
+                                    <div class="item text-left">\
+                                    <div class="item-time">\
+                                    <p>'+ e.a_time+'</p><p>'+ e.b_time+'</p></div>\
+                                    </div>\
+                                    <div class="item text-center">'+ e.d_type+'</div> \
+                                    <div class="item"><span>'+ e.jj+''+ e.money+'</span></div>\
+                                    <div class="item text-right">\
+                                        <div class="item-time">\
+                                            <p>'+ e.c_time+'</p><p>'+ e.d_time+'</p>\
+                                        </div>\
+                                    </div>\
+                              </div>';
+                        }
+
+                        });
+
+
+                }
+                p += 1;
+                $(".showtime").append(html);
+            })
+         });
+    })
+
+</script>

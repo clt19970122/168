@@ -1,0 +1,182 @@
+<div class="page__bd">
+    <article class="weui-article">
+        <section>
+            <div id="user-number" style="width: 100%;height: 320px">
+
+            </div>
+            <div id="week-sale" style="width: 100%;height: 320px">
+
+            </div>
+        </section>
+    </article>
+</div>
+
+<script src="__PUBLIC__/backet/js/echarts.common.min.js"></script>
+
+<script type="text/javascript">
+    window.addEventListener("resize", function () {
+        option.chart.resize();
+
+    });
+    // 各个会员数量
+    var userNumber = echarts.init(document.getElementById('user-number'));
+    userNumber.setOption({
+        title: [{
+            left: 'center',
+            text: '各个等级的会员数量'
+        }],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        legend: {
+            show: true,
+            data: ['数量']
+        },
+        xAxis: {
+            data: [],
+            axisLabel:{
+                interval:0,
+                rotate:45,
+                marginTop:20,
+                textStyle:{
+                    color:"#222"
+                }},
+        },
+        yAxis: {
+            name: '数量'
+        },
+        series: [{
+            name: '会员数量',
+            type: 'bar',
+            data: [],
+            itemStyle: {
+                normal: {
+                    // 随机显示
+                    //color:function(d){return "#"+Math.floor(Math.random()*(256*256*256-1)).toString(16);}
+                    label:{
+                        show: true,
+                        position:'top',
+                        textStyle: {
+                            color: '#000'
+                        }
+
+                    },
+                    // 定制显示（按顺序）
+                    color: function(params) {
+                        var colorList = ['#C33531','#EFE42A','#64BD3D','#EE9201','#29AAE3', '#B74AE5','#0AAF9F' ];
+                        return colorList[params.dataIndex]
+                    }
+                }
+            }
+        }]
+    });
+    var userLevel = [];
+    var userNums = [];
+    //本周销售数量
+    var weekSale = echarts.init(document.getElementById('week-sale'));
+    weekSale.setOption({
+
+        title: [{
+            left: 'center',
+            text: '本周销售数量分析'
+        }],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'line'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+
+        xAxis: {
+            type: 'category',
+            data: [],
+            axisLabel:{
+                interval:0,
+                rotate:45,
+                marginTop:20,
+                textStyle:{
+                    color:"#222"
+                }},
+
+        },
+        yAxis: {
+            type: 'value',
+            name: '数量'
+        },
+        series: [{
+            name: '数量',
+            data: [],
+            type: 'line'
+        }]
+    });
+    var weekDay = [];
+    var weekSaleNums = [];
+    $.ajax({
+        type: "POST", //提交方式
+        url: "{:U('team/teamLevel')}",//路径
+        data: {},//数据，这里使用的是Json格式进行传输
+        dataType: "json",        //返回数据形式为json
+        success: function (result) {
+            console.log(result);
+            var userLevelArray = result.level;
+            var userNumsArray = result.num;
+
+
+            $.each(userLevelArray, function (name, value) {
+                userLevel.push(value.name);
+            });
+            $.each(userNumsArray, function (name, value) {
+                userNums.push(value);
+            });
+            userNumber.setOption({        //加载数据图表
+                xAxis: {
+                    data: userLevel
+                },
+                series: [{
+                    data: userNums
+                }]
+            });
+
+
+        }
+    });
+
+    $.ajax({
+        type: "POST", //提交方式
+        url: "{:U('team/saleOut')}",//路径
+        data: {},//数据，这里使用的是Json格式进行传输
+        dataType: "json",        //返回数据形式为json
+        success: function (result) {
+            console.log(result);
+            var weekDayArray = result.day;
+            var weekNumsArray = result.num;
+
+
+            $.each(weekDayArray, function (name, value) {
+                weekDay.push(value);
+            });
+            $.each(weekNumsArray, function (name, value) {
+                weekSaleNums.push(value);
+            });
+            weekSale.setOption({
+                xAxis: {
+                    type: 'category',
+                    data: weekDay
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: weekSaleNums,
+                    type: 'line'
+                }]
+            });
+
+
+        }
+    });
+
+</script>

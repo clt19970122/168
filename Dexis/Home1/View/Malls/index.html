@@ -1,0 +1,19 @@
+<div class="home">
+
+    <volist name="list" id="v">
+        <div class="home-item">
+            <a href="{:U('Malls/goods','sn='.$v['gsn'])}" class="home-item_thumb">
+                <img src="__PUBLIC__/uploads/goods/{$img|getGoodsImg=$v['gsn'],###}"/>
+            </a>
+            <div class="home-item_cont">
+                <div class="home-item_cont_title overflow">{$v.name}</div>
+                <div class="home-item_cont_descs">{$v.subname}</div>
+                <div class="home-item_cont_price">
+                    <span>￥{$v.price}<font>元</font></span>
+                    <a href="{:U('Malls/goods','sn='.$v['gsn'])}">立即购买</a>
+                </div>
+            </div>
+        </div>
+    </volist>
+
+</div>

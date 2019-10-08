@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{$conf_title}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <meta name="format-detection" content="telephone=no" />
+        <link href="__PUBLIC__/libs/weui/style/weui.min.css" rel="stylesheet">
+        <link href="__PUBLIC__/libs/weui/style/weui-picker.css" rel="stylesheet">
+        <link href="__PUBLIC__/home/css/app.css?v=1550124091" rel="stylesheet">
+        <link href="__PUBLIC__/home/css/icon.css?v=1550124091" rel="stylesheet">
+        <script src="__PUBLIC__/libs/jquery.min.js" charset="utf-8"></script>
+        <script src="__PUBLIC__/libs/weui/js/weui.min.js" charset="utf-8"></script>
+        <script src="__PUBLIC__/libs/common.js" charset="utf-8"></script>
+        <!-- <script src="__PUBLIC__/libs/city.js" charset="utf-8"></script> -->
+        <script src='http://res.wx.qq.com/open/js/jweixin-1.0.0.js'></script>
+
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/areachoose/jsdaima.com.css">
+        <link rel="stylesheet" href="__PUBLIC__/home/areachoose/LArea.css">
+        <script src="__PUBLIC__/home/areachoose/LAreaData1.js"></script>
+        <script src="__PUBLIC__/home/areachoose/LAreaData2.js"></script>
+        <script src="__PUBLIC__/home/areachoose/LArea.js"></script>
+
+  
+        <script>
+            wx.config({
+                debug: false,
+                appId: '{$ticket.appid}',
+                timestamp: '{$ticket.timestamp}',
+                nonceStr: '{$ticket.noncestr}',
+                signature: '{$ticket.signature}',
+                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
+            });
+
+        </script>
+    </head>
+    <body>
+        <div class="page">
+
+            <div id="loadingToast" class="none">
+                <div class="weui-mask_transparent"></div>
+                <div class="weui-toast">
+                    <i class="weui-loading weui-icon_toast"></i>
+                    <p class="weui-toast__content">处理中</p>
+                </div>
+            </div>
+
+            <div class="js_dialog none" id="iosDialog">
+                <div class="weui-mask"></div>
+                <div class="weui-dialog">
+                    <div class="weui-dialog__bd" id="iosDialogTitle">&nbsp;</div>
+                    <div class="weui-dialog__ft">
+                        <a href="javascript:;" class="weui-dialog__btn">知道了</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                {__CONTENT__}
+            </div>
+            <div style="height:6rem">&nbsp;</div>
+            <div class="weui-tabbar">
+
+                <if condition="$tabbar eq 'Index'">
+                    <a href="{:U('Index/index')}" class="weui-tabbar__item weui-bar__item_on">
+                        <img src="__PUBLIC__/home/imgs/tabbar_home_on.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">首页</p>
+                    </a>
+                </if>
+                <if condition="$tabbar neq 'Index'">
+                    <a href="{:U('Index/index')}" class="weui-tabbar__item">
+                        <img src="__PUBLIC__/home/imgs/tabbar_home.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">首页</p>
+                    </a>
+                </if>
+
+
+                <if condition="$tabbar eq 'Malls'">
+                    <a href="{:U('Malls/index')}" class="weui-tabbar__item weui-bar__item_on">
+                        <img src="__PUBLIC__/home/imgs/tabbar_mall_on.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">商城</p>
+                    </a>
+                </if>
+                <if condition="$tabbar neq 'Malls'">
+                    <a href="{:U('Malls/index')}" class="weui-tabbar__item">
+                        <img src="__PUBLIC__/home/imgs/tabbar_mall.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">商城</p>
+                    </a>
+                </if>
+
+                <a href="javascript:doAlert(2);" class="weui-tabbar__item">
+                    <img src="__PUBLIC__/home/imgs/tabbar_share.png" alt="" class="weui-tabbar__icon">
+                    <p class="weui-tabbar__label">分享</p>
+                </a>
+
+                <if condition="$tabbar eq 'Order'">
+                    <a href="{:U('Order/index')}" class="weui-tabbar__item weui-bar__item_on">
+                        <img src="__PUBLIC__/home/imgs/tabbar_order_on.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">订单</p>
+                    </a>
+                </if>
+                <if condition="$tabbar neq 'Order'">
+                    <a href="{:U('Order/index')}" class="weui-tabbar__item">
+                        <img src="__PUBLIC__/home/imgs/tabbar_order.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">订单</p>
+                    </a>
+                </if>
+
+                <if condition="$tabbar eq 'Users'">
+                    <a href="{:U('Users/index')}" class="weui-tabbar__item weui-bar__item_on">
+                        <img src="__PUBLIC__/home/imgs/tabbar_user_on.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">我的</p>
+                    </a>
+                </if>
+                <if condition="$tabbar neq 'Users'">
+                    <a href="{:U('Users/index')}" class="weui-tabbar__item">
+                        <img src="__PUBLIC__/home/imgs/tabbar_user.png" alt="" class="weui-tabbar__icon">
+                        <p class="weui-tabbar__label">我的</p>
+                    </a>
+                </if>
+
+            </div>
+        </div>
+        <script>
+
+            function doAlert() {
+                showPreLoading();
+                $.ajax({
+                    url: "{:U('Index/checks','&redi=1')}", type: 'post', dataType: "json",
+                    success: function (res) {
+                        hidePreLoading();
+                        if (res.status !== 1) {
+                            return alert_wec(res.msg);
+                        }
+                        window.location.href = "{:U('Wcix/share','sysid='.$conf_user['sysid'])}";
+                    }
+                });
+            }
+
+            window.onload = function () {
+                document.addEventListener('touchstart', function (event) {
+                    if (event.touches.length > 1) {
+                        event.preventDefault();
+                    }
+                });
+                var lastTouchEnd = 0;
+                document.addEventListener('touchend', function (event) {
+                    var now = (new Date()).getTime();
+                    if (now - lastTouchEnd <= 300) {
+                        event.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
+            }
+        </script>
+    </body>
+</html>

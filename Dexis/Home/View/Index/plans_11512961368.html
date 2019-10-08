@@ -1,0 +1,57 @@
+<img src="__PUBLIC__/home/imgs/zbg.png" class="index-plans_img"/>
+
+<div class="index-plans_desc">
+    <a href="javascript:doAlert();" class="index-plans_join">
+        <img src="__PUBLIC__/home/imgs/z_join.png?v=10"/>
+    </a>
+    <div class="index-plans_desc_top">注：本系统用户分为普通会员与皇室会员</div>
+    <ul>
+        <li class='red'>
+            <div class="box">
+                <div class="left">01</div>
+                <div class="right">
+                    注册用户若申请0元创业，请提交对应信息并完成认证后，即可升级成为雅歌布•赫伊皇室会员，获得3960元的天使创业基金，可一次性购买20套皇室精华护肤套装；
+                </div>
+            </div>
+        </li>
+        <li class='blue'>
+            <div class="box">
+                <div class="left">02</div>
+                <div class="right">
+                    认证成功的雅歌布•赫伊皇室会员，若成功邀请一位新会员，新会员完成注册后，即可获得对应分享红包奖励，若成功推荐一位新用户（注册非认证会员），将获得对应推广红包奖励，红包详情参见；
+                    <a href="{:U('Login/regs')}">我要成为皇室会员 >></a>
+                </div>
+            </div>
+        </li>
+        <li class='yellow'>
+            <div class="box">
+                <div class="left">03</div>
+                <div class="right">
+                    凡皇室会员直属下的用户或会员，成功分享或推荐第三方后，该皇室会员都可获得相应的指导红包奖励，红包详情参见；
+                    <a href="{:U('Login/regs')}">我要成为皇室会员 >></a>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="index-plans_desc_copy">本活动最终解释权由雅歌布•赫伊所有</div>
+</div>
+
+<script>
+    
+    function doAlert() {
+        var data = {ids: "{$list.id}"};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Index/plans_op')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+
+</script>

@@ -1,0 +1,155 @@
+
+<div class="order-menu">
+    <a href="{:U('users/getStockList')}" class="order-menu_item <eq name='st' value='10'>order-menu_item_on</eq>">全部</a>
+    <a href="{:U('users/getStockList','st=1')}" class="order-menu_item <eq name='st' value='1'>order-menu_item_on</eq>">待发货</a>
+    <a href="{:U('users/getStockList','st=3')}" class="order-menu_item <eq name='st' value='3'>order-menu_item_on</eq>">待收货</a>
+</div>
+        <volist name='data' id="vo">
+            <ul class="weui-payrec">
+                <div class="weui-pay-m">
+                    <li class="weui-pay-order">
+                        <dl class="weui-pay-line">
+                            <dd class="weui-pay-name">{$vo['name']}</dd>
+                            <dt class="weui-pay-label">订 单 号：</dt><dd class="weui-pay-e">{$vo['sn']}</dd>
+                        </dl>
+                        <dl class="weui-pay-line"><dt class="weui-pay-label">发货地址：</dt><dd class="weui-pay-e">{$vo['address']}</dd></dl>
+                        <dl class="weui-pay-line"><dt class="weui-pay-label">申请时间：</dt><dd class="weui-pay-e">{$vo['times']|date='Y年m月d日 H:i:s',###}</dd></dl>
+                        <dl class="weui-pay-line"><dt class="weui-pay-label">发货数量：</dt><dd class="weui-pay-e">{$vo['nums']}</dd></dl>
+                        <dl class="weui-pay-line"><dt class="weui-pay-label">支付运费：</dt><dd class="weui-pay-e">￥{$vo['trans_pay']}</dd></dl>
+                        <dl class="weui-pay-line"><dt class="weui-pay-label">备注信息：</dt><dd class="weui-pay-e">{$vo['remakes']}</dd></dl>
+                        <div class="weui-pay-area">
+                            <if condition="$vo.have_pay eq 0">
+                            <a href="javascript:doOption('{$vo.id}');" class="weui-pay-c">取消订单</a>
+                                <a href="javascript:toDopay('{$vo.sn}');" class="weui-pay-v">去支付</a>
+                                <else/>
+                                <if condition="$vo.status eq 3">
+                                    <a href="{:U('users/getdrs_trans',array('sn'=>$vo['sn']))}" class="weui-pay-v"><i class="icon-cars"></i>&nbsp;查看物流信息</a>
+                                    <hr>
+                                    <a href="javascript:sureGet({$vo.id});" class="weui-pay-v"><font color="#4169e1">确认收货</font></a>
+                                    <elseif condition="$vo.status eq 1"/>
+                                    <a href="javascript:;" class="weui-pay-v">待发货</a>
+                                    <elseif condition="$vo.status eq 2"/>
+                                    <a href="javascript:;" class="weui-pay-v"><font color="red">未通过</font></a>
+                                    <elseif condition="$vo.status eq 4"/>
+                                    <a href="javascript:;" class="weui-pay-v">系统自提</a>
+                                    <elseif condition="$vo.status eq 5"/>
+                                    <a href="javascript:;" class="weui-pay-v"><font color="red">已取消</font></a>
+                                    <elseif condition="$vo.status eq 6"/>
+                                    <a href="javascript:;" class="weui-pay-v"><font color="#6495ed">已确认收货</font></a>
+                                </if>
+                            </if>
+                        </div>
+                    </li>
+                </div>
+            </ul>
+        </volist>
+
+<!--
+<script>
+
+    function doOption(id) {
+        var data = {ids: id, status: 4};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Core/edits','model=orders')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.reload();
+            }
+        });
+    }
+
+</script>-->
+
+<script>
+    /**
+     * 微信支付
+     * @param {type} data
+     * @returns {undefined}
+     */
+
+    function toDopay(sn) {
+        $.ajax({
+            url: "{:U('Users/toPayTrans')}",
+            type: 'post',
+            data: {'sn':sn},
+            dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                onBridgeReady(res.data);
+            },
+            error: function () {
+                hidePreLoading();
+                return alert_wec("网络错误");
+            }
+        });
+    }
+    function onBridgeReady(data) {
+        var pay = {
+            appId: data.appId, timeStamp: data.timeStamp, nonceStr: data.nonceStr, package: data.package,
+            signType: data.signType, paySign: data.paySign
+        };
+        //
+        WeixinJSBridge.invoke(
+            'getBrandWCPayRequest', pay,
+            function (res) {
+                // alert(JSON.stringify(res));
+                if (res.err_msg === "get_brand_wcpay_request:ok") {
+                    window.location.href = "{:U('users/getStocklist')}";
+                    return;
+                }
+                // alert_wec("支付取消");
+                alert_wec("支付取消");
+                window.location.href = "{:U('users/getStocklist')}";
+                return;
+            }
+        );
+    }
+
+    function doOption(id){
+        $.ajax({
+            url: "{:U('Users/cancel')}",
+            type: 'post',
+            data: {'id':id},
+            dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status ) {
+                    alert_wec(res.msg);
+                    window.location.href = "{:U('users/getStocklist')}";
+                }
+                return alert_wec(res.msg);
+
+            },
+            error: function () {
+                hidePreLoading();
+                return alert_wec("网络错误");
+            }
+        });
+    }
+
+    function sureGet(id) {
+        $.ajax({
+            url: "{:U('users/sureGetGood')}",
+            type: 'post',
+            data: {'id': id},
+            dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status) {
+                    alert_wec(res.msg);
+                    window.location.href = "{:U('users/getStocklist')}";
+                }
+                return alert_wec(res.msg);
+
+            },
+        })
+    }
+</script>

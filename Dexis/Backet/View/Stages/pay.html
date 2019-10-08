@@ -1,0 +1,201 @@
+<style>
+    .table thead > tr > th{ text-align:center;}
+</style>
+
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        分期管理
+        <!--span>Subtitle goes here...</span-->
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li><a href="{:U('Goods/order')}">分期列表</a></li>
+            <li class="active">分期详情</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+    <div class="row">
+        <div class="col-md-6">
+            <h5 class="subtitle mb10">订单信息</h5>
+            <div class="table-responsive">
+                <table class="table mb30">
+                    <tbody>
+                    <tr>
+                        <td>订单编号</td>
+                        <td>{$info.sn}</td>
+                        <td>购买人昵称</td>
+                        <td>{$info.uid|getUserInf=$info['uid'],'nickname',###}</td>
+                    </tr>
+                    <tr>
+                        <td>购买人</td>
+                        <td>{$info.addr|getUserInf=$info['uid'],'name',###}</td>
+                        <td>手机</td>
+                        <td>{$info.addr|getUserInf=$info['uid'],'phone',###}</td>
+                    </tr>
+                    <tr>
+                        <td>推荐用户</td>
+                        <!--<td colspan='3'>{$rec|getRecUser=$info['uid'],###}</td>-->
+                        <td >{$rec|getRecUser=$info['uid'],###}</td>
+                        <td>当前状态</td>
+                        <td>
+                            {$info['status']==0?'待确认':''}
+                            {$info['status']==1?'处理中':''}
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>申请时间</td>
+                        <td>
+                            {$info['add_time']!=''?$info.add_time|date='Y/m/d H:i:s',###:''}
+                        </td>
+                        <td>支付时间</td>
+                        <td>
+                            {$info['pay_time']}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>分期进度</td>
+                        <td>
+                            <if condition="count($pay) gt 0" >
+                                <span style="color: red;font-weight: 800;font-size: 28px">{$pay|count} </span>/
+                            </if>
+                            {$info.payway}期
+                            <if condition="count($pay) eq $info['payway']">
+                                $nbsp;<span style="color: red;font-weight: 800">已完成</span>
+                            </if>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div><!-- table-responsive -->
+        </div><!-- col-md-6 -->
+        <div class="col-md-6">
+            <h5 class="subtitle mb10">支付记录</h5>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>支付单号</th>
+                    <th>支付期数</th>
+                    <th>支付金额</th>
+                    <th>商品数量</th>
+                    <th>支付时间</th>
+                    <th>支付状态</th>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name='pay' id='vo'>
+                    <tr align="center">
+                        <td>{$vo.sn}</td>
+                        <td>{$vo.no}</td>
+                        <td>{$vo.money}</td>
+                        <td>{$vo.nums}</td>
+                        <td>{$vo.time|date='Y-m-d H:i:s',###}</td>
+                        <td>
+                            {$vo['status']==0?'待确认':''}
+                            {$vo['status']==1?'已支付':''}
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <if condition="$info.status eq 1">
+                <button type="button" class="btn btn-success" onclick="transInvo();" data-toggle="modal" data-target="#trans">还款处理</button>
+                <!--<button type="button" class="btn btn-success" onclick="transziti();">自提</button>-->
+            </if>
+        </div>
+    </div>
+
+</div>
+
+<!--<div class="modal fade in" id="trans" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content"><div class="panel panel-dark panel-alt">
+            <div class="panel-heading">
+                <h3 class="panel-title">发货</h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" name="trans">
+                    <div class="form-group">
+                        <label>物流公司</label>
+                        <select class="form-control" name="transid">
+                            <option value="0">请选择</option>
+                            <volist name="trans" id="v">
+                                <option value="{$v.id}">{$v.name}</option>
+                            </volist>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>物流编号</label>
+                        <input type="text" class="form-control" name="vosn"/>
+                    </div>
+                    <button type="button" class="btn btn-danger" onclick="transInvo();">发货</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>-->
+
+<script>
+
+    function setOrder() {
+        var urls = "{:U('Goods/orderConanel')}";
+        var data = {sn: "{$info.sn}"};
+        ajaxRt(urls, data);
+    }
+    //跳转申请
+    function transInvo(aasd) {
+        var sid ='{$info.id}';
+        $.ajax({
+            url: "{:U('stages/doPayBuyback')}",
+            type: "POST",
+            data: {sid:sid,res:aasd},
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                if (res.status === 3) {
+                    transziti(res.url,res.data.sn,res.data.nums,res.data.level,res.data.uid);
+                    return;
+                }
+                if (res.url === 1) {
+                    window.location.reload();
+                    return;
+                }
+                window.location.href = res.data;
+            },
+            error: function (st) {
+                console.log(st);
+            }
+        });
+    }
+    //处理分账
+    function transziti(url,sn,num,level,id) {
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: {sn:sn,level:level,stock:num,ids:id},
+            dataType: "json",
+            success: function (res) {
+                if (res.msg == '处理成功') {
+                    transInvo(res.msg);
+                    return;
+                }
+                alert(res.msg);
+//                window.location.href = res.data;
+            }
+        });
+    }
+
+</script>

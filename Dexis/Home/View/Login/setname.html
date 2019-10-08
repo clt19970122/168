@@ -1,0 +1,180 @@
+<!--
+<div class="regs">
+    <div class="regs-form">
+        <p class="label"><input type="text" name="phone" placeholder="请输入手机号"/></p>
+        <p class="label">
+            <input type="text" name="code" placeholder="请输入验证码"/>
+            <a href="javascript:getSysCode();" id="verifycode">获取验证码</a>
+        </p>
+        <p class="label">
+            <input type="text" name="user" placeholder="请输入密码"/>
+            <img src="__PUBLIC__/home/imgs/regs-eye.png" class="eye"/>
+        </p>
+        <p class="label">
+            <input type="text" name="user2" placeholder="再次确认密码"/>
+            <img src="__PUBLIC__/home/imgs/regs-eopen.png" class="eopen"/>
+        </p>
+        <a class="regs" href="javascript:doOption();">确认</a>
+    </div>
+</div>
+
+<script>
+
+    function getSysCode() {
+        var phone = $("input[name='phone']").val();
+        if (!checkPhone(phone)) {
+            return alert_wec("请输入正确的手机号码");
+        }
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Login/regs_sms')}", type: 'post',
+            data: {phone: phone}, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                setTimtout(120);
+            }
+        });
+    }
+
+    function setTimtout(t) {
+        var codeRd = $("#verifycode");
+        codeRd.attr("href", "javascript:void(0);");
+        codeRd.addClass("gray");
+        var timers = setInterval(function () {
+            t&#45;&#45;;
+            codeRd.html(t);
+            if (t <= 0) {
+                clearInterval(timers);
+                codeRd.removeClass("gray");
+                codeRd.attr("href", "javascript:getSysCode();");
+                codeRd.html("获取验证码");
+            }
+        }, 1000);
+    }
+
+    function doOption() {
+        var temp = $("form").serializeArray();
+        var data = objToArray(temp);
+        ////
+        var phone = $("input[name='phone']").val();
+        var code = $("input[name='code']").val();
+        var user = $("input[name='user']").val();
+        var user2 = $("input[name='user2']").val();
+        if (!checkPhone(phone)) {
+            return alert_wec("请填写正确的手机号码");
+        }
+        if (code === null || data.code === "") {
+            return alert_wec("请填写验证码");
+        }
+        if ($.trim(user) === null || $.trim(user) === "") {
+            return alert_wec("密码不能为空");
+        }
+        if (user !== data.vipass) {
+            return alert_wec("两次密码不一致");
+        }
+        ////
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Login/forget_op')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = "{:U('User/index')}";
+            }
+        });
+    }
+
+</script>-->
+<div class="weui-msg">
+    <div class="weui-msg__text-area">
+        <h2 class="weui-msg__title">完善用户信息</h2>
+        <p class="weui-msg__desc">您的个人信息还未完善，请填写您的姓名和手机号，感谢支持！</p >
+    </div>
+</div>
+
+<form>
+    <div class="regs">
+        <div class="regs-form">
+            <p class="label"><input type="text" name="name" placeholder="请绑定用户真实名"/></p>
+            <p class="label"><input type="text" name="phone" placeholder="请输入手机号"/></p>
+            <p class="label">
+                <input type="text" name="code" placeholder="请输入验证码"/>
+                <a href="javascript:getSysCode();" id="verifycode">获取验证码</a>
+            </p>
+            <a class="regs" href="javascript:doOption();">确认</a>
+        </div>
+    </div>
+</form>
+
+<script>
+
+    function getSysCode() {
+        var phone = $("input[name='phone']").val();
+        if (!checkPhone(phone)) {
+            return alert_wec("请输入正确的手机号码");
+        }
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Login/regs_sms')}", type: 'post',
+            data: {phone: phone}, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                setTimtout(120);
+            }
+        });
+    }
+
+    function setTimtout(t) {
+        var codeRd = $("#verifycode");
+        codeRd.attr("href", "javascript:void(0);");
+        codeRd.addClass("gray");
+        var timers = setInterval(function () {
+            t--;
+            codeRd.html(t);
+            if (t <= 0) {
+                clearInterval(timers);
+                codeRd.removeClass("gray");
+                codeRd.attr("href", "javascript:getSysCode();");
+                codeRd.html("获取验证码");
+            }
+        }, 1000);
+    }
+
+    function doOption() {
+        var temp = $("form").serializeArray();
+        var data = objToArray(temp);
+        ////
+        if (!checkPhone(data.phone)) {
+            return alert_wec("请填写正确的手机号码");
+        }
+        if (data.name === null || data.name === " ") {
+            return alert_wec("请填写真实姓名");
+        }
+        if (data.code === null || data.code === "") {
+            return alert_wec("请填写验证码");
+        }
+        ////
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Login/doSetName')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = "{:U('Login/index')}";
+            }
+        });
+    }
+
+</script>

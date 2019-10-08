@@ -1,0 +1,54 @@
+<img src="__PUBLIC__/home/imgs/sushi2.jpg" class="index-plans_img"/>
+<div class="index-plans_desc" style="top:26rem">
+    <a href="javascript:doAlert(1);" class="index-plans_join" style="width:100%">
+        <img src="__PUBLIC__/home/imgs/s-join3000.png"/>
+    </a>
+    <!-- <div class="index-plans_desc_top">注：本系统用户分为5个代理等级</div> -->
+    <ul>
+        <li class='red_s'>
+            <div class="box">
+                <div class="left">01</div>
+                <div class="right">
+					<!-- 注册用户若申请0元创业，提交对应信息并完成认证后，即可升级成为黄金会员，获得3800元天使创业基金， -->
+注册用户若申请0元创业，提交相关身份信息并通过审核后，可提前获得40盒168太空素食和最高30天的延期还款资格，并享受准黄金会员待遇，30天内还款无利息，待还款完成后正式成为黄金会员。
+                </div>
+            </div>
+        </li>
+        <li class='blue_s'>
+            <div class="box">
+                <div class="left">02</div>
+                <div class="right">
+                    黄金会员若成功推荐一位新黄金会员及以上等级会员，即可获得相对应的推荐奖励。
+            </div>
+        </li>
+        <li class='yellow_s'>
+            <div class="box">
+                <div class="left">03</div>
+                <div class="right">
+					黄金会员累计进货达到4000盒，即可免费晋升钻石会员。
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="index-plans_desc_copy" style="margin-top:4rem">本活动最终解释权归成都德熙爱汝实业集团股份有限公司所有</div>
+</div>
+
+<script>
+
+        function doAlert() {
+        var data = {ids: "{$list.id}"};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Index/plans_op')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+
+</script>

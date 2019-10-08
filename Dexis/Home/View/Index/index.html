@@ -1,0 +1,303 @@
+<link rel="stylesheet" href="__PUBLIC__/libs/swiper/css/swiper.min.css">
+<style>
+    /*2.0轮播*/
+    .swiper-container{
+        background: #fff;
+        overflow: hidden;
+    }
+    .swiper-slide{
+        width: 92%!important;
+        margin: 0 4%;
+        position: relative;
+    }
+    .swiper-slide img{
+        border-radius: 10px;
+        height: 100%;
+    }
+    .swiper-slide-prev{
+        right:-6.5%;
+    }
+    .swiper-slide-next {
+        left: -6.5%;
+    }
+    .index-goods-banner .swiper-slide:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        bottom: 0;
+        left: 20px;
+        right: 20px;
+        -webkit-box-shadow: 0 0 20px rgba(0,92,172,0.2);
+        -moz-box-shadow: 0 0 20px rgba(0,92,172,0.2);
+        -o-box-shadow: 0 0 20px rgba(0,92,172,0.2);
+        box-shadow: 0 0 20px rgba(0,92,172,0.6);
+        border-radius: 100px/10px; /*水平半径/垂直半径*/
+        z-index: -1;
+    }
+
+    .swiper-pagination-bullet{
+        width: 4px;
+        height: 4px;
+        background: #fff!important;
+        opacity: .5;
+    }
+    .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+        margin: 0 2px;
+    }
+    .swiper-pagination-bullet-active{
+        width: 14px;
+        opacity: 1;
+        border-radius: 5px;
+        background: #fff;
+    }
+</style>
+<script src="__PUBLIC__/libs/swiper/js/swiper.min.js"></script>
+<div class='index'>
+    <div class="swiper-container index-goods-banner" id="top_banner" style="padding-bottom: 18px;padding-top: 1rem">
+        <div class="swiper-wrapper">
+            <volist name="put.index_banner" id="v">
+                <div class="swiper-slide">
+                    <a href="{$v.links}">
+                        <img src="__PUBLIC__/uploads/ads/{$v.imgs}"/>
+                    </a>
+                </div>
+            </volist>
+        </div>
+		<div class="swiper-pagination" style="bottom: 20px;"></div>
+    </div>
+</div>
+
+<div class='index-menu'>
+
+    <a href="{:U('Index/sorts')}" class="index-menu_item">
+        <p class="icon"><img src="__PUBLIC__/static/imgs/e01.png"/></p>
+        <p class="name">我的等级</p>
+    </a>
+    <a href="{:U('Index/learn')}" class="index-menu_item">
+        <p class="icon"><img src="__PUBLIC__/static/imgs/e06.png"/></p>
+        <p class="name">获取帮助</p>
+    </a>
+    
+    <a href="{:U('Index/financial_centre')}" class="index-menu_item">
+        <!-- <a href="{:U('Index/plans')}" class="index-menu_item"> -->
+        <p class="icon"><img src="__PUBLIC__/static/imgs/e03.png"/></p>
+        <p class="name">0元创业计划</p>
+    </a>
+    <a href="{:U('Wcix/share',array('sysid'=>$sysid))}" class="index-menu_item">
+	<!-- <a href="javascript:;" onclick="alert('正在建设中')" class="index-menu_item"> -->
+        <p class="icon"><img src="__PUBLIC__/static/imgs/e04.png"/></p>
+        <p class="name">分享好友</p>
+    </a>
+    <!--<a href="{:U('Index/tious')}" class="index-menu_item">
+        <p class="icon"><img src="__PUBLIC__/static/imgs/e5.png"/></p>
+        <p class="name">团队业绩</p>
+    </a>-->
+    <a href="{:U('Index/schol')}" class="index-menu_item">
+        <p class="icon"><img src="__PUBLIC__/static/imgs/e05.png"/></p>
+        <p class="name">素材中心</p>
+    </a>
+    <a href="{:U('Index/money')}" class="index-menu_item">
+        <p class="icon"><img src="__PUBLIC__/static/imgs/e02.png"/></p>
+        <p class="name">我的钱包</p>
+    </a>
+    <a href="{:U('Index/rider')}" class="index-menu_item">
+        <p class="icon"><img src="__PUBLIC__/static/imgs/e07.png"/></p>
+        <p class="name">我的团队</p>
+    </a>
+    <a href="{:U('Users/stock')}" class="index-menu_item">
+        <p class="icon"><img src="__PUBLIC__/static/imgs/e08.png"/></p>
+        <p class="name">我要提货</p>
+    </a>
+
+</div>
+
+<!--0元计划抢购-->
+<div class='index index_banner'>
+    <div class="swiper-container" id="banner">
+        <div class="swiper-wrapper">
+            <volist name="put.index_middle" id="v">
+                <div class="swiper-slide">
+                    <a href="{:U('Index/financial_card')}">
+                        <img style="border-radius: 9px" src="__PUBLIC__/uploads/ads/{$v.imgs}"/>
+                    </a>
+                </div>
+            </volist>
+
+        </div>
+    </div>
+</div>
+<!--滚动信息-->
+<div class="index-notic">
+    <div class="index-notic-title">
+
+    </div>
+    <div class="newsScroll" id="s1">
+        <ul style="overflow: hidden">
+            <volist name="data" id="vo">
+                <li>
+                    <a href="{:U('Index/schol_infos','id='.$vo['id'])}">{$vo.title|substr=0,51}</a>
+                </li>
+            </volist>
+        </ul>
+    </div>
+    <div class="board" style="border-right:1px solid #d9d9d9;width: 2px;color: red;margin: 0 6px;height: 16px"></div>
+    <a href="{:U('Index/schol')}" class="more-notice">更多</a>
+</div>
+
+<!--黄金雨-->
+<!-- <div class="home-item" style="margin-top: 1rem">
+    <a href="{:U('Malls/goods',['sn'=>'415244730815416283','gold'=>1])}" class="home-item_thumb home-item_thumb_shadow">
+        <img src="__PUBLIC__/uploads/goods/{$img|getGoodsImg='415244730815416283',###}"/>
+    </a>
+    <div class="home-item_cont">
+        <div class="home-item_cont_title overflow" style="color:red ;font-size: 20px"><i class="order-list-name-icon orange">HOT</i>168太空素食黄金雨活动</div>
+        <div class="home-item_cont_descs">168太空素食黄金雨通道入口</div>
+        <div class="home-item_cont_price">
+            <span><font>￥</font>150</span>
+            <a class="blue" href="{:U('Malls/goods',['sn'=>'415244730815416283','gold'=>1])}">立即购买</a>
+        </div>
+    </div>
+</div> -->
+<!--产品列表-->
+<volist name="list" id="v">
+    <div class="home-item" style="margin-top: 1rem">
+        <a href="{:U('Malls/goods','sn='.$v['gsn'])}" class="home-item_thumb home-item_thumb_shadow">
+            <img src="__PUBLIC__/uploads/goods/{$img|getGoodsImg=$v['gsn'],###}"/>
+        </a>
+        <div class="home-item_cont">
+            <div class="home-item_cont_title overflow"><i class="order-list-name-icon orange">HOT</i>{$v.name}</div>
+            <div class="home-item_cont_descs">{$v.subname}</div>
+            <div class="home-item_cont_price">
+                <span><font>￥</font>{$v.price}</span>
+                <a class="blue" href="{:U('Malls/goods','sn='.$v['gsn'])}">立即购买</a>
+            </div>
+        </div>
+    </div>
+</volist>
+
+<!-- 0元计划列表 -->
+<div class="index_w index_b p32">
+    <div class="index_w_o" style="margin-top: 0">
+        <div class="z"><a href="{:U('Index/financial_card')}"><span>0元计划</span></a></div>
+        <div class="y"><a href="{:U('Index/financial_card')}">先拿货 后付款</a></div>
+    </div>
+    <div class="index_w_t" style="clear: both">
+
+        <!-- <a href="{:U('Index/plans_info','sn=815264414134609747')}" class="index-plan-bg a1"> -->
+        <a href="{:U('Index/financial_card')}" class="index-plan-bg a1">
+            <p class="p1">0元创业</p>
+            <p class="p2">40盒 3800元</p>
+        </a>
+
+       <!--  <a href="{:U('Index/plans_info','sn=815270623423588968')}" class="index-plan-bg a2"> -->
+        <a href="{:U('Index/financial_card')}" class="index-plan-bg a2">
+            <p class="p1">月体验</p>
+            <p class="p2">12盒 1560元</p>
+        </a>
+        <!-- <a href="{:U('Index/plans_info','sn=715270469154287144')}" class="index-plan-bg a3"> -->
+        <a href="{:U('Index/financial_card')}" class="index-plan-bg a3">
+            <p class="p1">周体验</p>
+            <p class="p2">4盒 600元</p>
+        </a>
+        <!-- <a href="{:U('Index/plans_info','sn=315264382127443659')}" class="index-plan-bg a4"> -->
+        <a href="{:U('Index/financial_card')}" class="index-plan-bg a4">
+            <p class="p1">单盒体验</p>
+            <p class="p2">1盒 168元</p>
+        </a>
+    </div>
+
+</div>
+<!--产品列表-->
+<!--<div class='index-product'>
+    <volist name="list" id="v" key="k">
+        <a href="{:U('Malls/goods','sn='.$v['gsn'])}" class="index-product_item">
+            <img src="__PUBLIC__/uploads/goods/{$img|getGoodsImg=$v['gsn'],###}"/>
+            <p class="title overflow">{$v.name}</p>
+            <p class="descs">{$v.subname}</p>
+            <p class="price">
+                ¥{$v.price}<span>立即购买</span>
+            </p>
+        </a>
+    </volist>
+</div>-->
+<div style="background: #fff">
+	<div class="index_w_o p32">
+        <div class="z"><a href="{:U('Index/schol')}"><span>相关资讯</span></a></div>
+        <div style="content: '';display: inline-block;height: 8px;width: 8px;border-width: 2px 2px 0 0;border-color: #c8c8cd;border-style: solid;-webkit-transform: matrix(.71,.71,-.71,.71,0,0);transform: matrix(.71,.71,-.71,.71,0,0);">
+        </div>
+    </div>
+    <div class="weui-panel__bd index-news_item" id="a1">
+        <volist name="list1" id="vo">
+            <a href="{:U('Index/schol_infos','id='.$vo['id'])}" class="weui-media-box index-news-msg p32">
+                <div class="weui-media-box__bd">
+                    <h4 class="weui-media-box__title">{$vo.title}</h4>
+                    <!-- <p class="weui-media-box__desc">{$vo.content}</p> -->
+                    <p class="index-msg-time">{$vo.times}</p>
+                </div>
+                <div class="index-news-img">
+                    <img src="__PUBLIC__/uploads/school/{$vo.imgs}"/>
+                </div>
+            </a>
+        </volist>
+    </div>
+</div>
+<script>
+    $(document).on("click touchstart", ".index-news_list_item", function () {
+        var id = $(this).attr("title");
+        $(".index-news_list_item").removeClass("on");
+        $(".index-news_item").fadeOut();
+        $(this).addClass("on");
+        $("#" + id).fadeIn();
+//        $("#" + id).addClass("trans");
+        return false;
+    });
+
+        function creditCard() {
+  //  var data = {ids: "{$list.id}"};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Index/credit_card')}",
+            type: 'post',
+           // data: data,
+            dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    alert(res.msg);
+                    window.location.href = res.data;
+                }
+                window.location.href = res.data;
+            }
+        });
+    }
+</script>
+
+<script>
+    new Swiper('#top_banner',{
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        initialSlide:1,
+        centeredSlides:!0,
+        autoplay: 4000,
+        //speed:500,
+        loop:true,
+        slidesPerView:"auto",
+        onSlideChangeEnd:function(e){
+            var i=$(e.slides[e.activeIndex]).attr("data-index");
+            $(".js-teacher-course").eq(i).siblings().hide(),$(".js-teacher-course").eq(i).show()
+        }
+    });
+    function AutoScroll(obj) {
+        $(obj).find("ul:first").animate({
+                marginTop: "-24px"
+            },
+            500,
+            function() {
+                $(this).css({
+                    marginTop: "0px"
+                }).find("li:first").appendTo(this);
+            });
+    }
+    setInterval('AutoScroll("#s1")', 3000);
+
+</script>

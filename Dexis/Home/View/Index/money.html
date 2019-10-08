@@ -1,0 +1,271 @@
+<div class="index-money_head_container" style="">
+    <div class="index-money_head">
+        <p class="money big-money">{$user.money}</p>
+        <p class="title">当前账户余额(元)</p>
+        <!-- <p class="button">
+             <a href="javascript:onDraw();">立即提现</a>
+         </p>-->
+    </div>
+    <div style="display: flex;justify-content: center;align-items: center">
+        <div class="index-money_head" style="width: 50%">
+            <p class="money">{$user.money}</p>
+            <p class="title">可提现余额(元)</p>
+            <!-- <p class="button">
+                 <a href="javascript:onDraw();">立即提现</a>
+             </p>-->
+        </div>
+        <div style="border-right:1px solid #d9d9d9;width: 2px;height:3rem;color: red;margin-top: 2rem"></div>
+        <div class="index-money_head" style="width: 50%">
+            <p class="money">{$frozen}</p>
+            <p class="title">待入帐(元)
+                <a href="javascript:;" class="ques" style="margin-top: 2rem">
+                    <img id="showIOSDialog2" src="__PUBLIC__/home/imgs/index_ques.png"/>
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="user-menu">
+    <a href="{:U('Index/draw_number')}" class="user-menu_item">
+        <p class="icon"><img src="__PUBLIC__/static/imgs/s15.png"/></p>
+        <p class="fonts">我要提现</p>
+    </a>
+    <a href="{:U('Index/draw_success')}" class="user-menu_item">
+        <p class="icon"><img src="__PUBLIC__/static/imgs/s13.png"/></p>
+        <p class="fonts">查看提现历史</p>
+    </a>
+    <a href="{:U('Users/bank')}" class="user-menu_item">
+        <p class="icon"><img src="__PUBLIC__/static/imgs/s5.png"/></p>
+        <p class="fonts">银行卡管理</p>
+    </a>
+</div>
+<div class="index-common-title p32">
+    <p>收支明细</p>
+    <div class="index-money_list">
+        <div class="index-money_list_item on" title="a" id="1" onclick='test(this)'><span>只看收益</span></div>
+        <div class="index-money_list_item" title="b" id="2" onclick='test(this)'><span>只看支出</span></div>
+        <div class="index-money_list_item" title="c" id="3" onclick='test(this)'><span>只看佣金</span></div>
+        <!--<div class="index-money_list_item" title="d" onclick="list()"><span>库存记录</span></div>-->
+    </div>
+    <div class="total-money">
+
+        <div>
+            <!--<div class="date-seleted date-begin" href="javascript:;" id="beginDate">开始时间</div>
+            <div class="date-seleted" style="background: none">-</div>
+            <div class="date-seleted date-over" href="javascript:;" id="overDate">结束时间</div>-->
+        </div>
+        <div class="total-money-number" >合计金额<br><span id="total_money">￥{$money}</span></div>
+    </div>
+</div>
+<script>
+    $('#beginDate').on('click', function () {
+        weui.datePicker({
+            start: 2015,
+            end: new Date().getFullYear(),
+            defaultValue: [new Date().getFullYear(), new Date().getMonth()+1, new Date().getDate()],
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (begin) {
+                $('#beginDate').html(begin[0]+'-'+begin[1]+'-'+begin[2])
+
+            }
+        });
+    });
+
+    $('#overDate').on('click', function () {
+        weui.datePicker({
+            start: 2015,
+            end: new Date().getFullYear(),
+            defaultValue: [new Date().getFullYear(), new Date().getMonth()+1, new Date().getDate()],
+            onChange: function (result) {
+                console.log(result);
+            },
+            onConfirm: function (over) {
+                $('#overDate').html(over[0]+'-'+over[1]+'-'+over[2])
+            }
+        });
+
+    });
+</script>
+<div class="index-money_item index-money_serv" id="a">
+
+    <!--<p class="head"><img src="{$user.headimgurl}"/></p>
+    <p class="name">{$user.nickname}</p>
+    <p class="level">
+        <button>{$level|getUserLevel=$user['level'],###}</button>
+    </p>
+    <div class="index-money_serv_data">
+        <div class="index-money_serv_data_i"><span>利润:<br/><font>{$user.person}</font></span></div>
+        <div class="index-money_serv_data_i"><span>总进货量:<br/><font>{$user.totalpoints}</font></span></div>
+        <div class="index-money_serv_title">
+            <img src="__PUBLIC__/home/imgs/index_calen.png"/>&nbsp;本月业绩
+        </div>
+    </div>-->
+
+    <div class="index-money_item p32">
+        <div class="index-money_item-box">
+            <div class="item" style="text-align: left"><b>日期时间</b></div>
+            <!--<div class="item">{$v.times|date='H:i:s',###}</div>-->
+            <div class="item"><b>金额(￥)</b></div>
+            <div class="item" style="text-align: right"><b>类型</b></div>
+        </div>
+        <input type="hidden" id="style" value="">
+        <div class="money_list">
+            <volist name="list" id="v">
+                <div class="index-money_item-box ">
+                    <div class="item text-left">{$v.times}</div>
+                    <div class="item"><span>{$v.money}</span></div>
+                    <div class="item" style="text-align: right">
+                        <span>{$v.type}</span>
+                    </div>
+                </div>
+            </volist>
+        </div>
+        <div class="load-more" id="load_more" style="display: {$xyy};"><i class="iconfont"></i>点击加载更多</div>
+    </div>
+</div>
+
+
+
+<div class="js_dialog" id="iosDialog2" style="display: none;">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__bd">“0元计划”用户当收货人确认收货后，待入帐金额将会转入余额，用户可进行提现</div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary">知道了</a>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    function onDraw() {
+        var bank = {$bank};
+        if (bank.length <= 0) {
+            return alert_wec("请绑定银行卡后在进行提现");
+        }
+        weui.picker({$bank}, {
+            onConfirm: function (result) {
+                var data = {bank: result[0]};
+                showPreLoading();
+                $.ajax({
+                    url: "{:U('Index/money_draw')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        hidePreLoading();
+                        if (res.status !== 1) {
+                            return alert_wec(res.msg);
+                        }
+                        window.location.reload();
+                    }
+                });
+            }
+        });
+    }
+    var p= {:I('p',1)};
+    function test(obj){
+        var id=obj.id;
+        var html = '';
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Index/arr_money')}", type: 'post',
+            data: {status:id}, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                $(res.data).each(function(i,e){
+                    html += '<div class="index-money_item-box ">\
+                                  <div class="item text-left">'+ e.time+'</div>\
+                                  <div class="item"><span>'+ e.money+'</span></div>\
+                                  <div class="item" style="text-align: right">\
+                                  <span>'+ e.type+'</span>\
+                                  </div>\
+                              </div>';
+                });
+                $("#load_more").css('display',res.xyy);
+                $(".money_list").append(html);
+                $("#style").val(res.status);
+                $('#total_money').html('￥'+res.money);
+                p=1;
+            }
+        });
+    }
+
+    $(function(){
+        $('#load_more').click(function(){
+            var id=$("#style").val();
+            console.log(id);
+            var html = '';
+            if(id!='') {
+                $.get("{:U('Index/arr_money')}", {'p': p + 1, status: id}, function (data) {
+                    var html = '';
+                    $(data.data).each(function (i, e) {
+                        html += '<div class="index-money_item-box ">\
+                                    <div class="item text-left">' + e.time + '</div>\
+                                    <div class="item"><span>' + e.money + '</span></div>\
+                                    <div class="item" style="text-align: right">\
+                                    <span>' + e.type + '</span>\
+                                    </div>\
+                                    </div>';
+                    });
+                    $("#load_more").css('display',data.xyy);
+                    p += 1;
+                    $(".money_list").append(html);
+                })
+            }else {
+                $.get("{:U('Index/money')}", {'page':p+1}, function (data) {
+                    console.log(data);
+                    var html = '';
+                    $(data.data).each(function (i, e) {
+                        html += '<div class="index-money_item-box ">\
+                                    <div class="item text-left">' + e.times + '</div>\
+                                    <div class="item"><span>' + e.money + '</span></div>\
+                                    <div class="item" style="text-align: right">\
+                                    <span>' + e.type + '</span>\
+                                    </div>\
+                                    </div>';
+                    });
+                    $("#load_more").css('display',data.xyy);
+                    p += 1;
+                    $(".money_list").append(html);
+                })
+            }
+        });
+    });
+
+    $(document).on("click touchstart", ".index-money_list_item", function () {
+        var id = $(this).attr("title");
+        $(".index-money_list_item").removeClass("on");
+        // $(".index-money_item").hide();
+        $(this).addClass("on");
+        $(".money_list").empty();
+        // $("#" + id).show();
+
+    });
+
+
+    $(function(){
+        var $iosDialog1 = $('#iosDialog1'),
+            $iosDialog2 = $('#iosDialog2'),
+            $androidDialog1 = $('#androidDialog1'),
+            $androidDialog2 = $('#androidDialog2');
+
+        $('#dialogs').on('click', '.weui-dialog__btn', function(){
+            $(this).parents('.js_dialog').fadeOut(200);
+        });
+
+        $('#showIOSDialog1').on('click', function(){
+            $iosDialog1.fadeIn(200);
+        });
+        $('#showIOSDialog2').on('click', function(){
+            $iosDialog2.fadeIn(200);
+        });
+        $('#showAndroidDialog1').on('click', function(){
+            $androidDialog1.fadeIn(200);
+        });
+        $('#showAndroidDialog2').on('click', function(){
+            $androidDialog2.fadeIn(200);
+        });
+    });
+
+</script>

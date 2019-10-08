@@ -1,0 +1,102 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        减肥营
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li class="active">减肥营</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-btns">
+                <!--a href="" class="panel-close">&times;</a-->
+                <!--a href="" class="minimize">&minus;</a-->
+            </div><!-- panel-btns -->
+            <!--h3 class="panel-title">
+                会员列表
+                <a href="{:U('Goods/orderexport','model=account&type='.$type)}" class="btn btn-primary btn-xs pull-right" target="_blank">导出</a>
+            </h3-->
+			<div class="btn btn-default btn-sm" id="doExcel" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出数据</div>
+        </div>
+        <div class="panel-body">
+
+            <div class="table-responsive">
+                <table class="table table-striped" id="datatables">
+                    <thead>
+                        <tr>
+                            <th width="5%">id</th>
+                            <th width="5%">姓名</th>
+                            <th width="5%">电话</th>
+                            <th width="5%">联系时间</th>
+                            <th width="5%">年龄</th>
+                            <th width="5%">性别</th>
+                            <th width="5%">身高</th>
+                            <th width="5%">体重</th>
+                            <th width="5%">职业</th>
+                            <th width="5%">早餐时间</th>
+                            <th width="5%">胃肠道健康异常</th>
+                            <th width="5%">身体问题</th>
+                            <th width="5%">饮食习惯</th>
+                            <th width="5%">口味偏好</th>
+                            <th width="5%">饮食偏好</th>
+                            <th width="5%">晚餐时间</th>
+                            <th width="5%">运动习惯</th>
+                            <th width="5%">减脂方式</th>
+                            <th width="5%">相关疾病</th>
+                            <th width="5%">想减多少斤</th>
+                            <th width="5%">多久实现</th>
+                            <th width="5%">填写时间</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <volist name="list.list" id="v">
+                        <tr>
+                            <td>{$v.id}</td>
+                            <td>{$v['count']->name}</td>
+                            <td>{$v['count']->phone}</td>
+                            <td>{$v['count']->contact}</td>
+                            <td>{$v['count']->age}</td>
+                            <td>{$v['count']->sex}</td>
+                            <td>{$v['count']->height}</td>
+                            <td>{$v['count']->weight}</td>
+                            <td>{$v['count']->job}</td>
+                            <td>{$v['count']->breakfast}</td>
+                            <td><?php  if(is_array($v['count']->stomach)){echo implode(',',$v['count']->stomach);}else{echo $v['count']->stomach;};?></td>
+                            <td><?php  if(is_array($v['count']->problem)){echo implode(',',$v['count']->problem);}else{echo $v['count']->problem;};?></td>
+                            <td><?php  if(is_array($v['count']->habit)){echo implode(',',$v['count']->habit);}else{echo $v['count']->habit;};?></td>
+                            <td><?php  if(is_array($v['count']->taste)){echo implode(',',$v['count']->taste);}else{echo $v['count']->taste;};?></td>
+                            <td>{$v['count']->diet}</td>
+                            <td>{$v['count']->time}</td>
+                            <td>{$v['count']->sport}</td>
+                            <td><?php  if(is_array($v['count']->way)){echo implode(',',$v['count']->way);}else{echo $v['count']->way;};?></td>
+                            <td><?php  if(is_array($v['count']->effectLose)){echo implode(',',$v['count']->effectLose);}else{echo $v['count']->effectLose;};?></td>
+                            <td>{$v['count']->loseNum}</td>
+                            <td>{$v['count']->howlong}</td>
+                            <td>{$v.time|date='Y/m/d H:i:s',###}</td>
+                        </tr>
+                    </volist>
+
+                    </tbody>
+                </table>
+            </div>
+
+            {$list.show}
+
+        </div>
+    </div>
+
+</div>
+
+   <script>
+        $("#doExcel").on('click',function(){
+            window.location.href="{:U('Backet/Doexc/doExcel_weight')}";
+        });
+    </script>

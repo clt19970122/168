@@ -1,0 +1,21 @@
+<div class="page">
+    <div class="weui-msg">
+        <div class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></div>
+        <div class="weui-msg__text-area">
+            <h2 class="weui-msg__title">支付成功</h2>
+            <p class="weui-msg__desc">您购买的168太空素食已入云库存 <span style="color: red;font-size: 20px">（不会发货）</span>，您可以选择<a href="{:U('users/stock')}">立即提货</a>，或进入<a href="{:U('users/stock')}">个人中心-我要提货</a>中进行提货发货</p>
+        </div>
+        <div class="weui-msg__opr-area">
+            <p class="weui-btn-area">
+                <!--<a href="javascript:history.back();" class="weui-btn weui-btn_primary">去提货</a>-->
+                <a href="{:U('users/stock')}" class="weui-btn weui-btn_primary" style="background: #1aad19">立即提货(发货)</a>
+                <a href="{:U('order/index')}" class="weui-btn weui-btn_default" style="background: #f8f8f8">暂不需提货</a>
+            </p>
+        </div>
+        <div class="weui-msg__extra-area">
+            <div class="weui-footer">
+                <p class="weui-footer__text">Copyright &copy; 168太空素食</p>
+            </div>
+        </div>
+    </div>
+</div>

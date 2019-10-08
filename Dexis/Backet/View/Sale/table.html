@@ -1,0 +1,313 @@
+<!--<form action="{:U('sale/salelist','type='.$get['type'])}" class="form-inline mb15" role="form">
+    &lt;!&ndash;<div class="form-group">
+        <input type="text" name='sn' id="sn" class="form-control input-sm" value="{$sn}" placeholder="请输入订单编号"/>
+    </div>&ndash;&gt;
+    <input type="hidden" value="{$get.type}" name="type">
+    <select name="gid" id="gid" class="form-control input-sm">
+        <volist name="goods" id="vo">
+            <option value="{$vo.id}"<if condition="$vo['id'] eq $get['gid']">selected="selected"</if> >{$vo.name}</option>
+        </volist>
+    </select>
+    <div class="form-group">
+        <select name="where" class="form-control">
+            <option value="" <if condition="$get['where'] eq null">selected</if>>全部</option>
+            <option value="0" <if condition="$get['where'] eq 0">selected</if> >公司</option>
+            <option value="1" <if condition="$get['where'] eq 1">selected</if>>仓库</option>
+            <option value="11"<if condition="$get['where'] eq 11">selected</if>>赠送</option>
+            <option value="12"<if condition="$get['where'] eq 12">selected</if>>活动</option>
+            <option value="13"<if condition="$get['where'] eq 13">selected</if>>员工福利</option>
+            <option value="14"<if condition="$get['where'] eq 14">selected</if>>送人</option>
+            <option value="15"<if condition="$get['where'] eq 15">selected</if>>其他</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="text" name='start' class="form-control input-sm" value="{$get.start}" id="single_start" placeholder="请选择开始时间"/>
+    </div>
+    <div class="form-group">
+        <input type="text" name='ends' class="form-control input-sm" value="{$get.ends}" id="single_end" placeholder="请选择结束时间"/>
+    </div>
+    <button type="submit" class="btn btn-default btn-sm">搜索</button>
+
+    <div class="btn btn-default btn-sm" id="doExcel" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出数据</div>
+</form>-->
+
+
+<div class="panel panel-default">
+    <h3 class="panel-title">导出相关数据</h3><br>
+    <p style="cursor: pointer" id="list" data-toggle="modal" data-target="#myModal">进销存汇总表 <span class="glyphicon glyphicon-save"></span></p>
+    <p style="cursor: pointer" id="list2" data-toggle="modal" data-target="#myModal1">销售明细统计表<span class="glyphicon glyphicon-save"></span></p>
+    <!--进销存汇总表-->
+
+    <table class="table table-bordered" id="datatables">
+       <!-- <thead>
+        <tr>
+
+        </tr>
+        </thead>-->
+        <!--<tbody>
+
+        <volist name='list.list' id='v'>
+            <tr>
+                <td>{$v.id}</td>
+                <td>{$v.name}</td>
+                <td>{$v.inOrOut}</td>
+                <if condition="$v['type'] eq 1">
+                    <td style="color: red">-{$v.nums}</td>
+                    <else/>
+                    <td style="color: blue">+{$v.nums}</td>
+                </if>
+                <td >{$v.inwhere}</td>
+                <td>{$v.rest_save}</td>
+                <td>{$v.time}</td>
+                <td>{$v.remake}</td>
+                &lt;!&ndash;<td>
+                    <a href="{:U('Conte/quesedits','id='.$v['id'])}" class='btn btn-xs btn-info'>修改</a>
+                    <a href="javascript:dels('{$v.id}');" class='btn btn-xs btn-danger'>删除</a>
+                </td>&ndash;&gt;
+            </tr>
+        </volist>
+        </tbody>-->
+    </table>
+    <!--<nav class="pagec pull-left">
+        {$list.show}
+    </nav>-->
+    <button class="btn btn-xs btn-lightblue" id="doExcel" style="color: white;display: none">导出数据</button>
+    <button class="btn btn-xs btn-lightblue" id="doExcel1" style="color: white;display: none">导出数据</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabe" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabe">条件筛选</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>选择商品</label>
+                    <select class="form-control" name="gid" id="gid">
+                        <option value="0">全部</option>
+                        <volist name="goods" id="vo">
+                            <option value="{$vo.id}"<if condition="$vo['id'] eq $get['gid']">selected="selected"</if> >{$vo.name}</option>
+                        </volist>
+                    </select>
+                    <input type="hidden" value="{$get.type}" id="type" name="type">
+                </div>
+
+                <div class="form-group">
+                    <label>选择仓库</label>
+                    <select class="form-control" name="where" id="where">
+                        <option value="" <if condition="$get['where'] eq null">selected</if>>全部</option>
+                        <option value="0" <if condition="$get['where'] eq 0">selected</if> >公司仓库</option>
+                        <option value="1" <if condition="$get['where'] eq 1">selected</if>>中通仓库</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>选择开始时间</label>
+                    <input type="text" name='start' class="form-control" value="{$get.start}" id="single_start" placeholder="请选择开始时间"/>
+                </div>
+
+                <div class="form-group">
+                        <label>选择结束时间</label>
+                        <input type="text" name='ends' class="form-control" value="{$get.ends}" id="single_end" placeholder="请选择结束时间"/>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="seleData()">确定</button>
+            </div>
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
+<!--销售明细统计表-->
+<!-- Modal -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">条件筛选</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>选择商品</label>
+                    <select class="form-control" name="gid" id="gid1">
+                        <option value="0">全部</option>
+                        <volist name="goods" id="vo">
+                            <option value="{$vo.id}"<if condition="$vo['id'] eq $get['gid']">selected="selected"</if> >{$vo.name}</option>
+                        </volist>
+                    </select>
+                    <input type="hidden" value="{$get.type}" id="type1" name="type">
+                </div>
+
+                <div class="form-group">
+                    <label>选择仓库</label>
+                    <select class="form-control" name="where" id="where1">
+                        <option value="" <if condition="$get['where'] eq null">selected</if>>全部</option>
+                        <option value="0" <if condition="$get['where'] eq 0">selected</if> >公司仓库</option>
+                        <option value="1" <if condition="$get['where'] eq 1">selected</if>>中通仓库</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>客户名称</label>
+                    <input type="text" name='user' class="form-control" value="{$get.user}" id="username" placeholder="客户名称"/>
+                </div>
+
+                <div class="form-group">
+                    <label>选择开始时间</label>
+                    <input type="text" name='start' class="form-control" value="{$get.start}" id="single_start1" placeholder="请选择开始时间"/>
+                </div>
+
+                <div class="form-group">
+                        <label>选择结束时间</label>
+                        <input type="text" name='ends' class="form-control" value="{$get.ends}" id="single_end1" placeholder="请选择结束时间"/>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="seleData2()">确定</button>
+            </div>
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
+<script>
+    // 筛选条件
+    function seleData(){
+        var type =$('#type').val();
+        var gid =$('#gid').val();
+        var start =$('#single_start').val();
+        var end =$('#single_end').val();
+        var where =$('#where').val();
+        $.ajax({
+            type: "GET",
+            url: "{:U('sale/getTableList')}",
+            data: {type:type, gid:gid,start:start,ends:end,where:where},
+            dataType: "json",
+            success: function(data){
+                $("#myModal").modal('toggle');
+                $("#doExcel").css('display','block');
+                $("#doExcel1").css('display','none');
+                var html = '';
+                    html +="<thead>" +
+                        "<tr>" +
+                        "<th width='5%'>序号</th>" +
+                        "<th width='15%'>时间</th>" +
+                        "<th width='8%'>仓库</th>" +
+                        "<th width='10%'>产品名称</th>" +
+                        "<th width='8%'>规格型号</th>" +
+                        "<th width='8%'>计量单位</th>" +
+                        "<th width='10%'>购进数量</th>" +
+                        "<th width='10%'>出库数量</th>" +
+                        "<th width='8%'>剩余库存</th>" +
+                        "<th width=''>备注</th>" +
+                        "</tr>" +
+                        "</thead>";
+                $.each(data.data, function(commentIndex,comment){
+                    var nums  =commentIndex+1;
+                    html += "<tr>" +
+                        "<td>"+nums+"</td>" +
+                        "<td>"+comment['time']+"</td>" +
+                        "<td>"+comment['where']+"</td>" +
+                        "<td>"+comment['name']+"</td>" +
+                        "<td>"+comment['model']+"</td>" +
+                        "<td>"+comment['unit']+"</td>" +
+                        "<td>"+comment['innums']+"</td>" +
+                        "<td>"+comment['outnums']+"</td>" +
+                        "<td>"+comment['rest_save']+"</td>" +
+                        "<td>"+comment['remake']+"</td>" +
+                        "</tr>";
+                });
+                html +="<tr><td>小计：</td><td></td><td></td><td></td><td></td><td></td><td></td><td>"+data.outall+"</td><td>"+data.inall+"</td></tr>"
+                $('#datatables').html(html);
+            }
+        });
+    }
+    // 筛选条件
+    function seleData2(){
+        var type =$('#type1').val();
+        var gid =$('#gid1').val();
+        var start =$('#single_start1').val();
+        var end =$('#single_end1').val();
+        var where =$('#where1').val();
+        var user =$('#username').val();
+        $.ajax({
+            type: "GET",
+            url: "{:U('sale/getTableList')}",
+            data: {type:type, gid:gid,start:start,ends:end,where:where,user:user,table:2},
+            dataType: "json",
+            success: function(data){
+
+                $("#myModal1").modal('toggle');
+                $("#doExcel1").css('display','block');
+                $("#doExcel").css('display','none');
+                var html = '';
+                html +="<thead>" +
+                    "<tr>" +
+                    "<th width='5%'> 序号</th>" +
+                    "<th width='10%'>产品名称</th>" +
+                    "<th width='8%'> 规格型号</th>" +
+                    "<th width=''>计量单位</th>" +
+                    "<th width='8%'> 会员等级</th>" +
+                    "<th width=''>客户上级</th>" +
+                    "<th width=''>客户名称</th>" +
+                    "<th width=''>出库数量</th>" +
+                    "<th width=''>   销售金额</th>" +
+                    "<th width=''>成本金额</th>" +
+                    "<th width=''>毛利</th>" +
+                    "<th width=''>毛利率</th>" +
+                    "<th width=''>出库仓库</th>" +
+                    "<th width=''>出库时间</th>" +
+                    "<th width=''>   备注</th>" +
+                    "</tr>" +
+                    "</thead>";
+                $.each(data.data,function(commentIndex,comment){
+                    var nums  =commentIndex+1;
+                    html += "<tr>" +
+                        "<td>"+nums+"</td>" +
+                        "<td>"+comment['name']+"</td>" +
+                        "<td>"+comment['model']+"</td>" +
+                        "<td>"+comment['unit']+"</td>" +
+                        "<td>"+comment['level']+"</td>" +
+                        "<td>"+comment['upuser']+"</td>" +
+                        "<td>"+comment['username']+"</td>" +
+                        "<td>"+comment['nums']+"</td>" +
+                        "<td>"+comment['prices']*comment['nums']+"</td>" +
+                        "<td>"+comment['now_cost']*comment['nums']+"</td>" +
+                        "<td>"+comment['maori']*comment['nums']+"</td>" +
+                        "<td>"+comment['gross_maori']+"</td>" +
+                        "<td>"+comment['where']+"</td>" +
+                        "<td>"+comment['time']+"</td>" +
+                        "<td>"+comment['remake']+"</td>" +
+                        "</tr>";
+                });
+
+                html +="<tr><td>小计：</td><td></td><td></td><td></td><td></td><td></td><td></td><td>"+data.allcount+"</td></tr>"
+                $('#datatables').html(html);
+            }
+        });
+    }
+</script>
+
+<script>
+    //进销存汇总表
+    $("#doExcel").on('click',function(){
+        var type =$('#type').val();
+        var gid =$('#gid').val();
+        var start =$('#single_start').val();
+        var end =$('#single_end').val();
+        var where =$('#where').val();
+        window.location.href="{:U('Backet/Doexc/doExcel_saleTableList')}?type="+type+"&gid="+gid+"&start="+start+"&ends="+end+"&where="+where;
+    });
+    //销售明细表
+    $("#doExcel1").on('click',function(){
+        var type =$('#type1').val();
+        var gid =$('#gid1').val();
+        var start =$('#single_start1').val();
+        var end =$('#single_end1').val();
+        var where =$('#where1').val();
+        var user =$('#username').val();
+        window.location.href="{:U('Backet/Doexc/doExcel_saleTableList')}?type="+type+"&gid="+gid+"&start="+start+"&ends="+end+"&where="+where+"&table=2&user="+user;
+    });
+</script>

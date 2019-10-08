@@ -1,0 +1,55 @@
+<form>
+    <input type="hidden" name="ids" value="{$info.id}"/>
+    <div class="weui-cells weui-cells_form user-addr_add">
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">开户银行</label></div>
+            <div class="weui-cell__bd">
+                <select class="weui-select" name="bank" style="height:1.4rem; line-height:1.4rem;">
+                    <option value="">请选择银行</option>
+                    <volist name="list" id="v">
+                        <option value="{$v.id}" <if condition="$v['id'] eq $info['bank']">selected</if>>{$v.name}</option>
+                    </volist>
+                </select>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">开户人</label></div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" name="name" value="{$info.name}"/>
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label idcard">银行卡号</label></div>
+            <div class="weui-cell__bd">
+                <textarea class="weui-textarea" name="card" rows="2">{$info.card}</textarea>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+<div class="weui-btn-area">
+    <a class="weui-btn weui-btn_primary" href="javascript:doOption();">保存</a>
+</div>
+
+<script>
+
+    function doOption() {
+        var temp = $("form").serializeArray();
+        var data = objToArray(temp);
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Core/edits','model=acc_bank')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.href = "{:U('Users/bank')}";
+            }
+        });
+    }
+
+</script>

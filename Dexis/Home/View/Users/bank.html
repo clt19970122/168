@@ -1,0 +1,66 @@
+<style>
+    html,body{
+        background: #323436;
+    }
+</style>
+
+<a href="{:U('Users/bank_add')}" class="user-addr_btn">+&nbsp;添加银行卡</a>
+<div class="weui-panel weui-panel_access m32" style="background: none">
+    <div class="weui-panel__bd user-bank">
+
+        <volist name="list" id="v">
+            <div class="weui-media-box weui-media-box_appmsg user-bank-item blue">
+                <!-- <div class="weui-media-box__hd">
+                    <i class="weui-media-box__thumb iconfont ny-bank">&#xe601;</i>
+                </div> -->
+                <a href="{:U('Users/bank_edit','id='.$v['id'])}" class="weui-cell__bd" style='color:black;'>
+                    <h4 class="weui-media-box__title">{$ban|getBankName=$v['bank'],###}</h4>
+                    <p class="weui-media-box__desc">
+                        {$v.name}
+                    </p>
+                    <p class="weui-media-box__desc bank-number">
+                        {$v.card}
+                    </p>
+                </a>
+                <a href="javascript:;" class="weui-cell__ft"><i class="icon-dels showIOSDialog2"></i></a>
+            </div>
+        </volist>
+
+    </div>
+</div>
+
+<div class="js_dialog iosDialog2" style="display: none;">
+    <div class="weui-mask"></div>
+    <div class="weui-dialog">
+        <div class="weui-dialog__bd">确认删除银行卡？</div>
+        <div class="weui-dialog__ft">
+            <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">取消</a>
+            <a href="javascript:dels('{$v.id}');" class="weui-dialog__btn weui-dialog__btn_primary">确定</a>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    var $iosDialog2 = $('.iosDialog2');
+    $('.showIOSDialog2').on('click', function(){
+        $iosDialog2.fadeIn(200);
+    });
+    function dels(ids) {
+        var data = {id: ids};
+        showPreLoading();
+        $.ajax({
+            url: "{:U('Core/dels','model=acc_bank')}", type: 'post',
+            data: data, dataType: "json",
+            success: function (res) {
+                hidePreLoading();
+                if (res.status !== 1) {
+                    return alert_wec(res.msg);
+                }
+                window.location.reload();
+            }
+        });
+    }
+
+</script>

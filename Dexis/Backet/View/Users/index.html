@@ -1,0 +1,364 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        账户管理
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li class="active">用户管理</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-btns">
+                <!--a href="" class="panel-close">&times;</a-->
+                <!--a href="" class="minimize">&minus;</a-->
+            </div><!-- panel-btns -->
+            <h3 class="panel-title">
+                会员列表
+                <!-- <a href="{:U('Goods/orderexport','model=account&type='.$type)}" class="btn btn-primary btn-xs pull-right" target="_blank">导出</a> -->
+            </h3>
+            	<tr>
+			<td class="text">服务器服务商：</td>
+			<td class="input">阿里云</td>
+			</tr>
+            <volist name="info" id="v">
+		
+			<tr> 
+			<td class="text">{$key}：</td>
+			<td class="input">{$v}</td>
+			</tr>
+			</volist> 
+        </div>
+        <div class="panel-body">
+
+            <form action="{:U('Users/index','p='.$page)}" class="form-inline mb15" role="form">
+                <div class="form-group">
+                    <input type="text" name='phone' id="phone" class="form-control input-sm" value="{$select['phone']}" placeholder="请输入手机号码"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='up_nickname'id="up_nickname" class="form-control input-sm" value="{$select['up_nickname']}" placeholder="请输入上级系统号"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='nickname' id="nickname" class="form-control input-sm" value="{$select['nickname']}" placeholder="请输入用户昵称"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='name' id="name" class="form-control input-sm" value="{$select['name']}" placeholder="请输入用户真实姓名"/>
+                </div>
+                <div class="form-group">
+                   <select name="level"  id="level" class="form-control input-sm">
+                       <option value="">会员等级</option>
+                       <volist name='level' id='v'>
+                           <option value="{$v.id}">{$v.name}</option>
+                       </volist>
+                   </select>
+               </div>
+                <div class="form-group">
+                    <input type="text" name='start' value="{$select['start']}" class="form-control input-sm" id="single_start" placeholder="请选择开始时间"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='ends' value="{$select['ends']}" class="form-control input-sm" id="single_end" placeholder="请选择结束时间"/>
+                </div>
+                <button type="submit" class="btn btn-default btn-sm">搜索</button>
+                <if condition="session('admin_info')['groups'] eq '0' ">
+                <div class="btn btn-default btn-sm" id="doExcel" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出数据</div>
+                <div class="btn btn-default btn-sm" id="doExcel222" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出全部数据</div>
+                				<div class="btn btn-default btn-sm" id="doExcel11" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出黄金雨数据</div>
+                				<div class="btn btn-default btn-sm" id="doExcel22" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出钻石雨数据</div>
+                				<div class="btn btn-default btn-sm" id="doExce222" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出认证数据</div>
+                				<div class="btn btn-default btn-sm" onclick="freezeAccount();" style="padding-left: 20px;background-color: #2f27b2;color: white;">冻结逾期账户</div>
+                </if>
+            </form>
+
+            <div class="table-responsive">
+                <table class="table table-striped" id="datatables">
+                    <thead>
+                        <tr>
+                            <th width="5%">id</th>
+                            <th width="10%">上级昵称</th>
+                            <th width="10%">上级等级</th>
+                            <th width="10%">上级姓名</th>
+                            <th width="10%">昵称</th>
+                            <th width="8%">真实姓名</th>
+                            <if condition="session('admin_info')['groups'] eq '0' ">
+                            <th width="10%">手机号码</th>
+                            </if>
+                            <th width="8%">账户余额</th>
+                            <th width="8%">冻结金额</th>
+                            <th width="5%">库存</th>
+                            <th width="5%">积分</th>
+                            <th width="10%">会员等级</th>
+                            <th width="5%">状态</th>
+                            <th width="10%">加入时间</th>
+                            <th width="10%">设置购买就发货</th>
+                    	    <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <volist name="list.list" id="v">
+                        <tr>
+                            <td>{$v.id}</td>
+                            <td >
+                                <?php if($v["recid"]=='' or $v["recid"]==0): ?>
+                                <span style="color: #910000">无上级</span>
+                                <?php else: ?>
+                                <span style="color: #527bf4">
+                                     {$v.parent_name}{$v.parent_sysid}
+                                </span>
+
+                                <?php endif; ?>
+                            </td>
+                            <td style="color: #527bf4">
+                                    {$level|getUserLevel=$v['parent_level'],###}
+                            </td>
+                            <td style="color: #527bf4">
+                                    {$v['parent_real']}
+                            </td>
+                            <td>{$v.nickname}</td>
+                            <td>{$v.name}</td>
+                            <if condition="session('admin_info')['groups'] eq '0' ">
+                            <td  onclick="checkPassword(this,{$v['id']})">{$v.phone|yc_phone}</td>
+                            </if>
+                            <td>{$v.money}</td>
+                            <td>{$v.frozenMoney}</td>
+                            <td>{$v.stock}</td>
+                            <td>{$v.totalpoints}</td>
+                            <td>{$level|getUserLevel=$v['level'],###}</td>
+                            <td>{$v['status']>0?'正常':'冻结'}</td>
+                            <td>{$v.times|date='Y/m/d H:i:s',###}</td>
+                             <td><a href='javascript:buySend("{$v.id}");' class="btn btn-xs <?php if($v['buy_send'] ==1){echo 'btn-success';}else{echo 'btn-danger';};?> "><?php if($v['buy_send'] ==1){echo '是';}else{echo '否';};?></a> </td>
+                                                   <td> 
+                          <a href="{:U('Users/indexview','id='.$v['id'])}" class='btn btn-xs btn-info'>浏览</a> 
+                          <eq name="v.status" value="1">
+           <!--                <a href='javascript:onChange({$v.id}, 0);' class='btn btn-xs btn-warning'>冻结</a>
+                          </eq>
+                          <eq name="v.status" value="0">
+                          <a href='javascript:onChange({$v.id}, 1);' class='btn btn-xs btn-success'>解冻</a>
+                          </eq> -->
+                          <!-- <a href='javascript:dels({$v.id});' class='btn btn-xs btn-danger'>删除</a> -->
+                       
+                           <a href='javascript:team("{$v.sysid}");' class='btn btn-xs btn-danger'>团队数据</a>
+                          <a href='javascript:teamTree("{$v.sysid}");' class='btn btn-xs btn-warning'>团队结构图</a>
+                          <a href='javascript:showList({$v.id});' class='btn btn-xs btn-success'>记录</a>
+                          
+                          <a href='javascript:frozen({$v.id});' class='btn btn-xs btn-primary' >冻结金额</a> 
+                                                   </td>
+                        </tr>
+                    </volist>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <nav class="pagec pull-left">
+                {$list.show}
+            </nav>
+
+        </div>
+    </div>
+
+</div>
+<script>
+    function checkPassword(obj,id){
+        layer.prompt({title: '查看信息请输入密码', formType: 1}, function(pass, index){
+            var data = {pwd: pass,uid:id};
+            $.ajax({
+                url: "{:U('Users/examine')}", type: 'post',
+                data: data, dataType: "json",
+                success: function (res) {
+                    if (res.status !== 1) {
+                        return layer.msg(res.msg);
+                    }else {
+                        $(obj).html(res.msg);
+                    }
+                }
+            });
+            layer.close(index);
+        });
+    }
+</script>
+<script>
+
+    laydate.render({elem: '#single_start'});
+    laydate.render({elem: '#single_end'});
+
+    function dels(id) {
+        if (!confirm("确定要删除吗？")) {
+            return;
+        }
+        var configURL = "{:U('Core/dels', 'model=account')}";
+        var data = {id: id};
+        ajaxRt(configURL, data);
+    }
+
+    function onChange(id, st) {
+        var configURL = "{:U('Users/accStatus')}";
+        var data = {ids: id, status: st};
+        ajaxRt(configURL, data);
+    }
+
+    function showList(id){
+        var url = "{:U('users/getList')}?id="+id;
+        window.location.href=url;
+    }
+
+    function team(id) {
+        var url = "{:U('users/getTeam')}?ssid="+id;
+        window.location.href=url;
+    }
+    function teamTree(id) {
+        var url = "{:U('team/teamTree')}?ssid="+id;
+        window.location.href=url;
+    }
+    function frozen(id) {
+        var url = "{:U('users/frozen')}?ssid="+id;
+        window.location.href=url;
+    }
+</script>
+
+<script>
+    $("#doExcel").on('click',function(){
+        var nickname =$('#nickname').val();
+        var up_nickname =$('#up_nickname').val();
+        var phone =$('#phone').val();
+        var start =$('#single_start').val();
+        var ends =$('#single_end').val();
+        var level =$('#level').val();
+        layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+                var data = {pwd: pass};
+                $.ajax({
+                    url: "{:U('Users/exportPermission')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        if (res.status !== 1) {
+                            return layer.msg(res.msg);
+                        }else {
+                        window.location.href="{:U('Backet/Doexc/doExcel_user')}?nickname="+nickname+"&phone="+phone+"&level="+level+"&up_nickname="+up_nickname+"&start="+start+"&ends="+ends+"&status="+status;
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+        /*window.location.href="{:U('Backet/Docsv/exportData')}?nickname="+nickname+"&phone="+phone+"&level="+level+"&up_nickname="+up_nickname+"&start="+start+"&ends="+ends+"&status="+status;*/
+    });
+
+     $("#doExcel222").on('click',function(){
+        var nickname =$('#nickname').val();
+        var up_nickname =$('#up_nickname').val();
+        var phone =$('#phone').val();
+        var start =$('#single_start').val();
+        var ends =$('#single_end').val();
+        var level =$('#level').val();
+        /*window.location.href="{:U('Backet/Doexc/doExcel_user')}?nickname="+nickname+"&phone="+phone+"&level="+level+"&up_nickname="+up_nickname+"&start="+start+"&ends="+ends+"&status="+status;*/
+        layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+                var data = {pwd: pass};
+                $.ajax({
+                    url: "{:U('Users/exportPermission')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        if (res.status !== 1) {
+                            return layer.msg(res.msg);
+                        }else {
+                             window.location.href="{:U('Backet/Docsv/exportData')}?nickname="+nickname+"&phone="+phone+"&level="+level+"&up_nickname="+up_nickname+"&start="+start+"&ends="+ends+"&status="+status;
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+    });
+     $("#doExcel11").on('click',function(){
+         var dotype ='用户升级黄金雨';
+         /*window.location.href="{:U('Backet/Doexc/doExcel_user')}?nickname="+nickname+"&phone="+phone+"&level="+level+"&up_nickname="+up_nickname+"&start="+start+"&ends="+ends+"&status="+status;*/
+             layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+                var data = {pwd: pass};
+                $.ajax({
+                    url: "{:U('Users/exportPermission')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        if (res.status !== 1) {
+                            return layer.msg(res.msg);
+                        }else {
+                            window.location.href="{:U('Backet/Doexc/doExcel_getGoldList')}?dotype="+dotype;
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+    });
+    $("#doExcel22").on('click',function(){
+        var dotype ='用户升级钻石雨';
+        /*window.location.href="{:U('Backet/Doexc/doExcel_user')}?nickname="+nickname+"&phone="+phone+"&level="+level+"&up_nickname="+up_nickname+"&start="+start+"&ends="+ends+"&status="+status;*/
+         layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+                var data = {pwd: pass};
+                $.ajax({
+                    url: "{:U('Users/exportPermission')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        if (res.status !== 1) {
+                            return layer.msg(res.msg);
+                        }else {
+                              window.location.href="{:U('Backet/Doexc/doExcel_getGoldList')}?dotype="+dotype;
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+    });
+	 $("#doExce222").on('click',function(){
+        var nickname =$('#nickname').val();
+        var phone =$('#phone').val();
+        var start =$('#single_start').val();
+        var ends =$('#single_end').val();
+        /*window.location.href="{:U('Backet/Doexc/doExcel_user')}?nickname="+nickname+"&phone="+phone+"&level="+level+"&up_nickname="+up_nickname+"&start="+start+"&ends="+ends+"&status="+status;*/
+        layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+                var data = {pwd: pass};
+                $.ajax({
+                    url: "{:U('Users/exportPermission')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        if (res.status !== 1) {
+                            return layer.msg(res.msg);
+                        }else {
+                             //window.location.href="{:U('Backet/Doexc/doExcel_userIdauth')}?name="+nickname+"&phone="+phone+"&start="+start+"&ends="+ends+"&status="+status;
+                             window.location.href="{:U('Backet/Docsv/export_userIdauth7')}?name="+nickname+"&phone="+phone+"&start="+start+"&ends="+ends+"&status="+status;
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+    });
+
+
+    function buySend(id){
+        if (!confirm("确定要设置团队下购买便发货？")) {
+            return;
+        }
+        var configURL = "{:U('users/Buysend')}";
+        var data = {id: id};
+        ajaxRt(configURL, data);
+    }
+    //    一键冻结账户
+    function freezeAccount(){
+        if (!confirm("确定要冻结账户？")) {
+            return;
+        }
+        var configURL = "{:U('users/freezeAccount')}";
+        $.ajax({
+            type: "GET",
+            url: configURL,
+            data: '',
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                layer.msg(data.data);
+                window.location.href = data.url
+            }
+        })
+    }
+</script>

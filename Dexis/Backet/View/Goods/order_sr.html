@@ -1,0 +1,367 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        订单管理
+        <!--span>Subtitle goes here...</span-->
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li class="active">提货管理</li>
+        </ol>
+    </div>
+</div>
+
+<div class="contentpanel">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                订单列表
+            </h3>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="panel panel-primary panel-stat">
+                    <div class="panel-heading">
+
+                        <div class="stat">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <img src="__PUBLIC__/backet/images/is-document.png" alt="">
+                                </div>
+                                <div class="col-xs-8">
+                                    <small class="stat-label">物流出量</small>
+                                    <h1>{$buy_out}</h1>
+                                </div>
+                            </div><!-- row -->
+                        </div><!-- stat -->
+                    </div><!-- panel-heading -->
+                </div><!-- panel -->
+            </div><!-- col-sm-6 -->
+            <div class="col-sm-6 col-md-3">
+                <div class="panel panel-primary panel-stat">
+                    <div class="panel-heading">
+
+                        <div class="stat">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <img src="__PUBLIC__/backet/images/is-document.png" alt="">
+                                </div>
+                                <div class="col-xs-8">
+                                    <small class="stat-label">自提数量</small>
+                                    <h1>{$self_out}</h1>
+                                </div>
+                            </div><!-- row -->
+                        </div><!-- stat -->
+                    </div><!-- panel-heading -->
+                </div><!-- panel -->
+            </div><!-- col-sm-6 -->
+        </div>
+        <div class="panel-body">
+
+            <form action="{:U('Goods/order_sr','p='.$page.'&dotype='.$dotype)}" class="form-inline mb15" role="form">
+                <div class="form-group">
+                    <input type="text" name='phone' id="phone" class="form-control input-sm" value="{$phone}" placeholder="请输入手机号码"/>
+                </div>
+                <!--<input type="hidden" name="dotype" value="{$dotype}">-->
+                <div class="form-group">
+                    <input type="text" name='username' id="name" class="form-control input-sm" value="{$username}" placeholder="请输入下单用户"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='name' id="username" class="form-control input-sm" value="{$name}" placeholder="请输入收货用户"/>
+                </div>
+                <div class="form-group">
+                    <select name="status" id="stas" class="form-control input-sm">
+                        <option value="">全部</option>
+                        <option value="0">审核中</option>
+                        <option value="1">已通过</option>
+                        <option value="3">已发货</option>
+                        <option value="2">已取消</option>
+                        <option value="4">自提</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='start' class="form-control input-sm" value="{$start}" id="single_start" placeholder="请选择申请开始时间"/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name='ends' class="form-control input-sm" value="{$ends}" id="single_end" placeholder="请选择申请结束时间"/>
+                </div>
+                <button type="submit" class="btn btn-default btn-sm">搜索</button>
+                <!--<a href="{:U('')}" class="btn btn-primary btn-xs pull-right" target="_blank">导出</a>-->
+                <div class="btn btn-default btn-sm" id="doExcel" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出数据</div>
+                <div class="btn btn-default btn-sm" id="getTransn" style="padding-left: 20px;background-color: #2f27b2;color: white;">导出未发货已获取单号数据</div>
+            </form>
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="datatables">
+                    <thead>
+                        <tr>
+                            <th width="2%">#</th>
+                            <!--<th width="10%">推荐用户</th>-->
+                            <th width="6%">下单用户</th>
+                            <th width="6%">用户id</th>
+                            <th width="10%">手机</th>
+                            <th width="4%">收货人</th>
+                            <th width="16%">地址</th>
+                            <!-- <th width="6%">同周边订单号</th> -->
+                            <!-- <th width="6%">同168订单号</th> -->
+                            <th width="5%">数量</th>
+                            <th width="6%">物流公司</th>
+                            <th width="8%">物流单号</th>
+                            <th width="6%">申请时间</th>
+                            <th width="5%">状态</th>
+                            <th width="5%">支付运费</th>
+                            <th width="8%">订单备注</th>
+                            <th width="10%">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <volist name="list.list" id="v">
+                        <tr>
+                            <td>{$v.id}</td>
+                            <!--<td>{$rec|getRecUser=$v['uid'],###}</td>-->
+                            <td>{$p|getUserInf=$v['uid'],'nickname',###}</td>
+                            <td>{$v.uid}</td>
+                            <td>{$v.phone}</td>
+                            <td>{$v.name}</td>
+                            <td>{$v.address}</td>
+                            <!-- <td>{$v.same}</td> -->
+                            <!-- <td>{$v.same_pro}</td> -->
+                            <td>{$v.nums}</td>
+                            <td>{$v.transid|getTransNm=$v['trans'],name,###}</td>
+                            <td>{$v.trsn}</td>
+                            <td>{$v.times|date='Y/m/d H:i:s',###}</td>
+                            <td>
+                                {$v['status']==0?'审核中':''}
+                                {$v['status']==1?'已通过':''}
+                                {$v['status']==2?'未通过':''}
+								{$v['status']==3?'已发货':''}
+								{$v['status']==4?'自提 ':''}{$v['sure']==1?'-已确认 ':''}
+								{$v['status']==5?'已取消 ':''}
+                                {$v['status']==6?'已确认 ':''}
+                            </td>
+                            <td>{$v.trans_pay}</td>
+                            <!--<td>{$v.addr|getAddrInfo=$v['addr'],idcard,###}</td>-->
+                            <td>{$v.remakes}</td>
+                            <td>
+                                <if condition="$v.have_pay eq 0">
+                                    <span style="color: #bf5124;"> 未支付</span>
+                                    <elseif condition="$v.have_pay eq 2"/>
+                                    <span style="color: #83241a;">已取消</span>
+                                    <elseif condition="$v.have_pay eq 3"/>
+                                    <eq name='v.sure' value='0'>
+                                       <a class='btn btn-xs btn-success' href="javascript:sure({$v.id},1);">确认出货</a>
+                                       <a class='btn btn-xs btn-success' href="javascript:sure({$v.id},3);">取消提货</a>
+                                    </eq>
+                                    <else/>
+                                    <eq name='v.status' value='0'>
+                                        <a href="javascript:doOption({$v.id},1);" class='btn btn-xs btn-success'>通过</a>
+                                        <a href="javascript:doOption({$v.id},2);" class='btn btn-xs btn-danger'>不通过</a>
+                                    </eq>
+                                    <eq name='v.status' value='1'>
+                                        <eq name='v.sure' value='0'>
+                                        <a class='btn btn-xs btn-info' href="javascript:doTrans({$v.id});">发货</a>
+                                        <!--<a class='btn btn-xs btn-info' href="javascript:doOption({$v.id},3);">发货</a>-->
+                                        <a class='btn btn-xs btn-success' href="javascript:doOption({$v.id},4);">自提</a>
+                                        
+                                        <a class='btn btn-xs btn-danger' href="javascript:desetord({$v.id},5);">取消发货</a>
+                                        </eq>
+                                      <!--  <eq name='v.sure' value='0'>
+                                        <a class='btn btn-xs btn-info' href="javascript:getTrsn({$v.id});">获取订单号</a>
+                                        </eq>-->
+                                    </eq>
+
+                                </if>
+
+                            </td>
+                        </tr>
+                    </volist>
+
+                    </tbody>
+                </table>
+
+                <nav class="pagec pull-left">
+                    {$list.show}
+                </nav>
+                <div class="pull-right">
+                    <div class="col-sm-1 input-group input-group-sm">
+                        <input type="text" id="pages" class="form-control">
+                        <span class="input-group-addon" onclick="pagereload();">跳转</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="modal fade in" id="trans" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content"><div class="panel panel-dark panel-alt">
+                <div class="panel-heading">
+                    <h3 class="panel-title">发货</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" name="trans">
+                        <div class="form-group">
+                            <label>物流公司</label>
+                            <select class="form-control" name="trans">
+                                <option value="0">请选择</option>
+                                <volist name="trans" id="v">
+                                    <option value="{$v.id}">{$v.name}</option>
+                                </volist>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>物流编号</label>
+                            <input type="text" class="form-control" name="trsn"/>
+                        </div>
+                        <button type="button" class="btn btn-danger" onclick="transInvo();">发货</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC__/layer/layer.js"></script>
+<script>
+
+    var ids;
+
+    laydate.render({elem: '#single_start'});
+    laydate.render({elem: '#single_end'});
+
+    function pagereload() {
+        var page = $("#pages").val();
+        if ($.trim(page) === null || page <= 0) {
+            alert("请输入正确的页面编号");
+            return false;
+        }
+        var url = "{:U('Goods/order_sr','type='.$type.'&name='.$name.'&phone='.$phone.'&dotype='.$dotype)}?p=" + page;
+        window.location.href = url;
+    }
+
+     function doOption(id, status) {
+        var configURL = "{:U('Goods/orderSrOption')}";
+        var data = {id: id, status: status};
+        layer.open({
+            type : 0,
+            title : '提示',
+            btn: ['确定', '暂不'],
+            icon : 3,
+            content: "是否确定自提",
+            scrollbar: true,
+            yes: function(){
+                ajaxRt(configURL, data);
+            },
+        });
+    }
+
+    function desetord(id, status) {
+        var configURL = "{:U('Goods/calloffOrder')}";
+        var data = {id: id, status: status};
+        layer.open({
+            type : 0,
+            title : '提示',
+            btn: ['确定', '暂不'],
+            icon : 3,
+            content: "是否确定取消发货",
+            scrollbar: true,
+            yes: function(){
+                ajaxRt(configURL, data);
+            },
+        });
+    }
+    function sure(id, sure) {
+        var configURL = "{:U('Goods/suresend')}";
+        var data = {id: id, sure: sure};
+        ajaxRt(configURL, data);
+    }
+
+    function doTrans(id) {
+        ids = id;
+        $("#trans").modal('toggle');
+    }
+
+    function transInvo() {
+        var configURL = "{:U('Goods/orderSrTrans')}";
+        var formelemt = $("form[name=trans]").serializeArray();
+        var data = objToArray(formelemt);
+        data.ids = ids;
+        ajaxRt(configURL, data);
+    }
+   /* function getTrsn(id) {
+        var configURL = "{:U('zop/getinfo')}";
+        var data = {id: id};
+        layer.alert(11);
+        ajaxRt(configURL, data);
+    }*/
+    function getTrsn(id) {
+        var configURL = "{:U('zop/getinfo')}";
+        var data = {id: id};
+        layer.open({
+            type: 2,
+            title: 'layer mobile页',
+            shadeClose: true,
+            shade: 0.6,
+            area: ['380px', '90%'],
+            content: "{:U('zop/getinfo')}" //iframe的url
+        });
+    }
+
+</script>
+
+<script>
+    $("#doExcel").on('click',function(){
+        var name =$('#name').val();
+        var phone =$('#phone').val();
+        var start =$('#single_start').val();
+        var ends =$('#single_end').val();
+        var status =$('#stas').val();
+        
+            layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+                var data = {pwd: pass};
+                $.ajax({
+                    url: "{:U('Users/exportPermission')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        if (res.status !== 1) {
+                            return layer.msg(res.msg);
+                        }else {
+                            window.location.href="{:U('Backet/Docsv/export_ordersr')}?name="+name+"&phone="+phone+"&start="+start+"&ends="+ends+"&status="+status;
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+        
+        //window.location.href="{:U('Backet/Doexc/doExcel_ordersr')}?name="+name+"&phone="+phone+"&start="+start+"&ends="+ends+"&status="+status;
+         // window.location.href="{:U('Backet/Docsv/export_ordersr')}?name="+name+"&phone="+phone+"&start="+start+"&ends="+ends+"&status="+status;
+
+    });
+    $("#getTransn").on('click',function(){
+        // window.location.href="{:U('Backet/Doexc/doExcel_ordersr')}?name="+name+"&phone="+phone+"&start="+start+"&ends="+ends+"&status="+status;
+         
+            layer.prompt({title: '导出信息请输入密码', formType: 1}, function(pass, index){
+                var data = {pwd: pass};
+                $.ajax({
+                    url: "{:U('Users/exportPermission')}", type: 'post',
+                    data: data, dataType: "json",
+                    success: function (res) {
+                        if (res.status !== 1) {
+                            return layer.msg(res.msg);
+                        }else {
+                            window.location.href="{:U('Backet/Doexc/dotranZop')}";
+                        }
+                    }
+                });
+                layer.close(index);
+            });
+        
+        //window.location.href="{:U('Backet/Doexc/dotranZop')}";
+    });
+</script>

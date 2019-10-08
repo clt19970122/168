@@ -1,0 +1,282 @@
+<link rel="stylesheet" href="__PUBLIC__/libs/swiper/css/swiper.min.css">
+<script src="__PUBLIC__/libs/swiper/js/swiper.min.js"></script>
+
+<style>
+    .contentDiv{
+        margin-top: 1rem;
+    }
+    .contentDiv .numContent .on {
+        color: #fff!important;
+        background: #1aad19!important;
+    }
+    .contentDiv .numContent{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: .8rem;
+    }
+    .contentDiv .numContent li {
+        list-style: none;
+        width: 46%;
+        height: 3rem;
+        line-height: 3rem;
+        color: #D7D9D8;
+        border: solid 1px #D7D9D8;
+        border-radius: 0.6rem;
+        margin: 0.2rem 0!important;
+        text-align: center;
+        font-size: 1.8rem;
+    }
+    .numTitle{
+        font-size: 1.9rem;
+        color: #005DAC;
+    }
+</style>
+
+<div class="swiper-container goods-scroll">
+    <div class="swiper-wrapper">
+        <volist name="list" id="v">
+            <div class="swiper-slide"><img src="__PUBLIC__/uploads/goods/{$v.imgs}"/></div>
+        </volist>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<div class="goods-descs">
+    <div class="goods-descs_title overflow">{$info.name}</div>
+    <div class="goods-descs_descs">{$info.subname}</div>
+
+    <div class="contentDiv" id="buytip" style="display: none">
+        <div class="numTitle">选择订购数量(个)</div>
+        <div class="numContent">
+            <li class="on" data-id="1">20</li>
+            <li data-id="2">50</li>
+        </div>
+    </div>
+
+    <div class="goods-descs_price" >
+        <span id="goods-pice"><font>参考价:</font>￥{$info.price}<font>元</font></span>
+        <div class="goods-descs_price_input" id="goods">
+            <a href="javascript:changeItemNums(0);"><img src="__PUBLIC__/home/imgs/goods_ceil.png"/></a>
+            <input type="text" name="nums" value="1" id='goods_num'/>
+            <a href="javascript:changeItemNums(1);"><img src="__PUBLIC__/home/imgs/goods_adds.png"/></a>
+        </div>
+    </div>
+</div>
+
+<div class="goods-menu">
+    <div class="goods-menu_item goods-menu_item_on" id="desc">商品介绍</div>
+    <div class="goods-menu_item" id="para">商品参数</div>
+    <div class="goods-menu_item" id="adse">广告大片</div>
+</div>
+
+<div class="goods-infos">
+    <div class="goods-infos_desc" id="desc_on">
+        {$info.context|htmlspecialchars_decode}
+    </div>
+    <div class="goods-infos_para none" id="para_on">
+
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">产品类型：</div>
+            <div class="goods-infos_para_item_conts">{$info.locs}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">产品规格：</div>
+            <div class="goods-infos_para_item_conts">{$info.net}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">保质期：</div>
+            <div class="goods-infos_para_item_conts">{$info.daty}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">产品标准号：</div>
+            <div class="goods-infos_para_item_conts">{$info.batch}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">生产许可证：</div>
+            <div class="goods-infos_para_item_conts">{$info.suit}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">包装方式：</div>
+            <div class="goods-infos_para_item_conts">{$info.sorts}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">贮藏方法：</div>
+            <div class="goods-infos_para_item_conts">{$info.product}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">配方专利号：</div>
+            <div class="goods-infos_para_item_conts">{$info.method}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">配方专利名称：</div>
+            <div class="goods-infos_para_item_conts">{$info.advice}</div>
+        </div>
+        <div class="goods-infos_para_item">
+            <div class="goods-infos_para_item_label">注意事项：</div>
+            <div class="goods-infos_para_item_conts">{$info.tips}</div>
+        </div>
+
+    </div>
+    <div class="goods-infos_adse none" id="adse_on">
+        <iframe src='{$info.video}' frameborder='0'></iframe>
+    </div>
+</div>
+<empty name="status">
+    <a href="javascript:doBuyer();" class="goods-buys">购买</a>
+<else/>
+    <a href="javascript:doBuyer();" class="goods-buys">补货</a>
+</empty>
+<input type="hidden" id="isaddstock" value="{$status}">
+<!--<input type="hidden" id="goodid" value="{$info.gsn}">-->
+
+<script>
+
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        loop: true,
+    });
+    //页面加载分辨产品
+    $(window).load(function () {
+        var goodsId = {$info['gsn']};
+        if(goodsId=='515382251920431381'){
+            $('#goods').remove();
+            $('#buytip').css('display','block');
+
+            var str = "<font>参考价:</font>￥58<font>元</font>" +
+                "<input type='hidden' name='nums' value='20' id='goods_num'/>" +
+                "<input type='hidden' name='price' value='58' id='goods_price'/>";
+            $("#goods-pice").html(str);
+        }
+    });
+
+    function changeItemNums(type) {
+        var value = $("#goods_num").val();
+        var newcs = type > 0 ? parseInt(value) + 1 : parseInt(value) - 1;
+        var result = newcs > 0 ? newcs : 1;
+        $("#goods_num").val(result);
+        var goodsId = {$info['gsn']};
+        // var goodsId = $('#goodid').val();
+        if(goodsId == '415244730815416283') {
+            changeGoodsPrice(result,goodsId);
+        } 
+    }
+
+    function changeGoodsPrice(nums,goodsId) {
+        var price = {$info.price};
+         /*var  goodsId = {$info['gsn']};
+        if(goodsId == '415244730815416283') {
+            alert(goodsId);
+        }*/
+        // alert(goodsId);
+        /*var nowpoint = {$nowpoint};
+        nums =nums +nowpoint;*/
+        var discount = {$discount};
+        if(discount==0){
+            price = '168.00';
+        }else {
+            /*if (nums >= 1 && nums < 4) {
+                price = '168.00' > price ? price : '168.00';
+            } else if (nums >= 4 && nums < 12) {
+                price = '120.00' > price ? price : '120.00'; //月体验 白银
+            } else if (nums >= 12 && nums < 40) {
+                price = '100.00' > price ? price : '100.00'; //月体验 白银
+            } else if (nums >= 40 && nums < 400) {
+                price = '75.00' > price ? price : '75.00';
+            } else if (nums >= 400 && nums < 4000) {
+                price = '65.00' > price ? price : '65.00';
+            } else if (nums >= 4000 && nums < 40000) {
+                price = '55.00' > price ? price : '55.00';
+            } else if (nums >= 40000) {
+                price = '45.00' > price ? price : '45.00';
+            }*/
+            /*if (nums >= 1 && nums < 4) {
+                price = '168.00' > price ? price : '168.00';
+            } else if (nums >= 4 && nums < 12) {
+                price = '120.00' > price ? price : '120.00'; //月体验 白银
+            } else if (nums >= 12 && nums < 40) {
+                price = '100.00' > price ? price : '100.00'; //月体验 白银
+            } else if (nums >= 40 && nums < 240) {
+                price = '75.00' > price ? price : '75.00';
+            } else if (nums >= 240 && nums < 500) {
+                price = '65.00' > price ? price : '65.00';
+            } else if (nums >= 500 && nums < 2800) {
+                price = '55.00' > price ? price : '55.00';
+            } else if (nums >= 2800) {
+                price = '45.00' > price ? price : '45.00';
+            }*/
+            $.ajax({
+                type: "get",
+                data:{'nums':nums,'gsn':'415244730815416283','sta':2},
+                url: "{:U('malls/getBuyprice')}",
+                async: true,
+                success:function(data){
+                    //请求成功函数内容
+
+                    var str = "<font>参考价:</font>￥" + data + "<font>元</font>";
+                    $("#goods-pice").html(str);
+                },
+                })
+        }
+
+    }
+
+
+    $("#desc_on img").css("width", "100%");
+
+
+    $(document).on("click touchstart", ".goods-menu_item", function () {
+        var type = $(this).attr("id");
+        $(".goods-menu div").removeClass("goods-menu_item_on");
+        $(".goods-infos_desc").addClass("none");
+        $(".goods-infos_para").addClass("none");
+        $(".goods-infos_adse").addClass("none");
+        //
+        $(this).addClass("goods-menu_item_on");
+        $("#" + type + "_on").removeClass("none");
+    });
+
+    function doBuyer() {
+        var value = $("#goods_num").val();
+        var isstock =$('#isaddstock').val();
+        var goodsId = {$info['gsn']};
+        var prcie =$('#goods_price').val();
+
+        var links = "{:U('Malls/buyer','sn='.$info['gsn'])}?nums=" + value ;
+        //摇摇杯
+            if(goodsId=='915360537990536142'){
+                links =links +'&type=2';
+            }
+            if(isstock){
+                var links =links + '&status='+isstock;
+            }
+            //手提袋
+            if(goodsId=='515382251920431381'){
+                var links =links + '&price='+prcie;
+            }
+        window.location.href = links;
+    }
+
+    /** 选择套餐 **/
+    $(".numContent li").click(function(){
+//        alert(bagPrice);
+        var bagPrice ='';
+        $(this).addClass('on').siblings().removeClass('on');
+        var id=$(this).attr('data-id');
+        switch (id){
+            case '1':
+                bagPrice=58;
+                bagnum=20;
+                break;
+            case '2':
+                bagPrice=136;
+                bagnum=50;
+                break;
+
+        }
+        var str = "<font>参考价:</font>￥" + bagPrice + "<font>元</font>" +
+            "<input type='hidden' name='nums' value='"+bagnum+"' id='goods_num'/>" +
+            "<input type='hidden' name='price' value='"+bagPrice+"' id='goods_price'/>";
+        $("#goods-pice").html(str);
+    });
+</script>

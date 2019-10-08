@@ -1,0 +1,146 @@
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i>
+        物流管理
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">当前位置:</span>
+        <ol class="breadcrumb">
+            <li>系统设置</li>
+            <li class="active">物流管理</li>
+        </ol>
+    </div>
+</div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                添加物流
+                <!--<a href="/Backet/Goods/orderexport/model/orders/type/10.html" class="btn btn-primary btn-xs pull-right" target="_blank">导出</a>-->
+            </h3>
+        </div>
+        <form action="">
+            <div class="panel-body">
+                <div class="form-layout form-layout-1">
+                    <div class="row mg-b-25">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-control-label">选择物流公司: <span class="tx-danger">*</span></label>
+                                <select name="status" class="form-control">
+                                    <volist name="tran" id="vo">
+                                        <option value="{$vo.id}">{$vo.name}</option>
+                                    </volist>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-control-label">盒数: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="text" name="lastname" value="" placeholder="请输入盒数">
+                            </div>
+                        </div><!-- col-4 -->
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-control-label">运费: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="text" name="firstname" value="" placeholder="请输入运费">
+                            </div>
+                        </div><!-- col-4 -->
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="form-control-label">请填写省市: <span class="tx-danger">*</span></label>
+                                <input class="form-control" type="text" name="address" value="" placeholder="请填写省市">
+                                <!--<select name="status" class="form-control">
+                                    <volist name="tran" id="vo">
+                                        <option value="{$vo.id}">{$vo.name}</option>
+                                    </volist>
+                                </select>-->
+                            </div>
+                        </div>
+                    </div><!-- row -->
+
+                    <div class="form-layout-footer">
+                        <button class="btn btn-info">添加</button>
+                    </div><!-- form-layout-footer -->
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    德邦物流
+                </h3>
+            </div>
+            <table class="table mb30">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>物流公司</th>
+                    <th>省市地区</th>
+                    <th>盒数</th>
+                    <th>运费</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <volist name="trans_data" id="v">
+                    <tr>
+                        <td>{$v.id}</td>
+                        <td>{$v.tran}</td>
+                        <td><input type="text" id="place"  value="{$v.place}"></td>
+                        <td>{$v.nums}</td>
+                        <td><input type="text" id="price" value="{$v.price}"></td>
+                        <!--<td>
+                            <a href='javascript:dels({$v.id});' class='btn btn-xs btn-info'>修改</a>
+                            <a href='javascript:dels({$v.id});' class='btn btn-xs btn-danger'>删除</a>
+                        </td>-->
+                    </tr>
+                </volist>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    function adsLog() {
+        var configURL = "{:U('Core/addon', 'model=systrans')}";
+        var formelemt = $("form[name=addItems]").serializeArray();
+        var data = objToArray(formelemt);
+        ajaxRt(configURL, data);
+    }
+
+    function dels(id) {
+        if (!confirm("确定要删除吗？")) {
+            return;
+        }
+        var configURL = "{:U('Core/dels', 'model=systrans')}";
+        var data = {id: id};
+        ajaxRt(configURL, data);
+    }
+
+</script>
+<script>
+    $('#price').on('blur',function () {
+        var place= $('#place').val();
+        var price= $('#price').val();
+        $.ajax({
+            url: "{:U('dash/update_transPay')}", type: 'get',
+            data:{'place':place,'price':price} , dataType: "json",
+            success: function (res) {
+                if(res.status){
+                    alert('修改成功')
+                }else {
+                    alert('修改失败')
+                }
+            }
+        })
+    })
+</script>
